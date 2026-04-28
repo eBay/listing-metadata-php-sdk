@@ -1,0 +1,162 @@
+<?php
+
+namespace EBay\ListingMetadata\Generated\Metadata\Models;
+
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
+use Microsoft\Kiota\Abstractions\Serialization\Parsable;
+use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
+use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+
+/**
+ * This type defines the request fields used in the <b>getCompatibilityPropertyValues</b> method.
+*/
+class PropertyValuesRequest implements AdditionalDataHolder, Parsable 
+{
+    /**
+     * @var array<string, mixed>|null $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private ?array $additionalData = null;
+    
+    /**
+     * @var string|null $categoryId The unique identifier of the eBay leaf category for which to retrieve compatibility property values. This category must be a valid eBay category on the specified eBay marketplace, and the category must support parts compatibility.<br><br>Use the <a href="/api-docs/sell/metadata/resources/marketplace/methods/getAutomotivePartsCompatibilityPolicies" target="_blank ">getAutomotivePartsCompatibilityPolicies</a> method to retrieve a list of categories that support parts compatibility.
+    */
+    private ?string $categoryId = null;
+    
+    /**
+     * @var array<PropertyFilterInner>|null $propertyFilters This array can be used to specify the compatibility properties used limit the result set. Only values associated with the specified name-value pairs will be returned in the response.<br><br>For example, if the <b>propertyName</b> is set to <code>Make</code> and the <b>propertyValue</b> is set to <code>Honda</code>, only compatible Honda vehicles will be returned.
+    */
+    private ?array $propertyFilters = null;
+    
+    /**
+     * @var string|null $propertyName This field specifies the name of the property for which to retrieve associated property values.<br><br>For example, typical vehicle property names are 'Make', 'Model', 'Year', 'Engine', and 'Trim', but will vary based on the eBay marketplace and the eBay category. Use the <a href="/api-docs/sell/metadata/resources/compatibilities/methods/getCompatibilityPropertyNames" target="_blank ">getCompatibilityPropertyNames</a> method to retrieve valid property names for a specified category.
+    */
+    private ?string $propertyName = null;
+    
+    /**
+     * @var string|null $sortOrder This field specifies the sort order for the property values in the result set.<br><br><b>Valid values:</b><ul><li><code>Ascending</code></li><li>Descending</li></ul><span class="tablenote"><b>Note:</b> If no search order is specified, values are sorted in ascending order.</span>
+    */
+    private ?string $sortOrder = null;
+    
+    /**
+     * Instantiates a new PropertyValuesRequest and sets the default values.
+    */
+    public function __construct() {
+        $this->setAdditionalData([]);
+    }
+
+    /**
+     * Creates a new instance of the appropriate class based on discriminator value
+     * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
+     * @return PropertyValuesRequest
+    */
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): PropertyValuesRequest {
+        return new PropertyValuesRequest();
+    }
+
+    /**
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>|null
+    */
+    public function getAdditionalData(): ?array {
+        return $this->additionalData;
+    }
+
+    /**
+     * Gets the categoryId property value. The unique identifier of the eBay leaf category for which to retrieve compatibility property values. This category must be a valid eBay category on the specified eBay marketplace, and the category must support parts compatibility.<br><br>Use the <a href="/api-docs/sell/metadata/resources/marketplace/methods/getAutomotivePartsCompatibilityPolicies" target="_blank ">getAutomotivePartsCompatibilityPolicies</a> method to retrieve a list of categories that support parts compatibility.
+     * @return string|null
+    */
+    public function getCategoryId(): ?string {
+        return $this->categoryId;
+    }
+
+    /**
+     * The deserialization information for the current model
+     * @return array<string, callable(ParseNode): void>
+    */
+    public function getFieldDeserializers(): array {
+        $o = $this;
+        return  [
+            'categoryId' => fn(ParseNode $n) => $o->setCategoryId($n->getStringValue()),
+            'propertyFilters' => fn(ParseNode $n) => $o->setPropertyFilters($n->getCollectionOfObjectValues([PropertyFilterInner::class, 'createFromDiscriminatorValue'])),
+            'propertyName' => fn(ParseNode $n) => $o->setPropertyName($n->getStringValue()),
+            'sortOrder' => fn(ParseNode $n) => $o->setSortOrder($n->getStringValue()),
+        ];
+    }
+
+    /**
+     * Gets the propertyFilters property value. This array can be used to specify the compatibility properties used limit the result set. Only values associated with the specified name-value pairs will be returned in the response.<br><br>For example, if the <b>propertyName</b> is set to <code>Make</code> and the <b>propertyValue</b> is set to <code>Honda</code>, only compatible Honda vehicles will be returned.
+     * @return array<PropertyFilterInner>|null
+    */
+    public function getPropertyFilters(): ?array {
+        return $this->propertyFilters;
+    }
+
+    /**
+     * Gets the propertyName property value. This field specifies the name of the property for which to retrieve associated property values.<br><br>For example, typical vehicle property names are 'Make', 'Model', 'Year', 'Engine', and 'Trim', but will vary based on the eBay marketplace and the eBay category. Use the <a href="/api-docs/sell/metadata/resources/compatibilities/methods/getCompatibilityPropertyNames" target="_blank ">getCompatibilityPropertyNames</a> method to retrieve valid property names for a specified category.
+     * @return string|null
+    */
+    public function getPropertyName(): ?string {
+        return $this->propertyName;
+    }
+
+    /**
+     * Gets the sortOrder property value. This field specifies the sort order for the property values in the result set.<br><br><b>Valid values:</b><ul><li><code>Ascending</code></li><li>Descending</li></ul><span class="tablenote"><b>Note:</b> If no search order is specified, values are sorted in ascending order.</span>
+     * @return string|null
+    */
+    public function getSortOrder(): ?string {
+        return $this->sortOrder;
+    }
+
+    /**
+     * Serializes information the current object
+     * @param SerializationWriter $writer Serialization writer to use to serialize this model
+    */
+    public function serialize(SerializationWriter $writer): void {
+        $writer->writeStringValue('categoryId', $this->getCategoryId());
+        $writer->writeCollectionOfObjectValues('propertyFilters', $this->getPropertyFilters());
+        $writer->writeStringValue('propertyName', $this->getPropertyName());
+        $writer->writeStringValue('sortOrder', $this->getSortOrder());
+        $writer->writeAdditionalData($this->getAdditionalData());
+    }
+
+    /**
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value): void {
+        $this->additionalData = $value;
+    }
+
+    /**
+     * Sets the categoryId property value. The unique identifier of the eBay leaf category for which to retrieve compatibility property values. This category must be a valid eBay category on the specified eBay marketplace, and the category must support parts compatibility.<br><br>Use the <a href="/api-docs/sell/metadata/resources/marketplace/methods/getAutomotivePartsCompatibilityPolicies" target="_blank ">getAutomotivePartsCompatibilityPolicies</a> method to retrieve a list of categories that support parts compatibility.
+     * @param string|null $value Value to set for the categoryId property.
+    */
+    public function setCategoryId(?string $value): void {
+        $this->categoryId = $value;
+    }
+
+    /**
+     * Sets the propertyFilters property value. This array can be used to specify the compatibility properties used limit the result set. Only values associated with the specified name-value pairs will be returned in the response.<br><br>For example, if the <b>propertyName</b> is set to <code>Make</code> and the <b>propertyValue</b> is set to <code>Honda</code>, only compatible Honda vehicles will be returned.
+     * @param array<PropertyFilterInner>|null $value Value to set for the propertyFilters property.
+    */
+    public function setPropertyFilters(?array $value): void {
+        $this->propertyFilters = $value;
+    }
+
+    /**
+     * Sets the propertyName property value. This field specifies the name of the property for which to retrieve associated property values.<br><br>For example, typical vehicle property names are 'Make', 'Model', 'Year', 'Engine', and 'Trim', but will vary based on the eBay marketplace and the eBay category. Use the <a href="/api-docs/sell/metadata/resources/compatibilities/methods/getCompatibilityPropertyNames" target="_blank ">getCompatibilityPropertyNames</a> method to retrieve valid property names for a specified category.
+     * @param string|null $value Value to set for the propertyName property.
+    */
+    public function setPropertyName(?string $value): void {
+        $this->propertyName = $value;
+    }
+
+    /**
+     * Sets the sortOrder property value. This field specifies the sort order for the property values in the result set.<br><br><b>Valid values:</b><ul><li><code>Ascending</code></li><li>Descending</li></ul><span class="tablenote"><b>Note:</b> If no search order is specified, values are sorted in ascending order.</span>
+     * @param string|null $value Value to set for the sortOrder property.
+    */
+    public function setSortOrder(?string $value): void {
+        $this->sortOrder = $value;
+    }
+
+}

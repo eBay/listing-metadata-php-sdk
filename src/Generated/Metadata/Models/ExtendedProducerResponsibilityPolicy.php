@@ -1,0 +1,139 @@
+<?php
+
+namespace EBay\ListingMetadata\Generated\Metadata\Models;
+
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
+use Microsoft\Kiota\Abstractions\Serialization\Parsable;
+use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
+use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+
+/**
+ * A type that defines the Extended Producer Responsibility policy.
+*/
+class ExtendedProducerResponsibilityPolicy implements AdditionalDataHolder, Parsable 
+{
+    /**
+     * @var array<string, mixed>|null $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private ?array $additionalData = null;
+    
+    /**
+     * @var string|null $categoryId The unique identifier for the category under which the policy applies.
+    */
+    private ?string $categoryId = null;
+    
+    /**
+     * @var string|null $categoryTreeId The unique identifier for the category tree under which the policy applies.
+    */
+    private ?string $categoryTreeId = null;
+    
+    /**
+     * @var array<ExtendedProducerResponsibility>|null $supportedAttributes The details regarding the attributes included in the policy, such as their usage guidelines and whether they can be specified at the listing variation level.
+    */
+    private ?array $supportedAttributes = null;
+    
+    /**
+     * Instantiates a new ExtendedProducerResponsibilityPolicy and sets the default values.
+    */
+    public function __construct() {
+        $this->setAdditionalData([]);
+    }
+
+    /**
+     * Creates a new instance of the appropriate class based on discriminator value
+     * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
+     * @return ExtendedProducerResponsibilityPolicy
+    */
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ExtendedProducerResponsibilityPolicy {
+        return new ExtendedProducerResponsibilityPolicy();
+    }
+
+    /**
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>|null
+    */
+    public function getAdditionalData(): ?array {
+        return $this->additionalData;
+    }
+
+    /**
+     * Gets the categoryId property value. The unique identifier for the category under which the policy applies.
+     * @return string|null
+    */
+    public function getCategoryId(): ?string {
+        return $this->categoryId;
+    }
+
+    /**
+     * Gets the categoryTreeId property value. The unique identifier for the category tree under which the policy applies.
+     * @return string|null
+    */
+    public function getCategoryTreeId(): ?string {
+        return $this->categoryTreeId;
+    }
+
+    /**
+     * The deserialization information for the current model
+     * @return array<string, callable(ParseNode): void>
+    */
+    public function getFieldDeserializers(): array {
+        $o = $this;
+        return  [
+            'categoryId' => fn(ParseNode $n) => $o->setCategoryId($n->getStringValue()),
+            'categoryTreeId' => fn(ParseNode $n) => $o->setCategoryTreeId($n->getStringValue()),
+            'supportedAttributes' => fn(ParseNode $n) => $o->setSupportedAttributes($n->getCollectionOfObjectValues([ExtendedProducerResponsibility::class, 'createFromDiscriminatorValue'])),
+        ];
+    }
+
+    /**
+     * Gets the supportedAttributes property value. The details regarding the attributes included in the policy, such as their usage guidelines and whether they can be specified at the listing variation level.
+     * @return array<ExtendedProducerResponsibility>|null
+    */
+    public function getSupportedAttributes(): ?array {
+        return $this->supportedAttributes;
+    }
+
+    /**
+     * Serializes information the current object
+     * @param SerializationWriter $writer Serialization writer to use to serialize this model
+    */
+    public function serialize(SerializationWriter $writer): void {
+        $writer->writeStringValue('categoryId', $this->getCategoryId());
+        $writer->writeStringValue('categoryTreeId', $this->getCategoryTreeId());
+        $writer->writeCollectionOfObjectValues('supportedAttributes', $this->getSupportedAttributes());
+        $writer->writeAdditionalData($this->getAdditionalData());
+    }
+
+    /**
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value): void {
+        $this->additionalData = $value;
+    }
+
+    /**
+     * Sets the categoryId property value. The unique identifier for the category under which the policy applies.
+     * @param string|null $value Value to set for the categoryId property.
+    */
+    public function setCategoryId(?string $value): void {
+        $this->categoryId = $value;
+    }
+
+    /**
+     * Sets the categoryTreeId property value. The unique identifier for the category tree under which the policy applies.
+     * @param string|null $value Value to set for the categoryTreeId property.
+    */
+    public function setCategoryTreeId(?string $value): void {
+        $this->categoryTreeId = $value;
+    }
+
+    /**
+     * Sets the supportedAttributes property value. The details regarding the attributes included in the policy, such as their usage guidelines and whether they can be specified at the listing variation level.
+     * @param array<ExtendedProducerResponsibility>|null $value Value to set for the supportedAttributes property.
+    */
+    public function setSupportedAttributes(?array $value): void {
+        $this->supportedAttributes = $value;
+    }
+
+}

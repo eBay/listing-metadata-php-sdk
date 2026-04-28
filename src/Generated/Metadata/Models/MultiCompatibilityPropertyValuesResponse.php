@@ -1,0 +1,116 @@
+<?php
+
+namespace EBay\ListingMetadata\Generated\Metadata\Models;
+
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
+use Microsoft\Kiota\Abstractions\Serialization\Parsable;
+use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
+use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+
+/**
+ * This type defines the response fields for the <b>getMultiCompatibilityPropertyValues</b> method.
+*/
+class MultiCompatibilityPropertyValuesResponse implements AdditionalDataHolder, Parsable 
+{
+    /**
+     * @var array<string, mixed>|null $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private ?array $additionalData = null;
+    
+    /**
+     * @var array<Compatibility>|null $compatibilities This container defines the compatibility details associated with the specified property name value(s).
+    */
+    private ?array $compatibilities = null;
+    
+    /**
+     * @var string|null $metadataVersion The version number of the metadata. This version is upticked whenever there are compatibility name changes for the specified marketplace.
+    */
+    private ?string $metadataVersion = null;
+    
+    /**
+     * Instantiates a new MultiCompatibilityPropertyValuesResponse and sets the default values.
+    */
+    public function __construct() {
+        $this->setAdditionalData([]);
+    }
+
+    /**
+     * Creates a new instance of the appropriate class based on discriminator value
+     * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
+     * @return MultiCompatibilityPropertyValuesResponse
+    */
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): MultiCompatibilityPropertyValuesResponse {
+        return new MultiCompatibilityPropertyValuesResponse();
+    }
+
+    /**
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>|null
+    */
+    public function getAdditionalData(): ?array {
+        return $this->additionalData;
+    }
+
+    /**
+     * Gets the compatibilities property value. This container defines the compatibility details associated with the specified property name value(s).
+     * @return array<Compatibility>|null
+    */
+    public function getCompatibilities(): ?array {
+        return $this->compatibilities;
+    }
+
+    /**
+     * The deserialization information for the current model
+     * @return array<string, callable(ParseNode): void>
+    */
+    public function getFieldDeserializers(): array {
+        $o = $this;
+        return  [
+            'compatibilities' => fn(ParseNode $n) => $o->setCompatibilities($n->getCollectionOfObjectValues([Compatibility::class, 'createFromDiscriminatorValue'])),
+            'metadataVersion' => fn(ParseNode $n) => $o->setMetadataVersion($n->getStringValue()),
+        ];
+    }
+
+    /**
+     * Gets the metadataVersion property value. The version number of the metadata. This version is upticked whenever there are compatibility name changes for the specified marketplace.
+     * @return string|null
+    */
+    public function getMetadataVersion(): ?string {
+        return $this->metadataVersion;
+    }
+
+    /**
+     * Serializes information the current object
+     * @param SerializationWriter $writer Serialization writer to use to serialize this model
+    */
+    public function serialize(SerializationWriter $writer): void {
+        $writer->writeCollectionOfObjectValues('compatibilities', $this->getCompatibilities());
+        $writer->writeStringValue('metadataVersion', $this->getMetadataVersion());
+        $writer->writeAdditionalData($this->getAdditionalData());
+    }
+
+    /**
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value): void {
+        $this->additionalData = $value;
+    }
+
+    /**
+     * Sets the compatibilities property value. This container defines the compatibility details associated with the specified property name value(s).
+     * @param array<Compatibility>|null $value Value to set for the compatibilities property.
+    */
+    public function setCompatibilities(?array $value): void {
+        $this->compatibilities = $value;
+    }
+
+    /**
+     * Sets the metadataVersion property value. The version number of the metadata. This version is upticked whenever there are compatibility name changes for the specified marketplace.
+     * @param string|null $value Value to set for the metadataVersion property.
+    */
+    public function setMetadataVersion(?string $value): void {
+        $this->metadataVersion = $value;
+    }
+
+}

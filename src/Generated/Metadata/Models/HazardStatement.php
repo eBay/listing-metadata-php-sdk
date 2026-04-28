@@ -1,0 +1,116 @@
+<?php
+
+namespace EBay\ListingMetadata\Generated\Metadata\Models;
+
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
+use Microsoft\Kiota\Abstractions\Serialization\Parsable;
+use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
+use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+
+/**
+ * A type that describes hazard statements for hazardous materials labels
+*/
+class HazardStatement implements AdditionalDataHolder, Parsable 
+{
+    /**
+     * @var array<string, mixed>|null $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private ?array $additionalData = null;
+    
+    /**
+     * @var string|null $statementDescription The description of the statement localized to the default language of the marketplace. For sample values, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Hazard'>Hazard statement sample values</a>.
+    */
+    private ?string $statementDescription = null;
+    
+    /**
+     * @var string|null $statementId The identifier of the statement. For sample values, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Hazard'>Hazard statement sample values</a>.
+    */
+    private ?string $statementId = null;
+    
+    /**
+     * Instantiates a new HazardStatement and sets the default values.
+    */
+    public function __construct() {
+        $this->setAdditionalData([]);
+    }
+
+    /**
+     * Creates a new instance of the appropriate class based on discriminator value
+     * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
+     * @return HazardStatement
+    */
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): HazardStatement {
+        return new HazardStatement();
+    }
+
+    /**
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>|null
+    */
+    public function getAdditionalData(): ?array {
+        return $this->additionalData;
+    }
+
+    /**
+     * The deserialization information for the current model
+     * @return array<string, callable(ParseNode): void>
+    */
+    public function getFieldDeserializers(): array {
+        $o = $this;
+        return  [
+            'statementDescription' => fn(ParseNode $n) => $o->setStatementDescription($n->getStringValue()),
+            'statementId' => fn(ParseNode $n) => $o->setStatementId($n->getStringValue()),
+        ];
+    }
+
+    /**
+     * Gets the statementDescription property value. The description of the statement localized to the default language of the marketplace. For sample values, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Hazard'>Hazard statement sample values</a>.
+     * @return string|null
+    */
+    public function getStatementDescription(): ?string {
+        return $this->statementDescription;
+    }
+
+    /**
+     * Gets the statementId property value. The identifier of the statement. For sample values, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Hazard'>Hazard statement sample values</a>.
+     * @return string|null
+    */
+    public function getStatementId(): ?string {
+        return $this->statementId;
+    }
+
+    /**
+     * Serializes information the current object
+     * @param SerializationWriter $writer Serialization writer to use to serialize this model
+    */
+    public function serialize(SerializationWriter $writer): void {
+        $writer->writeStringValue('statementDescription', $this->getStatementDescription());
+        $writer->writeStringValue('statementId', $this->getStatementId());
+        $writer->writeAdditionalData($this->getAdditionalData());
+    }
+
+    /**
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value): void {
+        $this->additionalData = $value;
+    }
+
+    /**
+     * Sets the statementDescription property value. The description of the statement localized to the default language of the marketplace. For sample values, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Hazard'>Hazard statement sample values</a>.
+     * @param string|null $value Value to set for the statementDescription property.
+    */
+    public function setStatementDescription(?string $value): void {
+        $this->statementDescription = $value;
+    }
+
+    /**
+     * Sets the statementId property value. The identifier of the statement. For sample values, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Hazard'>Hazard statement sample values</a>.
+     * @param string|null $value Value to set for the statementId property.
+    */
+    public function setStatementId(?string $value): void {
+        $this->statementId = $value;
+    }
+
+}

@@ -1,0 +1,116 @@
+<?php
+
+namespace EBay\ListingMetadata\Generated\Metadata\Models;
+
+use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
+use Microsoft\Kiota\Abstractions\Serialization\Parsable;
+use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
+use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+
+/**
+ * This type defines the properties and dataset for a specified category.
+*/
+class PropertyNamesResponseProperties implements AdditionalDataHolder, Parsable 
+{
+    /**
+     * @var array<string, mixed>|null $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+    */
+    private ?array $additionalData = null;
+    
+    /**
+     * @var string|null $dataset This field defines the types of properties are returned for the specified catalog-enabled category.<br><br><b>Valid values:</b><ul><li><code>DisplayableProductDetails</code>: Properties for use in a user interface to describe products.</li><li><code>DisplayableSearchResults</code>: Properties for use in results for product searches.</li><li><code>Searchable</code>: Properties for use in searches.</li><li><code>Sortable</code>: Properties that are suitable for sorting.</li></ul>
+    */
+    private ?string $dataset = null;
+    
+    /**
+     * @var array<PropertyNamesResponsePropertyNames>|null $propertyNames This array specifies the names of the properties associated with the specified category in the specified marketplace.<br><br>For example, typical vehicle property names are 'Make', 'Model', 'Year', 'Engine', and 'Trim', but will vary based on the eBay marketplace and the eBay category.
+    */
+    private ?array $propertyNames = null;
+    
+    /**
+     * Instantiates a new PropertyNamesResponseProperties and sets the default values.
+    */
+    public function __construct() {
+        $this->setAdditionalData([]);
+    }
+
+    /**
+     * Creates a new instance of the appropriate class based on discriminator value
+     * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
+     * @return PropertyNamesResponseProperties
+    */
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): PropertyNamesResponseProperties {
+        return new PropertyNamesResponseProperties();
+    }
+
+    /**
+     * Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @return array<string, mixed>|null
+    */
+    public function getAdditionalData(): ?array {
+        return $this->additionalData;
+    }
+
+    /**
+     * Gets the dataset property value. This field defines the types of properties are returned for the specified catalog-enabled category.<br><br><b>Valid values:</b><ul><li><code>DisplayableProductDetails</code>: Properties for use in a user interface to describe products.</li><li><code>DisplayableSearchResults</code>: Properties for use in results for product searches.</li><li><code>Searchable</code>: Properties for use in searches.</li><li><code>Sortable</code>: Properties that are suitable for sorting.</li></ul>
+     * @return string|null
+    */
+    public function getDataset(): ?string {
+        return $this->dataset;
+    }
+
+    /**
+     * The deserialization information for the current model
+     * @return array<string, callable(ParseNode): void>
+    */
+    public function getFieldDeserializers(): array {
+        $o = $this;
+        return  [
+            'dataset' => fn(ParseNode $n) => $o->setDataset($n->getStringValue()),
+            'propertyNames' => fn(ParseNode $n) => $o->setPropertyNames($n->getCollectionOfObjectValues([PropertyNamesResponsePropertyNames::class, 'createFromDiscriminatorValue'])),
+        ];
+    }
+
+    /**
+     * Gets the propertyNames property value. This array specifies the names of the properties associated with the specified category in the specified marketplace.<br><br>For example, typical vehicle property names are 'Make', 'Model', 'Year', 'Engine', and 'Trim', but will vary based on the eBay marketplace and the eBay category.
+     * @return array<PropertyNamesResponsePropertyNames>|null
+    */
+    public function getPropertyNames(): ?array {
+        return $this->propertyNames;
+    }
+
+    /**
+     * Serializes information the current object
+     * @param SerializationWriter $writer Serialization writer to use to serialize this model
+    */
+    public function serialize(SerializationWriter $writer): void {
+        $writer->writeStringValue('dataset', $this->getDataset());
+        $writer->writeCollectionOfObjectValues('propertyNames', $this->getPropertyNames());
+        $writer->writeAdditionalData($this->getAdditionalData());
+    }
+
+    /**
+     * Sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param array<string,mixed> $value Value to set for the AdditionalData property.
+    */
+    public function setAdditionalData(?array $value): void {
+        $this->additionalData = $value;
+    }
+
+    /**
+     * Sets the dataset property value. This field defines the types of properties are returned for the specified catalog-enabled category.<br><br><b>Valid values:</b><ul><li><code>DisplayableProductDetails</code>: Properties for use in a user interface to describe products.</li><li><code>DisplayableSearchResults</code>: Properties for use in results for product searches.</li><li><code>Searchable</code>: Properties for use in searches.</li><li><code>Sortable</code>: Properties that are suitable for sorting.</li></ul>
+     * @param string|null $value Value to set for the dataset property.
+    */
+    public function setDataset(?string $value): void {
+        $this->dataset = $value;
+    }
+
+    /**
+     * Sets the propertyNames property value. This array specifies the names of the properties associated with the specified category in the specified marketplace.<br><br>For example, typical vehicle property names are 'Make', 'Model', 'Year', 'Engine', and 'Trim', but will vary based on the eBay marketplace and the eBay category.
+     * @param array<PropertyNamesResponsePropertyNames>|null $value Value to set for the propertyNames property.
+    */
+    public function setPropertyNames(?array $value): void {
+        $this->propertyNames = $value;
+    }
+
+}
