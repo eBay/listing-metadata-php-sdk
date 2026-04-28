@@ -16,6 +16,13 @@ final class ListingMetadataConfiguration
 
     public bool $diagnosticLogging = false;
 
+    public RequestOptions $defaultRequestOptions;
+
+    public function __construct()
+    {
+        $this->defaultRequestOptions = new RequestOptions();
+    }
+
     /** Hostnames tokens may be sent to — passed to AllowedHostsValidator. */
     public function getAllowedHosts(): array
     {
