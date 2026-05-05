@@ -46,10 +46,26 @@ final class CatalogClient
     /**
      * Search for catalog products by keyword, category, GTIN, or MPN.
      *
+     * @param string|null $aspectFilter   Category and aspect value pairs to narrow down results.
+     * @param string|null $categoryIds    Comma-separated category IDs to filter results.
+     * @param string|null $fieldgroups    Type of information to return (ASPECT_REFINEMENTS, FULL, MATCHING_PRODUCTS).
+     * @param string|null $gtin           Comma-separated GTINs (EAN, ISBN, UPC) to search for.
+     * @param string|null $limit          Number of product summaries to return (max 200; default 50).
+     * @param string|null $mpn            Comma-separated Manufacturer Part Numbers to search for.
+     * @param string|null $offset         Number of items to skip (reserved for internal use).
+     * @param string|null $q              Keywords to search for in product records.
      * @param string|null $accessToken    Per-call token; overrides config fallback.
      * @param RequestOptions|null $requestOptions Per-call headers; merged over defaults.
      */
     public function search(
+        ?string $aspectFilter = null,
+        ?string $categoryIds = null,
+        ?string $fieldgroups = null,
+        ?string $gtin = null,
+        ?string $limit = null,
+        ?string $mpn = null,
+        ?string $offset = null,
+        ?string $q = null,
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): ?ProductSearchResponse {
@@ -57,6 +73,16 @@ final class CatalogClient
         try {
             $rc = new SearchRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
+                queryParameters: SearchRequestBuilderGetRequestConfiguration::createQueryParameters(
+                    aspect_filter: $aspectFilter,
+                    category_ids: $categoryIds,
+                    fieldgroups: $fieldgroups,
+                    gtin: $gtin,
+                    limit: $limit,
+                    mpn: $mpn,
+                    offset: $offset,
+                    q: $q,
+                ),
             );
             return $this->kiota->product_summary()->search()->get($rc)->wait();
         } finally {

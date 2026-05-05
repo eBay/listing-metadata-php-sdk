@@ -12,6 +12,11 @@ use EBay\ListingMetadata\Generated\Metadata\Compatibilities\Get_compatibility_pr
 use EBay\ListingMetadata\Generated\Metadata\Compatibilities\Get_compatibility_property_values\Get_compatibility_property_valuesRequestBuilderPostRequestConfiguration;
 use EBay\ListingMetadata\Generated\Metadata\Compatibilities\Get_multi_compatibility_property_values\Get_multi_compatibility_property_valuesRequestBuilderPostRequestConfiguration;
 use EBay\ListingMetadata\Generated\Metadata\Compatibilities\Get_product_compatibilities\Get_product_compatibilitiesRequestBuilderPostRequestConfiguration;
+use EBay\ListingMetadata\Generated\Metadata\Models\MultiCompatibilityPropertyValuesRequest;
+use EBay\ListingMetadata\Generated\Metadata\Models\ProductRequest;
+use EBay\ListingMetadata\Generated\Metadata\Models\PropertyNamesRequest;
+use EBay\ListingMetadata\Generated\Metadata\Models\PropertyValuesRequest;
+use EBay\ListingMetadata\Generated\Metadata\Models\SpecificationRequest;
 use EBay\ListingMetadata\Generated\Metadata\Country\Item\Sales_tax_jurisdiction\Sales_tax_jurisdictionRequestBuilderGetRequestConfiguration;
 use EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_automotive_parts_compatibility_policies\Get_automotive_parts_compatibility_policiesRequestBuilderGetRequestConfiguration;
 use EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_category_policies\Get_category_policiesRequestBuilderGetRequestConfiguration;
@@ -49,11 +54,13 @@ final class MetadataClient
      * Returns eBay policies that define how to list automotive parts compatibility items.
      *
      * @param string      $marketplaceId  eBay marketplace ID (e.g. EBAY_US).
+     * @param string|null $filter         Limits response to specified categoryId values (pipe-separated).
      * @param string|null $accessToken    Per-call token; overrides config fallback.
      * @param RequestOptions|null $requestOptions Per-call headers; merged over defaults.
      */
     public function getAutomotivePartsCompatibilityPolicies(
         string $marketplaceId,
+        ?string $filter = null,
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
@@ -61,6 +68,9 @@ final class MetadataClient
         try {
             $rc = new Get_automotive_parts_compatibility_policiesRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
+                queryParameters: Get_automotive_parts_compatibility_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
+                    filter: $filter,
+                ),
             );
             return $this->kiota->marketplace()->byMarketplace_id($marketplaceId)
                 ->get_automotive_parts_compatibility_policies()->get($rc)->wait();
@@ -72,10 +82,12 @@ final class MetadataClient
     /**
      * Returns category-specific policies for the specified marketplace.
      *
+     * @param string|null $filter         Limits response to specified categoryId values (pipe-separated).
      * @param RequestOptions|null $requestOptions Per-call headers; merged over defaults.
      */
     public function getCategoryPolicies(
         string $marketplaceId,
+        ?string $filter = null,
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
@@ -83,6 +95,9 @@ final class MetadataClient
         try {
             $rc = new Get_category_policiesRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
+                queryParameters: Get_category_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
+                    filter: $filter,
+                ),
             );
             return $this->kiota->marketplace()->byMarketplace_id($marketplaceId)
                 ->get_category_policies()->get($rc)->wait();
@@ -94,10 +109,12 @@ final class MetadataClient
     /**
      * Returns classified ad policies for the specified marketplace.
      *
+     * @param string|null $filter         Limits response to specified categoryId values (pipe-separated).
      * @param RequestOptions|null $requestOptions Per-call headers; merged over defaults.
      */
     public function getClassifiedAdPolicies(
         string $marketplaceId,
+        ?string $filter = null,
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
@@ -105,6 +122,9 @@ final class MetadataClient
         try {
             $rc = new Get_classified_ad_policiesRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
+                queryParameters: Get_classified_ad_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
+                    filter: $filter,
+                ),
             );
             return $this->kiota->marketplace()->byMarketplace_id($marketplaceId)
                 ->get_classified_ad_policies()->get($rc)->wait();
@@ -138,10 +158,12 @@ final class MetadataClient
     /**
      * Returns extended producer responsibility policies for the specified marketplace.
      *
+     * @param string|null $filter         Limits response to specified categoryId values (pipe-separated).
      * @param RequestOptions|null $requestOptions Per-call headers; merged over defaults.
      */
     public function getExtendedProducerResponsibilityPolicies(
         string $marketplaceId,
+        ?string $filter = null,
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
@@ -149,6 +171,9 @@ final class MetadataClient
         try {
             $rc = new Get_extended_producer_responsibility_policiesRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
+                queryParameters: Get_extended_producer_responsibility_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
+                    filter: $filter,
+                ),
             );
             return $this->kiota->marketplace()->byMarketplace_id($marketplaceId)
                 ->get_extended_producer_responsibility_policies()->get($rc)->wait();
@@ -182,10 +207,12 @@ final class MetadataClient
     /**
      * Returns item condition policies for the specified marketplace.
      *
+     * @param string|null $filter         Limits response to specified categoryId values (pipe-separated).
      * @param RequestOptions|null $requestOptions Per-call headers; merged over defaults.
      */
     public function getItemConditionPolicies(
         string $marketplaceId,
+        ?string $filter = null,
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
@@ -193,6 +220,9 @@ final class MetadataClient
         try {
             $rc = new Get_item_condition_policiesRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
+                queryParameters: Get_item_condition_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
+                    filter: $filter,
+                ),
             );
             return $this->kiota->marketplace()->byMarketplace_id($marketplaceId)
                 ->get_item_condition_policies()->get($rc)->wait();
@@ -204,10 +234,12 @@ final class MetadataClient
     /**
      * Returns listing structure policies for the specified marketplace.
      *
+     * @param string|null $filter         Limits response to specified categoryId values (pipe-separated).
      * @param RequestOptions|null $requestOptions Per-call headers; merged over defaults.
      */
     public function getListingStructurePolicies(
         string $marketplaceId,
+        ?string $filter = null,
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
@@ -215,6 +247,9 @@ final class MetadataClient
         try {
             $rc = new Get_listing_structure_policiesRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
+                queryParameters: Get_listing_structure_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
+                    filter: $filter,
+                ),
             );
             return $this->kiota->marketplace()->byMarketplace_id($marketplaceId)
                 ->get_listing_structure_policies()->get($rc)->wait();
@@ -226,10 +261,12 @@ final class MetadataClient
     /**
      * Returns listing type policies for the specified marketplace.
      *
+     * @param string|null $filter         Limits response to specified categoryId values (pipe-separated).
      * @param RequestOptions|null $requestOptions Per-call headers; merged over defaults.
      */
     public function getListingTypePolicies(
         string $marketplaceId,
+        ?string $filter = null,
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
@@ -237,6 +274,9 @@ final class MetadataClient
         try {
             $rc = new Get_listing_type_policiesRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
+                queryParameters: Get_listing_type_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
+                    filter: $filter,
+                ),
             );
             return $this->kiota->marketplace()->byMarketplace_id($marketplaceId)
                 ->get_listing_type_policies()->get($rc)->wait();
@@ -248,10 +288,12 @@ final class MetadataClient
     /**
      * Returns motors listing policies for the specified marketplace.
      *
+     * @param string|null $filter         Limits response to specified categoryId values (pipe-separated).
      * @param RequestOptions|null $requestOptions Per-call headers; merged over defaults.
      */
     public function getMotorsListingPolicies(
         string $marketplaceId,
+        ?string $filter = null,
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
@@ -259,6 +301,9 @@ final class MetadataClient
         try {
             $rc = new Get_motors_listing_policiesRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
+                queryParameters: Get_motors_listing_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
+                    filter: $filter,
+                ),
             );
             return $this->kiota->marketplace()->byMarketplace_id($marketplaceId)
                 ->get_motors_listing_policies()->get($rc)->wait();
@@ -270,10 +315,12 @@ final class MetadataClient
     /**
      * Returns negotiated price policies for the specified marketplace.
      *
+     * @param string|null $filter         Limits response to specified categoryId values (pipe-separated).
      * @param RequestOptions|null $requestOptions Per-call headers; merged over defaults.
      */
     public function getNegotiatedPricePolicies(
         string $marketplaceId,
+        ?string $filter = null,
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
@@ -281,6 +328,9 @@ final class MetadataClient
         try {
             $rc = new Get_negotiated_price_policiesRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
+                queryParameters: Get_negotiated_price_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
+                    filter: $filter,
+                ),
             );
             return $this->kiota->marketplace()->byMarketplace_id($marketplaceId)
                 ->get_negotiated_price_policies()->get($rc)->wait();
@@ -314,10 +364,12 @@ final class MetadataClient
     /**
      * Returns regulatory policies for the specified marketplace.
      *
+     * @param string|null $filter         Limits response to specified categoryId values (pipe-separated).
      * @param RequestOptions|null $requestOptions Per-call headers; merged over defaults.
      */
     public function getRegulatoryPolicies(
         string $marketplaceId,
+        ?string $filter = null,
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
@@ -325,6 +377,9 @@ final class MetadataClient
         try {
             $rc = new Get_regulatory_policiesRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
+                queryParameters: Get_regulatory_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
+                    filter: $filter,
+                ),
             );
             return $this->kiota->marketplace()->byMarketplace_id($marketplaceId)
                 ->get_regulatory_policies()->get($rc)->wait();
@@ -336,10 +391,12 @@ final class MetadataClient
     /**
      * Returns return policies for the specified marketplace.
      *
+     * @param string|null $filter         Limits response to specified categoryId values (pipe-separated).
      * @param RequestOptions|null $requestOptions Per-call headers; merged over defaults.
      */
     public function getReturnPolicies(
         string $marketplaceId,
+        ?string $filter = null,
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
@@ -347,6 +404,9 @@ final class MetadataClient
         try {
             $rc = new Get_return_policiesRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
+                queryParameters: Get_return_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
+                    filter: $filter,
+                ),
             );
             return $this->kiota->marketplace()->byMarketplace_id($marketplaceId)
                 ->get_return_policies()->get($rc)->wait();
@@ -358,10 +418,12 @@ final class MetadataClient
     /**
      * Returns shipping policies for the specified marketplace.
      *
+     * @param string|null $filter         Limits response to specified categoryId values (pipe-separated).
      * @param RequestOptions|null $requestOptions Per-call headers; merged over defaults.
      */
     public function getShippingPolicies(
         string $marketplaceId,
+        ?string $filter = null,
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
@@ -369,6 +431,9 @@ final class MetadataClient
         try {
             $rc = new Get_shipping_policiesRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
+                queryParameters: Get_shipping_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
+                    filter: $filter,
+                ),
             );
             return $this->kiota->marketplace()->byMarketplace_id($marketplaceId)
                 ->get_shipping_policies()->get($rc)->wait();
@@ -380,10 +445,12 @@ final class MetadataClient
     /**
      * Returns site visibility policies for the specified marketplace.
      *
+     * @param string|null $filter         Limits response to specified categoryId values (pipe-separated).
      * @param RequestOptions|null $requestOptions Per-call headers; merged over defaults.
      */
     public function getSiteVisibilityPolicies(
         string $marketplaceId,
+        ?string $filter = null,
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
@@ -391,6 +458,9 @@ final class MetadataClient
         try {
             $rc = new Get_site_visibility_policiesRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
+                queryParameters: Get_site_visibility_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
+                    filter: $filter,
+                ),
             );
             return $this->kiota->marketplace()->byMarketplace_id($marketplaceId)
                 ->get_site_visibility_policies()->get($rc)->wait();
@@ -404,9 +474,11 @@ final class MetadataClient
     /**
      * Returns compatibilities for a set of product specifications.
      *
+     * @param SpecificationRequest $body    Request body containing specification criteria.
      * @param RequestOptions|null $requestOptions Per-call headers; merged over defaults.
      */
     public function getCompatibilitiesBySpecification(
+        SpecificationRequest $body,
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
@@ -415,7 +487,7 @@ final class MetadataClient
             $rc = new Get_compatibilities_by_specificationRequestBuilderPostRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
             );
-            return $this->kiota->compatibilities()->get_compatibilities_by_specification()->get()->wait();
+            return $this->kiota->compatibilities()->get_compatibilities_by_specification()->post($body, $rc)->wait();
         } finally {
             TokenContext::set(null);
         }
@@ -424,9 +496,11 @@ final class MetadataClient
     /**
      * Returns compatibility property names for the specified dataset.
      *
+     * @param PropertyNamesRequest $body    Request body containing categoryId and optional dataset filters.
      * @param RequestOptions|null $requestOptions Per-call headers; merged over defaults.
      */
     public function getCompatibilityPropertyNames(
+        PropertyNamesRequest $body,
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
@@ -435,7 +509,7 @@ final class MetadataClient
             $rc = new Get_compatibility_property_namesRequestBuilderPostRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
             );
-            return $this->kiota->compatibilities()->get_compatibility_property_names()->get()->wait();
+            return $this->kiota->compatibilities()->get_compatibility_property_names()->post($body, $rc)->wait();
         } finally {
             TokenContext::set(null);
         }
@@ -444,9 +518,11 @@ final class MetadataClient
     /**
      * Returns compatibility property values for the specified property name and dataset.
      *
+     * @param PropertyValuesRequest $body   Request body containing categoryId, propertyName, and optional filters.
      * @param RequestOptions|null $requestOptions Per-call headers; merged over defaults.
      */
     public function getCompatibilityPropertyValues(
+        PropertyValuesRequest $body,
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
@@ -455,7 +531,7 @@ final class MetadataClient
             $rc = new Get_compatibility_property_valuesRequestBuilderPostRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
             );
-            return $this->kiota->compatibilities()->get_compatibility_property_values()->get()->wait();
+            return $this->kiota->compatibilities()->get_compatibility_property_values()->post($body, $rc)->wait();
         } finally {
             TokenContext::set(null);
         }
@@ -464,9 +540,11 @@ final class MetadataClient
     /**
      * Returns multiple compatibility property values in a single call.
      *
+     * @param MultiCompatibilityPropertyValuesRequest $body Request body containing categoryId, propertyNames, and required propertyFilter.
      * @param RequestOptions|null $requestOptions Per-call headers; merged over defaults.
      */
     public function getMultiCompatibilityPropertyValues(
+        MultiCompatibilityPropertyValuesRequest $body,
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
@@ -475,7 +553,7 @@ final class MetadataClient
             $rc = new Get_multi_compatibility_property_valuesRequestBuilderPostRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
             );
-            return $this->kiota->compatibilities()->get_multi_compatibility_property_values()->get()->wait();
+            return $this->kiota->compatibilities()->get_multi_compatibility_property_values()->post($body, $rc)->wait();
         } finally {
             TokenContext::set(null);
         }
@@ -484,9 +562,11 @@ final class MetadataClient
     /**
      * Returns product compatibilities for the specified product.
      *
+     * @param ProductRequest $body          Request body containing productIdentifier and optional filters.
      * @param RequestOptions|null $requestOptions Per-call headers; merged over defaults.
      */
     public function getProductCompatibilities(
+        ProductRequest $body,
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
@@ -495,7 +575,7 @@ final class MetadataClient
             $rc = new Get_product_compatibilitiesRequestBuilderPostRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
             );
-            return $this->kiota->compatibilities()->get_product_compatibilities()->get()->wait();
+            return $this->kiota->compatibilities()->get_product_compatibilities()->post($body, $rc)->wait();
         } finally {
             TokenContext::set(null);
         }

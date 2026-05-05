@@ -46,10 +46,18 @@ final class CharityClient
     /**
      * Search for charitable organizations.
      *
+     * @param string|null $limit           Number of items to return per page (1-100; default 20).
+     * @param string|null $offset          Number of items to skip for pagination (default 0).
+     * @param string|null $q               Keywords to match against name, mission statement, or description.
+     * @param string|null $registrationIds Comma-separated list of charitable organization registration IDs.
      * @param string|null $accessToken    Per-call token; overrides config fallback.
      * @param RequestOptions|null $requestOptions Per-call headers; merged over defaults.
      */
     public function getCharityOrgs(
+        ?string $limit = null,
+        ?string $offset = null,
+        ?string $q = null,
+        ?string $registrationIds = null,
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): ?CharitySearchResponse {
@@ -57,6 +65,12 @@ final class CharityClient
         try {
             $rc = new Charity_orgRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
+                queryParameters: Charity_orgRequestBuilderGetRequestConfiguration::createQueryParameters(
+                    limit: $limit,
+                    offset: $offset,
+                    q: $q,
+                    registration_ids: $registrationIds,
+                ),
             );
             return $this->kiota->charity_org()->get($rc)->wait();
         } finally {
