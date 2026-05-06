@@ -6,10 +6,10 @@ namespace EBay\ListingMetadata\Configuration;
 
 final class ListingMetadataConfiguration
 {
-    public string $catalogBaseUrl  = 'https://api.ebay.com';
-    public string $charityBaseUrl  = 'https://api.ebay.com';
-    public string $metadataBaseUrl = 'https://api.ebay.com';
-    public string $taxonomyBaseUrl = 'https://api.ebay.com';
+    public string $catalogBaseUrl  = 'https://api.ebay.com/commerce/catalog/v1_beta';
+    public string $charityBaseUrl  = 'https://api.ebay.com/commerce/charity/v1';
+    public string $metadataBaseUrl = 'https://api.ebay.com/sell/metadata/v1';
+    public string $taxonomyBaseUrl = 'https://api.ebay.com/commerce/taxonomy/v1';
 
     /** Static fallback token; per-call token takes precedence. */
     public ?string $accessToken = null;
