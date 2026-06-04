@@ -78,8 +78,7 @@ final class MetadataClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
-        TokenContext::set($accessToken);
-        try {
+        return TokenContext::runWith($accessToken, function () use ($marketplaceId, $filter, $requestOptions): mixed {
             $rc = new Get_automotive_parts_compatibility_policiesRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
                 queryParameters: Get_automotive_parts_compatibility_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
@@ -88,9 +87,7 @@ final class MetadataClient
             );
             return $this->kiota->marketplace()->byMarketplace_id($marketplaceId)
                 ->get_automotive_parts_compatibility_policies()->get($rc)->wait();
-        } finally {
-            TokenContext::set(null);
-        }
+        });
     }
 
     /**
@@ -105,8 +102,7 @@ final class MetadataClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
-        TokenContext::set($accessToken);
-        try {
+        return TokenContext::runWith($accessToken, function () use ($marketplaceId, $filter, $requestOptions): mixed {
             $rc = new Get_category_policiesRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
                 queryParameters: Get_category_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
@@ -115,9 +111,7 @@ final class MetadataClient
             );
             return $this->kiota->marketplace()->byMarketplace_id($marketplaceId)
                 ->get_category_policies()->get($rc)->wait();
-        } finally {
-            TokenContext::set(null);
-        }
+        });
     }
 
     /**
@@ -132,8 +126,7 @@ final class MetadataClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
-        TokenContext::set($accessToken);
-        try {
+        return TokenContext::runWith($accessToken, function () use ($marketplaceId, $filter, $requestOptions): mixed {
             $rc = new Get_classified_ad_policiesRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
                 queryParameters: Get_classified_ad_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
@@ -142,9 +135,7 @@ final class MetadataClient
             );
             return $this->kiota->marketplace()->byMarketplace_id($marketplaceId)
                 ->get_classified_ad_policies()->get($rc)->wait();
-        } finally {
-            TokenContext::set(null);
-        }
+        });
     }
 
     /**
@@ -157,16 +148,13 @@ final class MetadataClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
-        TokenContext::set($accessToken);
-        try {
+        return TokenContext::runWith($accessToken, function () use ($marketplaceId, $requestOptions): mixed {
             $rc = new Get_currenciesRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
             );
             return $this->kiota->marketplace()->byMarketplace_id($marketplaceId)
                 ->get_currencies()->get($rc)->wait();
-        } finally {
-            TokenContext::set(null);
-        }
+        });
     }
 
     /**
@@ -181,8 +169,7 @@ final class MetadataClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
-        TokenContext::set($accessToken);
-        try {
+        return TokenContext::runWith($accessToken, function () use ($marketplaceId, $filter, $requestOptions): mixed {
             $rc = new Get_extended_producer_responsibility_policiesRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
                 queryParameters: Get_extended_producer_responsibility_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
@@ -191,9 +178,7 @@ final class MetadataClient
             );
             return $this->kiota->marketplace()->byMarketplace_id($marketplaceId)
                 ->get_extended_producer_responsibility_policies()->get($rc)->wait();
-        } finally {
-            TokenContext::set(null);
-        }
+        });
     }
 
     /**
@@ -206,16 +191,13 @@ final class MetadataClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
-        TokenContext::set($accessToken);
-        try {
+        return TokenContext::runWith($accessToken, function () use ($marketplaceId, $requestOptions): mixed {
             $rc = new Get_hazardous_materials_labelsRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
             );
             return $this->kiota->marketplace()->byMarketplace_id($marketplaceId)
                 ->get_hazardous_materials_labels()->get($rc)->wait();
-        } finally {
-            TokenContext::set(null);
-        }
+        });
     }
 
     /**
@@ -230,8 +212,7 @@ final class MetadataClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
-        TokenContext::set($accessToken);
-        try {
+        return TokenContext::runWith($accessToken, function () use ($marketplaceId, $filter, $requestOptions): mixed {
             $rc = new Get_item_condition_policiesRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
                 queryParameters: Get_item_condition_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
@@ -240,9 +221,7 @@ final class MetadataClient
             );
             return $this->kiota->marketplace()->byMarketplace_id($marketplaceId)
                 ->get_item_condition_policies()->get($rc)->wait();
-        } finally {
-            TokenContext::set(null);
-        }
+        });
     }
 
     /**
@@ -257,8 +236,7 @@ final class MetadataClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
-        TokenContext::set($accessToken);
-        try {
+        return TokenContext::runWith($accessToken, function () use ($marketplaceId, $filter, $requestOptions): mixed {
             $rc = new Get_listing_structure_policiesRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
                 queryParameters: Get_listing_structure_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
@@ -267,9 +245,7 @@ final class MetadataClient
             );
             return $this->kiota->marketplace()->byMarketplace_id($marketplaceId)
                 ->get_listing_structure_policies()->get($rc)->wait();
-        } finally {
-            TokenContext::set(null);
-        }
+        });
     }
 
     /**
@@ -284,8 +260,7 @@ final class MetadataClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
-        TokenContext::set($accessToken);
-        try {
+        return TokenContext::runWith($accessToken, function () use ($marketplaceId, $filter, $requestOptions): mixed {
             $rc = new Get_listing_type_policiesRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
                 queryParameters: Get_listing_type_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
@@ -294,9 +269,7 @@ final class MetadataClient
             );
             return $this->kiota->marketplace()->byMarketplace_id($marketplaceId)
                 ->get_listing_type_policies()->get($rc)->wait();
-        } finally {
-            TokenContext::set(null);
-        }
+        });
     }
 
     /**
@@ -311,8 +284,7 @@ final class MetadataClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
-        TokenContext::set($accessToken);
-        try {
+        return TokenContext::runWith($accessToken, function () use ($marketplaceId, $filter, $requestOptions): mixed {
             $rc = new Get_motors_listing_policiesRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
                 queryParameters: Get_motors_listing_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
@@ -321,9 +293,7 @@ final class MetadataClient
             );
             return $this->kiota->marketplace()->byMarketplace_id($marketplaceId)
                 ->get_motors_listing_policies()->get($rc)->wait();
-        } finally {
-            TokenContext::set(null);
-        }
+        });
     }
 
     /**
@@ -338,8 +308,7 @@ final class MetadataClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
-        TokenContext::set($accessToken);
-        try {
+        return TokenContext::runWith($accessToken, function () use ($marketplaceId, $filter, $requestOptions): mixed {
             $rc = new Get_negotiated_price_policiesRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
                 queryParameters: Get_negotiated_price_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
@@ -348,9 +317,7 @@ final class MetadataClient
             );
             return $this->kiota->marketplace()->byMarketplace_id($marketplaceId)
                 ->get_negotiated_price_policies()->get($rc)->wait();
-        } finally {
-            TokenContext::set(null);
-        }
+        });
     }
 
     /**
@@ -363,16 +330,13 @@ final class MetadataClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
-        TokenContext::set($accessToken);
-        try {
+        return TokenContext::runWith($accessToken, function () use ($marketplaceId, $requestOptions): mixed {
             $rc = new Get_product_safety_labelsRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
             );
             return $this->kiota->marketplace()->byMarketplace_id($marketplaceId)
                 ->get_product_safety_labels()->get($rc)->wait();
-        } finally {
-            TokenContext::set(null);
-        }
+        });
     }
 
     /**
@@ -387,8 +351,7 @@ final class MetadataClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
-        TokenContext::set($accessToken);
-        try {
+        return TokenContext::runWith($accessToken, function () use ($marketplaceId, $filter, $requestOptions): mixed {
             $rc = new Get_regulatory_policiesRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
                 queryParameters: Get_regulatory_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
@@ -397,9 +360,7 @@ final class MetadataClient
             );
             return $this->kiota->marketplace()->byMarketplace_id($marketplaceId)
                 ->get_regulatory_policies()->get($rc)->wait();
-        } finally {
-            TokenContext::set(null);
-        }
+        });
     }
 
     /**
@@ -414,8 +375,7 @@ final class MetadataClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
-        TokenContext::set($accessToken);
-        try {
+        return TokenContext::runWith($accessToken, function () use ($marketplaceId, $filter, $requestOptions): mixed {
             $rc = new Get_return_policiesRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
                 queryParameters: Get_return_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
@@ -424,9 +384,7 @@ final class MetadataClient
             );
             return $this->kiota->marketplace()->byMarketplace_id($marketplaceId)
                 ->get_return_policies()->get($rc)->wait();
-        } finally {
-            TokenContext::set(null);
-        }
+        });
     }
 
     /**
@@ -441,8 +399,7 @@ final class MetadataClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
-        TokenContext::set($accessToken);
-        try {
+        return TokenContext::runWith($accessToken, function () use ($marketplaceId, $filter, $requestOptions): mixed {
             $rc = new Get_shipping_policiesRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
                 queryParameters: Get_shipping_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
@@ -451,9 +408,7 @@ final class MetadataClient
             );
             return $this->kiota->marketplace()->byMarketplace_id($marketplaceId)
                 ->get_shipping_policies()->get($rc)->wait();
-        } finally {
-            TokenContext::set(null);
-        }
+        });
     }
 
     /**
@@ -468,8 +423,7 @@ final class MetadataClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
-        TokenContext::set($accessToken);
-        try {
+        return TokenContext::runWith($accessToken, function () use ($marketplaceId, $filter, $requestOptions): mixed {
             $rc = new Get_site_visibility_policiesRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
                 queryParameters: Get_site_visibility_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
@@ -478,9 +432,7 @@ final class MetadataClient
             );
             return $this->kiota->marketplace()->byMarketplace_id($marketplaceId)
                 ->get_site_visibility_policies()->get($rc)->wait();
-        } finally {
-            TokenContext::set(null);
-        }
+        });
     }
 
     // ── Compatibility operations ─────────────────────────────────────────────
@@ -496,15 +448,12 @@ final class MetadataClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
-        TokenContext::set($accessToken);
-        try {
+        return TokenContext::runWith($accessToken, function () use ($body, $requestOptions): mixed {
             $rc = new Get_compatibilities_by_specificationRequestBuilderPostRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
             );
             return $this->kiota->compatibilities()->get_compatibilities_by_specification()->post($body, $rc)->wait();
-        } finally {
-            TokenContext::set(null);
-        }
+        });
     }
 
     /**
@@ -518,15 +467,12 @@ final class MetadataClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
-        TokenContext::set($accessToken);
-        try {
+        return TokenContext::runWith($accessToken, function () use ($body, $requestOptions): mixed {
             $rc = new Get_compatibility_property_namesRequestBuilderPostRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
             );
             return $this->kiota->compatibilities()->get_compatibility_property_names()->post($body, $rc)->wait();
-        } finally {
-            TokenContext::set(null);
-        }
+        });
     }
 
     /**
@@ -540,15 +486,12 @@ final class MetadataClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
-        TokenContext::set($accessToken);
-        try {
+        return TokenContext::runWith($accessToken, function () use ($body, $requestOptions): mixed {
             $rc = new Get_compatibility_property_valuesRequestBuilderPostRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
             );
             return $this->kiota->compatibilities()->get_compatibility_property_values()->post($body, $rc)->wait();
-        } finally {
-            TokenContext::set(null);
-        }
+        });
     }
 
     /**
@@ -562,15 +505,12 @@ final class MetadataClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
-        TokenContext::set($accessToken);
-        try {
+        return TokenContext::runWith($accessToken, function () use ($body, $requestOptions): mixed {
             $rc = new Get_multi_compatibility_property_valuesRequestBuilderPostRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
             );
             return $this->kiota->compatibilities()->get_multi_compatibility_property_values()->post($body, $rc)->wait();
-        } finally {
-            TokenContext::set(null);
-        }
+        });
     }
 
     /**
@@ -584,15 +524,12 @@ final class MetadataClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
-        TokenContext::set($accessToken);
-        try {
+        return TokenContext::runWith($accessToken, function () use ($body, $requestOptions): mixed {
             $rc = new Get_product_compatibilitiesRequestBuilderPostRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
             );
             return $this->kiota->compatibilities()->get_product_compatibilities()->post($body, $rc)->wait();
-        } finally {
-            TokenContext::set(null);
-        }
+        });
     }
 
     // ── Shipping marketplace operations ─────────────────────────────────────
@@ -607,16 +544,13 @@ final class MetadataClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
-        TokenContext::set($accessToken);
-        try {
+        return TokenContext::runWith($accessToken, function () use ($marketplaceId, $requestOptions): mixed {
             $rc = new Get_exclude_shipping_locationsRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
             );
             return $this->kiota->shipping()->marketplace()->byMarketplace_id($marketplaceId)
                 ->get_exclude_shipping_locations()->get($rc)->wait();
-        } finally {
-            TokenContext::set(null);
-        }
+        });
     }
 
     /**
@@ -629,16 +563,13 @@ final class MetadataClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
-        TokenContext::set($accessToken);
-        try {
+        return TokenContext::runWith($accessToken, function () use ($marketplaceId, $requestOptions): mixed {
             $rc = new Get_handling_timesRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
             );
             return $this->kiota->shipping()->marketplace()->byMarketplace_id($marketplaceId)
                 ->get_handling_times()->get($rc)->wait();
-        } finally {
-            TokenContext::set(null);
-        }
+        });
     }
 
     /**
@@ -651,16 +582,13 @@ final class MetadataClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
-        TokenContext::set($accessToken);
-        try {
+        return TokenContext::runWith($accessToken, function () use ($marketplaceId, $requestOptions): mixed {
             $rc = new Get_shipping_carriersRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
             );
             return $this->kiota->shipping()->marketplace()->byMarketplace_id($marketplaceId)
                 ->get_shipping_carriers()->get($rc)->wait();
-        } finally {
-            TokenContext::set(null);
-        }
+        });
     }
 
     /**
@@ -673,16 +601,13 @@ final class MetadataClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
-        TokenContext::set($accessToken);
-        try {
+        return TokenContext::runWith($accessToken, function () use ($marketplaceId, $requestOptions): mixed {
             $rc = new Get_shipping_locationsRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
             );
             return $this->kiota->shipping()->marketplace()->byMarketplace_id($marketplaceId)
                 ->get_shipping_locations()->get($rc)->wait();
-        } finally {
-            TokenContext::set(null);
-        }
+        });
     }
 
     /**
@@ -695,16 +620,13 @@ final class MetadataClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
-        TokenContext::set($accessToken);
-        try {
+        return TokenContext::runWith($accessToken, function () use ($marketplaceId, $requestOptions): mixed {
             $rc = new Get_shipping_servicesRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
             );
             return $this->kiota->shipping()->marketplace()->byMarketplace_id($marketplaceId)
                 ->get_shipping_services()->get($rc)->wait();
-        } finally {
-            TokenContext::set(null);
-        }
+        });
     }
 
     // ── Sales-tax jurisdiction ───────────────────────────────────────────────
@@ -720,16 +642,13 @@ final class MetadataClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
-        TokenContext::set($accessToken);
-        try {
+        return TokenContext::runWith($accessToken, function () use ($countryCode, $requestOptions): mixed {
             $rc = new Sales_tax_jurisdictionRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
             );
             return $this->kiota->country()->byCountryCode($countryCode)
                 ->sales_tax_jurisdiction()->get($rc)->wait();
-        } finally {
-            TokenContext::set(null);
-        }
+        });
     }
 
     /** @return array<string,string> */

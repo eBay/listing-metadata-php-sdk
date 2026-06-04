@@ -46,15 +46,12 @@ final class CharityClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): ?CharityOrg {
-        TokenContext::set($accessToken);
-        try {
+        return TokenContext::runWith($accessToken, function () use ($charityOrgId, $requestOptions): ?CharityOrg {
             $rc = new WithCharity_org_ItemRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
             );
             return $this->kiota->charity_org()->byCharity_org_id($charityOrgId)->get($rc)->wait();
-        } finally {
-            TokenContext::set(null);
-        }
+        });
     }
 
     /**
@@ -75,8 +72,7 @@ final class CharityClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): ?CharitySearchResponse {
-        TokenContext::set($accessToken);
-        try {
+        return TokenContext::runWith($accessToken, function () use ($limit, $offset, $q, $registrationIds, $requestOptions): ?CharitySearchResponse {
             $rc = new Charity_orgRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
                 queryParameters: Charity_orgRequestBuilderGetRequestConfiguration::createQueryParameters(
@@ -87,9 +83,7 @@ final class CharityClient
                 ),
             );
             return $this->kiota->charity_org()->get($rc)->wait();
-        } finally {
-            TokenContext::set(null);
-        }
+        });
     }
 
     /** @return array<string,string> */

@@ -46,15 +46,12 @@ final class CatalogClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): ?Product {
-        TokenContext::set($accessToken);
-        try {
+        return TokenContext::runWith($accessToken, function () use ($epid, $requestOptions): ?Product {
             $rc = new WithEpItemRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
             );
             return $this->kiota->product()->byEpid($epid)->get($rc)->wait();
-        } finally {
-            TokenContext::set(null);
-        }
+        });
     }
 
     /**
@@ -83,8 +80,7 @@ final class CatalogClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): ?ProductSearchResponse {
-        TokenContext::set($accessToken);
-        try {
+        return TokenContext::runWith($accessToken, function () use ($aspectFilter, $categoryIds, $fieldgroups, $gtin, $limit, $mpn, $offset, $q, $requestOptions): ?ProductSearchResponse {
             $rc = new SearchRequestBuilderGetRequestConfiguration(
                 headers: $this->mergedHeaders($requestOptions),
                 queryParameters: SearchRequestBuilderGetRequestConfiguration::createQueryParameters(
@@ -99,9 +95,7 @@ final class CatalogClient
                 ),
             );
             return $this->kiota->product_summary()->search()->get($rc)->wait();
-        } finally {
-            TokenContext::set(null);
-        }
+        });
     }
 
     /** @return array<string,string> */
