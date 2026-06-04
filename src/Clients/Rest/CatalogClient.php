@@ -101,12 +101,9 @@ final class CatalogClient
     /** @return array<string,string> */
     private function mergedHeaders(?RequestOptions $requestOptions): array
     {
-        $headers = $this->config->defaultRequestOptions->headers;
-        if ($requestOptions !== null) {
-            foreach ($requestOptions->headers as $key => $value) {
-                $headers[$key] = $value;
-            }
-        }
-        return $headers;
+        return array_merge(
+            $this->config->defaultRequestOptions->headers,
+            $requestOptions?->headers ?? []
+        );
     }
 }
