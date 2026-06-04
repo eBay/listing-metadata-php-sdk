@@ -82,7 +82,7 @@ final class ListingMetadataClient
                             $message = sprintf(
                                 "[listing-metadata] %s %s => HTTP %d %s\n%s\n",
                                 $request->getMethod(),
-                                (string) $request->getUri(),
+                                str_replace(["\r", "\n"], ' ', (string) $request->getUri()),
                                 $status,
                                 $response->getReasonPhrase(),
                                 $body,
