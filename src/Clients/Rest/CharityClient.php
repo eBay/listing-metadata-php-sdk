@@ -87,8 +87,8 @@ final class CharityClient
 
     private function call(?string $accessToken, callable $op): mixed
     {
-        $token = $accessToken ?? $this->config->accessToken
-            ?? throw new \RuntimeException('No access token. Pass $accessToken per-call or set ListingMetadataConfiguration::$accessToken.');
+        $token = ($accessToken ?? $this->config->accessToken)
+            ?: throw new \RuntimeException('No access token. Pass $accessToken per-call or set ListingMetadataConfiguration::$accessToken.');
         return $op($this->buildApiClient($token));
     }
 
