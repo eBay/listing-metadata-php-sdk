@@ -18,19 +18,22 @@ declare(strict_types=1);
 
 namespace EBay\ListingMetadata\Clients\Rest;
 
+use EBay\ListingMetadata\Configuration\KiotaAuthProvider;
 use EBay\ListingMetadata\Configuration\ListingMetadataConfiguration;
 use EBay\ListingMetadata\Configuration\RequestOptions;
-use EBay\ListingMetadata\Configuration\TokenContext;
 use EBay\ListingMetadata\Generated\Catalog\CatalogApiClient;
 use EBay\ListingMetadata\Generated\Catalog\Models\Product;
 use EBay\ListingMetadata\Generated\Catalog\Models\ProductSearchResponse;
 use EBay\ListingMetadata\Generated\Catalog\Product\Item\WithEpItemRequestBuilderGetRequestConfiguration;
 use EBay\ListingMetadata\Generated\Catalog\Product_summary\Search\SearchRequestBuilderGetRequestConfiguration;
+use GuzzleHttp\Client as GuzzleClient;
+use Microsoft\Kiota\Abstractions\Authentication\BaseBearerTokenAuthenticationProvider;
+use Microsoft\Kiota\Http\GuzzleRequestAdapter;
 
 final class CatalogClient
 {
     public function __construct(
-        private readonly CatalogApiClient $kiota,
+        private readonly GuzzleClient $guzzle,
         private readonly ListingMetadataConfiguration $config,
     ) {}
 
@@ -46,12 +49,10 @@ final class CatalogClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): ?Product {
-        return TokenContext::runWith($accessToken, function () use ($epid, $requestOptions): ?Product {
-            $rc = new WithEpItemRequestBuilderGetRequestConfiguration(
-                headers: $this->mergedHeaders($requestOptions),
-            );
-            return $this->kiota->product()->byEpid($epid)->get($rc)->wait();
-        });
+        $rc = new WithEpItemRequestBuilderGetRequestConfiguration(
+            headers: $this->mergedHeaders($requestOptions),
+        );
+        return $this->call($accessToken, fn($api) => $api->product()->byEpid($epid)->get($rc)->wait());
     }
 
     /**
@@ -80,22 +81,37 @@ final class CatalogClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): ?ProductSearchResponse {
-        return TokenContext::runWith($accessToken, function () use ($aspectFilter, $categoryIds, $fieldgroups, $gtin, $limit, $mpn, $offset, $q, $requestOptions): ?ProductSearchResponse {
-            $rc = new SearchRequestBuilderGetRequestConfiguration(
-                headers: $this->mergedHeaders($requestOptions),
-                queryParameters: SearchRequestBuilderGetRequestConfiguration::createQueryParameters(
-                    aspect_filter: $aspectFilter,
-                    category_ids: $categoryIds,
-                    fieldgroups: $fieldgroups,
-                    gtin: $gtin,
-                    limit: $limit,
-                    mpn: $mpn,
-                    offset: $offset,
-                    q: $q,
-                ),
-            );
-            return $this->kiota->product_summary()->search()->get($rc)->wait();
-        });
+        $rc = new SearchRequestBuilderGetRequestConfiguration(
+            headers: $this->mergedHeaders($requestOptions),
+            queryParameters: SearchRequestBuilderGetRequestConfiguration::createQueryParameters(
+                aspect_filter: $aspectFilter,
+                category_ids: $categoryIds,
+                fieldgroups: $fieldgroups,
+                gtin: $gtin,
+                limit: $limit,
+                mpn: $mpn,
+                offset: $offset,
+                q: $q,
+            ),
+        );
+        return $this->call($accessToken, fn($api) => $api->product_summary()->search()->get($rc)->wait());
+    }
+
+    private function call(?string $accessToken, callable $op): mixed
+    {
+        $token = $accessToken ?? $this->config->accessToken
+            ?? throw new \RuntimeException('No access token. Pass $accessToken per-call or set ListingMetadataConfiguration::$accessToken.');
+        return $op($this->buildApiClient($token));
+    }
+
+    private function buildApiClient(string $token): CatalogApiClient
+    {
+        $auth = new BaseBearerTokenAuthenticationProvider(
+            new KiotaAuthProvider($token, $this->config->getAllowedHosts())
+        );
+        $adapter = new GuzzleRequestAdapter($auth, null, null, $this->guzzle);
+        $adapter->setBaseUrl($this->config->catalogBaseUrl);
+        return new CatalogApiClient($adapter);
     }
 
     /** @return array<string,string> */

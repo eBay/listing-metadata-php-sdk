@@ -18,9 +18,9 @@ declare(strict_types=1);
 
 namespace EBay\ListingMetadata\Clients\Rest;
 
+use EBay\ListingMetadata\Configuration\KiotaAuthProvider;
 use EBay\ListingMetadata\Configuration\ListingMetadataConfiguration;
 use EBay\ListingMetadata\Configuration\RequestOptions;
-use EBay\ListingMetadata\Configuration\TokenContext;
 use EBay\ListingMetadata\Generated\Taxonomy\Category_tree\Item\Fetch_item_aspects\Fetch_item_aspectsRequestBuilderGetRequestConfiguration;
 use EBay\ListingMetadata\Generated\Taxonomy\Category_tree\Item\Get_category_subtree\Get_category_subtreeRequestBuilderGetRequestConfiguration;
 use EBay\ListingMetadata\Generated\Taxonomy\Category_tree\Item\Get_category_suggestions\Get_category_suggestionsRequestBuilderGetRequestConfiguration;
@@ -31,11 +31,14 @@ use EBay\ListingMetadata\Generated\Taxonomy\Category_tree\Item\Get_item_aspects_
 use EBay\ListingMetadata\Generated\Taxonomy\Category_tree\Item\WithCategory_tree_ItemRequestBuilderGetRequestConfiguration;
 use EBay\ListingMetadata\Generated\Taxonomy\Get_default_category_tree_id\Get_default_category_tree_idRequestBuilderGetRequestConfiguration;
 use EBay\ListingMetadata\Generated\Taxonomy\TaxonomyApiClient;
+use GuzzleHttp\Client as GuzzleClient;
+use Microsoft\Kiota\Abstractions\Authentication\BaseBearerTokenAuthenticationProvider;
+use Microsoft\Kiota\Http\GuzzleRequestAdapter;
 
 final class TaxonomyClient
 {
     public function __construct(
-        private readonly TaxonomyApiClient $kiota,
+        private readonly GuzzleClient $guzzle,
         private readonly ListingMetadataConfiguration $config,
     ) {}
 
@@ -51,13 +54,11 @@ final class TaxonomyClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
-        return TokenContext::runWith($accessToken, function () use ($categoryTreeId, $requestOptions): mixed {
-            $rc = new Fetch_item_aspectsRequestBuilderGetRequestConfiguration(
-                headers: $this->mergedHeaders($requestOptions),
-            );
-            return $this->kiota->category_tree()->byCategory_tree_id($categoryTreeId)
-                ->fetch_item_aspects()->get($rc)->wait();
-        });
+        $rc = new Fetch_item_aspectsRequestBuilderGetRequestConfiguration(
+            headers: $this->mergedHeaders($requestOptions),
+        );
+        return $this->call($accessToken, fn($api) => $api->category_tree()->byCategory_tree_id($categoryTreeId)
+            ->fetch_item_aspects()->get($rc)->wait());
     }
 
     /**
@@ -72,16 +73,14 @@ final class TaxonomyClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
-        return TokenContext::runWith($accessToken, function () use ($categoryTreeId, $categoryId, $requestOptions): mixed {
-            $rc = new Get_category_subtreeRequestBuilderGetRequestConfiguration(
-                headers: $this->mergedHeaders($requestOptions),
-                queryParameters: Get_category_subtreeRequestBuilderGetRequestConfiguration::createQueryParameters(
-                    category_id: $categoryId,
-                ),
-            );
-            return $this->kiota->category_tree()->byCategory_tree_id($categoryTreeId)
-                ->get_category_subtree()->get($rc)->wait();
-        });
+        $rc = new Get_category_subtreeRequestBuilderGetRequestConfiguration(
+            headers: $this->mergedHeaders($requestOptions),
+            queryParameters: Get_category_subtreeRequestBuilderGetRequestConfiguration::createQueryParameters(
+                category_id: $categoryId,
+            ),
+        );
+        return $this->call($accessToken, fn($api) => $api->category_tree()->byCategory_tree_id($categoryTreeId)
+            ->get_category_subtree()->get($rc)->wait());
     }
 
     /**
@@ -97,16 +96,14 @@ final class TaxonomyClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
-        return TokenContext::runWith($accessToken, function () use ($categoryTreeId, $q, $requestOptions): mixed {
-            $rc = new Get_category_suggestionsRequestBuilderGetRequestConfiguration(
-                headers: $this->mergedHeaders($requestOptions),
-                queryParameters: Get_category_suggestionsRequestBuilderGetRequestConfiguration::createQueryParameters(
-                    q: $q,
-                ),
-            );
-            return $this->kiota->category_tree()->byCategory_tree_id($categoryTreeId)
-                ->get_category_suggestions()->get($rc)->wait();
-        });
+        $rc = new Get_category_suggestionsRequestBuilderGetRequestConfiguration(
+            headers: $this->mergedHeaders($requestOptions),
+            queryParameters: Get_category_suggestionsRequestBuilderGetRequestConfiguration::createQueryParameters(
+                q: $q,
+            ),
+        );
+        return $this->call($accessToken, fn($api) => $api->category_tree()->byCategory_tree_id($categoryTreeId)
+            ->get_category_suggestions()->get($rc)->wait());
     }
 
     /**
@@ -119,12 +116,10 @@ final class TaxonomyClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
-        return TokenContext::runWith($accessToken, function () use ($categoryTreeId, $requestOptions): mixed {
-            $rc = new WithCategory_tree_ItemRequestBuilderGetRequestConfiguration(
-                headers: $this->mergedHeaders($requestOptions),
-            );
-            return $this->kiota->category_tree()->byCategory_tree_id($categoryTreeId)->get($rc)->wait();
-        });
+        $rc = new WithCategory_tree_ItemRequestBuilderGetRequestConfiguration(
+            headers: $this->mergedHeaders($requestOptions),
+        );
+        return $this->call($accessToken, fn($api) => $api->category_tree()->byCategory_tree_id($categoryTreeId)->get($rc)->wait());
     }
 
     /**
@@ -139,16 +134,14 @@ final class TaxonomyClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
-        return TokenContext::runWith($accessToken, function () use ($categoryTreeId, $categoryId, $requestOptions): mixed {
-            $rc = new Get_compatibility_propertiesRequestBuilderGetRequestConfiguration(
-                headers: $this->mergedHeaders($requestOptions),
-                queryParameters: Get_compatibility_propertiesRequestBuilderGetRequestConfiguration::createQueryParameters(
-                    category_id: $categoryId,
-                ),
-            );
-            return $this->kiota->category_tree()->byCategory_tree_id($categoryTreeId)
-                ->get_compatibility_properties()->get($rc)->wait();
-        });
+        $rc = new Get_compatibility_propertiesRequestBuilderGetRequestConfiguration(
+            headers: $this->mergedHeaders($requestOptions),
+            queryParameters: Get_compatibility_propertiesRequestBuilderGetRequestConfiguration::createQueryParameters(
+                category_id: $categoryId,
+            ),
+        );
+        return $this->call($accessToken, fn($api) => $api->category_tree()->byCategory_tree_id($categoryTreeId)
+            ->get_compatibility_properties()->get($rc)->wait());
     }
 
     /**
@@ -167,18 +160,16 @@ final class TaxonomyClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
-        return TokenContext::runWith($accessToken, function () use ($categoryTreeId, $categoryId, $compatibilityProperty, $filter, $requestOptions): mixed {
-            $rc = new Get_compatibility_property_valuesRequestBuilderGetRequestConfiguration(
-                headers: $this->mergedHeaders($requestOptions),
-                queryParameters: Get_compatibility_property_valuesRequestBuilderGetRequestConfiguration::createQueryParameters(
-                    category_id: $categoryId,
-                    compatibility_property: $compatibilityProperty,
-                    filter: $filter,
-                ),
-            );
-            return $this->kiota->category_tree()->byCategory_tree_id($categoryTreeId)
-                ->get_compatibility_property_values()->get($rc)->wait();
-        });
+        $rc = new Get_compatibility_property_valuesRequestBuilderGetRequestConfiguration(
+            headers: $this->mergedHeaders($requestOptions),
+            queryParameters: Get_compatibility_property_valuesRequestBuilderGetRequestConfiguration::createQueryParameters(
+                category_id: $categoryId,
+                compatibility_property: $compatibilityProperty,
+                filter: $filter,
+            ),
+        );
+        return $this->call($accessToken, fn($api) => $api->category_tree()->byCategory_tree_id($categoryTreeId)
+            ->get_compatibility_property_values()->get($rc)->wait());
     }
 
     /**
@@ -192,15 +183,13 @@ final class TaxonomyClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
-        return TokenContext::runWith($accessToken, function () use ($marketplaceId, $requestOptions): mixed {
-            $rc = new Get_default_category_tree_idRequestBuilderGetRequestConfiguration(
-                headers: $this->mergedHeaders($requestOptions),
-                queryParameters: Get_default_category_tree_idRequestBuilderGetRequestConfiguration::createQueryParameters(
-                    marketplace_id: $marketplaceId,
-                ),
-            );
-            return $this->kiota->get_default_category_tree_id()->get($rc)->wait();
-        });
+        $rc = new Get_default_category_tree_idRequestBuilderGetRequestConfiguration(
+            headers: $this->mergedHeaders($requestOptions),
+            queryParameters: Get_default_category_tree_idRequestBuilderGetRequestConfiguration::createQueryParameters(
+                marketplace_id: $marketplaceId,
+            ),
+        );
+        return $this->call($accessToken, fn($api) => $api->get_default_category_tree_id()->get($rc)->wait());
     }
 
     /**
@@ -213,13 +202,11 @@ final class TaxonomyClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
-        return TokenContext::runWith($accessToken, function () use ($categoryTreeId, $requestOptions): mixed {
-            $rc = new Get_expired_categoriesRequestBuilderGetRequestConfiguration(
-                headers: $this->mergedHeaders($requestOptions),
-            );
-            return $this->kiota->category_tree()->byCategory_tree_id($categoryTreeId)
-                ->get_expired_categories()->get($rc)->wait();
-        });
+        $rc = new Get_expired_categoriesRequestBuilderGetRequestConfiguration(
+            headers: $this->mergedHeaders($requestOptions),
+        );
+        return $this->call($accessToken, fn($api) => $api->category_tree()->byCategory_tree_id($categoryTreeId)
+            ->get_expired_categories()->get($rc)->wait());
     }
 
     /**
@@ -235,16 +222,31 @@ final class TaxonomyClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): mixed {
-        return TokenContext::runWith($accessToken, function () use ($categoryTreeId, $categoryId, $requestOptions): mixed {
-            $rc = new Get_item_aspects_for_categoryRequestBuilderGetRequestConfiguration(
-                headers: $this->mergedHeaders($requestOptions),
-                queryParameters: Get_item_aspects_for_categoryRequestBuilderGetRequestConfiguration::createQueryParameters(
-                    category_id: $categoryId,
-                ),
-            );
-            return $this->kiota->category_tree()->byCategory_tree_id($categoryTreeId)
-                ->get_item_aspects_for_category()->get($rc)->wait();
-        });
+        $rc = new Get_item_aspects_for_categoryRequestBuilderGetRequestConfiguration(
+            headers: $this->mergedHeaders($requestOptions),
+            queryParameters: Get_item_aspects_for_categoryRequestBuilderGetRequestConfiguration::createQueryParameters(
+                category_id: $categoryId,
+            ),
+        );
+        return $this->call($accessToken, fn($api) => $api->category_tree()->byCategory_tree_id($categoryTreeId)
+            ->get_item_aspects_for_category()->get($rc)->wait());
+    }
+
+    private function call(?string $accessToken, callable $op): mixed
+    {
+        $token = $accessToken ?? $this->config->accessToken
+            ?? throw new \RuntimeException('No access token. Pass $accessToken per-call or set ListingMetadataConfiguration::$accessToken.');
+        return $op($this->buildApiClient($token));
+    }
+
+    private function buildApiClient(string $token): TaxonomyApiClient
+    {
+        $auth = new BaseBearerTokenAuthenticationProvider(
+            new KiotaAuthProvider($token, $this->config->getAllowedHosts())
+        );
+        $adapter = new GuzzleRequestAdapter($auth, null, null, $this->guzzle);
+        $adapter->setBaseUrl($this->config->taxonomyBaseUrl);
+        return new TaxonomyApiClient($adapter);
     }
 
     /** @return array<string,string> */

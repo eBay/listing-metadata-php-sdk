@@ -18,19 +18,22 @@ declare(strict_types=1);
 
 namespace EBay\ListingMetadata\Clients\Rest;
 
+use EBay\ListingMetadata\Configuration\KiotaAuthProvider;
 use EBay\ListingMetadata\Configuration\ListingMetadataConfiguration;
 use EBay\ListingMetadata\Configuration\RequestOptions;
-use EBay\ListingMetadata\Configuration\TokenContext;
 use EBay\ListingMetadata\Generated\Charity\CharityApiClient;
 use EBay\ListingMetadata\Generated\Charity\Charity_org\Charity_orgRequestBuilderGetRequestConfiguration;
 use EBay\ListingMetadata\Generated\Charity\Charity_org\Item\WithCharity_org_ItemRequestBuilderGetRequestConfiguration;
 use EBay\ListingMetadata\Generated\Charity\Models\CharityOrg;
 use EBay\ListingMetadata\Generated\Charity\Models\CharitySearchResponse;
+use GuzzleHttp\Client as GuzzleClient;
+use Microsoft\Kiota\Abstractions\Authentication\BaseBearerTokenAuthenticationProvider;
+use Microsoft\Kiota\Http\GuzzleRequestAdapter;
 
 final class CharityClient
 {
     public function __construct(
-        private readonly CharityApiClient $kiota,
+        private readonly GuzzleClient $guzzle,
         private readonly ListingMetadataConfiguration $config,
     ) {}
 
@@ -46,12 +49,10 @@ final class CharityClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): ?CharityOrg {
-        return TokenContext::runWith($accessToken, function () use ($charityOrgId, $requestOptions): ?CharityOrg {
-            $rc = new WithCharity_org_ItemRequestBuilderGetRequestConfiguration(
-                headers: $this->mergedHeaders($requestOptions),
-            );
-            return $this->kiota->charity_org()->byCharity_org_id($charityOrgId)->get($rc)->wait();
-        });
+        $rc = new WithCharity_org_ItemRequestBuilderGetRequestConfiguration(
+            headers: $this->mergedHeaders($requestOptions),
+        );
+        return $this->call($accessToken, fn($api) => $api->charity_org()->byCharity_org_id($charityOrgId)->get($rc)->wait());
     }
 
     /**
@@ -72,18 +73,33 @@ final class CharityClient
         ?string $accessToken = null,
         ?RequestOptions $requestOptions = null,
     ): ?CharitySearchResponse {
-        return TokenContext::runWith($accessToken, function () use ($limit, $offset, $q, $registrationIds, $requestOptions): ?CharitySearchResponse {
-            $rc = new Charity_orgRequestBuilderGetRequestConfiguration(
-                headers: $this->mergedHeaders($requestOptions),
-                queryParameters: Charity_orgRequestBuilderGetRequestConfiguration::createQueryParameters(
-                    limit: $limit,
-                    offset: $offset,
-                    q: $q,
-                    registration_ids: $registrationIds,
-                ),
-            );
-            return $this->kiota->charity_org()->get($rc)->wait();
-        });
+        $rc = new Charity_orgRequestBuilderGetRequestConfiguration(
+            headers: $this->mergedHeaders($requestOptions),
+            queryParameters: Charity_orgRequestBuilderGetRequestConfiguration::createQueryParameters(
+                limit: $limit,
+                offset: $offset,
+                q: $q,
+                registration_ids: $registrationIds,
+            ),
+        );
+        return $this->call($accessToken, fn($api) => $api->charity_org()->get($rc)->wait());
+    }
+
+    private function call(?string $accessToken, callable $op): mixed
+    {
+        $token = $accessToken ?? $this->config->accessToken
+            ?? throw new \RuntimeException('No access token. Pass $accessToken per-call or set ListingMetadataConfiguration::$accessToken.');
+        return $op($this->buildApiClient($token));
+    }
+
+    private function buildApiClient(string $token): CharityApiClient
+    {
+        $auth = new BaseBearerTokenAuthenticationProvider(
+            new KiotaAuthProvider($token, $this->config->getAllowedHosts())
+        );
+        $adapter = new GuzzleRequestAdapter($auth, null, null, $this->guzzle);
+        $adapter->setBaseUrl($this->config->charityBaseUrl);
+        return new CharityApiClient($adapter);
     }
 
     /** @return array<string,string> */

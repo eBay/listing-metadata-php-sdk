@@ -22,16 +22,9 @@ use EBay\ListingMetadata\Clients\Rest\CatalogClient;
 use EBay\ListingMetadata\Clients\Rest\CharityClient;
 use EBay\ListingMetadata\Clients\Rest\MetadataClient;
 use EBay\ListingMetadata\Clients\Rest\TaxonomyClient;
-use EBay\ListingMetadata\Configuration\KiotaAuthProvider;
 use EBay\ListingMetadata\Configuration\ListingMetadataConfiguration;
-use EBay\ListingMetadata\Generated\Catalog\CatalogApiClient;
-use EBay\ListingMetadata\Generated\Charity\CharityApiClient;
-use EBay\ListingMetadata\Generated\Metadata\MetadataApiClient;
-use EBay\ListingMetadata\Generated\Taxonomy\TaxonomyApiClient;
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\HandlerStack;
-use Microsoft\Kiota\Abstractions\Authentication\BaseBearerTokenAuthenticationProvider;
-use Microsoft\Kiota\Http\GuzzleRequestAdapter;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
@@ -48,23 +41,10 @@ final class ListingMetadataClient
     ) {
         $guzzle ??= $this->buildGuzzle($config);
 
-        $auth = new BaseBearerTokenAuthenticationProvider(new KiotaAuthProvider($config));
-
-        $catalogAdapter = new GuzzleRequestAdapter($auth, null, null, $guzzle);
-        $catalogAdapter->setBaseUrl($config->catalogBaseUrl);
-        $this->catalog = new CatalogClient(new CatalogApiClient($catalogAdapter), $config);
-
-        $charityAdapter = new GuzzleRequestAdapter($auth, null, null, $guzzle);
-        $charityAdapter->setBaseUrl($config->charityBaseUrl);
-        $this->charity = new CharityClient(new CharityApiClient($charityAdapter), $config);
-
-        $metadataAdapter = new GuzzleRequestAdapter($auth, null, null, $guzzle);
-        $metadataAdapter->setBaseUrl($config->metadataBaseUrl);
-        $this->metadata = new MetadataClient(new MetadataApiClient($metadataAdapter), $config);
-
-        $taxonomyAdapter = new GuzzleRequestAdapter($auth, null, null, $guzzle);
-        $taxonomyAdapter->setBaseUrl($config->taxonomyBaseUrl);
-        $this->taxonomy = new TaxonomyClient(new TaxonomyApiClient($taxonomyAdapter), $config);
+        $this->catalog  = new CatalogClient($guzzle, $config);
+        $this->charity  = new CharityClient($guzzle, $config);
+        $this->metadata = new MetadataClient($guzzle, $config);
+        $this->taxonomy = new TaxonomyClient($guzzle, $config);
     }
 
     private function buildGuzzle(ListingMetadataConfiguration $config): GuzzleClient
