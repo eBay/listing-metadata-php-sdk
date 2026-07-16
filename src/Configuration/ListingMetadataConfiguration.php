@@ -20,20 +20,16 @@ namespace EBay\ListingMetadata\Configuration;
 
 final class ListingMetadataConfiguration
 {
-    public string $catalogBaseUrl  = 'https://api.ebay.com/commerce/catalog/v1_beta';
-    public string $charityBaseUrl  = 'https://api.ebay.com/commerce/charity/v1';
-    public string $metadataBaseUrl = 'https://api.ebay.com/sell/metadata/v1';
-    public string $taxonomyBaseUrl = 'https://api.ebay.com/commerce/taxonomy/v1';
+    public readonly RequestOptions $defaultRequestOptions;
 
-    /** Static fallback token; per-call token takes precedence. */
-    public ?string $accessToken = null;
-
-    public bool $diagnosticLogging = false;
-
-    public RequestOptions $defaultRequestOptions;
-
-    public function __construct()
-    {
+    public function __construct(
+        public readonly string  $catalogBaseUrl  = 'https://api.ebay.com/commerce/catalog/v1_beta',
+        public readonly string  $charityBaseUrl  = 'https://api.ebay.com/commerce/charity/v1',
+        public readonly string  $metadataBaseUrl = 'https://api.ebay.com/sell/metadata/v1',
+        public readonly string  $taxonomyBaseUrl = 'https://api.ebay.com/commerce/taxonomy/v1',
+        public readonly ?string $accessToken     = null,
+        public readonly bool    $diagnosticLogging = false,
+    ) {
         $this->defaultRequestOptions = new RequestOptions();
     }
 
