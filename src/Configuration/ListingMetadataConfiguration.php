@@ -40,10 +40,10 @@ final class ListingMetadataConfiguration
         ]);
     }
 
-    /** Hostnames tokens may be sent to — passed to AllowedHostsValidator. */
+    /** @return string[] Hostnames tokens may be sent to — passed to AllowedHostsValidator. */
     public function getAllowedHosts(): array
     {
-        return array_values(array_unique(array_map(
+        return array_values(array_unique(array_filter(array_map(
             fn(string $url) => parse_url($url, PHP_URL_HOST),
             [
                 $this->catalogBaseUrl,
@@ -51,6 +51,6 @@ final class ListingMetadataConfiguration
                 $this->metadataBaseUrl,
                 $this->taxonomyBaseUrl,
             ]
-        )));
+        ), 'is_string')));
     }
 }
