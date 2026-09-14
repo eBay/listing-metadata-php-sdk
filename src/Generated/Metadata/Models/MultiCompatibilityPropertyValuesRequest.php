@@ -23,7 +23,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
- * This type defines the category ID and property names for which to retrieve values.
+ * This type defines the request fields used in the <b>getMultiCompatibilityPropertyValues</b> method.
 */
 class MultiCompatibilityPropertyValuesRequest implements AdditionalDataHolder, Parsable 
 {

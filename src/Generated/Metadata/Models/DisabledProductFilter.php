@@ -22,7 +22,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 /**
- * This container can be used to specify whether or not to filter out products which are disabled for selling on eBay and/or disabled for product review. 
+ * This type defines the booleans used to determine if a product is excluded from eBay selling and/or review.
 */
 class DisabledProductFilter implements AdditionalDataHolder, Parsable 
 {

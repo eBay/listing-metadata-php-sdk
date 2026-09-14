@@ -20,7 +20,6 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
-use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * This type contains information about the formatting, occurrence, and support of an aspect.
@@ -33,19 +32,19 @@ class AspectConstraint implements AdditionalDataHolder, Parsable
     private ?array $additionalData = null;
     
     /**
-     * @var string|null $aspectAdvancedDataType Indicates additional data type requirements for the aspect. For example, <code>NUMERIC_RANGE</code> indicates that the aspect value must be in numeric range format.<br><br><span class="tablenote"> <strong>Note:</strong> Currently only <code>NUMERIC_RANGE</code> is supported.</span> For implementation help, refer to <a href='https://developer.ebay.com/api-docs/commerce/taxonomy/types/txn:AspectAdvancedDataTypeEnum'>eBay API documentation</a>
+     * @var AspectAdvancedDataTypeEnum|null $aspectAdvancedDataType Indicates additional data type requirements for the aspect. For example, <code>NUMERIC_RANGE</code> indicates that the aspect value must be in numeric range format.<br><br><span class="tablenote"> <strong>Note:</strong> Currently only <code>NUMERIC_RANGE</code> is supported.</span>
     */
-    private ?string $aspectAdvancedDataType = null;
+    private ?AspectAdvancedDataTypeEnum $aspectAdvancedDataType = null;
     
     /**
-     * @var array<string>|null $aspectApplicableTo This value indicate if the aspect identified by the <b>aspects.localizedAspectName</b> field is a product aspect (relevant to catalog products in the category) or an item/instance aspect, which is an aspect whose value will vary based on a particular instance of the product.
+     * @var array<AspectApplicableToEnum>|null $aspectApplicableTo This value indicates if the aspect identified by the <b>aspects.localizedAspectName</b> field is a product aspect (relevant to catalog products in the category) or an item/instance aspect, which is an aspect whose value will vary based on a particular instance of the product.
     */
     private ?array $aspectApplicableTo = null;
     
     /**
-     * @var string|null $aspectDataType The data type of this aspect. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/commerce/taxonomy/types/txn:AspectDataTypeEnum'>eBay API documentation</a>
+     * @var AspectDataTypeEnum|null $aspectDataType The data type of this aspect.
     */
-    private ?string $aspectDataType = null;
+    private ?AspectDataTypeEnum $aspectDataType = null;
     
     /**
      * @var bool|null $aspectEnabledForVariations A value of <code>true</code> indicates that this aspect can be used to help identify item variations.
@@ -63,9 +62,9 @@ class AspectConstraint implements AdditionalDataHolder, Parsable
     private ?int $aspectMaxLength = null;
     
     /**
-     * @var string|null $aspectMode The manner in which values of this aspect must be specified by the seller (as free text or by selecting from available options).  For implementation help, refer to <a href='https://developer.ebay.com/api-docs/commerce/taxonomy/types/txn:AspectModeEnum'>eBay API documentation</a>
+     * @var AspectModeEnum|null $aspectMode The manner in which values of this aspect must be specified by the seller (as free text or by selecting from available options). 
     */
-    private ?string $aspectMode = null;
+    private ?AspectModeEnum $aspectMode = null;
     
     /**
      * @var bool|null $aspectRequired A value of <code>true</code> indicates that this aspect is required when offering items in the specified category.
@@ -73,9 +72,9 @@ class AspectConstraint implements AdditionalDataHolder, Parsable
     private ?bool $aspectRequired = null;
     
     /**
-     * @var string|null $aspectUsage The enumeration value returned in this field will indicate if the corresponding aspect is recommended or optional.<br><br><span class="tablenote"> <strong>Note:</strong> This field is always returned, even for hard-mandated/required aspects (where <code><strong>aspectRequired</strong>: true</code>). The value returned for required aspects will be <code>RECOMMENDED</code>, but they are actually required and a seller will be blocked from listing or revising an item without these aspects. </span> For implementation help, refer to <a href='https://developer.ebay.com/api-docs/commerce/taxonomy/types/txn:AspectUsageEnum'>eBay API documentation</a>
+     * @var AspectUsageEnum|null $aspectUsage The enumeration value returned in this field will indicate if the corresponding aspect is recommended or optional.<br><br><span class="tablenote"> <strong>Note:</strong> This field is always returned, even for hard-mandated/required aspects (where <strong>aspectRequired</strong>: <code>true</code>). The value returned for required aspects will be <code>RECOMMENDED</code>, but they are actually required and a seller will be blocked from listing or revising an item without these aspects. </span>
     */
-    private ?string $aspectUsage = null;
+    private ?AspectUsageEnum $aspectUsage = null;
     
     /**
      * @var string|null $expectedRequiredByDate The expected date after which the aspect will be required.<br><br><span class="tablenote"> <strong>Note:</strong> The value returned in this field specifies only an approximate date, which may not reflect the actual date after which the aspect is required.</span>
@@ -83,9 +82,9 @@ class AspectConstraint implements AdditionalDataHolder, Parsable
     private ?string $expectedRequiredByDate = null;
     
     /**
-     * @var string|null $itemToAspectCardinality Indicates whether this aspect can accept single or multiple values for items in the specified category.<br><br><span class="tablenote"> <strong>Note:</strong> Up to 30 values can be supplied for aspects that accept multiple values.</span> For implementation help, refer to <a href='https://developer.ebay.com/api-docs/commerce/taxonomy/types/txn:ItemToAspectCardinalityEnum'>eBay API documentation</a>
+     * @var ItemToAspectCardinalityEnum|null $itemToAspectCardinality Indicates whether this aspect can accept single or multiple values for items in the specified category.<br><br><span class="tablenote"> <strong>Note:</strong> Up to 30 values can be supplied for aspects that accept multiple values.</span>
     */
-    private ?string $itemToAspectCardinality = null;
+    private ?ItemToAspectCardinalityEnum $itemToAspectCardinality = null;
     
     /**
      * Instantiates a new AspectConstraint and sets the default values.
@@ -112,26 +111,26 @@ class AspectConstraint implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the aspectAdvancedDataType property value. Indicates additional data type requirements for the aspect. For example, <code>NUMERIC_RANGE</code> indicates that the aspect value must be in numeric range format.<br><br><span class="tablenote"> <strong>Note:</strong> Currently only <code>NUMERIC_RANGE</code> is supported.</span> For implementation help, refer to <a href='https://developer.ebay.com/api-docs/commerce/taxonomy/types/txn:AspectAdvancedDataTypeEnum'>eBay API documentation</a>
-     * @return string|null
+     * Gets the aspectAdvancedDataType property value. Indicates additional data type requirements for the aspect. For example, <code>NUMERIC_RANGE</code> indicates that the aspect value must be in numeric range format.<br><br><span class="tablenote"> <strong>Note:</strong> Currently only <code>NUMERIC_RANGE</code> is supported.</span>
+     * @return AspectAdvancedDataTypeEnum|null
     */
-    public function getAspectAdvancedDataType(): ?string {
+    public function getAspectAdvancedDataType(): ?AspectAdvancedDataTypeEnum {
         return $this->aspectAdvancedDataType;
     }
 
     /**
-     * Gets the aspectApplicableTo property value. This value indicate if the aspect identified by the <b>aspects.localizedAspectName</b> field is a product aspect (relevant to catalog products in the category) or an item/instance aspect, which is an aspect whose value will vary based on a particular instance of the product.
-     * @return array<string>|null
+     * Gets the aspectApplicableTo property value. This value indicates if the aspect identified by the <b>aspects.localizedAspectName</b> field is a product aspect (relevant to catalog products in the category) or an item/instance aspect, which is an aspect whose value will vary based on a particular instance of the product.
+     * @return array<AspectApplicableToEnum>|null
     */
     public function getAspectApplicableTo(): ?array {
         return $this->aspectApplicableTo;
     }
 
     /**
-     * Gets the aspectDataType property value. The data type of this aspect. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/commerce/taxonomy/types/txn:AspectDataTypeEnum'>eBay API documentation</a>
-     * @return string|null
+     * Gets the aspectDataType property value. The data type of this aspect.
+     * @return AspectDataTypeEnum|null
     */
-    public function getAspectDataType(): ?string {
+    public function getAspectDataType(): ?AspectDataTypeEnum {
         return $this->aspectDataType;
     }
 
@@ -160,10 +159,10 @@ class AspectConstraint implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the aspectMode property value. The manner in which values of this aspect must be specified by the seller (as free text or by selecting from available options).  For implementation help, refer to <a href='https://developer.ebay.com/api-docs/commerce/taxonomy/types/txn:AspectModeEnum'>eBay API documentation</a>
-     * @return string|null
+     * Gets the aspectMode property value. The manner in which values of this aspect must be specified by the seller (as free text or by selecting from available options). 
+     * @return AspectModeEnum|null
     */
-    public function getAspectMode(): ?string {
+    public function getAspectMode(): ?AspectModeEnum {
         return $this->aspectMode;
     }
 
@@ -176,10 +175,10 @@ class AspectConstraint implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the aspectUsage property value. The enumeration value returned in this field will indicate if the corresponding aspect is recommended or optional.<br><br><span class="tablenote"> <strong>Note:</strong> This field is always returned, even for hard-mandated/required aspects (where <code><strong>aspectRequired</strong>: true</code>). The value returned for required aspects will be <code>RECOMMENDED</code>, but they are actually required and a seller will be blocked from listing or revising an item without these aspects. </span> For implementation help, refer to <a href='https://developer.ebay.com/api-docs/commerce/taxonomy/types/txn:AspectUsageEnum'>eBay API documentation</a>
-     * @return string|null
+     * Gets the aspectUsage property value. The enumeration value returned in this field will indicate if the corresponding aspect is recommended or optional.<br><br><span class="tablenote"> <strong>Note:</strong> This field is always returned, even for hard-mandated/required aspects (where <strong>aspectRequired</strong>: <code>true</code>). The value returned for required aspects will be <code>RECOMMENDED</code>, but they are actually required and a seller will be blocked from listing or revising an item without these aspects. </span>
+     * @return AspectUsageEnum|null
     */
-    public function getAspectUsage(): ?string {
+    public function getAspectUsage(): ?AspectUsageEnum {
         return $this->aspectUsage;
     }
 
@@ -198,32 +197,25 @@ class AspectConstraint implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'aspectAdvancedDataType' => fn(ParseNode $n) => $o->setAspectAdvancedDataType($n->getStringValue()),
-            'aspectApplicableTo' => function (ParseNode $n) {
-                $val = $n->getCollectionOfPrimitiveValues();
-                if (is_array($val)) {
-                    TypeUtils::validateCollectionValues($val, 'string');
-                }
-                /** @var array<string>|null $val */
-                $this->setAspectApplicableTo($val);
-            },
-            'aspectDataType' => fn(ParseNode $n) => $o->setAspectDataType($n->getStringValue()),
+            'aspectAdvancedDataType' => fn(ParseNode $n) => $o->setAspectAdvancedDataType($n->getEnumValue(AspectAdvancedDataTypeEnum::class)),
+            'aspectApplicableTo' => fn(ParseNode $n) => $o->setAspectApplicableTo($n->getCollectionOfEnumValues(AspectApplicableToEnum::class)),
+            'aspectDataType' => fn(ParseNode $n) => $o->setAspectDataType($n->getEnumValue(AspectDataTypeEnum::class)),
             'aspectEnabledForVariations' => fn(ParseNode $n) => $o->setAspectEnabledForVariations($n->getBooleanValue()),
             'aspectFormat' => fn(ParseNode $n) => $o->setAspectFormat($n->getStringValue()),
             'aspectMaxLength' => fn(ParseNode $n) => $o->setAspectMaxLength($n->getIntegerValue()),
-            'aspectMode' => fn(ParseNode $n) => $o->setAspectMode($n->getStringValue()),
+            'aspectMode' => fn(ParseNode $n) => $o->setAspectMode($n->getEnumValue(AspectModeEnum::class)),
             'aspectRequired' => fn(ParseNode $n) => $o->setAspectRequired($n->getBooleanValue()),
-            'aspectUsage' => fn(ParseNode $n) => $o->setAspectUsage($n->getStringValue()),
+            'aspectUsage' => fn(ParseNode $n) => $o->setAspectUsage($n->getEnumValue(AspectUsageEnum::class)),
             'expectedRequiredByDate' => fn(ParseNode $n) => $o->setExpectedRequiredByDate($n->getStringValue()),
-            'itemToAspectCardinality' => fn(ParseNode $n) => $o->setItemToAspectCardinality($n->getStringValue()),
+            'itemToAspectCardinality' => fn(ParseNode $n) => $o->setItemToAspectCardinality($n->getEnumValue(ItemToAspectCardinalityEnum::class)),
         ];
     }
 
     /**
-     * Gets the itemToAspectCardinality property value. Indicates whether this aspect can accept single or multiple values for items in the specified category.<br><br><span class="tablenote"> <strong>Note:</strong> Up to 30 values can be supplied for aspects that accept multiple values.</span> For implementation help, refer to <a href='https://developer.ebay.com/api-docs/commerce/taxonomy/types/txn:ItemToAspectCardinalityEnum'>eBay API documentation</a>
-     * @return string|null
+     * Gets the itemToAspectCardinality property value. Indicates whether this aspect can accept single or multiple values for items in the specified category.<br><br><span class="tablenote"> <strong>Note:</strong> Up to 30 values can be supplied for aspects that accept multiple values.</span>
+     * @return ItemToAspectCardinalityEnum|null
     */
-    public function getItemToAspectCardinality(): ?string {
+    public function getItemToAspectCardinality(): ?ItemToAspectCardinalityEnum {
         return $this->itemToAspectCardinality;
     }
 
@@ -232,17 +224,17 @@ class AspectConstraint implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('aspectAdvancedDataType', $this->getAspectAdvancedDataType());
-        $writer->writeCollectionOfPrimitiveValues('aspectApplicableTo', $this->getAspectApplicableTo());
-        $writer->writeStringValue('aspectDataType', $this->getAspectDataType());
+        $writer->writeEnumValue('aspectAdvancedDataType', $this->getAspectAdvancedDataType());
+        $writer->writeCollectionOfEnumValues('aspectApplicableTo', $this->getAspectApplicableTo());
+        $writer->writeEnumValue('aspectDataType', $this->getAspectDataType());
         $writer->writeBooleanValue('aspectEnabledForVariations', $this->getAspectEnabledForVariations());
         $writer->writeStringValue('aspectFormat', $this->getAspectFormat());
         $writer->writeIntegerValue('aspectMaxLength', $this->getAspectMaxLength());
-        $writer->writeStringValue('aspectMode', $this->getAspectMode());
+        $writer->writeEnumValue('aspectMode', $this->getAspectMode());
         $writer->writeBooleanValue('aspectRequired', $this->getAspectRequired());
-        $writer->writeStringValue('aspectUsage', $this->getAspectUsage());
+        $writer->writeEnumValue('aspectUsage', $this->getAspectUsage());
         $writer->writeStringValue('expectedRequiredByDate', $this->getExpectedRequiredByDate());
-        $writer->writeStringValue('itemToAspectCardinality', $this->getItemToAspectCardinality());
+        $writer->writeEnumValue('itemToAspectCardinality', $this->getItemToAspectCardinality());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -255,26 +247,26 @@ class AspectConstraint implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the aspectAdvancedDataType property value. Indicates additional data type requirements for the aspect. For example, <code>NUMERIC_RANGE</code> indicates that the aspect value must be in numeric range format.<br><br><span class="tablenote"> <strong>Note:</strong> Currently only <code>NUMERIC_RANGE</code> is supported.</span> For implementation help, refer to <a href='https://developer.ebay.com/api-docs/commerce/taxonomy/types/txn:AspectAdvancedDataTypeEnum'>eBay API documentation</a>
-     * @param string|null $value Value to set for the aspectAdvancedDataType property.
+     * Sets the aspectAdvancedDataType property value. Indicates additional data type requirements for the aspect. For example, <code>NUMERIC_RANGE</code> indicates that the aspect value must be in numeric range format.<br><br><span class="tablenote"> <strong>Note:</strong> Currently only <code>NUMERIC_RANGE</code> is supported.</span>
+     * @param AspectAdvancedDataTypeEnum|null $value Value to set for the aspectAdvancedDataType property.
     */
-    public function setAspectAdvancedDataType(?string $value): void {
+    public function setAspectAdvancedDataType(?AspectAdvancedDataTypeEnum $value): void {
         $this->aspectAdvancedDataType = $value;
     }
 
     /**
-     * Sets the aspectApplicableTo property value. This value indicate if the aspect identified by the <b>aspects.localizedAspectName</b> field is a product aspect (relevant to catalog products in the category) or an item/instance aspect, which is an aspect whose value will vary based on a particular instance of the product.
-     * @param array<string>|null $value Value to set for the aspectApplicableTo property.
+     * Sets the aspectApplicableTo property value. This value indicates if the aspect identified by the <b>aspects.localizedAspectName</b> field is a product aspect (relevant to catalog products in the category) or an item/instance aspect, which is an aspect whose value will vary based on a particular instance of the product.
+     * @param array<AspectApplicableToEnum>|null $value Value to set for the aspectApplicableTo property.
     */
     public function setAspectApplicableTo(?array $value): void {
         $this->aspectApplicableTo = $value;
     }
 
     /**
-     * Sets the aspectDataType property value. The data type of this aspect. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/commerce/taxonomy/types/txn:AspectDataTypeEnum'>eBay API documentation</a>
-     * @param string|null $value Value to set for the aspectDataType property.
+     * Sets the aspectDataType property value. The data type of this aspect.
+     * @param AspectDataTypeEnum|null $value Value to set for the aspectDataType property.
     */
-    public function setAspectDataType(?string $value): void {
+    public function setAspectDataType(?AspectDataTypeEnum $value): void {
         $this->aspectDataType = $value;
     }
 
@@ -303,10 +295,10 @@ class AspectConstraint implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the aspectMode property value. The manner in which values of this aspect must be specified by the seller (as free text or by selecting from available options).  For implementation help, refer to <a href='https://developer.ebay.com/api-docs/commerce/taxonomy/types/txn:AspectModeEnum'>eBay API documentation</a>
-     * @param string|null $value Value to set for the aspectMode property.
+     * Sets the aspectMode property value. The manner in which values of this aspect must be specified by the seller (as free text or by selecting from available options). 
+     * @param AspectModeEnum|null $value Value to set for the aspectMode property.
     */
-    public function setAspectMode(?string $value): void {
+    public function setAspectMode(?AspectModeEnum $value): void {
         $this->aspectMode = $value;
     }
 
@@ -319,10 +311,10 @@ class AspectConstraint implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the aspectUsage property value. The enumeration value returned in this field will indicate if the corresponding aspect is recommended or optional.<br><br><span class="tablenote"> <strong>Note:</strong> This field is always returned, even for hard-mandated/required aspects (where <code><strong>aspectRequired</strong>: true</code>). The value returned for required aspects will be <code>RECOMMENDED</code>, but they are actually required and a seller will be blocked from listing or revising an item without these aspects. </span> For implementation help, refer to <a href='https://developer.ebay.com/api-docs/commerce/taxonomy/types/txn:AspectUsageEnum'>eBay API documentation</a>
-     * @param string|null $value Value to set for the aspectUsage property.
+     * Sets the aspectUsage property value. The enumeration value returned in this field will indicate if the corresponding aspect is recommended or optional.<br><br><span class="tablenote"> <strong>Note:</strong> This field is always returned, even for hard-mandated/required aspects (where <strong>aspectRequired</strong>: <code>true</code>). The value returned for required aspects will be <code>RECOMMENDED</code>, but they are actually required and a seller will be blocked from listing or revising an item without these aspects. </span>
+     * @param AspectUsageEnum|null $value Value to set for the aspectUsage property.
     */
-    public function setAspectUsage(?string $value): void {
+    public function setAspectUsage(?AspectUsageEnum $value): void {
         $this->aspectUsage = $value;
     }
 
@@ -335,10 +327,10 @@ class AspectConstraint implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the itemToAspectCardinality property value. Indicates whether this aspect can accept single or multiple values for items in the specified category.<br><br><span class="tablenote"> <strong>Note:</strong> Up to 30 values can be supplied for aspects that accept multiple values.</span> For implementation help, refer to <a href='https://developer.ebay.com/api-docs/commerce/taxonomy/types/txn:ItemToAspectCardinalityEnum'>eBay API documentation</a>
-     * @param string|null $value Value to set for the itemToAspectCardinality property.
+     * Sets the itemToAspectCardinality property value. Indicates whether this aspect can accept single or multiple values for items in the specified category.<br><br><span class="tablenote"> <strong>Note:</strong> Up to 30 values can be supplied for aspects that accept multiple values.</span>
+     * @param ItemToAspectCardinalityEnum|null $value Value to set for the itemToAspectCardinality property.
     */
-    public function setItemToAspectCardinality(?string $value): void {
+    public function setItemToAspectCardinality(?ItemToAspectCardinalityEnum $value): void {
         $this->itemToAspectCardinality = $value;
     }
 

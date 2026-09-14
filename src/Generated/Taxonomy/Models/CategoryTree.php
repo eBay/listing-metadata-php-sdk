@@ -20,7 +20,6 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
-use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * This type contains information about all nodes of a specified eBay category tree.
@@ -33,7 +32,7 @@ class CategoryTree implements AdditionalDataHolder, Parsable
     private ?array $additionalData = null;
     
     /**
-     * @var array<string>|null $applicableMarketplaceIds A list of one or more identifiers of the eBay marketplaces that use this category tree.
+     * @var array<MarketplaceIdEnum>|null $applicableMarketplaceIds A list of one or more identifiers of the eBay marketplaces that use this category tree.
     */
     private ?array $applicableMarketplaceIds = null;
     
@@ -48,7 +47,7 @@ class CategoryTree implements AdditionalDataHolder, Parsable
     private ?string $categoryTreeVersion = null;
     
     /**
-     * @var CategoryTreeNode|null $rootCategoryNode This type contains information about all nodes of a category tree or subtree hierarchy, including and below the specified <b>Category</b>, down to the leaf nodes. It is a recursive structure.
+     * @var CategoryTreeNode|null $rootCategoryNode Contains details of all nodes of the category tree hierarchy, starting with the root node and down to the leaf nodes. This is a recursive structure.<br><br><span class="tablenote"> <strong>Note:</strong> The root node of a full default category tree includes the <b>categoryId</b> field, but its value should not be relied upon. It provides no useful information for application development.</span>
     */
     private ?CategoryTreeNode $rootCategoryNode = null;
     
@@ -78,7 +77,7 @@ class CategoryTree implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the applicableMarketplaceIds property value. A list of one or more identifiers of the eBay marketplaces that use this category tree.
-     * @return array<string>|null
+     * @return array<MarketplaceIdEnum>|null
     */
     public function getApplicableMarketplaceIds(): ?array {
         return $this->applicableMarketplaceIds;
@@ -107,14 +106,7 @@ class CategoryTree implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'applicableMarketplaceIds' => function (ParseNode $n) {
-                $val = $n->getCollectionOfPrimitiveValues();
-                if (is_array($val)) {
-                    TypeUtils::validateCollectionValues($val, 'string');
-                }
-                /** @var array<string>|null $val */
-                $this->setApplicableMarketplaceIds($val);
-            },
+            'applicableMarketplaceIds' => fn(ParseNode $n) => $o->setApplicableMarketplaceIds($n->getCollectionOfEnumValues(MarketplaceIdEnum::class)),
             'categoryTreeId' => fn(ParseNode $n) => $o->setCategoryTreeId($n->getStringValue()),
             'categoryTreeVersion' => fn(ParseNode $n) => $o->setCategoryTreeVersion($n->getStringValue()),
             'rootCategoryNode' => fn(ParseNode $n) => $o->setRootCategoryNode($n->getObjectValue([CategoryTreeNode::class, 'createFromDiscriminatorValue'])),
@@ -122,7 +114,7 @@ class CategoryTree implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the rootCategoryNode property value. This type contains information about all nodes of a category tree or subtree hierarchy, including and below the specified <b>Category</b>, down to the leaf nodes. It is a recursive structure.
+     * Gets the rootCategoryNode property value. Contains details of all nodes of the category tree hierarchy, starting with the root node and down to the leaf nodes. This is a recursive structure.<br><br><span class="tablenote"> <strong>Note:</strong> The root node of a full default category tree includes the <b>categoryId</b> field, but its value should not be relied upon. It provides no useful information for application development.</span>
      * @return CategoryTreeNode|null
     */
     public function getRootCategoryNode(): ?CategoryTreeNode {
@@ -134,7 +126,7 @@ class CategoryTree implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfPrimitiveValues('applicableMarketplaceIds', $this->getApplicableMarketplaceIds());
+        $writer->writeCollectionOfEnumValues('applicableMarketplaceIds', $this->getApplicableMarketplaceIds());
         $writer->writeStringValue('categoryTreeId', $this->getCategoryTreeId());
         $writer->writeStringValue('categoryTreeVersion', $this->getCategoryTreeVersion());
         $writer->writeObjectValue('rootCategoryNode', $this->getRootCategoryNode());
@@ -151,7 +143,7 @@ class CategoryTree implements AdditionalDataHolder, Parsable
 
     /**
      * Sets the applicableMarketplaceIds property value. A list of one or more identifiers of the eBay marketplaces that use this category tree.
-     * @param array<string>|null $value Value to set for the applicableMarketplaceIds property.
+     * @param array<MarketplaceIdEnum>|null $value Value to set for the applicableMarketplaceIds property.
     */
     public function setApplicableMarketplaceIds(?array $value): void {
         $this->applicableMarketplaceIds = $value;
@@ -174,7 +166,7 @@ class CategoryTree implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the rootCategoryNode property value. This type contains information about all nodes of a category tree or subtree hierarchy, including and below the specified <b>Category</b>, down to the leaf nodes. It is a recursive structure.
+     * Sets the rootCategoryNode property value. Contains details of all nodes of the category tree hierarchy, starting with the root node and down to the leaf nodes. This is a recursive structure.<br><br><span class="tablenote"> <strong>Note:</strong> The root node of a full default category tree includes the <b>categoryId</b> field, but its value should not be relied upon. It provides no useful information for application development.</span>
      * @param CategoryTreeNode|null $value Value to set for the rootCategoryNode property.
     */
     public function setRootCategoryNode(?CategoryTreeNode $value): void {

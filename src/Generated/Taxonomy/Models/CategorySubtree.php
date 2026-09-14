@@ -32,7 +32,7 @@ class CategorySubtree implements AdditionalDataHolder, Parsable
     private ?array $additionalData = null;
     
     /**
-     * @var CategoryTreeNode|null $categorySubtreeNode This type contains information about all nodes of a category tree or subtree hierarchy, including and below the specified <b>Category</b>, down to the leaf nodes. It is a recursive structure.
+     * @var CategoryTreeNode|null $categorySubtreeNode Contains details of all nodes of the category subtree hierarchy below a specified node. This is a recursive structure.
     */
     private ?CategoryTreeNode $categorySubtreeNode = null;
     
@@ -71,7 +71,7 @@ class CategorySubtree implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the categorySubtreeNode property value. This type contains information about all nodes of a category tree or subtree hierarchy, including and below the specified <b>Category</b>, down to the leaf nodes. It is a recursive structure.
+     * Gets the categorySubtreeNode property value. Contains details of all nodes of the category subtree hierarchy below a specified node. This is a recursive structure.
      * @return CategoryTreeNode|null
     */
     public function getCategorySubtreeNode(): ?CategoryTreeNode {
@@ -127,7 +127,7 @@ class CategorySubtree implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the categorySubtreeNode property value. This type contains information about all nodes of a category tree or subtree hierarchy, including and below the specified <b>Category</b>, down to the leaf nodes. It is a recursive structure.
+     * Sets the categorySubtreeNode property value. Contains details of all nodes of the category subtree hierarchy below a specified node. This is a recursive structure.
      * @param CategoryTreeNode|null $value Value to set for the categorySubtreeNode property.
     */
     public function setCategorySubtreeNode(?CategoryTreeNode $value): void {

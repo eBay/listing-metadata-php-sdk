@@ -32,7 +32,7 @@ class AspectValue implements AdditionalDataHolder, Parsable
     private ?array $additionalData = null;
     
     /**
-     * @var string|null $localizedValue The localized value of this aspect.<br><br>          <span class="tablenote"> <strong>Note:</strong> This value is always localized for the specified marketplace. </span>
+     * @var string|null $localizedValue The localized value of this aspect.<br><br><span class="tablenote"> <strong>Note:</strong> This value is always localized for the specified marketplace. </span>
     */
     private ?string $localizedValue = null;
     
@@ -78,7 +78,7 @@ class AspectValue implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the localizedValue property value. The localized value of this aspect.<br><br>          <span class="tablenote"> <strong>Note:</strong> This value is always localized for the specified marketplace. </span>
+     * Gets the localizedValue property value. The localized value of this aspect.<br><br><span class="tablenote"> <strong>Note:</strong> This value is always localized for the specified marketplace. </span>
      * @return string|null
     */
     public function getLocalizedValue(): ?string {
@@ -112,7 +112,7 @@ class AspectValue implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the localizedValue property value. The localized value of this aspect.<br><br>          <span class="tablenote"> <strong>Note:</strong> This value is always localized for the specified marketplace. </span>
+     * Sets the localizedValue property value. The localized value of this aspect.<br><br><span class="tablenote"> <strong>Note:</strong> This value is always localized for the specified marketplace. </span>
      * @param string|null $value Value to set for the localizedValue property.
     */
     public function setLocalizedValue(?string $value): void {

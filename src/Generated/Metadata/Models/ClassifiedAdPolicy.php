@@ -62,12 +62,12 @@ class ClassifiedAdPolicy implements AdditionalDataHolder, Parsable
     private ?ClassifiedAdBestOfferEnabledEnum $classifiedAdBestOfferEnabled = null;
     
     /**
-     * @var bool|null $classifiedAdCompanyNameEnabled Indicates whether this category supports including a company name in the seller's contact information. This element is for <b>For Sale By Owner</b> listings. 
+     * @var bool|null $classifiedAdCompanyNameEnabled Indicates whether this category supports including a company name in the seller's contact information. This element is for For Sale By Owner listings.
     */
     private ?bool $classifiedAdCompanyNameEnabled = null;
     
     /**
-     * @var bool|null $classifiedAdContactByAddressEnabled Indicates whether this category supports including an address in the seller's contact information. This element is for <b>For Sale By Owner</b> listings. 
+     * @var bool|null $classifiedAdContactByAddressEnabled Indicates whether this category supports including an address in the seller's contact information. This element is for For Sale By Owner listings.
     */
     private ?bool $classifiedAdContactByAddressEnabled = null;
     
@@ -82,7 +82,7 @@ class ClassifiedAdPolicy implements AdditionalDataHolder, Parsable
     private ?bool $classifiedAdContactByPhoneEnabled = null;
     
     /**
-     * @var bool|null $classifiedAdCounterOfferEnabled Indicates whether counter offers are allowed on Best offers for the category.
+     * @var bool|null $classifiedAdCounterOfferEnabled Indicates whether counter offers are allowed on Best Offers for most categories.
     */
     private ?bool $classifiedAdCounterOfferEnabled = null;
     
@@ -184,7 +184,7 @@ class ClassifiedAdPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the classifiedAdCompanyNameEnabled property value. Indicates whether this category supports including a company name in the seller's contact information. This element is for <b>For Sale By Owner</b> listings. 
+     * Gets the classifiedAdCompanyNameEnabled property value. Indicates whether this category supports including a company name in the seller's contact information. This element is for For Sale By Owner listings.
      * @return bool|null
     */
     public function getClassifiedAdCompanyNameEnabled(): ?bool {
@@ -192,7 +192,7 @@ class ClassifiedAdPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the classifiedAdContactByAddressEnabled property value. Indicates whether this category supports including an address in the seller's contact information. This element is for <b>For Sale By Owner</b> listings. 
+     * Gets the classifiedAdContactByAddressEnabled property value. Indicates whether this category supports including an address in the seller's contact information. This element is for For Sale By Owner listings.
      * @return bool|null
     */
     public function getClassifiedAdContactByAddressEnabled(): ?bool {
@@ -216,7 +216,7 @@ class ClassifiedAdPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the classifiedAdCounterOfferEnabled property value. Indicates whether counter offers are allowed on Best offers for the category.
+     * Gets the classifiedAdCounterOfferEnabled property value. Indicates whether counter offers are allowed on Best Offers for most categories.
      * @return bool|null
     */
     public function getClassifiedAdCounterOfferEnabled(): ?bool {
@@ -370,7 +370,7 @@ class ClassifiedAdPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the classifiedAdCompanyNameEnabled property value. Indicates whether this category supports including a company name in the seller's contact information. This element is for <b>For Sale By Owner</b> listings. 
+     * Sets the classifiedAdCompanyNameEnabled property value. Indicates whether this category supports including a company name in the seller's contact information. This element is for For Sale By Owner listings.
      * @param bool|null $value Value to set for the classifiedAdCompanyNameEnabled property.
     */
     public function setClassifiedAdCompanyNameEnabled(?bool $value): void {
@@ -378,7 +378,7 @@ class ClassifiedAdPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the classifiedAdContactByAddressEnabled property value. Indicates whether this category supports including an address in the seller's contact information. This element is for <b>For Sale By Owner</b> listings. 
+     * Sets the classifiedAdContactByAddressEnabled property value. Indicates whether this category supports including an address in the seller's contact information. This element is for For Sale By Owner listings.
      * @param bool|null $value Value to set for the classifiedAdContactByAddressEnabled property.
     */
     public function setClassifiedAdContactByAddressEnabled(?bool $value): void {
@@ -402,7 +402,7 @@ class ClassifiedAdPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the classifiedAdCounterOfferEnabled property value. Indicates whether counter offers are allowed on Best offers for the category.
+     * Sets the classifiedAdCounterOfferEnabled property value. Indicates whether counter offers are allowed on Best Offers for most categories.
      * @param bool|null $value Value to set for the classifiedAdCounterOfferEnabled property.
     */
     public function setClassifiedAdCounterOfferEnabled(?bool $value): void {

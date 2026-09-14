@@ -42,7 +42,7 @@ class Get_compatibility_propertiesRequestBuilderGetRequestConfiguration extends 
 
     /**
      * Instantiates a new Get_compatibility_propertiesRequestBuilderGetQueryParameters.
-     * @param string|null $category_id The unique identifier of an eBay category. This eBay category must be a valid eBay category on the specified eBay marketplace, and the category must support parts compatibility for cars, trucks, or motorcycles.<br><br> The <b>getAutomotivePartsCompatibilityPolicies</b> method of the Selling Metadata API can be used to retrieve all eBay categories for an eBay marketplace that support parts compatibility for vehicles.
+     * @param string|null $category_id The unique identifier of an eBay category. This eBay category must be a valid eBay category on the specified eBay marketplace, and the category must support parts compatibility for cars, trucks, or motorcycles.<br><br> The <a href="/api-docs/sell/metadata/resources/marketplace/methods/getAutomotivePartsCompatibilityPolicies" target="_blank">getAutomotivePartsCompatibilityPolicies</a> method of the Selling Metadata API can be used to retrieve all eBay categories for an eBay marketplace that support parts compatibility for vehicles.
      * @return Get_compatibility_propertiesRequestBuilderGetQueryParameters
     */
     public static function createQueryParameters(?string $category_id = null): Get_compatibility_propertiesRequestBuilderGetQueryParameters {

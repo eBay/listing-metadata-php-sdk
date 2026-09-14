@@ -42,7 +42,7 @@ class Get_default_category_tree_idRequestBuilderGetRequestConfiguration extends 
 
     /**
      * Instantiates a new Get_default_category_tree_idRequestBuilderGetQueryParameters.
-     * @param string|null $marketplace_id The unique identifier of the eBay marketplace for which the category tree ID is requested. For a list of supported marketplace IDs, see <a href="/api-docs/commerce/taxonomy/static/supportedmarketplaces.html">Marketplaces with Default Category Trees</a>.
+     * @param string|null $marketplace_id The unique identifier of the eBay marketplace for which the category tree ID is requested. For a list of supported marketplace IDs, see <a href="/api-docs/commerce/taxonomy/static/supportedmarketplaces.html" target="_blank">Marketplaces with Default Category Trees</a>.
      * @return Get_default_category_tree_idRequestBuilderGetQueryParameters
     */
     public static function createQueryParameters(?string $marketplace_id = null): Get_default_category_tree_idRequestBuilderGetQueryParameters {

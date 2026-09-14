@@ -16,6 +16,7 @@
 
 namespace EBay\ListingMetadata\Generated\Taxonomy\Category_tree\Item\Fetch_item_aspects;
 
+use EBay\ListingMetadata\Generated\Taxonomy\Models\Error;
 use EBay\ListingMetadata\Generated\Taxonomy\Models\GetCategoriesAspectResponse;
 use Exception;
 use Http\Promise\Promise;
@@ -51,7 +52,12 @@ class Fetch_item_aspectsRequestBuilder extends BaseRequestBuilder
     */
     public function get(?Fetch_item_aspectsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
-        return $this->requestAdapter->sendAsync($requestInfo, [GetCategoriesAspectResponse::class, 'createFromDiscriminatorValue'], null);
+        $errorMappings = [
+                '400' => [Error::class, 'createFromDiscriminatorValue'],
+                '404' => [Error::class, 'createFromDiscriminatorValue'],
+                '500' => [Error::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [GetCategoriesAspectResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**

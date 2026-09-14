@@ -42,7 +42,7 @@ class CharityOrg implements AdditionalDataHolder, Parsable
     private ?string $description = null;
     
     /**
-     * @var Location|null $location The location property
+     * @var Location|null $location The location details of the charitable organization.
     */
     private ?Location $location = null;
     
@@ -130,7 +130,7 @@ class CharityOrg implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the location property value. The location property
+     * Gets the location property value. The location details of the charitable organization.
      * @return Location|null
     */
     public function getLocation(): ?Location {
@@ -218,7 +218,7 @@ class CharityOrg implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the location property value. The location property
+     * Sets the location property value. The location details of the charitable organization.
      * @param Location|null $value Value to set for the location property.
     */
     public function setLocation(?Location $value): void {

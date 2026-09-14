@@ -33,7 +33,7 @@ class Product implements AdditionalDataHolder, Parsable
     private ?array $additionalData = null;
     
     /**
-     * @var array<Image>|null $additionalImages Contains information about  additional images associated with this product. For the primary image, see the <b>image</b> container.
+     * @var array<Image>|null $additionalImages This array is returned if the category product has additional images besides the primary image returned in the <strong>image</strong> container.
     */
     private ?array $additionalImages = null;
     
@@ -73,7 +73,7 @@ class Product implements AdditionalDataHolder, Parsable
     private ?array $gtin = null;
     
     /**
-     * @var Image|null $image This type contains information about a product image stored in eBay Picture Services (EPS).
+     * @var Image|null $image Contains information about the primary image of this product. For more images of this product, see the <strong>additionalImages</strong> container.
     */
     private ?Image $image = null;
     
@@ -88,12 +88,12 @@ class Product implements AdditionalDataHolder, Parsable
     private ?array $mpn = null;
     
     /**
-     * @var array<string>|null $otherApplicableCategoryIds A list of category IDs (other than the value of <b>primaryCategoryId</b>) for all the leaf categories to which this product might belong.
+     * @var array<string>|null $otherApplicableCategoryIds A list of category IDs (other than the value of <strong>primaryCategoryId</strong>) for all the leaf categories to which this product might belong.
     */
     private ?array $otherApplicableCategoryIds = null;
     
     /**
-     * @var string|null $primaryCategoryId The identifier of the leaf category that eBay recommends using to list this product, based on previous listings of similar products. Products in the eBay catalog are not automatically associated with any particular category, but using an inappropriate category can make it difficult for prospective buyers to find the product. For other possible categories that might be used, see <b>otherApplicableCategoryIds</b>.
+     * @var string|null $primaryCategoryId The identifier of the leaf category that eBay recommends using to list this product, based on previous listings of similar products. Products in the eBay catalog are not automatically associated with any particular category, but using an inappropriate category can make it difficult for prospective buyers to find the product. For other possible categories that might be used, see <strong>otherApplicableCategoryIds</strong>.
     */
     private ?string $primaryCategoryId = null;
     
@@ -142,7 +142,7 @@ class Product implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the additionalImages property value. Contains information about  additional images associated with this product. For the primary image, see the <b>image</b> container.
+     * Gets the additionalImages property value. This array is returned if the category product has additional images besides the primary image returned in the <strong>image</strong> container.
      * @return array<Image>|null
     */
     public function getAdditionalImages(): ?array {
@@ -275,7 +275,7 @@ class Product implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the image property value. This type contains information about a product image stored in eBay Picture Services (EPS).
+     * Gets the image property value. Contains information about the primary image of this product. For more images of this product, see the <strong>additionalImages</strong> container.
      * @return Image|null
     */
     public function getImage(): ?Image {
@@ -299,7 +299,7 @@ class Product implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the otherApplicableCategoryIds property value. A list of category IDs (other than the value of <b>primaryCategoryId</b>) for all the leaf categories to which this product might belong.
+     * Gets the otherApplicableCategoryIds property value. A list of category IDs (other than the value of <strong>primaryCategoryId</strong>) for all the leaf categories to which this product might belong.
      * @return array<string>|null
     */
     public function getOtherApplicableCategoryIds(): ?array {
@@ -307,7 +307,7 @@ class Product implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the primaryCategoryId property value. The identifier of the leaf category that eBay recommends using to list this product, based on previous listings of similar products. Products in the eBay catalog are not automatically associated with any particular category, but using an inappropriate category can make it difficult for prospective buyers to find the product. For other possible categories that might be used, see <b>otherApplicableCategoryIds</b>.
+     * Gets the primaryCategoryId property value. The identifier of the leaf category that eBay recommends using to list this product, based on previous listings of similar products. Products in the eBay catalog are not automatically associated with any particular category, but using an inappropriate category can make it difficult for prospective buyers to find the product. For other possible categories that might be used, see <strong>otherApplicableCategoryIds</strong>.
      * @return string|null
     */
     public function getPrimaryCategoryId(): ?string {
@@ -380,7 +380,7 @@ class Product implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the additionalImages property value. Contains information about  additional images associated with this product. For the primary image, see the <b>image</b> container.
+     * Sets the additionalImages property value. This array is returned if the category product has additional images besides the primary image returned in the <strong>image</strong> container.
      * @param array<Image>|null $value Value to set for the additionalImages property.
     */
     public function setAdditionalImages(?array $value): void {
@@ -444,7 +444,7 @@ class Product implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the image property value. This type contains information about a product image stored in eBay Picture Services (EPS).
+     * Sets the image property value. Contains information about the primary image of this product. For more images of this product, see the <strong>additionalImages</strong> container.
      * @param Image|null $value Value to set for the image property.
     */
     public function setImage(?Image $value): void {
@@ -468,7 +468,7 @@ class Product implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the otherApplicableCategoryIds property value. A list of category IDs (other than the value of <b>primaryCategoryId</b>) for all the leaf categories to which this product might belong.
+     * Sets the otherApplicableCategoryIds property value. A list of category IDs (other than the value of <strong>primaryCategoryId</strong>) for all the leaf categories to which this product might belong.
      * @param array<string>|null $value Value to set for the otherApplicableCategoryIds property.
     */
     public function setOtherApplicableCategoryIds(?array $value): void {
@@ -476,7 +476,7 @@ class Product implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the primaryCategoryId property value. The identifier of the leaf category that eBay recommends using to list this product, based on previous listings of similar products. Products in the eBay catalog are not automatically associated with any particular category, but using an inappropriate category can make it difficult for prospective buyers to find the product. For other possible categories that might be used, see <b>otherApplicableCategoryIds</b>.
+     * Sets the primaryCategoryId property value. The identifier of the leaf category that eBay recommends using to list this product, based on previous listings of similar products. Products in the eBay catalog are not automatically associated with any particular category, but using an inappropriate category can make it difficult for prospective buyers to find the product. For other possible categories that might be used, see <strong>otherApplicableCategoryIds</strong>.
      * @param string|null $value Value to set for the primaryCategoryId property.
     */
     public function setPrimaryCategoryId(?string $value): void {

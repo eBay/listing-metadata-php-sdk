@@ -32,12 +32,12 @@ class CategoryPolicy implements AdditionalDataHolder, Parsable
     private ?array $additionalData = null;
     
     /**
-     * @var bool|null $autoPayEnabled If this field is returned as <code>true</code>, the corresponding category supports immediate payment for listings. The immediate payment feature is applicable to fixed-price listings, to auction listings with the 'Buy It Now' option enabled, and for a motor vehicle listing that requires an initial deposit. If the immediate payment feature is enabled for a listing, the buyer must pay immediately after clicking the 'Buy it Now' button. <p>This field is only returned when <code>true</code> (not returned when false).</p>
+     * @var bool|null $autoPayEnabled If this field is returned as true, the corresponding category supports immediate payment for listings. The immediate payment feature is applicable to fixed-price listings, to auction listings with the Buy It Now option enabled, and for a motor vehicle listing that requires an initial deposit. If the immediate payment feature is enabled for a listing, the buyer must pay immediately after clicking the 'Buy it Now' button. This field is only returned when true.
     */
     private ?bool $autoPayEnabled = null;
     
     /**
-     * @var bool|null $b2bVatEnabled If this field is returned as <code>true</code>, the corresponding category supports business-to-business (B2B) VAT listings. If this field is not present, the category does not have B2B VAT listings. This feature is applicable to the eBay Germany (DE), Austria (AT), and Switzerland (CH) sites only.<p>This field is only returned when <code>true</code> (not returned when false).</p>
+     * @var bool|null $b2bVatEnabled If this field is returned as true, the corresponding category supports business-to-business (B2B) VAT listings. If this field is not present, the category does not B2B VAT listings. This field is not returned when false. This feature is applicable to the eBay Germany (DE), Austria (AT), and Switzerland (CH) sites only.
     */
     private ?bool $b2bVatEnabled = null;
     
@@ -57,12 +57,12 @@ class CategoryPolicy implements AdditionalDataHolder, Parsable
     private ?ProductIdentiferEnabledEnum $eanSupport = null;
     
     /**
-     * @var bool|null $expired If this field is returned as <code>true</code>, the corresponding category is no longer a valid eBay category on the site, and items may not be listed in this category. You can use the <a href="/api-docs/sell/taxonomy/resources/category_tree/methods/getExpiredCategories" target="_blank">getExpiredCategories</a> method (of the <b>Taxonomy API</b>) to find the leaf category that replaced the expired category. <p>This field is only returned when <code>true</code> (not returned when false).</p>
+     * @var bool|null $expired If this field is returned as true, the corresponding category is no longer a valid eBay category on the site, and items may not be listed in this category. This field is not returned when false.
     */
     private ?bool $expired = null;
     
     /**
-     * @var bool|null $intangibleEnabled If this field is returned as <code>true</code>, the category supports the listing of intangible goods or services.
+     * @var bool|null $intangibleEnabled If this field is returned as true, the category supports the listing of intangible goods or services.
     */
     private ?bool $intangibleEnabled = null;
     
@@ -77,12 +77,12 @@ class CategoryPolicy implements AdditionalDataHolder, Parsable
     private ?bool $lsd = null;
     
     /**
-     * @var float|null $minimumReservePrice Indicates the Minimum Reserve Price for an auction listing in this category. If there is no Minimum Reserve Price, a value of <code>0.0</code> is returned in this field.
+     * @var float|null $minimumReservePrice Indicates the Minimum Reserve Price for an auction listing in this category. If there is no Minimum Reserve Price, a value of 0.0 is returned in this field.
     */
     private ?float $minimumReservePrice = null;
     
     /**
-     * @var bool|null $orpa This field (Override Reserve Price Allowed) is returned as <code>true</code> if the eBay marketplace's default policy is to allow reserve prices for auction listings, but the corresponding category does not allow a reserve price. <p><span class="tablenote"><span style="color:#004680"><strong>Note: </strong>This field is not returned if the marketplace does not permit reserve prices.</span></p>
+     * @var bool|null $orpa This field (Override Reserve Price Allowed) is returned as true if the eBay marketplace's default policy is to allow reserve prices for auction listings, but the corresponding category does not allow a reserve price. This field is not returned if the marketplace does not permit reserve prices.
     */
     private ?bool $orpa = null;
     
@@ -97,12 +97,12 @@ class CategoryPolicy implements AdditionalDataHolder, Parsable
     private ?array $paymentMethods = null;
     
     /**
-     * @var bool|null $reduceReserveAllowed If this field (Reduce Reserve Allowed) is <code>true</code>, the corresponding leaf category allows the seller to reduce an item's reserve price. If false, this field is not returned in the response and the corresponding leaf category on the site do not normally allow sellers to reduce an item's reserve price.<p>This field is only returned when <code>true</code> (not returned when false).</p>
+     * @var bool|null $reduceReserveAllowed If true, ReduceReserveAllowed indicates that all categories on the site allow the seller to reduce an item's reserve price. If false, this field is not returned in the response and all categories on the site do not normally allow sellers to reduce an item's reserve price. The Category ORRA (override reduce reserve price) field can override (or toggle) the reserve price reduction setting for a given category.
     */
     private ?bool $reduceReserveAllowed = null;
     
     /**
-     * @var bool|null $reservePriceAllowed This field indicates whether reserve prices are allowed for auction listings in this category. This field returns as <code>true</code> when the category supports reserve prices, or <code>false</code> if the eBay marketplace does not permit reserve prices or the category override blocks reserve prices (<b>orpa</b> is <code>true</code>).
+     * @var bool|null $reservePriceAllowed This field indicates whether reserve prices are allowed for auction listings in this category. This field returns as true when the category supports reserve prices, or false if the eBay marketplace does not permit reserve prices or the category override blocks reserve prices (orpa is true).
     */
     private ?bool $reservePriceAllowed = null;
     
@@ -117,7 +117,7 @@ class CategoryPolicy implements AdditionalDataHolder, Parsable
     private ?bool $valueCategory = null;
     
     /**
-     * @var bool|null $virtual If this field is returned as <code>true</code>, the corresponding category is an eBay virtual category, a category in which items may not be listed.<p>This field is only returned when <code>true</code> (not returned when false).</p>
+     * @var bool|null $virtual If this field is returned as true, the corresponding category is an eBay virtual category, a category in which items may not be listed. This field is not returned when false.
     */
     private ?bool $virtual = null;
     
@@ -146,7 +146,7 @@ class CategoryPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the autoPayEnabled property value. If this field is returned as <code>true</code>, the corresponding category supports immediate payment for listings. The immediate payment feature is applicable to fixed-price listings, to auction listings with the 'Buy It Now' option enabled, and for a motor vehicle listing that requires an initial deposit. If the immediate payment feature is enabled for a listing, the buyer must pay immediately after clicking the 'Buy it Now' button. <p>This field is only returned when <code>true</code> (not returned when false).</p>
+     * Gets the autoPayEnabled property value. If this field is returned as true, the corresponding category supports immediate payment for listings. The immediate payment feature is applicable to fixed-price listings, to auction listings with the Buy It Now option enabled, and for a motor vehicle listing that requires an initial deposit. If the immediate payment feature is enabled for a listing, the buyer must pay immediately after clicking the 'Buy it Now' button. This field is only returned when true.
      * @return bool|null
     */
     public function getAutoPayEnabled(): ?bool {
@@ -154,7 +154,7 @@ class CategoryPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the b2bVatEnabled property value. If this field is returned as <code>true</code>, the corresponding category supports business-to-business (B2B) VAT listings. If this field is not present, the category does not have B2B VAT listings. This feature is applicable to the eBay Germany (DE), Austria (AT), and Switzerland (CH) sites only.<p>This field is only returned when <code>true</code> (not returned when false).</p>
+     * Gets the b2bVatEnabled property value. If this field is returned as true, the corresponding category supports business-to-business (B2B) VAT listings. If this field is not present, the category does not B2B VAT listings. This field is not returned when false. This feature is applicable to the eBay Germany (DE), Austria (AT), and Switzerland (CH) sites only.
      * @return bool|null
     */
     public function getB2bVatEnabled(): ?bool {
@@ -186,7 +186,7 @@ class CategoryPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the expired property value. If this field is returned as <code>true</code>, the corresponding category is no longer a valid eBay category on the site, and items may not be listed in this category. You can use the <a href="/api-docs/sell/taxonomy/resources/category_tree/methods/getExpiredCategories" target="_blank">getExpiredCategories</a> method (of the <b>Taxonomy API</b>) to find the leaf category that replaced the expired category. <p>This field is only returned when <code>true</code> (not returned when false).</p>
+     * Gets the expired property value. If this field is returned as true, the corresponding category is no longer a valid eBay category on the site, and items may not be listed in this category. This field is not returned when false.
      * @return bool|null
     */
     public function getExpired(): ?bool {
@@ -222,7 +222,7 @@ class CategoryPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the intangibleEnabled property value. If this field is returned as <code>true</code>, the category supports the listing of intangible goods or services.
+     * Gets the intangibleEnabled property value. If this field is returned as true, the category supports the listing of intangible goods or services.
      * @return bool|null
     */
     public function getIntangibleEnabled(): ?bool {
@@ -246,7 +246,7 @@ class CategoryPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the minimumReservePrice property value. Indicates the Minimum Reserve Price for an auction listing in this category. If there is no Minimum Reserve Price, a value of <code>0.0</code> is returned in this field.
+     * Gets the minimumReservePrice property value. Indicates the Minimum Reserve Price for an auction listing in this category. If there is no Minimum Reserve Price, a value of 0.0 is returned in this field.
      * @return float|null
     */
     public function getMinimumReservePrice(): ?float {
@@ -254,7 +254,7 @@ class CategoryPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the orpa property value. This field (Override Reserve Price Allowed) is returned as <code>true</code> if the eBay marketplace's default policy is to allow reserve prices for auction listings, but the corresponding category does not allow a reserve price. <p><span class="tablenote"><span style="color:#004680"><strong>Note: </strong>This field is not returned if the marketplace does not permit reserve prices.</span></p>
+     * Gets the orpa property value. This field (Override Reserve Price Allowed) is returned as true if the eBay marketplace's default policy is to allow reserve prices for auction listings, but the corresponding category does not allow a reserve price. This field is not returned if the marketplace does not permit reserve prices.
      * @return bool|null
     */
     public function getOrpa(): ?bool {
@@ -278,7 +278,7 @@ class CategoryPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the reduceReserveAllowed property value. If this field (Reduce Reserve Allowed) is <code>true</code>, the corresponding leaf category allows the seller to reduce an item's reserve price. If false, this field is not returned in the response and the corresponding leaf category on the site do not normally allow sellers to reduce an item's reserve price.<p>This field is only returned when <code>true</code> (not returned when false).</p>
+     * Gets the reduceReserveAllowed property value. If true, ReduceReserveAllowed indicates that all categories on the site allow the seller to reduce an item's reserve price. If false, this field is not returned in the response and all categories on the site do not normally allow sellers to reduce an item's reserve price. The Category ORRA (override reduce reserve price) field can override (or toggle) the reserve price reduction setting for a given category.
      * @return bool|null
     */
     public function getReduceReserveAllowed(): ?bool {
@@ -286,7 +286,7 @@ class CategoryPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the reservePriceAllowed property value. This field indicates whether reserve prices are allowed for auction listings in this category. This field returns as <code>true</code> when the category supports reserve prices, or <code>false</code> if the eBay marketplace does not permit reserve prices or the category override blocks reserve prices (<b>orpa</b> is <code>true</code>).
+     * Gets the reservePriceAllowed property value. This field indicates whether reserve prices are allowed for auction listings in this category. This field returns as true when the category supports reserve prices, or false if the eBay marketplace does not permit reserve prices or the category override blocks reserve prices (orpa is true).
      * @return bool|null
     */
     public function getReservePriceAllowed(): ?bool {
@@ -310,7 +310,7 @@ class CategoryPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the virtual property value. If this field is returned as <code>true</code>, the corresponding category is an eBay virtual category, a category in which items may not be listed.<p>This field is only returned when <code>true</code> (not returned when false).</p>
+     * Gets the virtual property value. If this field is returned as true, the corresponding category is an eBay virtual category, a category in which items may not be listed. This field is not returned when false.
      * @return bool|null
     */
     public function getVirtual(): ?bool {
@@ -352,7 +352,7 @@ class CategoryPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the autoPayEnabled property value. If this field is returned as <code>true</code>, the corresponding category supports immediate payment for listings. The immediate payment feature is applicable to fixed-price listings, to auction listings with the 'Buy It Now' option enabled, and for a motor vehicle listing that requires an initial deposit. If the immediate payment feature is enabled for a listing, the buyer must pay immediately after clicking the 'Buy it Now' button. <p>This field is only returned when <code>true</code> (not returned when false).</p>
+     * Sets the autoPayEnabled property value. If this field is returned as true, the corresponding category supports immediate payment for listings. The immediate payment feature is applicable to fixed-price listings, to auction listings with the Buy It Now option enabled, and for a motor vehicle listing that requires an initial deposit. If the immediate payment feature is enabled for a listing, the buyer must pay immediately after clicking the 'Buy it Now' button. This field is only returned when true.
      * @param bool|null $value Value to set for the autoPayEnabled property.
     */
     public function setAutoPayEnabled(?bool $value): void {
@@ -360,7 +360,7 @@ class CategoryPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the b2bVatEnabled property value. If this field is returned as <code>true</code>, the corresponding category supports business-to-business (B2B) VAT listings. If this field is not present, the category does not have B2B VAT listings. This feature is applicable to the eBay Germany (DE), Austria (AT), and Switzerland (CH) sites only.<p>This field is only returned when <code>true</code> (not returned when false).</p>
+     * Sets the b2bVatEnabled property value. If this field is returned as true, the corresponding category supports business-to-business (B2B) VAT listings. If this field is not present, the category does not B2B VAT listings. This field is not returned when false. This feature is applicable to the eBay Germany (DE), Austria (AT), and Switzerland (CH) sites only.
      * @param bool|null $value Value to set for the b2bVatEnabled property.
     */
     public function setB2bVatEnabled(?bool $value): void {
@@ -392,7 +392,7 @@ class CategoryPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the expired property value. If this field is returned as <code>true</code>, the corresponding category is no longer a valid eBay category on the site, and items may not be listed in this category. You can use the <a href="/api-docs/sell/taxonomy/resources/category_tree/methods/getExpiredCategories" target="_blank">getExpiredCategories</a> method (of the <b>Taxonomy API</b>) to find the leaf category that replaced the expired category. <p>This field is only returned when <code>true</code> (not returned when false).</p>
+     * Sets the expired property value. If this field is returned as true, the corresponding category is no longer a valid eBay category on the site, and items may not be listed in this category. This field is not returned when false.
      * @param bool|null $value Value to set for the expired property.
     */
     public function setExpired(?bool $value): void {
@@ -400,7 +400,7 @@ class CategoryPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the intangibleEnabled property value. If this field is returned as <code>true</code>, the category supports the listing of intangible goods or services.
+     * Sets the intangibleEnabled property value. If this field is returned as true, the category supports the listing of intangible goods or services.
      * @param bool|null $value Value to set for the intangibleEnabled property.
     */
     public function setIntangibleEnabled(?bool $value): void {
@@ -424,7 +424,7 @@ class CategoryPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the minimumReservePrice property value. Indicates the Minimum Reserve Price for an auction listing in this category. If there is no Minimum Reserve Price, a value of <code>0.0</code> is returned in this field.
+     * Sets the minimumReservePrice property value. Indicates the Minimum Reserve Price for an auction listing in this category. If there is no Minimum Reserve Price, a value of 0.0 is returned in this field.
      * @param float|null $value Value to set for the minimumReservePrice property.
     */
     public function setMinimumReservePrice(?float $value): void {
@@ -432,7 +432,7 @@ class CategoryPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the orpa property value. This field (Override Reserve Price Allowed) is returned as <code>true</code> if the eBay marketplace's default policy is to allow reserve prices for auction listings, but the corresponding category does not allow a reserve price. <p><span class="tablenote"><span style="color:#004680"><strong>Note: </strong>This field is not returned if the marketplace does not permit reserve prices.</span></p>
+     * Sets the orpa property value. This field (Override Reserve Price Allowed) is returned as true if the eBay marketplace's default policy is to allow reserve prices for auction listings, but the corresponding category does not allow a reserve price. This field is not returned if the marketplace does not permit reserve prices.
      * @param bool|null $value Value to set for the orpa property.
     */
     public function setOrpa(?bool $value): void {
@@ -456,7 +456,7 @@ class CategoryPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the reduceReserveAllowed property value. If this field (Reduce Reserve Allowed) is <code>true</code>, the corresponding leaf category allows the seller to reduce an item's reserve price. If false, this field is not returned in the response and the corresponding leaf category on the site do not normally allow sellers to reduce an item's reserve price.<p>This field is only returned when <code>true</code> (not returned when false).</p>
+     * Sets the reduceReserveAllowed property value. If true, ReduceReserveAllowed indicates that all categories on the site allow the seller to reduce an item's reserve price. If false, this field is not returned in the response and all categories on the site do not normally allow sellers to reduce an item's reserve price. The Category ORRA (override reduce reserve price) field can override (or toggle) the reserve price reduction setting for a given category.
      * @param bool|null $value Value to set for the reduceReserveAllowed property.
     */
     public function setReduceReserveAllowed(?bool $value): void {
@@ -464,7 +464,7 @@ class CategoryPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the reservePriceAllowed property value. This field indicates whether reserve prices are allowed for auction listings in this category. This field returns as <code>true</code> when the category supports reserve prices, or <code>false</code> if the eBay marketplace does not permit reserve prices or the category override blocks reserve prices (<b>orpa</b> is <code>true</code>).
+     * Sets the reservePriceAllowed property value. This field indicates whether reserve prices are allowed for auction listings in this category. This field returns as true when the category supports reserve prices, or false if the eBay marketplace does not permit reserve prices or the category override blocks reserve prices (orpa is true).
      * @param bool|null $value Value to set for the reservePriceAllowed property.
     */
     public function setReservePriceAllowed(?bool $value): void {
@@ -488,7 +488,7 @@ class CategoryPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the virtual property value. If this field is returned as <code>true</code>, the corresponding category is an eBay virtual category, a category in which items may not be listed.<p>This field is only returned when <code>true</code> (not returned when false).</p>
+     * Sets the virtual property value. If this field is returned as true, the corresponding category is an eBay virtual category, a category in which items may not be listed. This field is not returned when false.
      * @param bool|null $value Value to set for the virtual property.
     */
     public function setVirtual(?bool $value): void {

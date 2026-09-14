@@ -22,7 +22,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 /**
- * This type defines the category ID and property name for which to retrieve values.
+ * This type defines the request fields used in the <b>getCompatibilityPropertyValues</b> method.
 */
 class PropertyValuesRequest implements AdditionalDataHolder, Parsable 
 {

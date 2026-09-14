@@ -29,12 +29,12 @@ class Location implements AdditionalDataHolder, Parsable
     private ?array $additionalData = null;
     
     /**
-     * @var Address|null $address The physical location of the item.
+     * @var Address|null $address The address of the charitable organization.
     */
     private ?Address $address = null;
     
     /**
-     * @var GeoCoordinates|null $geoCoordinates Defines the format of a geographic coordinate.
+     * @var GeoCoordinates|null $geoCoordinates The geo-coordinates of the charitable organization.
     */
     private ?GeoCoordinates $geoCoordinates = null;
     
@@ -63,7 +63,7 @@ class Location implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the address property value. The physical location of the item.
+     * Gets the address property value. The address of the charitable organization.
      * @return Address|null
     */
     public function getAddress(): ?Address {
@@ -83,7 +83,7 @@ class Location implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the geoCoordinates property value. Defines the format of a geographic coordinate.
+     * Gets the geoCoordinates property value. The geo-coordinates of the charitable organization.
      * @return GeoCoordinates|null
     */
     public function getGeoCoordinates(): ?GeoCoordinates {
@@ -109,7 +109,7 @@ class Location implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the address property value. The physical location of the item.
+     * Sets the address property value. The address of the charitable organization.
      * @param Address|null $value Value to set for the address property.
     */
     public function setAddress(?Address $value): void {
@@ -117,7 +117,7 @@ class Location implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the geoCoordinates property value. Defines the format of a geographic coordinate.
+     * Sets the geoCoordinates property value. The geo-coordinates of the charitable organization.
      * @param GeoCoordinates|null $value Value to set for the geoCoordinates property.
     */
     public function setGeoCoordinates(?GeoCoordinates $value): void {

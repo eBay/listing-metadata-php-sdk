@@ -32,17 +32,17 @@ class AspectValueDistribution implements AdditionalDataHolder, Parsable
     private ?array $additionalData = null;
     
     /**
-     * @var string|null $localizedAspectValue The localized value of the category aspect identified by <b>refinement.aspectDistributions.localizedAspectName</b>.
+     * @var string|null $localizedAspectValue The localized value of the category aspect identified by <strong>refinement.aspectDistributions.localizedAspectName</strong>.
     */
     private ?string $localizedAspectValue = null;
     
     /**
-     * @var int|null $matchCount The number of times the value of <b>localizedAspectValue</b> has been used for eBay product listings. By comparing this quantity to the <b>matchCount</b> for other values of the same aspect, you can present a histogram of the values to sellers, who can use that information to select which aspect value is most appropriate for their product. You can then include the user-selected value in the the <b>search</b> call's <b>aspect_filter</b> parameter to refine your search.
+     * @var int|null $matchCount The number of times the value of <strong>localizedAspectValue</strong> has been used for eBay product listings. By comparing this quantity to the <strong>matchCount</strong> for other values of the same aspect, you can present a histogram of the values to sellers, who can use that information to select which aspect value is most appropriate for their product. You can then include the user-selected value in the the <strong>search</strong> call's <strong>aspect_filter</strong> parameter to refine your search.
     */
     private ?int $matchCount = null;
     
     /**
-     * @var string|null $refinementHref A HATEOAS reference that further refines the search with this particular <b>localizedAspectValue</b>.
+     * @var string|null $refinementHref A HATEOAS reference that further refines the search with this particular <strong>localizedAspectValue</strong>.
     */
     private ?string $refinementHref = null;
     
@@ -84,7 +84,7 @@ class AspectValueDistribution implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the localizedAspectValue property value. The localized value of the category aspect identified by <b>refinement.aspectDistributions.localizedAspectName</b>.
+     * Gets the localizedAspectValue property value. The localized value of the category aspect identified by <strong>refinement.aspectDistributions.localizedAspectName</strong>.
      * @return string|null
     */
     public function getLocalizedAspectValue(): ?string {
@@ -92,7 +92,7 @@ class AspectValueDistribution implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the matchCount property value. The number of times the value of <b>localizedAspectValue</b> has been used for eBay product listings. By comparing this quantity to the <b>matchCount</b> for other values of the same aspect, you can present a histogram of the values to sellers, who can use that information to select which aspect value is most appropriate for their product. You can then include the user-selected value in the the <b>search</b> call's <b>aspect_filter</b> parameter to refine your search.
+     * Gets the matchCount property value. The number of times the value of <strong>localizedAspectValue</strong> has been used for eBay product listings. By comparing this quantity to the <strong>matchCount</strong> for other values of the same aspect, you can present a histogram of the values to sellers, who can use that information to select which aspect value is most appropriate for their product. You can then include the user-selected value in the the <strong>search</strong> call's <strong>aspect_filter</strong> parameter to refine your search.
      * @return int|null
     */
     public function getMatchCount(): ?int {
@@ -100,7 +100,7 @@ class AspectValueDistribution implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the refinementHref property value. A HATEOAS reference that further refines the search with this particular <b>localizedAspectValue</b>.
+     * Gets the refinementHref property value. A HATEOAS reference that further refines the search with this particular <strong>localizedAspectValue</strong>.
      * @return string|null
     */
     public function getRefinementHref(): ?string {
@@ -127,7 +127,7 @@ class AspectValueDistribution implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the localizedAspectValue property value. The localized value of the category aspect identified by <b>refinement.aspectDistributions.localizedAspectName</b>.
+     * Sets the localizedAspectValue property value. The localized value of the category aspect identified by <strong>refinement.aspectDistributions.localizedAspectName</strong>.
      * @param string|null $value Value to set for the localizedAspectValue property.
     */
     public function setLocalizedAspectValue(?string $value): void {
@@ -135,7 +135,7 @@ class AspectValueDistribution implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the matchCount property value. The number of times the value of <b>localizedAspectValue</b> has been used for eBay product listings. By comparing this quantity to the <b>matchCount</b> for other values of the same aspect, you can present a histogram of the values to sellers, who can use that information to select which aspect value is most appropriate for their product. You can then include the user-selected value in the the <b>search</b> call's <b>aspect_filter</b> parameter to refine your search.
+     * Sets the matchCount property value. The number of times the value of <strong>localizedAspectValue</strong> has been used for eBay product listings. By comparing this quantity to the <strong>matchCount</strong> for other values of the same aspect, you can present a histogram of the values to sellers, who can use that information to select which aspect value is most appropriate for their product. You can then include the user-selected value in the the <strong>search</strong> call's <strong>aspect_filter</strong> parameter to refine your search.
      * @param int|null $value Value to set for the matchCount property.
     */
     public function setMatchCount(?int $value): void {
@@ -143,7 +143,7 @@ class AspectValueDistribution implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the refinementHref property value. A HATEOAS reference that further refines the search with this particular <b>localizedAspectValue</b>.
+     * Sets the refinementHref property value. A HATEOAS reference that further refines the search with this particular <strong>localizedAspectValue</strong>.
      * @param string|null $value Value to set for the refinementHref property.
     */
     public function setRefinementHref(?string $value): void {

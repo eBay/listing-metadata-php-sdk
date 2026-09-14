@@ -32,7 +32,7 @@ class GetCompatibilityMetadataResponse implements AdditionalDataHolder, Parsable
     private ?array $additionalData = null;
     
     /**
-     * @var array<CompatibilityProperty>|null $compatibilityProperties This container consists of an array of all compatible vehicle properties applicable to the specified eBay marketplace and eBay category ID.
+     * @var array<CompatibilityProperty>|null $compatibilityProperties An array of all compatible vehicle properties applicable to the specified eBay marketplace and eBay category ID.
     */
     private ?array $compatibilityProperties = null;
     
@@ -61,7 +61,7 @@ class GetCompatibilityMetadataResponse implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the compatibilityProperties property value. This container consists of an array of all compatible vehicle properties applicable to the specified eBay marketplace and eBay category ID.
+     * Gets the compatibilityProperties property value. An array of all compatible vehicle properties applicable to the specified eBay marketplace and eBay category ID.
      * @return array<CompatibilityProperty>|null
     */
     public function getCompatibilityProperties(): ?array {
@@ -97,7 +97,7 @@ class GetCompatibilityMetadataResponse implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the compatibilityProperties property value. This container consists of an array of all compatible vehicle properties applicable to the specified eBay marketplace and eBay category ID.
+     * Sets the compatibilityProperties property value. An array of all compatible vehicle properties applicable to the specified eBay marketplace and eBay category ID.
      * @param array<CompatibilityProperty>|null $value Value to set for the compatibilityProperties property.
     */
     public function setCompatibilityProperties(?array $value): void {

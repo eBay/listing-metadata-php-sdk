@@ -17,6 +17,7 @@
 namespace EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_category_policies;
 
 use EBay\ListingMetadata\Generated\Metadata\Models\CategoryPolicyResponse;
+use EBay\ListingMetadata\Generated\Metadata\Models\Error;
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -51,7 +52,12 @@ class Get_category_policiesRequestBuilder extends BaseRequestBuilder
     */
     public function get(?Get_category_policiesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
-        return $this->requestAdapter->sendAsync($requestInfo, [CategoryPolicyResponse::class, 'createFromDiscriminatorValue'], null);
+        $errorMappings = [
+                '400' => [Error::class, 'createFromDiscriminatorValue'],
+                '404' => [Error::class, 'createFromDiscriminatorValue'],
+                '500' => [Error::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [CategoryPolicyResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**

@@ -21,6 +21,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * The base response type of the <b>fetchItemAspects</b> method.
+*/
 class GetCategoriesAspectResponse implements AdditionalDataHolder, Parsable 
 {
     /**

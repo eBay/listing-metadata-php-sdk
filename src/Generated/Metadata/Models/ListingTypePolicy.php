@@ -52,7 +52,7 @@ class ListingTypePolicy implements AdditionalDataHolder, Parsable
     private ?array $listingDurations = null;
     
     /**
-     * @var bool|null $pickupDropOffEnabled A true value in this field indicates that items listed in the category (specified in the <b>listingTypePolicies.categoryId</b> field) may be enabled with the 'Click and Collect' feature. With the 'Click and Collect' feature, a buyer can purchase certain items on an eBay site and collect them at a local store. Buyers are notified by eBay once their items are available. A false value in this field indicates that items listed in the category are not eligible for the 'Click and Collect' feature.
+     * @var bool|null $pickupDropOffEnabled A true value in this field indicates that items listed in the category (specified in the Category.CategoryID field) may be enabled with the 'Click and Collect' feature. With the 'Click and Collect' feature, a buyer can purchase certain items on an eBay site and collect them at a local store. Buyers are notified by eBay once their items are available. A false value in this field indicates that items listed in the category are not eligible for the 'Click and Collect' feature.
     */
     private ?bool $pickupDropOffEnabled = null;
     
@@ -128,7 +128,7 @@ class ListingTypePolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the pickupDropOffEnabled property value. A true value in this field indicates that items listed in the category (specified in the <b>listingTypePolicies.categoryId</b> field) may be enabled with the 'Click and Collect' feature. With the 'Click and Collect' feature, a buyer can purchase certain items on an eBay site and collect them at a local store. Buyers are notified by eBay once their items are available. A false value in this field indicates that items listed in the category are not eligible for the 'Click and Collect' feature.
+     * Gets the pickupDropOffEnabled property value. A true value in this field indicates that items listed in the category (specified in the Category.CategoryID field) may be enabled with the 'Click and Collect' feature. With the 'Click and Collect' feature, a buyer can purchase certain items on an eBay site and collect them at a local store. Buyers are notified by eBay once their items are available. A false value in this field indicates that items listed in the category are not eligible for the 'Click and Collect' feature.
      * @return bool|null
     */
     public function getPickupDropOffEnabled(): ?bool {
@@ -189,7 +189,7 @@ class ListingTypePolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the pickupDropOffEnabled property value. A true value in this field indicates that items listed in the category (specified in the <b>listingTypePolicies.categoryId</b> field) may be enabled with the 'Click and Collect' feature. With the 'Click and Collect' feature, a buyer can purchase certain items on an eBay site and collect them at a local store. Buyers are notified by eBay once their items are available. A false value in this field indicates that items listed in the category are not eligible for the 'Click and Collect' feature.
+     * Sets the pickupDropOffEnabled property value. A true value in this field indicates that items listed in the category (specified in the Category.CategoryID field) may be enabled with the 'Click and Collect' feature. With the 'Click and Collect' feature, a buyer can purchase certain items on an eBay site and collect them at a local store. Buyers are notified by eBay once their items are available. A false value in this field indicates that items listed in the category are not eligible for the 'Click and Collect' feature.
      * @param bool|null $value Value to set for the pickupDropOffEnabled property.
     */
     public function setPickupDropOffEnabled(?bool $value): void {
