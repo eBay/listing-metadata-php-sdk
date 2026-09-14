@@ -23,13 +23,13 @@ class Get_default_category_tree_idRequestBuilderGetQueryParameters
 {
     /**
      * @QueryParameter("marketplace_id")
-     * @var string|null $marketplaceId The unique identifier of the eBay marketplace for which the category tree ID is requested. For a list of supported marketplace IDs, see <a href="/api-docs/commerce/taxonomy/static/supportedmarketplaces.html">Marketplaces with Default Category Trees</a>.
+     * @var string|null $marketplaceId The unique identifier of the eBay marketplace for which the category tree ID is requested. For a list of supported marketplace IDs, see <a href="/api-docs/commerce/taxonomy/static/supportedmarketplaces.html" target="_blank">Marketplaces with Default Category Trees</a>.
     */
     public ?string $marketplaceId = null;
     
     /**
      * Instantiates a new Get_default_category_tree_idRequestBuilderGetQueryParameters and sets the default values.
-     * @param string|null $marketplace_id The unique identifier of the eBay marketplace for which the category tree ID is requested. For a list of supported marketplace IDs, see <a href="/api-docs/commerce/taxonomy/static/supportedmarketplaces.html">Marketplaces with Default Category Trees</a>.
+     * @param string|null $marketplace_id The unique identifier of the eBay marketplace for which the category tree ID is requested. For a list of supported marketplace IDs, see <a href="/api-docs/commerce/taxonomy/static/supportedmarketplaces.html" target="_blank">Marketplaces with Default Category Trees</a>.
     */
     public function __construct(?string $marketplace_id = null) {
         $this->marketplaceId = $marketplace_id;

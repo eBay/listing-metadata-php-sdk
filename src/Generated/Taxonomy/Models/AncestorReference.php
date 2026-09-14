@@ -47,7 +47,7 @@ class AncestorReference implements AdditionalDataHolder, Parsable
     private ?string $categorySubtreeNodeHref = null;
     
     /**
-     * @var int|null $categoryTreeNodeLevel The absolute level of the ancestor category node in the hierarchy of its category tree.<br><br><span class="tablenote"> <strong>Note:</strong> The root node of any full category tree is always at level <code><b>0</b></code>. </span>
+     * @var int|null $categoryTreeNodeLevel The absolute level of the ancestor category node in the hierarchy of its category tree.<br><br><span class="tablenote"> <strong>Note:</strong> The root node of any full category tree is always at level <code>0</code>. </span>
     */
     private ?int $categoryTreeNodeLevel = null;
     
@@ -100,7 +100,7 @@ class AncestorReference implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the categoryTreeNodeLevel property value. The absolute level of the ancestor category node in the hierarchy of its category tree.<br><br><span class="tablenote"> <strong>Note:</strong> The root node of any full category tree is always at level <code><b>0</b></code>. </span>
+     * Gets the categoryTreeNodeLevel property value. The absolute level of the ancestor category node in the hierarchy of its category tree.<br><br><span class="tablenote"> <strong>Note:</strong> The root node of any full category tree is always at level <code>0</code>. </span>
      * @return int|null
     */
     public function getCategoryTreeNodeLevel(): ?int {
@@ -166,7 +166,7 @@ class AncestorReference implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the categoryTreeNodeLevel property value. The absolute level of the ancestor category node in the hierarchy of its category tree.<br><br><span class="tablenote"> <strong>Note:</strong> The root node of any full category tree is always at level <code><b>0</b></code>. </span>
+     * Sets the categoryTreeNodeLevel property value. The absolute level of the ancestor category node in the hierarchy of its category tree.<br><br><span class="tablenote"> <strong>Note:</strong> The root node of any full category tree is always at level <code>0</code>. </span>
      * @param int|null $value Value to set for the categoryTreeNodeLevel property.
     */
     public function setCategoryTreeNodeLevel(?int $value): void {

@@ -32,12 +32,12 @@ class AspectDistribution implements AdditionalDataHolder, Parsable
     private ?array $additionalData = null;
     
     /**
-     * @var array<AspectValueDistribution>|null $aspectValueDistributions Contains information about one or more values of the category aspect identified by <b>localizedAspectName</b>. 
+     * @var array<AspectValueDistribution>|null $aspectValueDistributions Contains information about one or more values of the category aspect identified by <strong>localizedAspectName</strong>. 
     */
     private ?array $aspectValueDistributions = null;
     
     /**
-     * @var string|null $localizedAspectName The localized name of an aspect that is associated with the category identified by <b>dominantCategoryId</b>.
+     * @var string|null $localizedAspectName The localized name of an aspect that is associated with the category identified by <strong>dominantCategoryId</strong>.
     */
     private ?string $localizedAspectName = null;
     
@@ -66,7 +66,7 @@ class AspectDistribution implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the aspectValueDistributions property value. Contains information about one or more values of the category aspect identified by <b>localizedAspectName</b>. 
+     * Gets the aspectValueDistributions property value. Contains information about one or more values of the category aspect identified by <strong>localizedAspectName</strong>. 
      * @return array<AspectValueDistribution>|null
     */
     public function getAspectValueDistributions(): ?array {
@@ -86,7 +86,7 @@ class AspectDistribution implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the localizedAspectName property value. The localized name of an aspect that is associated with the category identified by <b>dominantCategoryId</b>.
+     * Gets the localizedAspectName property value. The localized name of an aspect that is associated with the category identified by <strong>dominantCategoryId</strong>.
      * @return string|null
     */
     public function getLocalizedAspectName(): ?string {
@@ -112,7 +112,7 @@ class AspectDistribution implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the aspectValueDistributions property value. Contains information about one or more values of the category aspect identified by <b>localizedAspectName</b>. 
+     * Sets the aspectValueDistributions property value. Contains information about one or more values of the category aspect identified by <strong>localizedAspectName</strong>. 
      * @param array<AspectValueDistribution>|null $value Value to set for the aspectValueDistributions property.
     */
     public function setAspectValueDistributions(?array $value): void {
@@ -120,7 +120,7 @@ class AspectDistribution implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the localizedAspectName property value. The localized name of an aspect that is associated with the category identified by <b>dominantCategoryId</b>.
+     * Sets the localizedAspectName property value. The localized name of an aspect that is associated with the category identified by <strong>dominantCategoryId</strong>.
      * @param string|null $value Value to set for the localizedAspectName property.
     */
     public function setLocalizedAspectName(?string $value): void {

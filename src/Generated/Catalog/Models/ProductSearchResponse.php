@@ -22,7 +22,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 /**
- * This type contains the specifications for the collection of products that match the search or filter criteria of a <b>search</b> call. A maximum of 200 product summaries is returned (the result set), fewer if you include the <b>limit</b> query parameter in the request. 
+ * This type contains the specifications for the collection of products that match the search or filter criteria of a <strong>search</strong> call. A maximum of 200 product summaries is returned (the result set), fewer if you include the <strong>limit</strong> query parameter in the request. 
 */
 class ProductSearchResponse implements AdditionalDataHolder, Parsable 
 {
@@ -32,12 +32,12 @@ class ProductSearchResponse implements AdditionalDataHolder, Parsable
     private ?array $additionalData = null;
     
     /**
-     * @var string|null $href This field is reserved for internal or future use. <!-- The URI of the <b>search</b> method request that produced this result set. -->
+     * @var string|null $href This field is reserved for internal or future use. <!-- The URI of the <strong>search</strong> method request that produced this result set. -->
     */
     private ?string $href = null;
     
     /**
-     * @var int|null $limit The number of product summaries returned in the response. This is the <i>result set</i>, a subset of the full collection of products that match the search or filter criteria of this call. If the <b>limit</b> query parameter was included in the request, this field will have the same value. <br /><br /> <b>Default:</b> <code>50</code>
+     * @var int|null $limit The number of product summaries returned in the response. This is the <i>result set</i>, a subset of the full collection of products that match the search or filter criteria of this call. If the <strong>limit</strong> query parameter was included in the request, this field will have the same value. <br /><br /> <strong>Default:</strong> <code>50</code>
     */
     private ?int $limit = null;
     
@@ -57,12 +57,12 @@ class ProductSearchResponse implements AdditionalDataHolder, Parsable
     private ?string $prev = null;
     
     /**
-     * @var array<ProductSummary>|null $productSummaries <i>Returned if</i> the <b>fieldGroups</b> query parameter was omitted from the request, or if it was included with a value of <code>MATCHING_PRODUCTS</code> or <code>FULL</code>. This container provides an array of product summaries in the current result set for products that match the combination of the <b>q</b>, <b>category_ids</b>, and <b>aspect_filter</b> parameters that were provided in the request. Each product summary includes information about the product's identifiers, product images, aspects, the product page URL, and the <b>getProduct</b> URL for retrieving the product details.
+     * @var array<ProductSummary>|null $productSummaries <i>Returned if</i> the <strong>fieldGroups</strong> query parameter was omitted from the request, or if it was included with a value of <code>MATCHING_PRODUCTS</code> or <code>FULL</code>. This container provides an array of product summaries in the current result set for products that match the combination of the <strong>q</strong>, <strong>category_ids</strong>, and <strong>aspect_filter</strong> parameters that were provided in the request. Each product summary includes information about the product's identifiers, product images, aspects, the product page URL, and the <strong>getProduct</strong> URL for retrieving the product details.
     */
     private ?array $productSummaries = null;
     
     /**
-     * @var Refinement|null $refinement This type identifies a product category and the aspects associated with that category. Each aspect distribution container returns the distribution of values that have been used for the aspect.
+     * @var Refinement|null $refinement <i>Returned only if</i> the <strong>fieldGroups</strong> query parameter was included in the request with a value of <code>ASPECT_REFINEMENTS</code> or <code>FULL</code>. <br /><br /> An aspect is a property of a category, used by sellers to provide details about the items they're listing. For example, the <i>Cell Phones &amp; Smartphones</i> category (#9355) includes a <i>Storage Capacity</i> aspect. <br /><br /> This container provides information about the distribution of values of a set of category aspects. The category aspects are those associated with the category that eBay determines is most likely to cover the products that match the search criteria.
     */
     private ?Refinement $refinement = null;
     
@@ -114,7 +114,7 @@ class ProductSearchResponse implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the href property value. This field is reserved for internal or future use. <!-- The URI of the <b>search</b> method request that produced this result set. -->
+     * Gets the href property value. This field is reserved for internal or future use. <!-- The URI of the <strong>search</strong> method request that produced this result set. -->
      * @return string|null
     */
     public function getHref(): ?string {
@@ -122,7 +122,7 @@ class ProductSearchResponse implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the limit property value. The number of product summaries returned in the response. This is the <i>result set</i>, a subset of the full collection of products that match the search or filter criteria of this call. If the <b>limit</b> query parameter was included in the request, this field will have the same value. <br /><br /> <b>Default:</b> <code>50</code>
+     * Gets the limit property value. The number of product summaries returned in the response. This is the <i>result set</i>, a subset of the full collection of products that match the search or filter criteria of this call. If the <strong>limit</strong> query parameter was included in the request, this field will have the same value. <br /><br /> <strong>Default:</strong> <code>50</code>
      * @return int|null
     */
     public function getLimit(): ?int {
@@ -154,7 +154,7 @@ class ProductSearchResponse implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the productSummaries property value. <i>Returned if</i> the <b>fieldGroups</b> query parameter was omitted from the request, or if it was included with a value of <code>MATCHING_PRODUCTS</code> or <code>FULL</code>. This container provides an array of product summaries in the current result set for products that match the combination of the <b>q</b>, <b>category_ids</b>, and <b>aspect_filter</b> parameters that were provided in the request. Each product summary includes information about the product's identifiers, product images, aspects, the product page URL, and the <b>getProduct</b> URL for retrieving the product details.
+     * Gets the productSummaries property value. <i>Returned if</i> the <strong>fieldGroups</strong> query parameter was omitted from the request, or if it was included with a value of <code>MATCHING_PRODUCTS</code> or <code>FULL</code>. This container provides an array of product summaries in the current result set for products that match the combination of the <strong>q</strong>, <strong>category_ids</strong>, and <strong>aspect_filter</strong> parameters that were provided in the request. Each product summary includes information about the product's identifiers, product images, aspects, the product page URL, and the <strong>getProduct</strong> URL for retrieving the product details.
      * @return array<ProductSummary>|null
     */
     public function getProductSummaries(): ?array {
@@ -162,7 +162,7 @@ class ProductSearchResponse implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the refinement property value. This type identifies a product category and the aspects associated with that category. Each aspect distribution container returns the distribution of values that have been used for the aspect.
+     * Gets the refinement property value. <i>Returned only if</i> the <strong>fieldGroups</strong> query parameter was included in the request with a value of <code>ASPECT_REFINEMENTS</code> or <code>FULL</code>. <br /><br /> An aspect is a property of a category, used by sellers to provide details about the items they're listing. For example, the <i>Cell Phones &amp; Smartphones</i> category (#9355) includes a <i>Storage Capacity</i> aspect. <br /><br /> This container provides information about the distribution of values of a set of category aspects. The category aspects are those associated with the category that eBay determines is most likely to cover the products that match the search criteria.
      * @return Refinement|null
     */
     public function getRefinement(): ?Refinement {
@@ -202,7 +202,7 @@ class ProductSearchResponse implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the href property value. This field is reserved for internal or future use. <!-- The URI of the <b>search</b> method request that produced this result set. -->
+     * Sets the href property value. This field is reserved for internal or future use. <!-- The URI of the <strong>search</strong> method request that produced this result set. -->
      * @param string|null $value Value to set for the href property.
     */
     public function setHref(?string $value): void {
@@ -210,7 +210,7 @@ class ProductSearchResponse implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the limit property value. The number of product summaries returned in the response. This is the <i>result set</i>, a subset of the full collection of products that match the search or filter criteria of this call. If the <b>limit</b> query parameter was included in the request, this field will have the same value. <br /><br /> <b>Default:</b> <code>50</code>
+     * Sets the limit property value. The number of product summaries returned in the response. This is the <i>result set</i>, a subset of the full collection of products that match the search or filter criteria of this call. If the <strong>limit</strong> query parameter was included in the request, this field will have the same value. <br /><br /> <strong>Default:</strong> <code>50</code>
      * @param int|null $value Value to set for the limit property.
     */
     public function setLimit(?int $value): void {
@@ -242,7 +242,7 @@ class ProductSearchResponse implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the productSummaries property value. <i>Returned if</i> the <b>fieldGroups</b> query parameter was omitted from the request, or if it was included with a value of <code>MATCHING_PRODUCTS</code> or <code>FULL</code>. This container provides an array of product summaries in the current result set for products that match the combination of the <b>q</b>, <b>category_ids</b>, and <b>aspect_filter</b> parameters that were provided in the request. Each product summary includes information about the product's identifiers, product images, aspects, the product page URL, and the <b>getProduct</b> URL for retrieving the product details.
+     * Sets the productSummaries property value. <i>Returned if</i> the <strong>fieldGroups</strong> query parameter was omitted from the request, or if it was included with a value of <code>MATCHING_PRODUCTS</code> or <code>FULL</code>. This container provides an array of product summaries in the current result set for products that match the combination of the <strong>q</strong>, <strong>category_ids</strong>, and <strong>aspect_filter</strong> parameters that were provided in the request. Each product summary includes information about the product's identifiers, product images, aspects, the product page URL, and the <strong>getProduct</strong> URL for retrieving the product details.
      * @param array<ProductSummary>|null $value Value to set for the productSummaries property.
     */
     public function setProductSummaries(?array $value): void {
@@ -250,7 +250,7 @@ class ProductSearchResponse implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the refinement property value. This type identifies a product category and the aspects associated with that category. Each aspect distribution container returns the distribution of values that have been used for the aspect.
+     * Sets the refinement property value. <i>Returned only if</i> the <strong>fieldGroups</strong> query parameter was included in the request with a value of <code>ASPECT_REFINEMENTS</code> or <code>FULL</code>. <br /><br /> An aspect is a property of a category, used by sellers to provide details about the items they're listing. For example, the <i>Cell Phones &amp; Smartphones</i> category (#9355) includes a <i>Storage Capacity</i> aspect. <br /><br /> This container provides information about the distribution of values of a set of category aspects. The category aspects are those associated with the category that eBay determines is most likely to cover the products that match the search criteria.
      * @param Refinement|null $value Value to set for the refinement property.
     */
     public function setRefinement(?Refinement $value): void {

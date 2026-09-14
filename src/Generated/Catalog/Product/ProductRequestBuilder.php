@@ -27,7 +27,7 @@ class ProductRequestBuilder extends BaseRequestBuilder
 {
     /**
      * Gets an item from the EBay/ListingMetadata/Generated/Catalog.product.item collection
-     * @param string $epid The eBay product identifier (ePID) of the product being requested. This value can be discovered by issuing the <b>search</b> method and examining the value of the <b>productSummaries.epid</b> field for the desired returned product summary.
+     * @param string $epid The eBay product identifier (ePID) of the product being requested. This value can be discovered by issuing the <strong>search</strong> method and examining the value of the <strong>productSummaries.epid</strong> field for the desired returned product summary.
      * @return WithEpItemRequestBuilder
     */
     public function byEpid(string $epid): WithEpItemRequestBuilder {

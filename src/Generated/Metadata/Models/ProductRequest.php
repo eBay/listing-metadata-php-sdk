@@ -23,7 +23,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
- * This type defines properties for which to find compatibilities.
+ * This type defines the request fields for the <b>getProductCompatibilities</b> method.
 */
 class ProductRequest implements AdditionalDataHolder, Parsable 
 {

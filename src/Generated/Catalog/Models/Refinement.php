@@ -32,7 +32,7 @@ class Refinement implements AdditionalDataHolder, Parsable
     private ?array $additionalData = null;
     
     /**
-     * @var array<AspectDistribution>|null $aspectDistributions Contains information about one or more aspects that are associated with the category identified by <b>dominantCategoryId</b>.
+     * @var array<AspectDistribution>|null $aspectDistributions This array contains information about one or more aspects that are associated with the category identified by <strong>dominantCategoryId</strong>.
     */
     private ?array $aspectDistributions = null;
     
@@ -66,7 +66,7 @@ class Refinement implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the aspectDistributions property value. Contains information about one or more aspects that are associated with the category identified by <b>dominantCategoryId</b>.
+     * Gets the aspectDistributions property value. This array contains information about one or more aspects that are associated with the category identified by <strong>dominantCategoryId</strong>.
      * @return array<AspectDistribution>|null
     */
     public function getAspectDistributions(): ?array {
@@ -112,7 +112,7 @@ class Refinement implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the aspectDistributions property value. Contains information about one or more aspects that are associated with the category identified by <b>dominantCategoryId</b>.
+     * Sets the aspectDistributions property value. This array contains information about one or more aspects that are associated with the category identified by <strong>dominantCategoryId</strong>.
      * @param array<AspectDistribution>|null $value Value to set for the aspectDistributions property.
     */
     public function setAspectDistributions(?array $value): void {

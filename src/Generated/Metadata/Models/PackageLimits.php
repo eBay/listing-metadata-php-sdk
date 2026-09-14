@@ -22,7 +22,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 /**
- * This container provides name-value pairs that specify physical constraints and measurement units of packages for the <b>shippingCarrier</b> and the corresponding <b>shippingService</b>. An empty container is returned if the shipping service does not have any package limits defined.
+ * The packageLimits field is used to specify the physical constraints and measurement units of packages, ensuring compliance with various shipping requirements.
 */
 class PackageLimits implements AdditionalDataHolder, Parsable 
 {

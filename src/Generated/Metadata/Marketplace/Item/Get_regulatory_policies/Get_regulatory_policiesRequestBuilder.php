@@ -16,6 +16,7 @@
 
 namespace EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_regulatory_policies;
 
+use EBay\ListingMetadata\Generated\Metadata\Models\Error;
 use EBay\ListingMetadata\Generated\Metadata\Models\RegulatoryPolicyResponse;
 use Exception;
 use Http\Promise\Promise;
@@ -51,7 +52,12 @@ class Get_regulatory_policiesRequestBuilder extends BaseRequestBuilder
     */
     public function get(?Get_regulatory_policiesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
-        return $this->requestAdapter->sendAsync($requestInfo, [RegulatoryPolicyResponse::class, 'createFromDiscriminatorValue'], null);
+        $errorMappings = [
+                '400' => [Error::class, 'createFromDiscriminatorValue'],
+                '404' => [Error::class, 'createFromDiscriminatorValue'],
+                '500' => [Error::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [RegulatoryPolicyResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**

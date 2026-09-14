@@ -37,9 +37,9 @@ class Address implements AdditionalDataHolder, Parsable
     private ?string $city = null;
     
     /**
-     * @var string|null $country The two-letter <a href="https://www.iso.org/iso-3166-country-codes.html ">ISO 3166</a> standard of the country of the address. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/commerce/charity/types/bas:CountryCodeEnum'>eBay API documentation</a>
+     * @var CountryCodeEnum|null $country The two-letter <a href="https://www.iso.org/iso-3166-country-codes.html ">ISO 3166</a> standard of the country of the address.
     */
-    private ?string $country = null;
+    private ?CountryCodeEnum $country = null;
     
     /**
      * @var string|null $postalCode The postal code of the charitable organization.
@@ -84,10 +84,10 @@ class Address implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the country property value. The two-letter <a href="https://www.iso.org/iso-3166-country-codes.html ">ISO 3166</a> standard of the country of the address. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/commerce/charity/types/bas:CountryCodeEnum'>eBay API documentation</a>
-     * @return string|null
+     * Gets the country property value. The two-letter <a href="https://www.iso.org/iso-3166-country-codes.html ">ISO 3166</a> standard of the country of the address.
+     * @return CountryCodeEnum|null
     */
-    public function getCountry(): ?string {
+    public function getCountry(): ?CountryCodeEnum {
         return $this->country;
     }
 
@@ -99,7 +99,7 @@ class Address implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'city' => fn(ParseNode $n) => $o->setCity($n->getStringValue()),
-            'country' => fn(ParseNode $n) => $o->setCountry($n->getStringValue()),
+            'country' => fn(ParseNode $n) => $o->setCountry($n->getEnumValue(CountryCodeEnum::class)),
             'postalCode' => fn(ParseNode $n) => $o->setPostalCode($n->getStringValue()),
             'stateOrProvince' => fn(ParseNode $n) => $o->setStateOrProvince($n->getStringValue()),
         ];
@@ -127,7 +127,7 @@ class Address implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('city', $this->getCity());
-        $writer->writeStringValue('country', $this->getCountry());
+        $writer->writeEnumValue('country', $this->getCountry());
         $writer->writeStringValue('postalCode', $this->getPostalCode());
         $writer->writeStringValue('stateOrProvince', $this->getStateOrProvince());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -150,10 +150,10 @@ class Address implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the country property value. The two-letter <a href="https://www.iso.org/iso-3166-country-codes.html ">ISO 3166</a> standard of the country of the address. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/commerce/charity/types/bas:CountryCodeEnum'>eBay API documentation</a>
-     * @param string|null $value Value to set for the country property.
+     * Sets the country property value. The two-letter <a href="https://www.iso.org/iso-3166-country-codes.html ">ISO 3166</a> standard of the country of the address.
+     * @param CountryCodeEnum|null $value Value to set for the country property.
     */
-    public function setCountry(?string $value): void {
+    public function setCountry(?CountryCodeEnum $value): void {
         $this->country = $value;
     }
 

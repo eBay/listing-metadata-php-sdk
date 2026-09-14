@@ -21,6 +21,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * This type defines information about a category and the aspects used to describe items in that category.
+*/
 class CategoryAspect implements AdditionalDataHolder, Parsable 
 {
     /**
@@ -34,7 +37,7 @@ class CategoryAspect implements AdditionalDataHolder, Parsable
     private ?array $aspects = null;
     
     /**
-     * @var Category|null $category This type contains information about a particular eBay category.
+     * @var Category|null $category The details that are appropriate or necessary to accurately define the category.
     */
     private ?Category $category = null;
     
@@ -71,7 +74,7 @@ class CategoryAspect implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the category property value. This type contains information about a particular eBay category.
+     * Gets the category property value. The details that are appropriate or necessary to accurately define the category.
      * @return Category|null
     */
     public function getCategory(): ?Category {
@@ -117,7 +120,7 @@ class CategoryAspect implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the category property value. This type contains information about a particular eBay category.
+     * Sets the category property value. The details that are appropriate or necessary to accurately define the category.
      * @param Category|null $value Value to set for the category property.
     */
     public function setCategory(?Category $value): void {

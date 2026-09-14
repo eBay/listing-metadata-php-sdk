@@ -22,7 +22,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 /**
- * This field specifies the default currency used by the marketplace.
+ * The type defining valid currencies for the marketplace.
 */
 class Currency implements AdditionalDataHolder, Parsable 
 {

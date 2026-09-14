@@ -16,6 +16,7 @@
 
 namespace EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_item_condition_policies;
 
+use EBay\ListingMetadata\Generated\Metadata\Models\Error;
 use EBay\ListingMetadata\Generated\Metadata\Models\ItemConditionPolicyResponse;
 use Exception;
 use Http\Promise\Promise;
@@ -51,7 +52,12 @@ class Get_item_condition_policiesRequestBuilder extends BaseRequestBuilder
     */
     public function get(?Get_item_condition_policiesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
-        return $this->requestAdapter->sendAsync($requestInfo, [ItemConditionPolicyResponse::class, 'createFromDiscriminatorValue'], null);
+        $errorMappings = [
+                '400' => [Error::class, 'createFromDiscriminatorValue'],
+                '404' => [Error::class, 'createFromDiscriminatorValue'],
+                '500' => [Error::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [ItemConditionPolicyResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**

@@ -22,7 +22,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 /**
- * This type defines the response container for the <b>getMinimumListingPricePolicies</b> method.
+ * This type defines the response container for the getMinimumListingPricePolicies method.
 */
 class GetMinimumListingPricePoliciesResponse implements AdditionalDataHolder, Parsable 
 {
@@ -32,7 +32,7 @@ class GetMinimumListingPricePoliciesResponse implements AdditionalDataHolder, Pa
     private ?array $additionalData = null;
     
     /**
-     * @var array<MinimumListingPricePoliciesType>|null $minimumListingPricePolicies This array returns a list of minimum listing price policies for supported types of listings on the specific marketplace
+     * @var array<MinimumListingPricePoliciesType>|null $minimumListingPricePolicies This array returns a list of minimum listing price policies for supported types of listings on the specific marketplace.
     */
     private ?array $minimumListingPricePolicies = null;
     
@@ -72,7 +72,7 @@ class GetMinimumListingPricePoliciesResponse implements AdditionalDataHolder, Pa
     }
 
     /**
-     * Gets the minimumListingPricePolicies property value. This array returns a list of minimum listing price policies for supported types of listings on the specific marketplace
+     * Gets the minimumListingPricePolicies property value. This array returns a list of minimum listing price policies for supported types of listings on the specific marketplace.
      * @return array<MinimumListingPricePoliciesType>|null
     */
     public function getMinimumListingPricePolicies(): ?array {
@@ -97,7 +97,7 @@ class GetMinimumListingPricePoliciesResponse implements AdditionalDataHolder, Pa
     }
 
     /**
-     * Sets the minimumListingPricePolicies property value. This array returns a list of minimum listing price policies for supported types of listings on the specific marketplace
+     * Sets the minimumListingPricePolicies property value. This array returns a list of minimum listing price policies for supported types of listings on the specific marketplace.
      * @param array<MinimumListingPricePoliciesType>|null $value Value to set for the minimumListingPricePolicies property.
     */
     public function setMinimumListingPricePolicies(?array $value): void {

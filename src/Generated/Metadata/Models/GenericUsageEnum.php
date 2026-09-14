@@ -19,7 +19,7 @@ namespace EBay\ListingMetadata\Generated\Metadata\Models;
 use Microsoft\Kiota\Abstractions\Enum;
 
 class GenericUsageEnum extends Enum {
+    public const R_E_Q_U_I_R_E_D = "REQUIRED";
     public const O_P_T_I_O_N_A_L = "OPTIONAL";
     public const R_E_C_O_M_M_E_N_D_E_D = "RECOMMENDED";
-    public const R_E_Q_U_I_R_E_D = "REQUIRED";
 }

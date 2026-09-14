@@ -22,7 +22,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 /**
- * This complex type defines the category policies related to domestic item returns.
+ * This container defines the category policies that relate to domestic and international return policies (the return shipping is made via a domestic or an international shipping service, respectively).
 */
 class ReturnPolicyDetails implements AdditionalDataHolder, Parsable 
 {

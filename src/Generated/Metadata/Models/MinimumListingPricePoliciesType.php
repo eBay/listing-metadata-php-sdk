@@ -22,7 +22,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 /**
- * This type defines the minimum starting prices for the supported types of eBay listings
+ * This type defines the minimum starting prices for the supported types of eBay listings.
 */
 class MinimumListingPricePoliciesType implements AdditionalDataHolder, Parsable 
 {
@@ -32,7 +32,7 @@ class MinimumListingPricePoliciesType implements AdditionalDataHolder, Parsable
     private ?array $additionalData = null;
     
     /**
-     * @var string|null $description The description of the listing type for which the pricing data is intended, such as "Pricing for the auction-like listings".
+     * @var string|null $description The description of the listing type for which the pricing data is intended.
     */
     private ?string $description = null;
     
@@ -42,7 +42,7 @@ class MinimumListingPricePoliciesType implements AdditionalDataHolder, Parsable
     private ?ListingTypeEnum $listingType = null;
     
     /**
-     * @var string|null $minBuyItNowPricePercent The minimum percentage value that a Buy It Now price for an auction listing must be above the starting bid price for the same listing.<br><br>This field is only returned and applicable for auction listings.
+     * @var string|null $minBuyItNowPricePercent The minimum percentage value that a Buy It Now price for an auction listing must be above the starting bid price.
     */
     private ?string $minBuyItNowPricePercent = null;
     
@@ -76,7 +76,7 @@ class MinimumListingPricePoliciesType implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the description property value. The description of the listing type for which the pricing data is intended, such as "Pricing for the auction-like listings".
+     * Gets the description property value. The description of the listing type for which the pricing data is intended.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -106,7 +106,7 @@ class MinimumListingPricePoliciesType implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the minBuyItNowPricePercent property value. The minimum percentage value that a Buy It Now price for an auction listing must be above the starting bid price for the same listing.<br><br>This field is only returned and applicable for auction listings.
+     * Gets the minBuyItNowPricePercent property value. The minimum percentage value that a Buy It Now price for an auction listing must be above the starting bid price.
      * @return string|null
     */
     public function getMinBuyItNowPricePercent(): ?string {
@@ -142,7 +142,7 @@ class MinimumListingPricePoliciesType implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the description property value. The description of the listing type for which the pricing data is intended, such as "Pricing for the auction-like listings".
+     * Sets the description property value. The description of the listing type for which the pricing data is intended.
      * @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value): void {
@@ -158,7 +158,7 @@ class MinimumListingPricePoliciesType implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the minBuyItNowPricePercent property value. The minimum percentage value that a Buy It Now price for an auction listing must be above the starting bid price for the same listing.<br><br>This field is only returned and applicable for auction listings.
+     * Sets the minBuyItNowPricePercent property value. The minimum percentage value that a Buy It Now price for an auction listing must be above the starting bid price.
      * @param string|null $value Value to set for the minBuyItNowPricePercent property.
     */
     public function setMinBuyItNowPricePercent(?string $value): void {

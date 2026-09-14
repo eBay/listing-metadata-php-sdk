@@ -78,7 +78,7 @@ class MetadataApiClient extends BaseRequestBuilder
         ApiClientBuilder::registerDefaultDeserializer(TextParseNodeFactory::class);
         ApiClientBuilder::registerDefaultDeserializer(FormParseNodeFactory::class);
         if (empty($this->requestAdapter->getBaseUrl())) {
-            $this->requestAdapter->setBaseUrl('https://api.ebay.com{basePath}');
+            $this->requestAdapter->setBaseUrl('https://api.ebay.com/sell/metadata/v1');
         }
         $this->pathParameters['baseurl'] = $this->requestAdapter->getBaseUrl();
     }

@@ -22,7 +22,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 /**
- * The metadata for a property.
+ * This type defines the property name metadata.
 */
 class PropertyNamesResponsePropertyNameMetadata implements AdditionalDataHolder, Parsable 
 {

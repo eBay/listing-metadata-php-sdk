@@ -16,6 +16,7 @@
 
 namespace EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_product_safety_labels;
 
+use EBay\ListingMetadata\Generated\Metadata\Models\Error;
 use EBay\ListingMetadata\Generated\Metadata\Models\ProductSafetyLabelsResponse;
 use Exception;
 use Http\Promise\Promise;
@@ -51,7 +52,12 @@ class Get_product_safety_labelsRequestBuilder extends BaseRequestBuilder
     */
     public function get(?Get_product_safety_labelsRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
-        return $this->requestAdapter->sendAsync($requestInfo, [ProductSafetyLabelsResponse::class, 'createFromDiscriminatorValue'], null);
+        $errorMappings = [
+                '400' => [Error::class, 'createFromDiscriminatorValue'],
+                '404' => [Error::class, 'createFromDiscriminatorValue'],
+                '500' => [Error::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [ProductSafetyLabelsResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**

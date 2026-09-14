@@ -23,7 +23,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
- * This type defines the properties used to retrieve compatibility property names.
+ * This type defines the request fields for the <b>getCompatibilityPropertyNames</b> method.
 */
 class PropertyNamesRequest implements AdditionalDataHolder, Parsable 
 {

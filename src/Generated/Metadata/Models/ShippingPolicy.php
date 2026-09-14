@@ -42,7 +42,7 @@ class ShippingPolicy implements AdditionalDataHolder, Parsable
     private ?string $categoryTreeId = null;
     
     /**
-     * @var bool|null $globalShippingEnabled Indicates if the Global Shipping Program (GSP) is supported for the category. <p><span class="tablenote"><span style="color:#004680"><strong>Note: </strong>GSP is only supported by the eBay UK marketplace (<code>EBAY_GB</code>).</span></p>
+     * @var bool|null $globalShippingEnabled Indicates if the Global Shipping Program (GSP) is supported for the category.
     */
     private ?bool $globalShippingEnabled = null;
     
@@ -136,7 +136,7 @@ class ShippingPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the globalShippingEnabled property value. Indicates if the Global Shipping Program (GSP) is supported for the category. <p><span class="tablenote"><span style="color:#004680"><strong>Note: </strong>GSP is only supported by the eBay UK marketplace (<code>EBAY_GB</code>).</span></p>
+     * Gets the globalShippingEnabled property value. Indicates if the Global Shipping Program (GSP) is supported for the category.
      * @return bool|null
     */
     public function getGlobalShippingEnabled(): ?bool {
@@ -233,7 +233,7 @@ class ShippingPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the globalShippingEnabled property value. Indicates if the Global Shipping Program (GSP) is supported for the category. <p><span class="tablenote"><span style="color:#004680"><strong>Note: </strong>GSP is only supported by the eBay UK marketplace (<code>EBAY_GB</code>).</span></p>
+     * Sets the globalShippingEnabled property value. Indicates if the Global Shipping Program (GSP) is supported for the category.
      * @param bool|null $value Value to set for the globalShippingEnabled property.
     */
     public function setGlobalShippingEnabled(?bool $value): void {

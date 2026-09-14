@@ -32,7 +32,7 @@ class Aspect implements AdditionalDataHolder, Parsable
     private ?array $additionalData = null;
     
     /**
-     * @var AspectConstraint|null $aspectConstraint This type contains information about the formatting, occurrence, and support of an aspect.
+     * @var AspectConstraint|null $aspectConstraint Information about the formatting, occurrence, and support of this aspect.
     */
     private ?AspectConstraint $aspectConstraint = null;
     
@@ -47,7 +47,7 @@ class Aspect implements AdditionalDataHolder, Parsable
     private ?string $localizedAspectName = null;
     
     /**
-     * @var RelevanceIndicator|null $relevanceIndicator The relevance of this aspect. This field is returned if eBay has data on how many searches have been performed for listings in the category using this item aspect.<br><br><span class="tablenote"> <strong>Note:</strong> This container is restricted to applications that have been granted permission to access this feature. You must submit an <a href="https://developer.ebay.com/my/support/tickets?tab=app-check ">App Check ticket</a> to request this access. In the App Check form, add a note to the <b>Application Title/Summary</b> and/or <b>Application Details</b> fields that you want access to 'Buyer Demand Data' in the Taxonomy API.</span>
+     * @var RelevanceIndicator|null $relevanceIndicator The relevance of this aspect. This field is returned if eBay has data on how many searches have been performed for listings in the category using this item aspect.<br><br><span class="tablenote"> <strong>Note:</strong> This container is restricted to applications that have been granted permission to access this feature. You must submit an <a href="https://developer.ebay.com/my/support/tickets?tab=app-check " target="_blank">App Check ticket</a> to request this access. In the App Check form, add a note to the <b>Application Title/Summary</b> and/or <b>Application Details</b> fields that you want access to 'Buyer Demand Data' in the Taxonomy API.</span>
     */
     private ?RelevanceIndicator $relevanceIndicator = null;
     
@@ -76,7 +76,7 @@ class Aspect implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the aspectConstraint property value. This type contains information about the formatting, occurrence, and support of an aspect.
+     * Gets the aspectConstraint property value. Information about the formatting, occurrence, and support of this aspect.
      * @return AspectConstraint|null
     */
     public function getAspectConstraint(): ?AspectConstraint {
@@ -114,7 +114,7 @@ class Aspect implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the relevanceIndicator property value. The relevance of this aspect. This field is returned if eBay has data on how many searches have been performed for listings in the category using this item aspect.<br><br><span class="tablenote"> <strong>Note:</strong> This container is restricted to applications that have been granted permission to access this feature. You must submit an <a href="https://developer.ebay.com/my/support/tickets?tab=app-check ">App Check ticket</a> to request this access. In the App Check form, add a note to the <b>Application Title/Summary</b> and/or <b>Application Details</b> fields that you want access to 'Buyer Demand Data' in the Taxonomy API.</span>
+     * Gets the relevanceIndicator property value. The relevance of this aspect. This field is returned if eBay has data on how many searches have been performed for listings in the category using this item aspect.<br><br><span class="tablenote"> <strong>Note:</strong> This container is restricted to applications that have been granted permission to access this feature. You must submit an <a href="https://developer.ebay.com/my/support/tickets?tab=app-check " target="_blank">App Check ticket</a> to request this access. In the App Check form, add a note to the <b>Application Title/Summary</b> and/or <b>Application Details</b> fields that you want access to 'Buyer Demand Data' in the Taxonomy API.</span>
      * @return RelevanceIndicator|null
     */
     public function getRelevanceIndicator(): ?RelevanceIndicator {
@@ -142,7 +142,7 @@ class Aspect implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the aspectConstraint property value. This type contains information about the formatting, occurrence, and support of an aspect.
+     * Sets the aspectConstraint property value. Information about the formatting, occurrence, and support of this aspect.
      * @param AspectConstraint|null $value Value to set for the aspectConstraint property.
     */
     public function setAspectConstraint(?AspectConstraint $value): void {
@@ -166,7 +166,7 @@ class Aspect implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the relevanceIndicator property value. The relevance of this aspect. This field is returned if eBay has data on how many searches have been performed for listings in the category using this item aspect.<br><br><span class="tablenote"> <strong>Note:</strong> This container is restricted to applications that have been granted permission to access this feature. You must submit an <a href="https://developer.ebay.com/my/support/tickets?tab=app-check ">App Check ticket</a> to request this access. In the App Check form, add a note to the <b>Application Title/Summary</b> and/or <b>Application Details</b> fields that you want access to 'Buyer Demand Data' in the Taxonomy API.</span>
+     * Sets the relevanceIndicator property value. The relevance of this aspect. This field is returned if eBay has data on how many searches have been performed for listings in the category using this item aspect.<br><br><span class="tablenote"> <strong>Note:</strong> This container is restricted to applications that have been granted permission to access this feature. You must submit an <a href="https://developer.ebay.com/my/support/tickets?tab=app-check " target="_blank">App Check ticket</a> to request this access. In the App Check form, add a note to the <b>Application Title/Summary</b> and/or <b>Application Details</b> fields that you want access to 'Buyer Demand Data' in the Taxonomy API.</span>
      * @param RelevanceIndicator|null $value Value to set for the relevanceIndicator property.
     */
     public function setRelevanceIndicator(?RelevanceIndicator $value): void {

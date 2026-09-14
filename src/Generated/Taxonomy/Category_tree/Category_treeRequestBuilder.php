@@ -27,7 +27,7 @@ class Category_treeRequestBuilder extends BaseRequestBuilder
 {
     /**
      * Gets an item from the EBay/ListingMetadata/Generated/Taxonomy.category_tree.item collection
-     * @param string $category_tree_id The unique identifier of the eBay category tree. The category tree ID for an eBay marketplace can be retrieved using the <b>getDefaultCategoryTreeId</b> method.
+     * @param string $category_tree_id The unique identifier of the eBay category tree. The category tree ID for an eBay marketplace can be retrieved using the <a href="/develop/api/sell/taxonomy_api#sell-taxonomy_api-category_tree-getdefaultcategorytreeid" >getDefaultCategoryTreeId</a> method.
      * @return WithCategory_tree_ItemRequestBuilder
     */
     public function byCategory_tree_id(string $category_tree_id): WithCategory_tree_ItemRequestBuilder {

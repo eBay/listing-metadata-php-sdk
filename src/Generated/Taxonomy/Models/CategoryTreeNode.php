@@ -32,7 +32,7 @@ class CategoryTreeNode implements AdditionalDataHolder, Parsable
     private ?array $additionalData = null;
     
     /**
-     * @var Category|null $category This type contains information about a particular eBay category.
+     * @var Category|null $category Contains details about the current category tree node.
     */
     private ?Category $category = null;
     
@@ -81,7 +81,7 @@ class CategoryTreeNode implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the category property value. This type contains information about a particular eBay category.
+     * Gets the category property value. Contains details about the current category tree node.
      * @return Category|null
     */
     public function getCategory(): ?Category {
@@ -157,7 +157,7 @@ class CategoryTreeNode implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the category property value. This type contains information about a particular eBay category.
+     * Sets the category property value. Contains details about the current category tree node.
      * @param Category|null $value Value to set for the category property.
     */
     public function setCategory(?Category $value): void {

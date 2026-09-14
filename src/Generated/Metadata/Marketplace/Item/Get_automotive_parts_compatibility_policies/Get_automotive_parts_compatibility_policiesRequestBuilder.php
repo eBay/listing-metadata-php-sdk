@@ -17,6 +17,7 @@
 namespace EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_automotive_parts_compatibility_policies;
 
 use EBay\ListingMetadata\Generated\Metadata\Models\AutomotivePartsCompatibilityPolicyResponse;
+use EBay\ListingMetadata\Generated\Metadata\Models\Error;
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -51,7 +52,12 @@ class Get_automotive_parts_compatibility_policiesRequestBuilder extends BaseRequ
     */
     public function get(?Get_automotive_parts_compatibility_policiesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
-        return $this->requestAdapter->sendAsync($requestInfo, [AutomotivePartsCompatibilityPolicyResponse::class, 'createFromDiscriminatorValue'], null);
+        $errorMappings = [
+                '400' => [Error::class, 'createFromDiscriminatorValue'],
+                '404' => [Error::class, 'createFromDiscriminatorValue'],
+                '500' => [Error::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [AutomotivePartsCompatibilityPolicyResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**

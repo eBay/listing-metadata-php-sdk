@@ -1,0 +1,1 @@
+Error: KiotaBuilder OpenAPI error: #/paths/~1marketplace~1{marketplace_id}~1get_item_condition_policies/get/parameters/0/in - The field 'in' in 'parameter' object is REQUIRED.

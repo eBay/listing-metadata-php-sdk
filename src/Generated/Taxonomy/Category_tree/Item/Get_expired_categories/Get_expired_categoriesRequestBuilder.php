@@ -16,6 +16,7 @@
 
 namespace EBay\ListingMetadata\Generated\Taxonomy\Category_tree\Item\Get_expired_categories;
 
+use EBay\ListingMetadata\Generated\Taxonomy\Models\Error;
 use EBay\ListingMetadata\Generated\Taxonomy\Models\ExpiredCategories;
 use Exception;
 use Http\Promise\Promise;
@@ -51,7 +52,11 @@ class Get_expired_categoriesRequestBuilder extends BaseRequestBuilder
     */
     public function get(?Get_expired_categoriesRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
-        return $this->requestAdapter->sendAsync($requestInfo, [ExpiredCategories::class, 'createFromDiscriminatorValue'], null);
+        $errorMappings = [
+                '400' => [Error::class, 'createFromDiscriminatorValue'],
+                '500' => [Error::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [ExpiredCategories::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**

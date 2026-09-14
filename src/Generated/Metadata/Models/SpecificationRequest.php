@@ -23,7 +23,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
- * This type defines the properties and specifications to use to search for compatibilities.
+ * This type provides the properties and specifications to use to search for compatibilities.
 */
 class SpecificationRequest implements AdditionalDataHolder, Parsable 
 {

@@ -17,6 +17,7 @@
 namespace EBay\ListingMetadata\Generated\Taxonomy\Get_default_category_tree_id;
 
 use EBay\ListingMetadata\Generated\Taxonomy\Models\BaseCategoryTree;
+use EBay\ListingMetadata\Generated\Taxonomy\Models\Error;
 use Exception;
 use Http\Promise\Promise;
 use Microsoft\Kiota\Abstractions\BaseRequestBuilder;
@@ -51,7 +52,11 @@ class Get_default_category_tree_idRequestBuilder extends BaseRequestBuilder
     */
     public function get(?Get_default_category_tree_idRequestBuilderGetRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toGetRequestInformation($requestConfiguration);
-        return $this->requestAdapter->sendAsync($requestInfo, [BaseCategoryTree::class, 'createFromDiscriminatorValue'], null);
+        $errorMappings = [
+                '400' => [Error::class, 'createFromDiscriminatorValue'],
+                '500' => [Error::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [BaseCategoryTree::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**

@@ -22,7 +22,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 /**
- * For auction listings, this field indicates the lowest dollar value that can be set for the item's starting bid.<br><br>For fixed-price listings, this field indicates the lower dollar value that can be set for the item's sale price.
+ * The type that defines the fields for the currency and a monetary amount.
 */
 class Amount implements AdditionalDataHolder, Parsable 
 {

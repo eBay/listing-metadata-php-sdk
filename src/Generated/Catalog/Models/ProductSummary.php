@@ -23,7 +23,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
- * This type contains a summary of a specified product. The product summary includes information about the product's identifiers, product images, aspects, and the <b>getProduct</b> URL for retrieving the product details.
+ * This type contains a summary of a specified product. The product summary includes information about the product's identifiers, product images, aspects, and the <strong>getProduct</strong> URL for retrieving the product details.
 */
 class ProductSummary implements AdditionalDataHolder, Parsable 
 {
@@ -33,7 +33,7 @@ class ProductSummary implements AdditionalDataHolder, Parsable
     private ?array $additionalData = null;
     
     /**
-     * @var array<Image>|null $additionalImages Contains information about additional images associated with this product. For the primary image, see the <b>image</b> container.
+     * @var array<Image>|null $additionalImages This array is returned if the category product has additional images besides the primary image returned in the <strong>image</strong> container.
     */
     private ?array $additionalImages = null;
     
@@ -58,12 +58,12 @@ class ProductSummary implements AdditionalDataHolder, Parsable
     private ?string $epid = null;
     
     /**
-     * @var array<string>|null $gtin A list of all GTINs that identify this product. This includes all of the values returned in the <b>ean</b>, <b>isbn</b>, and <b>upc</b> fields.
+     * @var array<string>|null $gtin A list of all GTINs that identify this product. This includes all of the values returned in the <strong>ean</strong>, <strong>isbn</strong>, and <strong>upc</strong> fields.
     */
     private ?array $gtin = null;
     
     /**
-     * @var Image|null $image This type contains information about a product image stored in eBay Picture Services (EPS).
+     * @var Image|null $image Contains information about the primary image of this product. For more images of this product, see the <strong>additionalImages</strong> container.
     */
     private ?Image $image = null;
     
@@ -78,7 +78,7 @@ class ProductSummary implements AdditionalDataHolder, Parsable
     private ?array $mpn = null;
     
     /**
-     * @var string|null $productHref The URI of the <b>getProduct</b> call request that retrieves this product's details.
+     * @var string|null $productHref The URI of the <strong>getProduct</strong> call request that retrieves this product's details.
     */
     private ?string $productHref = null;
     
@@ -122,7 +122,7 @@ class ProductSummary implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the additionalImages property value. Contains information about additional images associated with this product. For the primary image, see the <b>image</b> container.
+     * Gets the additionalImages property value. This array is returned if the category product has additional images besides the primary image returned in the <strong>image</strong> container.
      * @return array<Image>|null
     */
     public function getAdditionalImages(): ?array {
@@ -220,7 +220,7 @@ class ProductSummary implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the gtin property value. A list of all GTINs that identify this product. This includes all of the values returned in the <b>ean</b>, <b>isbn</b>, and <b>upc</b> fields.
+     * Gets the gtin property value. A list of all GTINs that identify this product. This includes all of the values returned in the <strong>ean</strong>, <strong>isbn</strong>, and <strong>upc</strong> fields.
      * @return array<string>|null
     */
     public function getGtin(): ?array {
@@ -228,7 +228,7 @@ class ProductSummary implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the image property value. This type contains information about a product image stored in eBay Picture Services (EPS).
+     * Gets the image property value. Contains information about the primary image of this product. For more images of this product, see the <strong>additionalImages</strong> container.
      * @return Image|null
     */
     public function getImage(): ?Image {
@@ -252,7 +252,7 @@ class ProductSummary implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the productHref property value. The URI of the <b>getProduct</b> call request that retrieves this product's details.
+     * Gets the productHref property value. The URI of the <strong>getProduct</strong> call request that retrieves this product's details.
      * @return string|null
     */
     public function getProductHref(): ?string {
@@ -313,7 +313,7 @@ class ProductSummary implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the additionalImages property value. Contains information about additional images associated with this product. For the primary image, see the <b>image</b> container.
+     * Sets the additionalImages property value. This array is returned if the category product has additional images besides the primary image returned in the <strong>image</strong> container.
      * @param array<Image>|null $value Value to set for the additionalImages property.
     */
     public function setAdditionalImages(?array $value): void {
@@ -353,7 +353,7 @@ class ProductSummary implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the gtin property value. A list of all GTINs that identify this product. This includes all of the values returned in the <b>ean</b>, <b>isbn</b>, and <b>upc</b> fields.
+     * Sets the gtin property value. A list of all GTINs that identify this product. This includes all of the values returned in the <strong>ean</strong>, <strong>isbn</strong>, and <strong>upc</strong> fields.
      * @param array<string>|null $value Value to set for the gtin property.
     */
     public function setGtin(?array $value): void {
@@ -361,7 +361,7 @@ class ProductSummary implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the image property value. This type contains information about a product image stored in eBay Picture Services (EPS).
+     * Sets the image property value. Contains information about the primary image of this product. For more images of this product, see the <strong>additionalImages</strong> container.
      * @param Image|null $value Value to set for the image property.
     */
     public function setImage(?Image $value): void {
@@ -385,7 +385,7 @@ class ProductSummary implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the productHref property value. The URI of the <b>getProduct</b> call request that retrieves this product's details.
+     * Sets the productHref property value. The URI of the <strong>getProduct</strong> call request that retrieves this product's details.
      * @param string|null $value Value to set for the productHref property.
     */
     public function setProductHref(?string $value): void {
