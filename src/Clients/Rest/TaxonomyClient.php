@@ -31,15 +31,6 @@ use EBay\ListingMetadata\Generated\Taxonomy\Models\ExpiredCategories;
 use EBay\ListingMetadata\Generated\Taxonomy\Models\GetCategoriesAspectResponse;
 use EBay\ListingMetadata\Generated\Taxonomy\Models\GetCompatibilityMetadataResponse;
 use EBay\ListingMetadata\Generated\Taxonomy\Models\GetCompatibilityPropertyValuesResponse;
-use EBay\ListingMetadata\Generated\Taxonomy\Category_tree\Item\Fetch_item_aspects\Fetch_item_aspectsRequestBuilderGetRequestConfiguration;
-use EBay\ListingMetadata\Generated\Taxonomy\Category_tree\Item\Get_category_subtree\Get_category_subtreeRequestBuilderGetRequestConfiguration;
-use EBay\ListingMetadata\Generated\Taxonomy\Category_tree\Item\Get_category_suggestions\Get_category_suggestionsRequestBuilderGetRequestConfiguration;
-use EBay\ListingMetadata\Generated\Taxonomy\Category_tree\Item\Get_compatibility_properties\Get_compatibility_propertiesRequestBuilderGetRequestConfiguration;
-use EBay\ListingMetadata\Generated\Taxonomy\Category_tree\Item\Get_compatibility_property_values\Get_compatibility_property_valuesRequestBuilderGetRequestConfiguration;
-use EBay\ListingMetadata\Generated\Taxonomy\Category_tree\Item\Get_expired_categories\Get_expired_categoriesRequestBuilderGetRequestConfiguration;
-use EBay\ListingMetadata\Generated\Taxonomy\Category_tree\Item\Get_item_aspects_for_category\Get_item_aspects_for_categoryRequestBuilderGetRequestConfiguration;
-use EBay\ListingMetadata\Generated\Taxonomy\Category_tree\Item\WithCategory_tree_ItemRequestBuilderGetRequestConfiguration;
-use EBay\ListingMetadata\Generated\Taxonomy\Get_default_category_tree_id\Get_default_category_tree_idRequestBuilderGetRequestConfiguration;
 use GuzzleHttp\Client as GuzzleClient;
 use Microsoft\Kiota\Abstractions\Authentication\BaseBearerTokenAuthenticationProvider;
 use Microsoft\Kiota\Http\GuzzleRequestAdapter;
@@ -65,7 +56,7 @@ final class TaxonomyClient
         $headers = $this->mergedHeaders($requestOptions);
         return $this->call($accessToken, fn($api) =>
             $api->category_tree()->byCategory_tree_id($categoryTreeId)->fetch_item_aspects()->get(
-                new Fetch_item_aspectsRequestBuilderGetRequestConfiguration(headers: $headers)
+                new \EBay\ListingMetadata\Generated\Taxonomy\Category_tree\Item\Fetch_item_aspects\Fetch_item_aspectsRequestBuilderGetRequestConfiguration(headers: $headers)
             )->wait()
         );
     }
@@ -75,9 +66,9 @@ final class TaxonomyClient
         $headers = $this->mergedHeaders($requestOptions);
         return $this->call($accessToken, fn($api) =>
             $api->get_default_category_tree_id()->get(
-                new Get_default_category_tree_idRequestBuilderGetRequestConfiguration(
+                new \EBay\ListingMetadata\Generated\Taxonomy\Get_default_category_tree_id\Get_default_category_tree_idRequestBuilderGetRequestConfiguration(
                     headers: $headers,
-                    queryParameters: Get_default_category_tree_idRequestBuilderGetRequestConfiguration::createQueryParameters(
+                    queryParameters: \EBay\ListingMetadata\Generated\Taxonomy\Get_default_category_tree_id\Get_default_category_tree_idRequestBuilderGetRequestConfiguration::createQueryParameters(
                         marketplace_id: $marketplaceId,
                     ),
                 )
@@ -98,7 +89,7 @@ final class TaxonomyClient
         }
         return $this->call($accessToken, fn($api) =>
             $api->category_tree()->byCategory_tree_id($categoryTreeId)->get(
-                new WithCategory_tree_ItemRequestBuilderGetRequestConfiguration(headers: $headers)
+                new \EBay\ListingMetadata\Generated\Taxonomy\Category_tree\Item\WithCategory_tree_ItemRequestBuilderGetRequestConfiguration(headers: $headers)
             )->wait()
         );
     }
@@ -117,9 +108,9 @@ final class TaxonomyClient
         }
         return $this->call($accessToken, fn($api) =>
             $api->category_tree()->byCategory_tree_id($categoryTreeId)->get_category_subtree()->get(
-                new Get_category_subtreeRequestBuilderGetRequestConfiguration(
+                new \EBay\ListingMetadata\Generated\Taxonomy\Category_tree\Item\Get_category_subtree\Get_category_subtreeRequestBuilderGetRequestConfiguration(
                     headers: $headers,
-                    queryParameters: Get_category_subtreeRequestBuilderGetRequestConfiguration::createQueryParameters(
+                    queryParameters: \EBay\ListingMetadata\Generated\Taxonomy\Category_tree\Item\Get_category_subtree\Get_category_subtreeRequestBuilderGetRequestConfiguration::createQueryParameters(
                         category_id: $categoryId,
                     ),
                 )
@@ -137,9 +128,9 @@ final class TaxonomyClient
         $headers = $this->mergedHeaders($requestOptions);
         return $this->call($accessToken, fn($api) =>
             $api->category_tree()->byCategory_tree_id($categoryTreeId)->get_category_suggestions()->get(
-                new Get_category_suggestionsRequestBuilderGetRequestConfiguration(
+                new \EBay\ListingMetadata\Generated\Taxonomy\Category_tree\Item\Get_category_suggestions\Get_category_suggestionsRequestBuilderGetRequestConfiguration(
                     headers: $headers,
-                    queryParameters: Get_category_suggestionsRequestBuilderGetRequestConfiguration::createQueryParameters(
+                    queryParameters: \EBay\ListingMetadata\Generated\Taxonomy\Category_tree\Item\Get_category_suggestions\Get_category_suggestionsRequestBuilderGetRequestConfiguration::createQueryParameters(
                         q: $q,
                     ),
                 )
@@ -157,9 +148,9 @@ final class TaxonomyClient
         $headers = $this->mergedHeaders($requestOptions);
         return $this->call($accessToken, fn($api) =>
             $api->category_tree()->byCategory_tree_id($categoryTreeId)->get_item_aspects_for_category()->get(
-                new Get_item_aspects_for_categoryRequestBuilderGetRequestConfiguration(
+                new \EBay\ListingMetadata\Generated\Taxonomy\Category_tree\Item\Get_item_aspects_for_category\Get_item_aspects_for_categoryRequestBuilderGetRequestConfiguration(
                     headers: $headers,
-                    queryParameters: Get_item_aspects_for_categoryRequestBuilderGetRequestConfiguration::createQueryParameters(
+                    queryParameters: \EBay\ListingMetadata\Generated\Taxonomy\Category_tree\Item\Get_item_aspects_for_category\Get_item_aspects_for_categoryRequestBuilderGetRequestConfiguration::createQueryParameters(
                         category_id: $categoryId,
                     ),
                 )
@@ -177,9 +168,9 @@ final class TaxonomyClient
         $headers = $this->mergedHeaders($requestOptions);
         return $this->call($accessToken, fn($api) =>
             $api->category_tree()->byCategory_tree_id($categoryTreeId)->get_compatibility_properties()->get(
-                new Get_compatibility_propertiesRequestBuilderGetRequestConfiguration(
+                new \EBay\ListingMetadata\Generated\Taxonomy\Category_tree\Item\Get_compatibility_properties\Get_compatibility_propertiesRequestBuilderGetRequestConfiguration(
                     headers: $headers,
-                    queryParameters: Get_compatibility_propertiesRequestBuilderGetRequestConfiguration::createQueryParameters(
+                    queryParameters: \EBay\ListingMetadata\Generated\Taxonomy\Category_tree\Item\Get_compatibility_properties\Get_compatibility_propertiesRequestBuilderGetRequestConfiguration::createQueryParameters(
                         category_id: $categoryId,
                     ),
                 )
@@ -199,9 +190,9 @@ final class TaxonomyClient
         $headers = $this->mergedHeaders($requestOptions);
         return $this->call($accessToken, fn($api) =>
             $api->category_tree()->byCategory_tree_id($categoryTreeId)->get_compatibility_property_values()->get(
-                new Get_compatibility_property_valuesRequestBuilderGetRequestConfiguration(
+                new \EBay\ListingMetadata\Generated\Taxonomy\Category_tree\Item\Get_compatibility_property_values\Get_compatibility_property_valuesRequestBuilderGetRequestConfiguration(
                     headers: $headers,
-                    queryParameters: Get_compatibility_property_valuesRequestBuilderGetRequestConfiguration::createQueryParameters(
+                    queryParameters: \EBay\ListingMetadata\Generated\Taxonomy\Category_tree\Item\Get_compatibility_property_values\Get_compatibility_property_valuesRequestBuilderGetRequestConfiguration::createQueryParameters(
                         compatibility_property: $compatibilityProperty,
                         category_id: $categoryId,
                         filter: $filter,
@@ -216,7 +207,7 @@ final class TaxonomyClient
         $headers = $this->mergedHeaders($requestOptions);
         return $this->call($accessToken, fn($api) =>
             $api->category_tree()->byCategory_tree_id($categoryTreeId)->get_expired_categories()->get(
-                new Get_expired_categoriesRequestBuilderGetRequestConfiguration(headers: $headers)
+                new \EBay\ListingMetadata\Generated\Taxonomy\Category_tree\Item\Get_expired_categories\Get_expired_categoriesRequestBuilderGetRequestConfiguration(headers: $headers)
             )->wait()
         );
     }

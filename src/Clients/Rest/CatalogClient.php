@@ -24,8 +24,6 @@ use EBay\ListingMetadata\Configuration\RequestOptions;
 use EBay\ListingMetadata\Generated\Catalog\CatalogApiClient;
 use EBay\ListingMetadata\Generated\Catalog\Models\Product;
 use EBay\ListingMetadata\Generated\Catalog\Models\ProductSearchResponse;
-use EBay\ListingMetadata\Generated\Catalog\Product_summary\Search\SearchRequestBuilderGetRequestConfiguration;
-use EBay\ListingMetadata\Generated\Catalog\Product\Item\WithEpItemRequestBuilderGetRequestConfiguration;
 use GuzzleHttp\Client as GuzzleClient;
 use Microsoft\Kiota\Abstractions\Authentication\BaseBearerTokenAuthenticationProvider;
 use Microsoft\Kiota\Http\GuzzleRequestAdapter;
@@ -59,7 +57,7 @@ final class CatalogClient
         }
         return $this->call($accessToken, fn($api) =>
             $api->product()->byEpid($epid)->get(
-                new WithEpItemRequestBuilderGetRequestConfiguration(headers: $headers)
+                new \EBay\ListingMetadata\Generated\Catalog\Product\Item\WithEpItemRequestBuilderGetRequestConfiguration(headers: $headers)
             )->wait()
         );
     }
@@ -84,9 +82,9 @@ final class CatalogClient
         }
         return $this->call($accessToken, fn($api) =>
             $api->product_summary()->search()->get(
-                new SearchRequestBuilderGetRequestConfiguration(
+                new \EBay\ListingMetadata\Generated\Catalog\Product_summary\Search\SearchRequestBuilderGetRequestConfiguration(
                     headers: $headers,
-                    queryParameters: SearchRequestBuilderGetRequestConfiguration::createQueryParameters(
+                    queryParameters: \EBay\ListingMetadata\Generated\Catalog\Product_summary\Search\SearchRequestBuilderGetRequestConfiguration::createQueryParameters(
                         aspect_filter: $aspectFilter,
                         category_ids: $categoryIds,
                         fieldgroups: $fieldgroups,

@@ -24,8 +24,6 @@ use EBay\ListingMetadata\Configuration\RequestOptions;
 use EBay\ListingMetadata\Generated\Charity\CharityApiClient;
 use EBay\ListingMetadata\Generated\Charity\Models\CharityOrg;
 use EBay\ListingMetadata\Generated\Charity\Models\CharitySearchResponse;
-use EBay\ListingMetadata\Generated\Charity\Charity_org\Charity_orgRequestBuilderGetRequestConfiguration;
-use EBay\ListingMetadata\Generated\Charity\Charity_org\Item\WithCharity_org_ItemRequestBuilderGetRequestConfiguration;
 use GuzzleHttp\Client as GuzzleClient;
 use Microsoft\Kiota\Abstractions\Authentication\BaseBearerTokenAuthenticationProvider;
 use Microsoft\Kiota\Http\GuzzleRequestAdapter;
@@ -59,7 +57,7 @@ final class CharityClient
         }
         return $this->call($accessToken, fn($api) =>
             $api->charity_org()->byCharity_org_id($charityOrgId)->get(
-                new WithCharity_org_ItemRequestBuilderGetRequestConfiguration(headers: $headers)
+                new \EBay\ListingMetadata\Generated\Charity\Charity_org\Item\WithCharity_org_ItemRequestBuilderGetRequestConfiguration(headers: $headers)
             )->wait()
         );
     }
@@ -80,9 +78,9 @@ final class CharityClient
         }
         return $this->call($accessToken, fn($api) =>
             $api->charity_org()->get(
-                new Charity_orgRequestBuilderGetRequestConfiguration(
+                new \EBay\ListingMetadata\Generated\Charity\Charity_org\Charity_orgRequestBuilderGetRequestConfiguration(
                     headers: $headers,
-                    queryParameters: Charity_orgRequestBuilderGetRequestConfiguration::createQueryParameters(
+                    queryParameters: \EBay\ListingMetadata\Generated\Charity\Charity_org\Charity_orgRequestBuilderGetRequestConfiguration::createQueryParameters(
                         limit: $limit,
                         offset: $offset,
                         q: $q,

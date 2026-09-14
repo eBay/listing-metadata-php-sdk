@@ -55,34 +55,6 @@ use EBay\ListingMetadata\Generated\Metadata\Models\ShippingServiceResponse;
 use EBay\ListingMetadata\Generated\Metadata\Models\SiteVisibilityPoliciesResponse;
 use EBay\ListingMetadata\Generated\Metadata\Models\SpecificationRequest;
 use EBay\ListingMetadata\Generated\Metadata\Models\SpecificationResponse;
-use EBay\ListingMetadata\Generated\Metadata\Compatibilities\Get_compatibilities_by_specification\Get_compatibilities_by_specificationRequestBuilderPostRequestConfiguration;
-use EBay\ListingMetadata\Generated\Metadata\Compatibilities\Get_compatibility_property_names\Get_compatibility_property_namesRequestBuilderPostRequestConfiguration;
-use EBay\ListingMetadata\Generated\Metadata\Compatibilities\Get_compatibility_property_values\Get_compatibility_property_valuesRequestBuilderPostRequestConfiguration;
-use EBay\ListingMetadata\Generated\Metadata\Compatibilities\Get_multi_compatibility_property_values\Get_multi_compatibility_property_valuesRequestBuilderPostRequestConfiguration;
-use EBay\ListingMetadata\Generated\Metadata\Compatibilities\Get_product_compatibilities\Get_product_compatibilitiesRequestBuilderPostRequestConfiguration;
-use EBay\ListingMetadata\Generated\Metadata\Country\Item\Sales_tax_jurisdiction\Sales_tax_jurisdictionRequestBuilderGetRequestConfiguration;
-use EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_automotive_parts_compatibility_policies\Get_automotive_parts_compatibility_policiesRequestBuilderGetRequestConfiguration;
-use EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_category_policies\Get_category_policiesRequestBuilderGetRequestConfiguration;
-use EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_classified_ad_policies\Get_classified_ad_policiesRequestBuilderGetRequestConfiguration;
-use EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_currencies\Get_currenciesRequestBuilderGetRequestConfiguration;
-use EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_extended_producer_responsibility_policies\Get_extended_producer_responsibility_policiesRequestBuilderGetRequestConfiguration;
-use EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_hazardous_materials_labels\Get_hazardous_materials_labelsRequestBuilderGetRequestConfiguration;
-use EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_item_condition_policies\Get_item_condition_policiesRequestBuilderGetRequestConfiguration;
-use EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_listing_structure_policies\Get_listing_structure_policiesRequestBuilderGetRequestConfiguration;
-use EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_listing_type_policies\Get_listing_type_policiesRequestBuilderGetRequestConfiguration;
-use EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_minimum_listing_price_policies\Get_minimum_listing_price_policiesRequestBuilderGetRequestConfiguration;
-use EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_motors_listing_policies\Get_motors_listing_policiesRequestBuilderGetRequestConfiguration;
-use EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_negotiated_price_policies\Get_negotiated_price_policiesRequestBuilderGetRequestConfiguration;
-use EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_product_safety_labels\Get_product_safety_labelsRequestBuilderGetRequestConfiguration;
-use EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_regulatory_policies\Get_regulatory_policiesRequestBuilderGetRequestConfiguration;
-use EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_return_policies\Get_return_policiesRequestBuilderGetRequestConfiguration;
-use EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_shipping_policies\Get_shipping_policiesRequestBuilderGetRequestConfiguration;
-use EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_site_visibility_policies\Get_site_visibility_policiesRequestBuilderGetRequestConfiguration;
-use EBay\ListingMetadata\Generated\Metadata\Shipping\Marketplace\Item\Get_exclude_shipping_locations\Get_exclude_shipping_locationsRequestBuilderGetRequestConfiguration;
-use EBay\ListingMetadata\Generated\Metadata\Shipping\Marketplace\Item\Get_handling_times\Get_handling_timesRequestBuilderGetRequestConfiguration;
-use EBay\ListingMetadata\Generated\Metadata\Shipping\Marketplace\Item\Get_shipping_carriers\Get_shipping_carriersRequestBuilderGetRequestConfiguration;
-use EBay\ListingMetadata\Generated\Metadata\Shipping\Marketplace\Item\Get_shipping_locations\Get_shipping_locationsRequestBuilderGetRequestConfiguration;
-use EBay\ListingMetadata\Generated\Metadata\Shipping\Marketplace\Item\Get_shipping_services\Get_shipping_servicesRequestBuilderGetRequestConfiguration;
 use GuzzleHttp\Client as GuzzleClient;
 use Microsoft\Kiota\Abstractions\Authentication\BaseBearerTokenAuthenticationProvider;
 use Microsoft\Kiota\Http\GuzzleRequestAdapter;
@@ -117,9 +89,9 @@ final class MetadataClient
         }
         return $this->call($accessToken, fn($api) =>
             $api->marketplace()->byMarketplace_id($marketplaceId)->get_automotive_parts_compatibility_policies()->get(
-                new Get_automotive_parts_compatibility_policiesRequestBuilderGetRequestConfiguration(
+                new \EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_automotive_parts_compatibility_policies\Get_automotive_parts_compatibility_policiesRequestBuilderGetRequestConfiguration(
                     headers: $headers,
-                    queryParameters: Get_automotive_parts_compatibility_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
+                    queryParameters: \EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_automotive_parts_compatibility_policies\Get_automotive_parts_compatibility_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
                         filter: $filter,
                     ),
                 )
@@ -141,9 +113,9 @@ final class MetadataClient
         }
         return $this->call($accessToken, fn($api) =>
             $api->marketplace()->byMarketplace_id($marketplaceId)->get_category_policies()->get(
-                new Get_category_policiesRequestBuilderGetRequestConfiguration(
+                new \EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_category_policies\Get_category_policiesRequestBuilderGetRequestConfiguration(
                     headers: $headers,
-                    queryParameters: Get_category_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
+                    queryParameters: \EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_category_policies\Get_category_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
                         filter: $filter,
                     ),
                 )
@@ -165,9 +137,9 @@ final class MetadataClient
         }
         return $this->call($accessToken, fn($api) =>
             $api->marketplace()->byMarketplace_id($marketplaceId)->get_classified_ad_policies()->get(
-                new Get_classified_ad_policiesRequestBuilderGetRequestConfiguration(
+                new \EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_classified_ad_policies\Get_classified_ad_policiesRequestBuilderGetRequestConfiguration(
                     headers: $headers,
-                    queryParameters: Get_classified_ad_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
+                    queryParameters: \EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_classified_ad_policies\Get_classified_ad_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
                         filter: $filter,
                     ),
                 )
@@ -188,7 +160,7 @@ final class MetadataClient
         }
         return $this->call($accessToken, fn($api) =>
             $api->marketplace()->byMarketplace_id($marketplaceId)->get_currencies()->get(
-                new Get_currenciesRequestBuilderGetRequestConfiguration(headers: $headers)
+                new \EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_currencies\Get_currenciesRequestBuilderGetRequestConfiguration(headers: $headers)
             )->wait()
         );
     }
@@ -211,9 +183,9 @@ final class MetadataClient
         }
         return $this->call($accessToken, fn($api) =>
             $api->marketplace()->byMarketplace_id($marketplaceId)->get_extended_producer_responsibility_policies()->get(
-                new Get_extended_producer_responsibility_policiesRequestBuilderGetRequestConfiguration(
+                new \EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_extended_producer_responsibility_policies\Get_extended_producer_responsibility_policiesRequestBuilderGetRequestConfiguration(
                     headers: $headers,
-                    queryParameters: Get_extended_producer_responsibility_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
+                    queryParameters: \EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_extended_producer_responsibility_policies\Get_extended_producer_responsibility_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
                         filter: $filter,
                     ),
                 )
@@ -234,7 +206,7 @@ final class MetadataClient
         }
         return $this->call($accessToken, fn($api) =>
             $api->marketplace()->byMarketplace_id($marketplaceId)->get_hazardous_materials_labels()->get(
-                new Get_hazardous_materials_labelsRequestBuilderGetRequestConfiguration(headers: $headers)
+                new \EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_hazardous_materials_labels\Get_hazardous_materials_labelsRequestBuilderGetRequestConfiguration(headers: $headers)
             )->wait()
         );
     }
@@ -257,9 +229,9 @@ final class MetadataClient
         }
         return $this->call($accessToken, fn($api) =>
             $api->marketplace()->byMarketplace_id($marketplaceId)->get_item_condition_policies()->get(
-                new Get_item_condition_policiesRequestBuilderGetRequestConfiguration(
+                new \EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_item_condition_policies\Get_item_condition_policiesRequestBuilderGetRequestConfiguration(
                     headers: $headers,
-                    queryParameters: Get_item_condition_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
+                    queryParameters: \EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_item_condition_policies\Get_item_condition_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
                         filter: $filter,
                     ),
                 )
@@ -285,9 +257,9 @@ final class MetadataClient
         }
         return $this->call($accessToken, fn($api) =>
             $api->marketplace()->byMarketplace_id($marketplaceId)->get_listing_structure_policies()->get(
-                new Get_listing_structure_policiesRequestBuilderGetRequestConfiguration(
+                new \EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_listing_structure_policies\Get_listing_structure_policiesRequestBuilderGetRequestConfiguration(
                     headers: $headers,
-                    queryParameters: Get_listing_structure_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
+                    queryParameters: \EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_listing_structure_policies\Get_listing_structure_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
                         filter: $filter,
                     ),
                 )
@@ -309,9 +281,9 @@ final class MetadataClient
         }
         return $this->call($accessToken, fn($api) =>
             $api->marketplace()->byMarketplace_id($marketplaceId)->get_listing_type_policies()->get(
-                new Get_listing_type_policiesRequestBuilderGetRequestConfiguration(
+                new \EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_listing_type_policies\Get_listing_type_policiesRequestBuilderGetRequestConfiguration(
                     headers: $headers,
-                    queryParameters: Get_listing_type_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
+                    queryParameters: \EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_listing_type_policies\Get_listing_type_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
                         filter: $filter,
                     ),
                 )
@@ -324,7 +296,7 @@ final class MetadataClient
         $headers = $this->mergedHeaders($requestOptions);
         return $this->call($accessToken, fn($api) =>
             $api->marketplace()->byMarketplace_id($marketplaceId)->get_minimum_listing_price_policies()->get(
-                new Get_minimum_listing_price_policiesRequestBuilderGetRequestConfiguration(headers: $headers)
+                new \EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_minimum_listing_price_policies\Get_minimum_listing_price_policiesRequestBuilderGetRequestConfiguration(headers: $headers)
             )->wait()
         );
     }
@@ -343,9 +315,9 @@ final class MetadataClient
         }
         return $this->call($accessToken, fn($api) =>
             $api->marketplace()->byMarketplace_id($marketplaceId)->get_motors_listing_policies()->get(
-                new Get_motors_listing_policiesRequestBuilderGetRequestConfiguration(
+                new \EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_motors_listing_policies\Get_motors_listing_policiesRequestBuilderGetRequestConfiguration(
                     headers: $headers,
-                    queryParameters: Get_motors_listing_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
+                    queryParameters: \EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_motors_listing_policies\Get_motors_listing_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
                         filter: $filter,
                     ),
                 )
@@ -371,9 +343,9 @@ final class MetadataClient
         }
         return $this->call($accessToken, fn($api) =>
             $api->marketplace()->byMarketplace_id($marketplaceId)->get_negotiated_price_policies()->get(
-                new Get_negotiated_price_policiesRequestBuilderGetRequestConfiguration(
+                new \EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_negotiated_price_policies\Get_negotiated_price_policiesRequestBuilderGetRequestConfiguration(
                     headers: $headers,
-                    queryParameters: Get_negotiated_price_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
+                    queryParameters: \EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_negotiated_price_policies\Get_negotiated_price_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
                         filter: $filter,
                     ),
                 )
@@ -386,7 +358,7 @@ final class MetadataClient
         $headers = $this->mergedHeaders($requestOptions);
         return $this->call($accessToken, fn($api) =>
             $api->marketplace()->byMarketplace_id($marketplaceId)->get_product_safety_labels()->get(
-                new Get_product_safety_labelsRequestBuilderGetRequestConfiguration(headers: $headers)
+                new \EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_product_safety_labels\Get_product_safety_labelsRequestBuilderGetRequestConfiguration(headers: $headers)
             )->wait()
         );
     }
@@ -405,9 +377,9 @@ final class MetadataClient
         }
         return $this->call($accessToken, fn($api) =>
             $api->marketplace()->byMarketplace_id($marketplaceId)->get_regulatory_policies()->get(
-                new Get_regulatory_policiesRequestBuilderGetRequestConfiguration(
+                new \EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_regulatory_policies\Get_regulatory_policiesRequestBuilderGetRequestConfiguration(
                     headers: $headers,
-                    queryParameters: Get_regulatory_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
+                    queryParameters: \EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_regulatory_policies\Get_regulatory_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
                         filter: $filter,
                     ),
                 )
@@ -433,9 +405,9 @@ final class MetadataClient
         }
         return $this->call($accessToken, fn($api) =>
             $api->marketplace()->byMarketplace_id($marketplaceId)->get_return_policies()->get(
-                new Get_return_policiesRequestBuilderGetRequestConfiguration(
+                new \EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_return_policies\Get_return_policiesRequestBuilderGetRequestConfiguration(
                     headers: $headers,
-                    queryParameters: Get_return_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
+                    queryParameters: \EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_return_policies\Get_return_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
                         filter: $filter,
                     ),
                 )
@@ -457,9 +429,9 @@ final class MetadataClient
         }
         return $this->call($accessToken, fn($api) =>
             $api->marketplace()->byMarketplace_id($marketplaceId)->get_shipping_policies()->get(
-                new Get_shipping_policiesRequestBuilderGetRequestConfiguration(
+                new \EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_shipping_policies\Get_shipping_policiesRequestBuilderGetRequestConfiguration(
                     headers: $headers,
-                    queryParameters: Get_shipping_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
+                    queryParameters: \EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_shipping_policies\Get_shipping_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
                         filter: $filter,
                     ),
                 )
@@ -481,9 +453,9 @@ final class MetadataClient
         }
         return $this->call($accessToken, fn($api) =>
             $api->marketplace()->byMarketplace_id($marketplaceId)->get_site_visibility_policies()->get(
-                new Get_site_visibility_policiesRequestBuilderGetRequestConfiguration(
+                new \EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_site_visibility_policies\Get_site_visibility_policiesRequestBuilderGetRequestConfiguration(
                     headers: $headers,
-                    queryParameters: Get_site_visibility_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
+                    queryParameters: \EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_site_visibility_policies\Get_site_visibility_policiesRequestBuilderGetRequestConfiguration::createQueryParameters(
                         filter: $filter,
                     ),
                 )
@@ -505,7 +477,7 @@ final class MetadataClient
         return $this->call($accessToken, fn($api) =>
             $api->compatibilities()->get_compatibilities_by_specification()->post(
                 $body,
-                new Get_compatibilities_by_specificationRequestBuilderPostRequestConfiguration(headers: $headers)
+                new \EBay\ListingMetadata\Generated\Metadata\Compatibilities\Get_compatibilities_by_specification\Get_compatibilities_by_specificationRequestBuilderPostRequestConfiguration(headers: $headers)
             )->wait()
         );
     }
@@ -524,7 +496,7 @@ final class MetadataClient
         return $this->call($accessToken, fn($api) =>
             $api->compatibilities()->get_compatibility_property_names()->post(
                 $body,
-                new Get_compatibility_property_namesRequestBuilderPostRequestConfiguration(headers: $headers)
+                new \EBay\ListingMetadata\Generated\Metadata\Compatibilities\Get_compatibility_property_names\Get_compatibility_property_namesRequestBuilderPostRequestConfiguration(headers: $headers)
             )->wait()
         );
     }
@@ -543,7 +515,7 @@ final class MetadataClient
         return $this->call($accessToken, fn($api) =>
             $api->compatibilities()->get_compatibility_property_values()->post(
                 $body,
-                new Get_compatibility_property_valuesRequestBuilderPostRequestConfiguration(headers: $headers)
+                new \EBay\ListingMetadata\Generated\Metadata\Compatibilities\Get_compatibility_property_values\Get_compatibility_property_valuesRequestBuilderPostRequestConfiguration(headers: $headers)
             )->wait()
         );
     }
@@ -562,7 +534,7 @@ final class MetadataClient
         return $this->call($accessToken, fn($api) =>
             $api->compatibilities()->get_multi_compatibility_property_values()->post(
                 $body,
-                new Get_multi_compatibility_property_valuesRequestBuilderPostRequestConfiguration(headers: $headers)
+                new \EBay\ListingMetadata\Generated\Metadata\Compatibilities\Get_multi_compatibility_property_values\Get_multi_compatibility_property_valuesRequestBuilderPostRequestConfiguration(headers: $headers)
             )->wait()
         );
     }
@@ -581,7 +553,7 @@ final class MetadataClient
         return $this->call($accessToken, fn($api) =>
             $api->compatibilities()->get_product_compatibilities()->post(
                 $body,
-                new Get_product_compatibilitiesRequestBuilderPostRequestConfiguration(headers: $headers)
+                new \EBay\ListingMetadata\Generated\Metadata\Compatibilities\Get_product_compatibilities\Get_product_compatibilitiesRequestBuilderPostRequestConfiguration(headers: $headers)
             )->wait()
         );
     }
@@ -599,7 +571,7 @@ final class MetadataClient
         }
         return $this->call($accessToken, fn($api) =>
             $api->shipping()->marketplace()->byMarketplace_id($marketplaceId)->get_exclude_shipping_locations()->get(
-                new Get_exclude_shipping_locationsRequestBuilderGetRequestConfiguration(headers: $headers)
+                new \EBay\ListingMetadata\Generated\Metadata\Shipping\Marketplace\Item\Get_exclude_shipping_locations\Get_exclude_shipping_locationsRequestBuilderGetRequestConfiguration(headers: $headers)
             )->wait()
         );
     }
@@ -617,7 +589,7 @@ final class MetadataClient
         }
         return $this->call($accessToken, fn($api) =>
             $api->shipping()->marketplace()->byMarketplace_id($marketplaceId)->get_handling_times()->get(
-                new Get_handling_timesRequestBuilderGetRequestConfiguration(headers: $headers)
+                new \EBay\ListingMetadata\Generated\Metadata\Shipping\Marketplace\Item\Get_handling_times\Get_handling_timesRequestBuilderGetRequestConfiguration(headers: $headers)
             )->wait()
         );
     }
@@ -635,7 +607,7 @@ final class MetadataClient
         }
         return $this->call($accessToken, fn($api) =>
             $api->shipping()->marketplace()->byMarketplace_id($marketplaceId)->get_shipping_carriers()->get(
-                new Get_shipping_carriersRequestBuilderGetRequestConfiguration(headers: $headers)
+                new \EBay\ListingMetadata\Generated\Metadata\Shipping\Marketplace\Item\Get_shipping_carriers\Get_shipping_carriersRequestBuilderGetRequestConfiguration(headers: $headers)
             )->wait()
         );
     }
@@ -653,7 +625,7 @@ final class MetadataClient
         }
         return $this->call($accessToken, fn($api) =>
             $api->shipping()->marketplace()->byMarketplace_id($marketplaceId)->get_shipping_locations()->get(
-                new Get_shipping_locationsRequestBuilderGetRequestConfiguration(headers: $headers)
+                new \EBay\ListingMetadata\Generated\Metadata\Shipping\Marketplace\Item\Get_shipping_locations\Get_shipping_locationsRequestBuilderGetRequestConfiguration(headers: $headers)
             )->wait()
         );
     }
@@ -671,7 +643,7 @@ final class MetadataClient
         }
         return $this->call($accessToken, fn($api) =>
             $api->shipping()->marketplace()->byMarketplace_id($marketplaceId)->get_shipping_services()->get(
-                new Get_shipping_servicesRequestBuilderGetRequestConfiguration(headers: $headers)
+                new \EBay\ListingMetadata\Generated\Metadata\Shipping\Marketplace\Item\Get_shipping_services\Get_shipping_servicesRequestBuilderGetRequestConfiguration(headers: $headers)
             )->wait()
         );
     }
@@ -681,7 +653,7 @@ final class MetadataClient
         $headers = $this->mergedHeaders($requestOptions);
         return $this->call($accessToken, fn($api) =>
             $api->country()->byCountryCode($countryCode)->sales_tax_jurisdiction()->get(
-                new Sales_tax_jurisdictionRequestBuilderGetRequestConfiguration(headers: $headers)
+                new \EBay\ListingMetadata\Generated\Metadata\Country\Item\Sales_tax_jurisdiction\Sales_tax_jurisdictionRequestBuilderGetRequestConfiguration(headers: $headers)
             )->wait()
         );
     }
