@@ -44,7 +44,7 @@ class Get_shipping_servicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * This method retrieves a list of shipping services supported for the specified marketplace, including valid shipping services, shipping times, and package constraints such as size and weight.<p>Manage shipping services using business policies through the <a href="/api-docs/sell/account/resources/methods#s0-1-30-4-7-5-6-2[1]-h2-fulfillment_policy"  target="_blank">fulfillment_policy</a> resource of the <b>Account v1 API</b>.</p>
+     * This method retrieves a list of shipping services supported for the specified marketplace, including valid shipping services, shipping times, and package constraints such as size and weight.<p>Manage shipping services using business policies through the <b>fulfillment_policy</b> resource of the <b>Account v1 API</b>.</p>
      * @param Get_shipping_servicesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ShippingServiceResponse|null>
      * @throws Exception
@@ -55,7 +55,7 @@ class Get_shipping_servicesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * This method retrieves a list of shipping services supported for the specified marketplace, including valid shipping services, shipping times, and package constraints such as size and weight.<p>Manage shipping services using business policies through the <a href="/api-docs/sell/account/resources/methods#s0-1-30-4-7-5-6-2[1]-h2-fulfillment_policy"  target="_blank">fulfillment_policy</a> resource of the <b>Account v1 API</b>.</p>
+     * This method retrieves a list of shipping services supported for the specified marketplace, including valid shipping services, shipping times, and package constraints such as size and weight.<p>Manage shipping services using business policies through the <b>fulfillment_policy</b> resource of the <b>Account v1 API</b>.</p>
      * @param Get_shipping_servicesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

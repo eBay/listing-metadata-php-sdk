@@ -22,7 +22,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 /**
- * This type defines the supported product identifiers.
+ * This container is used to provide unique identifier for the product. The product identifier consists of an identifier type and value, and are unique across all sites.
 */
 class ProductIdentifier implements AdditionalDataHolder, Parsable 
 {

@@ -32,7 +32,7 @@ class ItemCondition implements AdditionalDataHolder, Parsable
     private ?array $additionalData = null;
     
     /**
-     * @var string|null $conditionDescription The human-readable label for the condition (e.g., "New"). This value is typically localized for each site.  <br><br>Note that the display name can vary by category. For example, the description for condition ID <code>1000</code> could be called "New: with Tags" in one category and "Brand New" in another. For details on condition IDs and descriptions, see <a href='/api-docs/sell/static/metadata/condition-id-values.html'>Item condition ID and name values</a>.
+     * @var string|null $conditionDescription The human-readable label for the condition (e.g., "New"). This value is typically localized for each site.  <br><br>Note that the display name can vary by category. For example, the description for condition ID <code>1000</code> could be called "New: with Tags" in one category and "Brand New" in another. For details on condition IDs and descriptions, see <a href='/api-docs/sell/static/metadata/condition-id-values.html' target='_blank'>Item condition ID and name values</a>.
     */
     private ?string $conditionDescription = null;
     
@@ -47,14 +47,14 @@ class ItemCondition implements AdditionalDataHolder, Parsable
     private ?string $conditionHelpText = null;
     
     /**
-     * @var string|null $conditionId The ID value of the selected item condition. For information on the supported condition ID values, see <a href='/api-docs/sell/static/metadata/condition-id-values.html'>Item condition ID and name values</a>.
+     * @var string|null $conditionId The ID value of the selected item condition. For information on the supported condition ID values, see <a href='/api-docs/sell/static/metadata/condition-id-values.html' target='_blank'>Item condition ID and name values</a>.
     */
     private ?string $conditionId = null;
     
     /**
-     * @var string|null $usage The value returned in this field indicates if there are any usage restrictions or requirements for the corresponding item condition in the corresponding category.<br><br><span class="tablenote"><b>Note:</b> Currently, the only supported value is 'RESTRICTED', and this field will only be returned for the following conditions: 2000, 2010, 2020, 2030. Sellers must be pre-approved to use any of these item conditions.</span> For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:UsageEnum'>eBay API documentation</a>
+     * @var UsageEnum|null $usage The value returned in this field indicates if there are any usage restrictions or requirements for the corresponding item condition in the corresponding category.<br><br><span class="tablenote"><b>Note:</b> Currently, the only supported value is 'RESTRICTED', and this field will only be returned for the following conditions: 2000, 2010, 2020, 2030. Sellers must be pre-approved to use any of these item conditions.</span>
     */
-    private ?string $usage = null;
+    private ?UsageEnum $usage = null;
     
     /**
      * Instantiates a new ItemCondition and sets the default values.
@@ -81,7 +81,7 @@ class ItemCondition implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the conditionDescription property value. The human-readable label for the condition (e.g., "New"). This value is typically localized for each site.  <br><br>Note that the display name can vary by category. For example, the description for condition ID <code>1000</code> could be called "New: with Tags" in one category and "Brand New" in another. For details on condition IDs and descriptions, see <a href='/api-docs/sell/static/metadata/condition-id-values.html'>Item condition ID and name values</a>.
+     * Gets the conditionDescription property value. The human-readable label for the condition (e.g., "New"). This value is typically localized for each site.  <br><br>Note that the display name can vary by category. For example, the description for condition ID <code>1000</code> could be called "New: with Tags" in one category and "Brand New" in another. For details on condition IDs and descriptions, see <a href='/api-docs/sell/static/metadata/condition-id-values.html' target='_blank'>Item condition ID and name values</a>.
      * @return string|null
     */
     public function getConditionDescription(): ?string {
@@ -105,7 +105,7 @@ class ItemCondition implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the conditionId property value. The ID value of the selected item condition. For information on the supported condition ID values, see <a href='/api-docs/sell/static/metadata/condition-id-values.html'>Item condition ID and name values</a>.
+     * Gets the conditionId property value. The ID value of the selected item condition. For information on the supported condition ID values, see <a href='/api-docs/sell/static/metadata/condition-id-values.html' target='_blank'>Item condition ID and name values</a>.
      * @return string|null
     */
     public function getConditionId(): ?string {
@@ -123,15 +123,15 @@ class ItemCondition implements AdditionalDataHolder, Parsable
             'conditionDescriptors' => fn(ParseNode $n) => $o->setConditionDescriptors($n->getCollectionOfObjectValues([ItemConditionDescriptor::class, 'createFromDiscriminatorValue'])),
             'conditionHelpText' => fn(ParseNode $n) => $o->setConditionHelpText($n->getStringValue()),
             'conditionId' => fn(ParseNode $n) => $o->setConditionId($n->getStringValue()),
-            'usage' => fn(ParseNode $n) => $o->setUsage($n->getStringValue()),
+            'usage' => fn(ParseNode $n) => $o->setUsage($n->getEnumValue(UsageEnum::class)),
         ];
     }
 
     /**
-     * Gets the usage property value. The value returned in this field indicates if there are any usage restrictions or requirements for the corresponding item condition in the corresponding category.<br><br><span class="tablenote"><b>Note:</b> Currently, the only supported value is 'RESTRICTED', and this field will only be returned for the following conditions: 2000, 2010, 2020, 2030. Sellers must be pre-approved to use any of these item conditions.</span> For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:UsageEnum'>eBay API documentation</a>
-     * @return string|null
+     * Gets the usage property value. The value returned in this field indicates if there are any usage restrictions or requirements for the corresponding item condition in the corresponding category.<br><br><span class="tablenote"><b>Note:</b> Currently, the only supported value is 'RESTRICTED', and this field will only be returned for the following conditions: 2000, 2010, 2020, 2030. Sellers must be pre-approved to use any of these item conditions.</span>
+     * @return UsageEnum|null
     */
-    public function getUsage(): ?string {
+    public function getUsage(): ?UsageEnum {
         return $this->usage;
     }
 
@@ -144,7 +144,7 @@ class ItemCondition implements AdditionalDataHolder, Parsable
         $writer->writeCollectionOfObjectValues('conditionDescriptors', $this->getConditionDescriptors());
         $writer->writeStringValue('conditionHelpText', $this->getConditionHelpText());
         $writer->writeStringValue('conditionId', $this->getConditionId());
-        $writer->writeStringValue('usage', $this->getUsage());
+        $writer->writeEnumValue('usage', $this->getUsage());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -157,7 +157,7 @@ class ItemCondition implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the conditionDescription property value. The human-readable label for the condition (e.g., "New"). This value is typically localized for each site.  <br><br>Note that the display name can vary by category. For example, the description for condition ID <code>1000</code> could be called "New: with Tags" in one category and "Brand New" in another. For details on condition IDs and descriptions, see <a href='/api-docs/sell/static/metadata/condition-id-values.html'>Item condition ID and name values</a>.
+     * Sets the conditionDescription property value. The human-readable label for the condition (e.g., "New"). This value is typically localized for each site.  <br><br>Note that the display name can vary by category. For example, the description for condition ID <code>1000</code> could be called "New: with Tags" in one category and "Brand New" in another. For details on condition IDs and descriptions, see <a href='/api-docs/sell/static/metadata/condition-id-values.html' target='_blank'>Item condition ID and name values</a>.
      * @param string|null $value Value to set for the conditionDescription property.
     */
     public function setConditionDescription(?string $value): void {
@@ -181,7 +181,7 @@ class ItemCondition implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the conditionId property value. The ID value of the selected item condition. For information on the supported condition ID values, see <a href='/api-docs/sell/static/metadata/condition-id-values.html'>Item condition ID and name values</a>.
+     * Sets the conditionId property value. The ID value of the selected item condition. For information on the supported condition ID values, see <a href='/api-docs/sell/static/metadata/condition-id-values.html' target='_blank'>Item condition ID and name values</a>.
      * @param string|null $value Value to set for the conditionId property.
     */
     public function setConditionId(?string $value): void {
@@ -189,10 +189,10 @@ class ItemCondition implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the usage property value. The value returned in this field indicates if there are any usage restrictions or requirements for the corresponding item condition in the corresponding category.<br><br><span class="tablenote"><b>Note:</b> Currently, the only supported value is 'RESTRICTED', and this field will only be returned for the following conditions: 2000, 2010, 2020, 2030. Sellers must be pre-approved to use any of these item conditions.</span> For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:UsageEnum'>eBay API documentation</a>
-     * @param string|null $value Value to set for the usage property.
+     * Sets the usage property value. The value returned in this field indicates if there are any usage restrictions or requirements for the corresponding item condition in the corresponding category.<br><br><span class="tablenote"><b>Note:</b> Currently, the only supported value is 'RESTRICTED', and this field will only be returned for the following conditions: 2000, 2010, 2020, 2030. Sellers must be pre-approved to use any of these item conditions.</span>
+     * @param UsageEnum|null $value Value to set for the usage property.
     */
-    public function setUsage(?string $value): void {
+    public function setUsage(?UsageEnum $value): void {
         $this->usage = $value;
     }
 

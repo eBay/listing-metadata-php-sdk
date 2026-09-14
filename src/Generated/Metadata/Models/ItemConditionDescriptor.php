@@ -32,7 +32,7 @@ class ItemConditionDescriptor implements AdditionalDataHolder, Parsable
     private ?array $additionalData = null;
     
     /**
-     * @var ItemConditionDescriptorConstraint|null $conditionDescriptorConstraint This type specifies the constraints on a condition descriptor, such as the maximum length, default condition descriptor value ID, cardinality, mode, usage, and applicable descriptor IDs.
+     * @var ItemConditionDescriptorConstraint|null $conditionDescriptorConstraint This container shows the constraints on a condition descriptor, such as the maximum length, default condition descriptor value ID, cardinality, mode, usage, and applicable descriptor IDs.
     */
     private ?ItemConditionDescriptorConstraint $conditionDescriptorConstraint = null;
     
@@ -81,7 +81,7 @@ class ItemConditionDescriptor implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the conditionDescriptorConstraint property value. This type specifies the constraints on a condition descriptor, such as the maximum length, default condition descriptor value ID, cardinality, mode, usage, and applicable descriptor IDs.
+     * Gets the conditionDescriptorConstraint property value. This container shows the constraints on a condition descriptor, such as the maximum length, default condition descriptor value ID, cardinality, mode, usage, and applicable descriptor IDs.
      * @return ItemConditionDescriptorConstraint|null
     */
     public function getConditionDescriptorConstraint(): ?ItemConditionDescriptorConstraint {
@@ -157,7 +157,7 @@ class ItemConditionDescriptor implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the conditionDescriptorConstraint property value. This type specifies the constraints on a condition descriptor, such as the maximum length, default condition descriptor value ID, cardinality, mode, usage, and applicable descriptor IDs.
+     * Sets the conditionDescriptorConstraint property value. This container shows the constraints on a condition descriptor, such as the maximum length, default condition descriptor value ID, cardinality, mode, usage, and applicable descriptor IDs.
      * @param ItemConditionDescriptorConstraint|null $value Value to set for the conditionDescriptorConstraint property.
     */
     public function setConditionDescriptorConstraint(?ItemConditionDescriptorConstraint $value): void {

@@ -23,7 +23,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
- * This type defines the request fields used in the <b>getMultiCompatibilityPropertyValues</b> method.
+ * This type defines the category ID and property names for which to retrieve values.
 */
 class MultiCompatibilityPropertyValuesRequest implements AdditionalDataHolder, Parsable 
 {
@@ -33,7 +33,7 @@ class MultiCompatibilityPropertyValuesRequest implements AdditionalDataHolder, P
     private ?array $additionalData = null;
     
     /**
-     * @var string|null $categoryId The unique identifier of the eBay leaf category for which to retrieve property values.<br><br>Use the <a href="/api-docs/sell/metadata/resources/marketplace/methods/getAutomotivePartsCompatibilityPolicies" target="_blank ">getAutomotivePartsCompatibilityPolicies</a> method to retrieve a list of categories that support parts compatibility.
+     * @var string|null $categoryId The unique identifier of the eBay leaf category for which to retrieve property values.<br><br>Use the <a href="/develop/api/sell/metadata_api#sell-metadata_api-marketplace-getautomotivepartscompatibilitypolicies">getAutomotivePartsCompatibilityPolicies</a> method to retrieve a list of categories that support parts compatibility.
     */
     private ?string $categoryId = null;
     
@@ -72,7 +72,7 @@ class MultiCompatibilityPropertyValuesRequest implements AdditionalDataHolder, P
     }
 
     /**
-     * Gets the categoryId property value. The unique identifier of the eBay leaf category for which to retrieve property values.<br><br>Use the <a href="/api-docs/sell/metadata/resources/marketplace/methods/getAutomotivePartsCompatibilityPolicies" target="_blank ">getAutomotivePartsCompatibilityPolicies</a> method to retrieve a list of categories that support parts compatibility.
+     * Gets the categoryId property value. The unique identifier of the eBay leaf category for which to retrieve property values.<br><br>Use the <a href="/develop/api/sell/metadata_api#sell-metadata_api-marketplace-getautomotivepartscompatibilitypolicies">getAutomotivePartsCompatibilityPolicies</a> method to retrieve a list of categories that support parts compatibility.
      * @return string|null
     */
     public function getCategoryId(): ?string {
@@ -135,7 +135,7 @@ class MultiCompatibilityPropertyValuesRequest implements AdditionalDataHolder, P
     }
 
     /**
-     * Sets the categoryId property value. The unique identifier of the eBay leaf category for which to retrieve property values.<br><br>Use the <a href="/api-docs/sell/metadata/resources/marketplace/methods/getAutomotivePartsCompatibilityPolicies" target="_blank ">getAutomotivePartsCompatibilityPolicies</a> method to retrieve a list of categories that support parts compatibility.
+     * Sets the categoryId property value. The unique identifier of the eBay leaf category for which to retrieve property values.<br><br>Use the <a href="/develop/api/sell/metadata_api#sell-metadata_api-marketplace-getautomotivepartscompatibilitypolicies">getAutomotivePartsCompatibilityPolicies</a> method to retrieve a list of categories that support parts compatibility.
      * @param string|null $value Value to set for the categoryId property.
     */
     public function setCategoryId(?string $value): void {

@@ -21,6 +21,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * This type contains applicable shipping policy metadata for the leaf categories returned for the marketplace.
+*/
 class ShippingPolicy implements AdditionalDataHolder, Parsable 
 {
     /**
@@ -44,17 +47,17 @@ class ShippingPolicy implements AdditionalDataHolder, Parsable
     private ?bool $globalShippingEnabled = null;
     
     /**
-     * @var Amount|null $group1MaxFlatShippingCost The type that defines the fields for the currency and a monetary amount.
+     * @var Amount|null $group1MaxFlatShippingCost Returns the applicable max cap per shipping cost for shipping service group1.
     */
     private ?Amount $group1MaxFlatShippingCost = null;
     
     /**
-     * @var Amount|null $group2MaxFlatShippingCost The type that defines the fields for the currency and a monetary amount.
+     * @var Amount|null $group2MaxFlatShippingCost Returns the applicable max cap per shipping cost for shipping service group2.
     */
     private ?Amount $group2MaxFlatShippingCost = null;
     
     /**
-     * @var Amount|null $group3MaxFlatShippingCost The type that defines the fields for the currency and a monetary amount.
+     * @var Amount|null $group3MaxFlatShippingCost Returns the applicable max cap per shipping cost for shipping service group3.
     */
     private ?Amount $group3MaxFlatShippingCost = null;
     
@@ -64,7 +67,7 @@ class ShippingPolicy implements AdditionalDataHolder, Parsable
     private ?bool $handlingTimeEnabled = null;
     
     /**
-     * @var Amount|null $maxFlatShippingCost The type that defines the fields for the currency and a monetary amount.
+     * @var Amount|null $maxFlatShippingCost The maximum cost the seller can charge for the first domestic flat-rate shipping service. Mutually exclusive with the GroupNMaxFlatShippingCost elements.
     */
     private ?Amount $maxFlatShippingCost = null;
     
@@ -141,7 +144,7 @@ class ShippingPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the group1MaxFlatShippingCost property value. The type that defines the fields for the currency and a monetary amount.
+     * Gets the group1MaxFlatShippingCost property value. Returns the applicable max cap per shipping cost for shipping service group1.
      * @return Amount|null
     */
     public function getGroup1MaxFlatShippingCost(): ?Amount {
@@ -149,7 +152,7 @@ class ShippingPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the group2MaxFlatShippingCost property value. The type that defines the fields for the currency and a monetary amount.
+     * Gets the group2MaxFlatShippingCost property value. Returns the applicable max cap per shipping cost for shipping service group2.
      * @return Amount|null
     */
     public function getGroup2MaxFlatShippingCost(): ?Amount {
@@ -157,7 +160,7 @@ class ShippingPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the group3MaxFlatShippingCost property value. The type that defines the fields for the currency and a monetary amount.
+     * Gets the group3MaxFlatShippingCost property value. Returns the applicable max cap per shipping cost for shipping service group3.
      * @return Amount|null
     */
     public function getGroup3MaxFlatShippingCost(): ?Amount {
@@ -173,7 +176,7 @@ class ShippingPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the maxFlatShippingCost property value. The type that defines the fields for the currency and a monetary amount.
+     * Gets the maxFlatShippingCost property value. The maximum cost the seller can charge for the first domestic flat-rate shipping service. Mutually exclusive with the GroupNMaxFlatShippingCost elements.
      * @return Amount|null
     */
     public function getMaxFlatShippingCost(): ?Amount {
@@ -238,7 +241,7 @@ class ShippingPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the group1MaxFlatShippingCost property value. The type that defines the fields for the currency and a monetary amount.
+     * Sets the group1MaxFlatShippingCost property value. Returns the applicable max cap per shipping cost for shipping service group1.
      * @param Amount|null $value Value to set for the group1MaxFlatShippingCost property.
     */
     public function setGroup1MaxFlatShippingCost(?Amount $value): void {
@@ -246,7 +249,7 @@ class ShippingPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the group2MaxFlatShippingCost property value. The type that defines the fields for the currency and a monetary amount.
+     * Sets the group2MaxFlatShippingCost property value. Returns the applicable max cap per shipping cost for shipping service group2.
      * @param Amount|null $value Value to set for the group2MaxFlatShippingCost property.
     */
     public function setGroup2MaxFlatShippingCost(?Amount $value): void {
@@ -254,7 +257,7 @@ class ShippingPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the group3MaxFlatShippingCost property value. The type that defines the fields for the currency and a monetary amount.
+     * Sets the group3MaxFlatShippingCost property value. Returns the applicable max cap per shipping cost for shipping service group3.
      * @param Amount|null $value Value to set for the group3MaxFlatShippingCost property.
     */
     public function setGroup3MaxFlatShippingCost(?Amount $value): void {
@@ -270,7 +273,7 @@ class ShippingPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the maxFlatShippingCost property value. The type that defines the fields for the currency and a monetary amount.
+     * Sets the maxFlatShippingCost property value. The maximum cost the seller can charge for the first domestic flat-rate shipping service. Mutually exclusive with the GroupNMaxFlatShippingCost elements.
      * @param Amount|null $value Value to set for the maxFlatShippingCost property.
     */
     public function setMaxFlatShippingCost(?Amount $value): void {

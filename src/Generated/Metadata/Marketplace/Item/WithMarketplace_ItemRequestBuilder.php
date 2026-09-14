@@ -25,6 +25,7 @@ use EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_hazardous_mater
 use EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_item_condition_policies\Get_item_condition_policiesRequestBuilder;
 use EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_listing_structure_policies\Get_listing_structure_policiesRequestBuilder;
 use EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_listing_type_policies\Get_listing_type_policiesRequestBuilder;
+use EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_minimum_listing_price_policies\Get_minimum_listing_price_policiesRequestBuilder;
 use EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_motors_listing_policies\Get_motors_listing_policiesRequestBuilder;
 use EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_negotiated_price_policies\Get_negotiated_price_policiesRequestBuilder;
 use EBay\ListingMetadata\Generated\Metadata\Marketplace\Item\Get_product_safety_labels\Get_product_safety_labelsRequestBuilder;
@@ -101,6 +102,13 @@ class WithMarketplace_ItemRequestBuilder extends BaseRequestBuilder
     */
     public function get_listing_type_policies(): Get_listing_type_policiesRequestBuilder {
         return new Get_listing_type_policiesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The get_minimum_listing_price_policies property
+    */
+    public function get_minimum_listing_price_policies(): Get_minimum_listing_price_policiesRequestBuilder {
+        return new Get_minimum_listing_price_policiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

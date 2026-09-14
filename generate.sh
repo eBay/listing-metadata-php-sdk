@@ -19,33 +19,34 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 echo "Regenerating REST clients via Kiota..."
+rm -rf src/Generated
 
 kiota generate -l php \
-  -d "$SCRIPT_DIR/specs/openapi/catalog.yaml" \
+  -d specs/openapi/catalog.yaml \
   -c CatalogApiClient \
   -n 'EBay\ListingMetadata\Generated\Catalog' \
-  -o "$SCRIPT_DIR/src/Generated/Catalog" \
+  -o src/Generated/Catalog \
   --ebc --co
 
 kiota generate -l php \
-  -d "$SCRIPT_DIR/specs/openapi/charity.yaml" \
+  -d specs/openapi/charity.yaml \
   -c CharityApiClient \
   -n 'EBay\ListingMetadata\Generated\Charity' \
-  -o "$SCRIPT_DIR/src/Generated/Charity" \
+  -o src/Generated/Charity \
   --ebc --co
 
 kiota generate -l php \
-  -d "$SCRIPT_DIR/specs/openapi/metadata.yaml" \
+  -d specs/openapi/metadata.yaml \
   -c MetadataApiClient \
   -n 'EBay\ListingMetadata\Generated\Metadata' \
-  -o "$SCRIPT_DIR/src/Generated/Metadata" \
+  -o src/Generated/Metadata \
   --ebc --co
 
 kiota generate -l php \
-  -d "$SCRIPT_DIR/specs/openapi/taxonomy.yaml" \
+  -d specs/openapi/taxonomy.yaml \
   -c TaxonomyApiClient \
   -n 'EBay\ListingMetadata\Generated\Taxonomy' \
-  -o "$SCRIPT_DIR/src/Generated/Taxonomy" \
+  -o src/Generated/Taxonomy \
   --ebc --co
 
 echo "Adding license headers to generated files..."

@@ -18,16 +18,18 @@ declare(strict_types=1);
 
 namespace EBay\ListingMetadata\Configuration;
 
+use Microsoft\Kiota\Abstractions\Authentication\AccessTokenProvider;
 use Http\Promise\FulfilledPromise;
 use Http\Promise\Promise;
-use Microsoft\Kiota\Abstractions\Authentication\AccessTokenProvider;
 use Microsoft\Kiota\Abstractions\Authentication\AllowedHostsValidator;
 
 final class KiotaAuthProvider implements AccessTokenProvider
 {
     private readonly AllowedHostsValidator $allowedHostsValidator;
 
-    /** @param string[] $allowedHosts */
+    /**
+     * @param string[] $allowedHosts
+     */
     public function __construct(
         private readonly string $token,
         array $allowedHosts,

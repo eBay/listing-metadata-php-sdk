@@ -23,7 +23,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
- * This type specifies the constraints on a condition descriptor, such as the maximum length, default condition descriptor value ID, cardinality, mode, usage, and applicable descriptor IDs.
+ * This container shows the constraints on a condition descriptor, such as the maximum length, default condition descriptor value ID, cardinality, mode, usage, and applicable descriptor IDs.
 */
 class ItemConditionDescriptorConstraint implements AdditionalDataHolder, Parsable 
 {
@@ -38,9 +38,9 @@ class ItemConditionDescriptorConstraint implements AdditionalDataHolder, Parsabl
     private ?array $applicableToConditionDescriptorIds = null;
     
     /**
-     * @var string|null $cardinality The value returned in this field indicates whether a condition descriptor can have a single value or multiple values. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:CardinalityEnum'>eBay API documentation</a>
+     * @var CardinalityEnum|null $cardinality The value returned in this field indicates whether a condition descriptor can have a single value or multiple values.
     */
-    private ?string $cardinality = null;
+    private ?CardinalityEnum $cardinality = null;
     
     /**
      * @var string|null $defaultConditionDescriptorValueId The default condition descriptor value that will be set if there are multiple values.
@@ -53,14 +53,14 @@ class ItemConditionDescriptorConstraint implements AdditionalDataHolder, Parsabl
     private ?int $maxLength = null;
     
     /**
-     * @var string|null $mode The value returned in this field indicates whether the supported values for a condition descriptor are predefined or if the seller manually specified the value.<br><br><span class="tablenote"><b>Note:</b> <code>FREE_TEXT</code> is currently only applicable to the Certification Number condition descriptor.</span> For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:ModeEnum'>eBay API documentation</a>
+     * @var ModeEnum|null $mode The value returned in this field indicates whether the supported values for a condition descriptor are predefined or if the seller manually specified the value.<br><br><span class="tablenote"><b>Note:</b> <code>FREE_TEXT</code> is currently only applicable to the Certification Number condition descriptor.</span>
     */
-    private ?string $mode = null;
+    private ?ModeEnum $mode = null;
     
     /**
-     * @var string|null $usage This value indicates whether or not the condition descriptor is required for the item condition. Currently, this field is only returned if the condition descriptor is required for the item condition. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:DescriptorUsageEnum'>eBay API documentation</a>
+     * @var DescriptorUsageEnum|null $usage This value indicates whether or not the condition descriptor is required for the item condition. Currently, this field is only returned if the condition descriptor is required for the item condition.
     */
-    private ?string $usage = null;
+    private ?DescriptorUsageEnum $usage = null;
     
     /**
      * Instantiates a new ItemConditionDescriptorConstraint and sets the default values.
@@ -95,10 +95,10 @@ class ItemConditionDescriptorConstraint implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Gets the cardinality property value. The value returned in this field indicates whether a condition descriptor can have a single value or multiple values. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:CardinalityEnum'>eBay API documentation</a>
-     * @return string|null
+     * Gets the cardinality property value. The value returned in this field indicates whether a condition descriptor can have a single value or multiple values.
+     * @return CardinalityEnum|null
     */
-    public function getCardinality(): ?string {
+    public function getCardinality(): ?CardinalityEnum {
         return $this->cardinality;
     }
 
@@ -125,11 +125,11 @@ class ItemConditionDescriptorConstraint implements AdditionalDataHolder, Parsabl
                 /** @var array<string>|null $val */
                 $this->setApplicableToConditionDescriptorIds($val);
             },
-            'cardinality' => fn(ParseNode $n) => $o->setCardinality($n->getStringValue()),
+            'cardinality' => fn(ParseNode $n) => $o->setCardinality($n->getEnumValue(CardinalityEnum::class)),
             'defaultConditionDescriptorValueId' => fn(ParseNode $n) => $o->setDefaultConditionDescriptorValueId($n->getStringValue()),
             'maxLength' => fn(ParseNode $n) => $o->setMaxLength($n->getIntegerValue()),
-            'mode' => fn(ParseNode $n) => $o->setMode($n->getStringValue()),
-            'usage' => fn(ParseNode $n) => $o->setUsage($n->getStringValue()),
+            'mode' => fn(ParseNode $n) => $o->setMode($n->getEnumValue(ModeEnum::class)),
+            'usage' => fn(ParseNode $n) => $o->setUsage($n->getEnumValue(DescriptorUsageEnum::class)),
         ];
     }
 
@@ -142,18 +142,18 @@ class ItemConditionDescriptorConstraint implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Gets the mode property value. The value returned in this field indicates whether the supported values for a condition descriptor are predefined or if the seller manually specified the value.<br><br><span class="tablenote"><b>Note:</b> <code>FREE_TEXT</code> is currently only applicable to the Certification Number condition descriptor.</span> For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:ModeEnum'>eBay API documentation</a>
-     * @return string|null
+     * Gets the mode property value. The value returned in this field indicates whether the supported values for a condition descriptor are predefined or if the seller manually specified the value.<br><br><span class="tablenote"><b>Note:</b> <code>FREE_TEXT</code> is currently only applicable to the Certification Number condition descriptor.</span>
+     * @return ModeEnum|null
     */
-    public function getMode(): ?string {
+    public function getMode(): ?ModeEnum {
         return $this->mode;
     }
 
     /**
-     * Gets the usage property value. This value indicates whether or not the condition descriptor is required for the item condition. Currently, this field is only returned if the condition descriptor is required for the item condition. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:DescriptorUsageEnum'>eBay API documentation</a>
-     * @return string|null
+     * Gets the usage property value. This value indicates whether or not the condition descriptor is required for the item condition. Currently, this field is only returned if the condition descriptor is required for the item condition.
+     * @return DescriptorUsageEnum|null
     */
-    public function getUsage(): ?string {
+    public function getUsage(): ?DescriptorUsageEnum {
         return $this->usage;
     }
 
@@ -163,11 +163,11 @@ class ItemConditionDescriptorConstraint implements AdditionalDataHolder, Parsabl
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeCollectionOfPrimitiveValues('applicableToConditionDescriptorIds', $this->getApplicableToConditionDescriptorIds());
-        $writer->writeStringValue('cardinality', $this->getCardinality());
+        $writer->writeEnumValue('cardinality', $this->getCardinality());
         $writer->writeStringValue('defaultConditionDescriptorValueId', $this->getDefaultConditionDescriptorValueId());
         $writer->writeIntegerValue('maxLength', $this->getMaxLength());
-        $writer->writeStringValue('mode', $this->getMode());
-        $writer->writeStringValue('usage', $this->getUsage());
+        $writer->writeEnumValue('mode', $this->getMode());
+        $writer->writeEnumValue('usage', $this->getUsage());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -188,10 +188,10 @@ class ItemConditionDescriptorConstraint implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Sets the cardinality property value. The value returned in this field indicates whether a condition descriptor can have a single value or multiple values. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:CardinalityEnum'>eBay API documentation</a>
-     * @param string|null $value Value to set for the cardinality property.
+     * Sets the cardinality property value. The value returned in this field indicates whether a condition descriptor can have a single value or multiple values.
+     * @param CardinalityEnum|null $value Value to set for the cardinality property.
     */
-    public function setCardinality(?string $value): void {
+    public function setCardinality(?CardinalityEnum $value): void {
         $this->cardinality = $value;
     }
 
@@ -212,18 +212,18 @@ class ItemConditionDescriptorConstraint implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Sets the mode property value. The value returned in this field indicates whether the supported values for a condition descriptor are predefined or if the seller manually specified the value.<br><br><span class="tablenote"><b>Note:</b> <code>FREE_TEXT</code> is currently only applicable to the Certification Number condition descriptor.</span> For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:ModeEnum'>eBay API documentation</a>
-     * @param string|null $value Value to set for the mode property.
+     * Sets the mode property value. The value returned in this field indicates whether the supported values for a condition descriptor are predefined or if the seller manually specified the value.<br><br><span class="tablenote"><b>Note:</b> <code>FREE_TEXT</code> is currently only applicable to the Certification Number condition descriptor.</span>
+     * @param ModeEnum|null $value Value to set for the mode property.
     */
-    public function setMode(?string $value): void {
+    public function setMode(?ModeEnum $value): void {
         $this->mode = $value;
     }
 
     /**
-     * Sets the usage property value. This value indicates whether or not the condition descriptor is required for the item condition. Currently, this field is only returned if the condition descriptor is required for the item condition. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:DescriptorUsageEnum'>eBay API documentation</a>
-     * @param string|null $value Value to set for the usage property.
+     * Sets the usage property value. This value indicates whether or not the condition descriptor is required for the item condition. Currently, this field is only returned if the condition descriptor is required for the item condition.
+     * @param DescriptorUsageEnum|null $value Value to set for the usage property.
     */
-    public function setUsage(?string $value): void {
+    public function setUsage(?DescriptorUsageEnum $value): void {
         $this->usage = $value;
     }
 

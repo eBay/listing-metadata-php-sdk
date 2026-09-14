@@ -20,7 +20,6 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
-use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * This type identifies the kind of listing and its duration periods.
@@ -33,14 +32,14 @@ class ListingDuration implements AdditionalDataHolder, Parsable
     private ?array $additionalData = null;
     
     /**
-     * @var array<string>|null $durationValues This array defines the supported time duration options available for the listing type.
+     * @var array<DurationEnum>|null $durationValues This array defines the supported time duration options available for the listing type.
     */
     private ?array $durationValues = null;
     
     /**
-     * @var string|null $listingType The enumerated value returned in this field indicates the listing type for the duration value(s). For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:ListingTypeEnum'>eBay API documentation</a>
+     * @var ListingTypeEnum|null $listingType The enumerated value returned in this field indicates the listing type for the duration value(s).
     */
-    private ?string $listingType = null;
+    private ?ListingTypeEnum $listingType = null;
     
     /**
      * Instantiates a new ListingDuration and sets the default values.
@@ -68,7 +67,7 @@ class ListingDuration implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the durationValues property value. This array defines the supported time duration options available for the listing type.
-     * @return array<string>|null
+     * @return array<DurationEnum>|null
     */
     public function getDurationValues(): ?array {
         return $this->durationValues;
@@ -81,23 +80,16 @@ class ListingDuration implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'durationValues' => function (ParseNode $n) {
-                $val = $n->getCollectionOfPrimitiveValues();
-                if (is_array($val)) {
-                    TypeUtils::validateCollectionValues($val, 'string');
-                }
-                /** @var array<string>|null $val */
-                $this->setDurationValues($val);
-            },
-            'listingType' => fn(ParseNode $n) => $o->setListingType($n->getStringValue()),
+            'durationValues' => fn(ParseNode $n) => $o->setDurationValues($n->getCollectionOfEnumValues(DurationEnum::class)),
+            'listingType' => fn(ParseNode $n) => $o->setListingType($n->getEnumValue(ListingTypeEnum::class)),
         ];
     }
 
     /**
-     * Gets the listingType property value. The enumerated value returned in this field indicates the listing type for the duration value(s). For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:ListingTypeEnum'>eBay API documentation</a>
-     * @return string|null
+     * Gets the listingType property value. The enumerated value returned in this field indicates the listing type for the duration value(s).
+     * @return ListingTypeEnum|null
     */
-    public function getListingType(): ?string {
+    public function getListingType(): ?ListingTypeEnum {
         return $this->listingType;
     }
 
@@ -106,8 +98,8 @@ class ListingDuration implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfPrimitiveValues('durationValues', $this->getDurationValues());
-        $writer->writeStringValue('listingType', $this->getListingType());
+        $writer->writeCollectionOfEnumValues('durationValues', $this->getDurationValues());
+        $writer->writeEnumValue('listingType', $this->getListingType());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -121,17 +113,17 @@ class ListingDuration implements AdditionalDataHolder, Parsable
 
     /**
      * Sets the durationValues property value. This array defines the supported time duration options available for the listing type.
-     * @param array<string>|null $value Value to set for the durationValues property.
+     * @param array<DurationEnum>|null $value Value to set for the durationValues property.
     */
     public function setDurationValues(?array $value): void {
         $this->durationValues = $value;
     }
 
     /**
-     * Sets the listingType property value. The enumerated value returned in this field indicates the listing type for the duration value(s). For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:ListingTypeEnum'>eBay API documentation</a>
-     * @param string|null $value Value to set for the listingType property.
+     * Sets the listingType property value. The enumerated value returned in this field indicates the listing type for the duration value(s).
+     * @param ListingTypeEnum|null $value Value to set for the listingType property.
     */
-    public function setListingType(?string $value): void {
+    public function setListingType(?ListingTypeEnum $value): void {
         $this->listingType = $value;
     }
 

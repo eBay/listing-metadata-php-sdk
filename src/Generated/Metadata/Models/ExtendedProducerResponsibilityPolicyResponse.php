@@ -37,7 +37,7 @@ class ExtendedProducerResponsibilityPolicyResponse implements AdditionalDataHold
     private ?array $extendedProducerResponsibilities = null;
     
     /**
-     * @var array<Error>|null $warnings A collection of warnings generated for the request.
+     * @var array<ErrorDetailV3>|null $warnings A collection of warnings generated for the request.
     */
     private ?array $warnings = null;
     
@@ -81,13 +81,13 @@ class ExtendedProducerResponsibilityPolicyResponse implements AdditionalDataHold
         $o = $this;
         return  [
             'extendedProducerResponsibilities' => fn(ParseNode $n) => $o->setExtendedProducerResponsibilities($n->getCollectionOfObjectValues([ExtendedProducerResponsibilityPolicy::class, 'createFromDiscriminatorValue'])),
-            'warnings' => fn(ParseNode $n) => $o->setWarnings($n->getCollectionOfObjectValues([Error::class, 'createFromDiscriminatorValue'])),
+            'warnings' => fn(ParseNode $n) => $o->setWarnings($n->getCollectionOfObjectValues([ErrorDetailV3::class, 'createFromDiscriminatorValue'])),
         ];
     }
 
     /**
      * Gets the warnings property value. A collection of warnings generated for the request.
-     * @return array<Error>|null
+     * @return array<ErrorDetailV3>|null
     */
     public function getWarnings(): ?array {
         return $this->warnings;
@@ -121,7 +121,7 @@ class ExtendedProducerResponsibilityPolicyResponse implements AdditionalDataHold
 
     /**
      * Sets the warnings property value. A collection of warnings generated for the request.
-     * @param array<Error>|null $value Value to set for the warnings property.
+     * @param array<ErrorDetailV3>|null $value Value to set for the warnings property.
     */
     public function setWarnings(?array $value): void {
         $this->warnings = $value;

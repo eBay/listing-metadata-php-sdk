@@ -20,7 +20,6 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
-use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
  * This type contains applicable policy metadata for the leaf categories returned for the marketplace.
@@ -53,9 +52,9 @@ class CategoryPolicy implements AdditionalDataHolder, Parsable
     private ?string $categoryTreeId = null;
     
     /**
-     * @var string|null $eanSupport This enumerated value indicates whether or not European Article Numbers (EANs) are supported/required when listing products in the category. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:ProductIdentiferEnabledEnum'>eBay API documentation</a>
+     * @var ProductIdentiferEnabledEnum|null $eanSupport This enumerated value indicates whether or not European Article Numbers (EANs) are supported/required when listing products in the category.
     */
-    private ?string $eanSupport = null;
+    private ?ProductIdentiferEnabledEnum $eanSupport = null;
     
     /**
      * @var bool|null $expired If this field is returned as <code>true</code>, the corresponding category is no longer a valid eBay category on the site, and items may not be listed in this category. You can use the <a href="/api-docs/sell/taxonomy/resources/category_tree/methods/getExpiredCategories" target="_blank">getExpiredCategories</a> method (of the <b>Taxonomy API</b>) to find the leaf category that replaced the expired category. <p>This field is only returned when <code>true</code> (not returned when false).</p>
@@ -68,9 +67,9 @@ class CategoryPolicy implements AdditionalDataHolder, Parsable
     private ?bool $intangibleEnabled = null;
     
     /**
-     * @var string|null $isbnSupport This enumerated value indicates whether or not International Standard Book Numbers (ISBNs) are supported/required when listing products in the specified category. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:ProductIdentiferEnabledEnum'>eBay API documentation</a>
+     * @var ProductIdentiferEnabledEnum|null $isbnSupport This enumerated value indicates whether or not International Standard Book Numbers (ISBNs) are supported/required when listing products in the specified category.
     */
-    private ?string $isbnSupport = null;
+    private ?ProductIdentiferEnabledEnum $isbnSupport = null;
     
     /**
      * @var bool|null $lsd If this field (Lot Size Disabled) is returned as <code>true</code>, the corresponding category does not support lot listings. A lot listing is a listing that features multiple related items that must be purchased by one buyer in one transaction. <p>This field is only returned when <code>true</code> (not returned when false).</p>
@@ -93,7 +92,7 @@ class CategoryPolicy implements AdditionalDataHolder, Parsable
     private ?bool $orra = null;
     
     /**
-     * @var array<string>|null $paymentMethods An array that indicates the acceptable offline payment methods that can be used when listing an item for sale in the corresponding category.
+     * @var array<PaymentEnum>|null $paymentMethods An array that indicates the acceptable offline payment methods that can be used when listing an item for sale in the corresponding category.
     */
     private ?array $paymentMethods = null;
     
@@ -108,9 +107,9 @@ class CategoryPolicy implements AdditionalDataHolder, Parsable
     private ?bool $reservePriceAllowed = null;
     
     /**
-     * @var string|null $upcSupport This enumerated value indicates whether or not the category on the specified eBay site supports the use of Universal Product Codes (UPCs) to help create a listing. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:ProductIdentiferEnabledEnum'>eBay API documentation</a>
+     * @var ProductIdentiferEnabledEnum|null $upcSupport This enumerated value indicates whether or not the category on the specified eBay site supports the use of Universal Product Codes (UPCs) to help create a listing.
     */
-    private ?string $upcSupport = null;
+    private ?ProductIdentiferEnabledEnum $upcSupport = null;
     
     /**
      * @var bool|null $valueCategory When returned as <code>true</code>, this boolean indicates that the leaf category for the specified site is designated by eBay as a value category. Value categories can be used as a secondary category for a listing at no extra charge.
@@ -179,10 +178,10 @@ class CategoryPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the eanSupport property value. This enumerated value indicates whether or not European Article Numbers (EANs) are supported/required when listing products in the category. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:ProductIdentiferEnabledEnum'>eBay API documentation</a>
-     * @return string|null
+     * Gets the eanSupport property value. This enumerated value indicates whether or not European Article Numbers (EANs) are supported/required when listing products in the category.
+     * @return ProductIdentiferEnabledEnum|null
     */
-    public function getEanSupport(): ?string {
+    public function getEanSupport(): ?ProductIdentiferEnabledEnum {
         return $this->eanSupport;
     }
 
@@ -205,25 +204,18 @@ class CategoryPolicy implements AdditionalDataHolder, Parsable
             'b2bVatEnabled' => fn(ParseNode $n) => $o->setB2bVatEnabled($n->getBooleanValue()),
             'categoryId' => fn(ParseNode $n) => $o->setCategoryId($n->getStringValue()),
             'categoryTreeId' => fn(ParseNode $n) => $o->setCategoryTreeId($n->getStringValue()),
-            'eanSupport' => fn(ParseNode $n) => $o->setEanSupport($n->getStringValue()),
+            'eanSupport' => fn(ParseNode $n) => $o->setEanSupport($n->getEnumValue(ProductIdentiferEnabledEnum::class)),
             'expired' => fn(ParseNode $n) => $o->setExpired($n->getBooleanValue()),
             'intangibleEnabled' => fn(ParseNode $n) => $o->setIntangibleEnabled($n->getBooleanValue()),
-            'isbnSupport' => fn(ParseNode $n) => $o->setIsbnSupport($n->getStringValue()),
+            'isbnSupport' => fn(ParseNode $n) => $o->setIsbnSupport($n->getEnumValue(ProductIdentiferEnabledEnum::class)),
             'lsd' => fn(ParseNode $n) => $o->setLsd($n->getBooleanValue()),
             'minimumReservePrice' => fn(ParseNode $n) => $o->setMinimumReservePrice($n->getFloatValue()),
             'orpa' => fn(ParseNode $n) => $o->setOrpa($n->getBooleanValue()),
             'orra' => fn(ParseNode $n) => $o->setOrra($n->getBooleanValue()),
-            'paymentMethods' => function (ParseNode $n) {
-                $val = $n->getCollectionOfPrimitiveValues();
-                if (is_array($val)) {
-                    TypeUtils::validateCollectionValues($val, 'string');
-                }
-                /** @var array<string>|null $val */
-                $this->setPaymentMethods($val);
-            },
+            'paymentMethods' => fn(ParseNode $n) => $o->setPaymentMethods($n->getCollectionOfEnumValues(PaymentEnum::class)),
             'reduceReserveAllowed' => fn(ParseNode $n) => $o->setReduceReserveAllowed($n->getBooleanValue()),
             'reservePriceAllowed' => fn(ParseNode $n) => $o->setReservePriceAllowed($n->getBooleanValue()),
-            'upcSupport' => fn(ParseNode $n) => $o->setUpcSupport($n->getStringValue()),
+            'upcSupport' => fn(ParseNode $n) => $o->setUpcSupport($n->getEnumValue(ProductIdentiferEnabledEnum::class)),
             'valueCategory' => fn(ParseNode $n) => $o->setValueCategory($n->getBooleanValue()),
             'virtual' => fn(ParseNode $n) => $o->setVirtual($n->getBooleanValue()),
         ];
@@ -238,10 +230,10 @@ class CategoryPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the isbnSupport property value. This enumerated value indicates whether or not International Standard Book Numbers (ISBNs) are supported/required when listing products in the specified category. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:ProductIdentiferEnabledEnum'>eBay API documentation</a>
-     * @return string|null
+     * Gets the isbnSupport property value. This enumerated value indicates whether or not International Standard Book Numbers (ISBNs) are supported/required when listing products in the specified category.
+     * @return ProductIdentiferEnabledEnum|null
     */
-    public function getIsbnSupport(): ?string {
+    public function getIsbnSupport(): ?ProductIdentiferEnabledEnum {
         return $this->isbnSupport;
     }
 
@@ -279,7 +271,7 @@ class CategoryPolicy implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the paymentMethods property value. An array that indicates the acceptable offline payment methods that can be used when listing an item for sale in the corresponding category.
-     * @return array<string>|null
+     * @return array<PaymentEnum>|null
     */
     public function getPaymentMethods(): ?array {
         return $this->paymentMethods;
@@ -302,10 +294,10 @@ class CategoryPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the upcSupport property value. This enumerated value indicates whether or not the category on the specified eBay site supports the use of Universal Product Codes (UPCs) to help create a listing. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:ProductIdentiferEnabledEnum'>eBay API documentation</a>
-     * @return string|null
+     * Gets the upcSupport property value. This enumerated value indicates whether or not the category on the specified eBay site supports the use of Universal Product Codes (UPCs) to help create a listing.
+     * @return ProductIdentiferEnabledEnum|null
     */
-    public function getUpcSupport(): ?string {
+    public function getUpcSupport(): ?ProductIdentiferEnabledEnum {
         return $this->upcSupport;
     }
 
@@ -334,18 +326,18 @@ class CategoryPolicy implements AdditionalDataHolder, Parsable
         $writer->writeBooleanValue('b2bVatEnabled', $this->getB2bVatEnabled());
         $writer->writeStringValue('categoryId', $this->getCategoryId());
         $writer->writeStringValue('categoryTreeId', $this->getCategoryTreeId());
-        $writer->writeStringValue('eanSupport', $this->getEanSupport());
+        $writer->writeEnumValue('eanSupport', $this->getEanSupport());
         $writer->writeBooleanValue('expired', $this->getExpired());
         $writer->writeBooleanValue('intangibleEnabled', $this->getIntangibleEnabled());
-        $writer->writeStringValue('isbnSupport', $this->getIsbnSupport());
+        $writer->writeEnumValue('isbnSupport', $this->getIsbnSupport());
         $writer->writeBooleanValue('lsd', $this->getLsd());
         $writer->writeFloatValue('minimumReservePrice', $this->getMinimumReservePrice());
         $writer->writeBooleanValue('orpa', $this->getOrpa());
         $writer->writeBooleanValue('orra', $this->getOrra());
-        $writer->writeCollectionOfPrimitiveValues('paymentMethods', $this->getPaymentMethods());
+        $writer->writeCollectionOfEnumValues('paymentMethods', $this->getPaymentMethods());
         $writer->writeBooleanValue('reduceReserveAllowed', $this->getReduceReserveAllowed());
         $writer->writeBooleanValue('reservePriceAllowed', $this->getReservePriceAllowed());
-        $writer->writeStringValue('upcSupport', $this->getUpcSupport());
+        $writer->writeEnumValue('upcSupport', $this->getUpcSupport());
         $writer->writeBooleanValue('valueCategory', $this->getValueCategory());
         $writer->writeBooleanValue('virtual', $this->getVirtual());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -392,10 +384,10 @@ class CategoryPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the eanSupport property value. This enumerated value indicates whether or not European Article Numbers (EANs) are supported/required when listing products in the category. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:ProductIdentiferEnabledEnum'>eBay API documentation</a>
-     * @param string|null $value Value to set for the eanSupport property.
+     * Sets the eanSupport property value. This enumerated value indicates whether or not European Article Numbers (EANs) are supported/required when listing products in the category.
+     * @param ProductIdentiferEnabledEnum|null $value Value to set for the eanSupport property.
     */
-    public function setEanSupport(?string $value): void {
+    public function setEanSupport(?ProductIdentiferEnabledEnum $value): void {
         $this->eanSupport = $value;
     }
 
@@ -416,10 +408,10 @@ class CategoryPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the isbnSupport property value. This enumerated value indicates whether or not International Standard Book Numbers (ISBNs) are supported/required when listing products in the specified category. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:ProductIdentiferEnabledEnum'>eBay API documentation</a>
-     * @param string|null $value Value to set for the isbnSupport property.
+     * Sets the isbnSupport property value. This enumerated value indicates whether or not International Standard Book Numbers (ISBNs) are supported/required when listing products in the specified category.
+     * @param ProductIdentiferEnabledEnum|null $value Value to set for the isbnSupport property.
     */
-    public function setIsbnSupport(?string $value): void {
+    public function setIsbnSupport(?ProductIdentiferEnabledEnum $value): void {
         $this->isbnSupport = $value;
     }
 
@@ -457,7 +449,7 @@ class CategoryPolicy implements AdditionalDataHolder, Parsable
 
     /**
      * Sets the paymentMethods property value. An array that indicates the acceptable offline payment methods that can be used when listing an item for sale in the corresponding category.
-     * @param array<string>|null $value Value to set for the paymentMethods property.
+     * @param array<PaymentEnum>|null $value Value to set for the paymentMethods property.
     */
     public function setPaymentMethods(?array $value): void {
         $this->paymentMethods = $value;
@@ -480,10 +472,10 @@ class CategoryPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the upcSupport property value. This enumerated value indicates whether or not the category on the specified eBay site supports the use of Universal Product Codes (UPCs) to help create a listing. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:ProductIdentiferEnabledEnum'>eBay API documentation</a>
-     * @param string|null $value Value to set for the upcSupport property.
+     * Sets the upcSupport property value. This enumerated value indicates whether or not the category on the specified eBay site supports the use of Universal Product Codes (UPCs) to help create a listing.
+     * @param ProductIdentiferEnabledEnum|null $value Value to set for the upcSupport property.
     */
-    public function setUpcSupport(?string $value): void {
+    public function setUpcSupport(?ProductIdentiferEnabledEnum $value): void {
         $this->upcSupport = $value;
     }
 

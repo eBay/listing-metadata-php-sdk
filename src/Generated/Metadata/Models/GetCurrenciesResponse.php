@@ -32,14 +32,14 @@ class GetCurrenciesResponse implements AdditionalDataHolder, Parsable
     private ?array $additionalData = null;
     
     /**
-     * @var Currency|null $defaultCurrency The type defining valid currencies for the marketplace.
+     * @var Currency|null $defaultCurrency This field specifies the default currency used by the marketplace.
     */
     private ?Currency $defaultCurrency = null;
     
     /**
-     * @var string|null $marketplaceId The ID of the eBay marketplace to which the default currency applies. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/bas:MarketplaceIdEnum'>eBay API documentation</a>
+     * @var MarketplaceIdEnum|null $marketplaceId The ID of the eBay marketplace to which the default currency applies.
     */
-    private ?string $marketplaceId = null;
+    private ?MarketplaceIdEnum $marketplaceId = null;
     
     /**
      * Instantiates a new GetCurrenciesResponse and sets the default values.
@@ -66,7 +66,7 @@ class GetCurrenciesResponse implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the defaultCurrency property value. The type defining valid currencies for the marketplace.
+     * Gets the defaultCurrency property value. This field specifies the default currency used by the marketplace.
      * @return Currency|null
     */
     public function getDefaultCurrency(): ?Currency {
@@ -81,15 +81,15 @@ class GetCurrenciesResponse implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'defaultCurrency' => fn(ParseNode $n) => $o->setDefaultCurrency($n->getObjectValue([Currency::class, 'createFromDiscriminatorValue'])),
-            'marketplaceId' => fn(ParseNode $n) => $o->setMarketplaceId($n->getStringValue()),
+            'marketplaceId' => fn(ParseNode $n) => $o->setMarketplaceId($n->getEnumValue(MarketplaceIdEnum::class)),
         ];
     }
 
     /**
-     * Gets the marketplaceId property value. The ID of the eBay marketplace to which the default currency applies. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/bas:MarketplaceIdEnum'>eBay API documentation</a>
-     * @return string|null
+     * Gets the marketplaceId property value. The ID of the eBay marketplace to which the default currency applies.
+     * @return MarketplaceIdEnum|null
     */
-    public function getMarketplaceId(): ?string {
+    public function getMarketplaceId(): ?MarketplaceIdEnum {
         return $this->marketplaceId;
     }
 
@@ -99,7 +99,7 @@ class GetCurrenciesResponse implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeObjectValue('defaultCurrency', $this->getDefaultCurrency());
-        $writer->writeStringValue('marketplaceId', $this->getMarketplaceId());
+        $writer->writeEnumValue('marketplaceId', $this->getMarketplaceId());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -112,7 +112,7 @@ class GetCurrenciesResponse implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the defaultCurrency property value. The type defining valid currencies for the marketplace.
+     * Sets the defaultCurrency property value. This field specifies the default currency used by the marketplace.
      * @param Currency|null $value Value to set for the defaultCurrency property.
     */
     public function setDefaultCurrency(?Currency $value): void {
@@ -120,10 +120,10 @@ class GetCurrenciesResponse implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the marketplaceId property value. The ID of the eBay marketplace to which the default currency applies. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/bas:MarketplaceIdEnum'>eBay API documentation</a>
-     * @param string|null $value Value to set for the marketplaceId property.
+     * Sets the marketplaceId property value. The ID of the eBay marketplace to which the default currency applies.
+     * @param MarketplaceIdEnum|null $value Value to set for the marketplaceId property.
     */
-    public function setMarketplaceId(?string $value): void {
+    public function setMarketplaceId(?MarketplaceIdEnum $value): void {
         $this->marketplaceId = $value;
     }
 

@@ -27,7 +27,7 @@ class MarketplaceRequestBuilder extends BaseRequestBuilder
 {
     /**
      * Gets an item from the EBay/ListingMetadata/Generated/Metadata.shipping.marketplace.item collection
-     * @param string $marketplace_id This path parameter specifies the eBay marketplace for which excluded shipping locations information is retrieved.<br><br>See <a href="/api-docs/sell/metadata/types/bas:MarketplaceIdEnum" target="_blank">MarketplaceIdEnum</a> for supported eBay marketplace ID values. <p><span class="tablenote"><span style="color:#004680"><strong>Note: </strong> When listing the items on the French Canada, French Belgium, and Dutch Belgium marketplaces, also set the <b>Accept-Language</b> header as needed.</span></p>
+     * @param string $marketplace_id This path parameter specifies the eBay marketplace for which excluded shipping locations information is retrieved.<br><br>See <a href="/develop/api/sell/request_headers#marketplace-id-values" target="_blank">Marketplace ID values</a> for supported eBay marketplace ID values. <p><span class="tablenote"><span style="color:#004680"><strong>Note: </strong> When listing the items on the French Canada, French Belgium, and Dutch Belgium marketplaces, also set the <b>Accept-Language</b> header as needed.</span></p>
      * @return WithMarketplace_ItemRequestBuilder
     */
     public function byMarketplace_id(string $marketplace_id): WithMarketplace_ItemRequestBuilder {

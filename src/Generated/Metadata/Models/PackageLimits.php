@@ -22,7 +22,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 /**
- * The packageLimits field is used to specify the physical constraints and measurement units of packages, ensuring compliance with various shipping requirements.
+ * This container provides name-value pairs that specify physical constraints and measurement units of packages for the <b>shippingCarrier</b> and the corresponding <b>shippingService</b>. An empty container is returned if the shipping service does not have any package limits defined.
 */
 class PackageLimits implements AdditionalDataHolder, Parsable 
 {
@@ -37,52 +37,52 @@ class PackageLimits implements AdditionalDataHolder, Parsable
     private ?string $dimensionUnit = null;
     
     /**
-     * @var float|null $maxGirth The maximum girth allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.dimensionUnit">dimensionUnit</a>.
+     * @var float|null $maxGirth The maximum girth allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/develop/api/sell/metadata_api#sell-metadata_api-shipping:marketplace-getshippingservices.packagelimits.dimensionunit">dimensionUnit</a>.
     */
     private ?float $maxGirth = null;
     
     /**
-     * @var float|null $maxHeight The maximum height allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.dimensionUnit">dimensionUnit</a>.
+     * @var float|null $maxHeight The maximum height allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/develop/api/sell/metadata_api#sell-metadata_api-shipping:marketplace-getshippingservices.packagelimits.dimensionunit">dimensionUnit</a>.
     */
     private ?float $maxHeight = null;
     
     /**
-     * @var float|null $maxLength The maximum length allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.dimensionUnit">dimensionUnit</a>.
+     * @var float|null $maxLength The maximum length allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/develop/api/sell/metadata_api#sell-metadata_api-shipping:marketplace-getshippingservices.packagelimits.dimensionunit">dimensionUnit</a>.
     */
     private ?float $maxLength = null;
     
     /**
-     * @var float|null $maxWeight The maximum weight allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.weightUnit">weightUnit</a>.
+     * @var float|null $maxWeight The maximum weight allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/develop/api/sell/metadata_api#sell-metadata_api-shipping:marketplace-getshippingservices.packagelimits.weightunit">weightUnit</a>.
     */
     private ?float $maxWeight = null;
     
     /**
-     * @var float|null $maxWidth The maximum width allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.dimensionUnit">dimensionUnit</a>.
+     * @var float|null $maxWidth The maximum width allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/develop/api/sell/metadata_api#sell-metadata_api-shipping:marketplace-getshippingservices.packagelimits.dimensionunit">dimensionUnit</a>.
     */
     private ?float $maxWidth = null;
     
     /**
-     * @var float|null $minGirth The minimum girth allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.dimensionUnit">dimensionUnit</a>.
+     * @var float|null $minGirth The minimum girth allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/develop/api/sell/metadata_api#sell-metadata_api-shipping:marketplace-getshippingservices.packagelimits.dimensionunit">dimensionUnit</a>.
     */
     private ?float $minGirth = null;
     
     /**
-     * @var float|null $minHeight The minimum height allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.dimensionUnit">dimensionUnit</a>.
+     * @var float|null $minHeight The minimum height allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/develop/api/sell/metadata_api#sell-metadata_api-shipping:marketplace-getshippingservices.packagelimits.dimensionunit">dimensionUnit</a>.
     */
     private ?float $minHeight = null;
     
     /**
-     * @var float|null $minLength The minimum length allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.dimensionUnit">dimensionUnit</a>.
+     * @var float|null $minLength The minimum length allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/develop/api/sell/metadata_api#sell-metadata_api-shipping:marketplace-getshippingservices.packagelimits.dimensionunit">dimensionUnit</a>.
     */
     private ?float $minLength = null;
     
     /**
-     * @var float|null $minWeight The minimum weight allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.weightUnit">weightUnit</a>.
+     * @var float|null $minWeight The minimum weight allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/develop/api/sell/metadata_api#sell-metadata_api-shipping:marketplace-getshippingservices.packagelimits.weightunit">weightUnit</a>.
     */
     private ?float $minWeight = null;
     
     /**
-     * @var float|null $minWidth The minimum width allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.dimensionUnit">dimensionUnit</a>.
+     * @var float|null $minWidth The minimum width allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/develop/api/sell/metadata_api#sell-metadata_api-shipping:marketplace-getshippingservices.packagelimits.dimensionunit">dimensionUnit</a>.
     */
     private ?float $minWidth = null;
     
@@ -146,7 +146,7 @@ class PackageLimits implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the maxGirth property value. The maximum girth allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.dimensionUnit">dimensionUnit</a>.
+     * Gets the maxGirth property value. The maximum girth allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/develop/api/sell/metadata_api#sell-metadata_api-shipping:marketplace-getshippingservices.packagelimits.dimensionunit">dimensionUnit</a>.
      * @return float|null
     */
     public function getMaxGirth(): ?float {
@@ -154,7 +154,7 @@ class PackageLimits implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the maxHeight property value. The maximum height allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.dimensionUnit">dimensionUnit</a>.
+     * Gets the maxHeight property value. The maximum height allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/develop/api/sell/metadata_api#sell-metadata_api-shipping:marketplace-getshippingservices.packagelimits.dimensionunit">dimensionUnit</a>.
      * @return float|null
     */
     public function getMaxHeight(): ?float {
@@ -162,7 +162,7 @@ class PackageLimits implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the maxLength property value. The maximum length allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.dimensionUnit">dimensionUnit</a>.
+     * Gets the maxLength property value. The maximum length allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/develop/api/sell/metadata_api#sell-metadata_api-shipping:marketplace-getshippingservices.packagelimits.dimensionunit">dimensionUnit</a>.
      * @return float|null
     */
     public function getMaxLength(): ?float {
@@ -170,7 +170,7 @@ class PackageLimits implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the maxWeight property value. The maximum weight allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.weightUnit">weightUnit</a>.
+     * Gets the maxWeight property value. The maximum weight allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/develop/api/sell/metadata_api#sell-metadata_api-shipping:marketplace-getshippingservices.packagelimits.weightunit">weightUnit</a>.
      * @return float|null
     */
     public function getMaxWeight(): ?float {
@@ -178,7 +178,7 @@ class PackageLimits implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the maxWidth property value. The maximum width allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.dimensionUnit">dimensionUnit</a>.
+     * Gets the maxWidth property value. The maximum width allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/develop/api/sell/metadata_api#sell-metadata_api-shipping:marketplace-getshippingservices.packagelimits.dimensionunit">dimensionUnit</a>.
      * @return float|null
     */
     public function getMaxWidth(): ?float {
@@ -186,7 +186,7 @@ class PackageLimits implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the minGirth property value. The minimum girth allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.dimensionUnit">dimensionUnit</a>.
+     * Gets the minGirth property value. The minimum girth allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/develop/api/sell/metadata_api#sell-metadata_api-shipping:marketplace-getshippingservices.packagelimits.dimensionunit">dimensionUnit</a>.
      * @return float|null
     */
     public function getMinGirth(): ?float {
@@ -194,7 +194,7 @@ class PackageLimits implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the minHeight property value. The minimum height allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.dimensionUnit">dimensionUnit</a>.
+     * Gets the minHeight property value. The minimum height allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/develop/api/sell/metadata_api#sell-metadata_api-shipping:marketplace-getshippingservices.packagelimits.dimensionunit">dimensionUnit</a>.
      * @return float|null
     */
     public function getMinHeight(): ?float {
@@ -202,7 +202,7 @@ class PackageLimits implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the minLength property value. The minimum length allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.dimensionUnit">dimensionUnit</a>.
+     * Gets the minLength property value. The minimum length allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/develop/api/sell/metadata_api#sell-metadata_api-shipping:marketplace-getshippingservices.packagelimits.dimensionunit">dimensionUnit</a>.
      * @return float|null
     */
     public function getMinLength(): ?float {
@@ -210,7 +210,7 @@ class PackageLimits implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the minWeight property value. The minimum weight allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.weightUnit">weightUnit</a>.
+     * Gets the minWeight property value. The minimum weight allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/develop/api/sell/metadata_api#sell-metadata_api-shipping:marketplace-getshippingservices.packagelimits.weightunit">weightUnit</a>.
      * @return float|null
     */
     public function getMinWeight(): ?float {
@@ -218,7 +218,7 @@ class PackageLimits implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the minWidth property value. The minimum width allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.dimensionUnit">dimensionUnit</a>.
+     * Gets the minWidth property value. The minimum width allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/develop/api/sell/metadata_api#sell-metadata_api-shipping:marketplace-getshippingservices.packagelimits.dimensionunit">dimensionUnit</a>.
      * @return float|null
     */
     public function getMinWidth(): ?float {
@@ -270,7 +270,7 @@ class PackageLimits implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the maxGirth property value. The maximum girth allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.dimensionUnit">dimensionUnit</a>.
+     * Sets the maxGirth property value. The maximum girth allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/develop/api/sell/metadata_api#sell-metadata_api-shipping:marketplace-getshippingservices.packagelimits.dimensionunit">dimensionUnit</a>.
      * @param float|null $value Value to set for the maxGirth property.
     */
     public function setMaxGirth(?float $value): void {
@@ -278,7 +278,7 @@ class PackageLimits implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the maxHeight property value. The maximum height allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.dimensionUnit">dimensionUnit</a>.
+     * Sets the maxHeight property value. The maximum height allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/develop/api/sell/metadata_api#sell-metadata_api-shipping:marketplace-getshippingservices.packagelimits.dimensionunit">dimensionUnit</a>.
      * @param float|null $value Value to set for the maxHeight property.
     */
     public function setMaxHeight(?float $value): void {
@@ -286,7 +286,7 @@ class PackageLimits implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the maxLength property value. The maximum length allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.dimensionUnit">dimensionUnit</a>.
+     * Sets the maxLength property value. The maximum length allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/develop/api/sell/metadata_api#sell-metadata_api-shipping:marketplace-getshippingservices.packagelimits.dimensionunit">dimensionUnit</a>.
      * @param float|null $value Value to set for the maxLength property.
     */
     public function setMaxLength(?float $value): void {
@@ -294,7 +294,7 @@ class PackageLimits implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the maxWeight property value. The maximum weight allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.weightUnit">weightUnit</a>.
+     * Sets the maxWeight property value. The maximum weight allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/develop/api/sell/metadata_api#sell-metadata_api-shipping:marketplace-getshippingservices.packagelimits.weightunit">weightUnit</a>.
      * @param float|null $value Value to set for the maxWeight property.
     */
     public function setMaxWeight(?float $value): void {
@@ -302,7 +302,7 @@ class PackageLimits implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the maxWidth property value. The maximum width allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.dimensionUnit">dimensionUnit</a>.
+     * Sets the maxWidth property value. The maximum width allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/develop/api/sell/metadata_api#sell-metadata_api-shipping:marketplace-getshippingservices.packagelimits.dimensionunit">dimensionUnit</a>.
      * @param float|null $value Value to set for the maxWidth property.
     */
     public function setMaxWidth(?float $value): void {
@@ -310,7 +310,7 @@ class PackageLimits implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the minGirth property value. The minimum girth allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.dimensionUnit">dimensionUnit</a>.
+     * Sets the minGirth property value. The minimum girth allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/develop/api/sell/metadata_api#sell-metadata_api-shipping:marketplace-getshippingservices.packagelimits.dimensionunit">dimensionUnit</a>.
      * @param float|null $value Value to set for the minGirth property.
     */
     public function setMinGirth(?float $value): void {
@@ -318,7 +318,7 @@ class PackageLimits implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the minHeight property value. The minimum height allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.dimensionUnit">dimensionUnit</a>.
+     * Sets the minHeight property value. The minimum height allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/develop/api/sell/metadata_api#sell-metadata_api-shipping:marketplace-getshippingservices.packagelimits.dimensionunit">dimensionUnit</a>.
      * @param float|null $value Value to set for the minHeight property.
     */
     public function setMinHeight(?float $value): void {
@@ -326,7 +326,7 @@ class PackageLimits implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the minLength property value. The minimum length allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.dimensionUnit">dimensionUnit</a>.
+     * Sets the minLength property value. The minimum length allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/develop/api/sell/metadata_api#sell-metadata_api-shipping:marketplace-getshippingservices.packagelimits.dimensionunit">dimensionUnit</a>.
      * @param float|null $value Value to set for the minLength property.
     */
     public function setMinLength(?float $value): void {
@@ -334,7 +334,7 @@ class PackageLimits implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the minWeight property value. The minimum weight allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.weightUnit">weightUnit</a>.
+     * Sets the minWeight property value. The minimum weight allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/develop/api/sell/metadata_api#sell-metadata_api-shipping:marketplace-getshippingservices.packagelimits.weightunit">weightUnit</a>.
      * @param float|null $value Value to set for the minWeight property.
     */
     public function setMinWeight(?float $value): void {
@@ -342,7 +342,7 @@ class PackageLimits implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the minWidth property value. The minimum width allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.dimensionUnit">dimensionUnit</a>.
+     * Sets the minWidth property value. The minimum width allowed for a package shipped through the corresponding shipping service, as measured in units of <a href="/develop/api/sell/metadata_api#sell-metadata_api-shipping:marketplace-getshippingservices.packagelimits.dimensionunit">dimensionUnit</a>.
      * @param float|null $value Value to set for the minWidth property.
     */
     public function setMinWidth(?float $value): void {

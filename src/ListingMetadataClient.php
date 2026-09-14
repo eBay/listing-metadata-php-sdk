@@ -28,10 +28,13 @@ use GuzzleHttp\HandlerStack;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
+/**
+ * Main entry point for the eBay Listing Metadata PHP SDK.
+ */
 final class ListingMetadataClient
 {
-    public readonly CatalogClient  $catalog;
-    public readonly CharityClient  $charity;
+    public readonly CatalogClient $catalog;
+    public readonly CharityClient $charity;
     public readonly MetadataClient $metadata;
     public readonly TaxonomyClient $taxonomy;
 
@@ -41,12 +44,17 @@ final class ListingMetadataClient
     ) {
         $guzzle ??= $this->buildGuzzle($config);
 
-        $this->catalog  = new CatalogClient($guzzle, $config);
-        $this->charity  = new CharityClient($guzzle, $config);
+        $this->catalog = new CatalogClient($guzzle, $config);
+        $this->charity = new CharityClient($guzzle, $config);
         $this->metadata = new MetadataClient($guzzle, $config);
         $this->taxonomy = new TaxonomyClient($guzzle, $config);
     }
 
+    /**
+     * Build a Guzzle client with optional diagnostic logging middleware.
+     * When $config->diagnosticLogging is true, all non-2xx responses are
+     * logged to STDERR with method, URI, status code, and response body.
+     */
     private function buildGuzzle(ListingMetadataConfiguration $config): GuzzleClient
     {
         $stack = HandlerStack::create();
@@ -54,23 +62,25 @@ final class ListingMetadataClient
         if ($config->diagnosticLogging) {
             $stack->push(static function (callable $handler): callable {
                 return static function (RequestInterface $request, array $options) use ($handler): mixed {
-                    $promise = $handler($request, $options);
-                    return $promise->then(static function (ResponseInterface $response) use ($request): ResponseInterface {
-                        $status = $response->getStatusCode();
-                        if ($status < 200 || $status >= 300) {
-                            $body    = (string) $response->getBody();
-                            $message = sprintf(
-                                "[listing-metadata] %s %s => HTTP %d %s\n%s\n",
-                                $request->getMethod(),
-                                str_replace(["\r", "\n"], ' ', (string) $request->getUri()),
-                                $status,
-                                $response->getReasonPhrase(),
-                                $body,
-                            );
-                            fwrite(STDERR, $message);
+                    return $handler($request, $options)->then(
+                        static function (ResponseInterface $response) use ($request): ResponseInterface {
+                            $status = $response->getStatusCode();
+                            if ($status < 200 || $status >= 300) {
+                                $body = (string) $response->getBody();
+                                fwrite(
+                                    STDERR,
+                                    sprintf(
+                                        "[ListingMetadataSDK] %s %s -> HTTP %d\n%s\n",
+                                        $request->getMethod(),
+                                        str_replace(["\r", "\n"], ' ', (string) $request->getUri()),
+                                        $status,
+                                        $body
+                                    )
+                                );
+                            }
+                            return $response;
                         }
-                        return $response;
-                    });
+                    );
                 };
             });
         }

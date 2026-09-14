@@ -22,7 +22,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 /**
- * This type provides fields that contains applicable Classified Ad policy metadata for the leaf categories returned for the marketplace.
+ * This type provides fields that contain applicable Classified Ad policy metadata for the leaf categories returned for the marketplace.
 */
 class ClassifiedAdPolicy implements AdditionalDataHolder, Parsable 
 {
@@ -32,9 +32,9 @@ class ClassifiedAdPolicy implements AdditionalDataHolder, Parsable
     private ?array $additionalData = null;
     
     /**
-     * @var string|null $adFormatEnabled This enumerated value indicates the type or status of available Classified Ad formats for this category. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:AdFormatEnabledEnum'>eBay API documentation</a>
+     * @var AdFormatEnabledEnum|null $adFormatEnabled This enumerated value indicates the type or status of available Classified Ad formats for this category.
     */
-    private ?string $adFormatEnabled = null;
+    private ?AdFormatEnabledEnum $adFormatEnabled = null;
     
     /**
      * @var string|null $categoryId The unique identifier of the eBay leaf category for which metadata is being returned.
@@ -57,9 +57,9 @@ class ClassifiedAdPolicy implements AdditionalDataHolder, Parsable
     private ?bool $classifiedAdAutoDeclineEnabled = null;
     
     /**
-     * @var string|null $classifiedAdBestOfferEnabled This enumerated value indicates if Best Offer is enabled, disabled, or required for Classified Ad listings in this category. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:ClassifiedAdBestOfferEnabledEnum'>eBay API documentation</a>
+     * @var ClassifiedAdBestOfferEnabledEnum|null $classifiedAdBestOfferEnabled This enumerated value indicates if Best Offer is enabled, disabled, or required for Classified Ad listings in this category.
     */
-    private ?string $classifiedAdBestOfferEnabled = null;
+    private ?ClassifiedAdBestOfferEnabledEnum $classifiedAdBestOfferEnabled = null;
     
     /**
      * @var bool|null $classifiedAdCompanyNameEnabled Indicates whether this category supports including a company name in the seller's contact information. This element is for <b>For Sale By Owner</b> listings. 
@@ -87,9 +87,9 @@ class ClassifiedAdPolicy implements AdditionalDataHolder, Parsable
     private ?bool $classifiedAdCounterOfferEnabled = null;
     
     /**
-     * @var string|null $classifiedAdPaymentMethodEnabled This enumerated value indicates support for the payment method being displayed to the user for the category. Even if enabled, checkout may or may not be enabled. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:ClassifiedAdPaymentMethodEnabledEnum'>eBay API documentation</a>
+     * @var ClassifiedAdPaymentMethodEnabledEnum|null $classifiedAdPaymentMethodEnabled This enumerated value indicates support for the payment method being displayed to the user for the category. Even if enabled, checkout may or may not be enabled.
     */
-    private ?string $classifiedAdPaymentMethodEnabled = null;
+    private ?ClassifiedAdPaymentMethodEnabledEnum $classifiedAdPaymentMethodEnabled = null;
     
     /**
      * @var int|null $classifiedAdPhoneCount Indicates how many contact phone numbers can be specified in contact information for the category. This element is for <b>For Sale By Owner</b> listings.
@@ -136,10 +136,10 @@ class ClassifiedAdPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the adFormatEnabled property value. This enumerated value indicates the type or status of available Classified Ad formats for this category. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:AdFormatEnabledEnum'>eBay API documentation</a>
-     * @return string|null
+     * Gets the adFormatEnabled property value. This enumerated value indicates the type or status of available Classified Ad formats for this category.
+     * @return AdFormatEnabledEnum|null
     */
-    public function getAdFormatEnabled(): ?string {
+    public function getAdFormatEnabled(): ?AdFormatEnabledEnum {
         return $this->adFormatEnabled;
     }
 
@@ -176,10 +176,10 @@ class ClassifiedAdPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the classifiedAdBestOfferEnabled property value. This enumerated value indicates if Best Offer is enabled, disabled, or required for Classified Ad listings in this category. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:ClassifiedAdBestOfferEnabledEnum'>eBay API documentation</a>
-     * @return string|null
+     * Gets the classifiedAdBestOfferEnabled property value. This enumerated value indicates if Best Offer is enabled, disabled, or required for Classified Ad listings in this category.
+     * @return ClassifiedAdBestOfferEnabledEnum|null
     */
-    public function getClassifiedAdBestOfferEnabled(): ?string {
+    public function getClassifiedAdBestOfferEnabled(): ?ClassifiedAdBestOfferEnabledEnum {
         return $this->classifiedAdBestOfferEnabled;
     }
 
@@ -224,10 +224,10 @@ class ClassifiedAdPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the classifiedAdPaymentMethodEnabled property value. This enumerated value indicates support for the payment method being displayed to the user for the category. Even if enabled, checkout may or may not be enabled. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:ClassifiedAdPaymentMethodEnabledEnum'>eBay API documentation</a>
-     * @return string|null
+     * Gets the classifiedAdPaymentMethodEnabled property value. This enumerated value indicates support for the payment method being displayed to the user for the category. Even if enabled, checkout may or may not be enabled.
+     * @return ClassifiedAdPaymentMethodEnabledEnum|null
     */
-    public function getClassifiedAdPaymentMethodEnabled(): ?string {
+    public function getClassifiedAdPaymentMethodEnabled(): ?ClassifiedAdPaymentMethodEnabledEnum {
         return $this->classifiedAdPaymentMethodEnabled;
     }
 
@@ -262,18 +262,18 @@ class ClassifiedAdPolicy implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'adFormatEnabled' => fn(ParseNode $n) => $o->setAdFormatEnabled($n->getStringValue()),
+            'adFormatEnabled' => fn(ParseNode $n) => $o->setAdFormatEnabled($n->getEnumValue(AdFormatEnabledEnum::class)),
             'categoryId' => fn(ParseNode $n) => $o->setCategoryId($n->getStringValue()),
             'categoryTreeId' => fn(ParseNode $n) => $o->setCategoryTreeId($n->getStringValue()),
             'classifiedAdAutoAcceptEnabled' => fn(ParseNode $n) => $o->setClassifiedAdAutoAcceptEnabled($n->getBooleanValue()),
             'classifiedAdAutoDeclineEnabled' => fn(ParseNode $n) => $o->setClassifiedAdAutoDeclineEnabled($n->getBooleanValue()),
-            'classifiedAdBestOfferEnabled' => fn(ParseNode $n) => $o->setClassifiedAdBestOfferEnabled($n->getStringValue()),
+            'classifiedAdBestOfferEnabled' => fn(ParseNode $n) => $o->setClassifiedAdBestOfferEnabled($n->getEnumValue(ClassifiedAdBestOfferEnabledEnum::class)),
             'classifiedAdCompanyNameEnabled' => fn(ParseNode $n) => $o->setClassifiedAdCompanyNameEnabled($n->getBooleanValue()),
             'classifiedAdContactByAddressEnabled' => fn(ParseNode $n) => $o->setClassifiedAdContactByAddressEnabled($n->getBooleanValue()),
             'classifiedAdContactByEmailEnabled' => fn(ParseNode $n) => $o->setClassifiedAdContactByEmailEnabled($n->getBooleanValue()),
             'classifiedAdContactByPhoneEnabled' => fn(ParseNode $n) => $o->setClassifiedAdContactByPhoneEnabled($n->getBooleanValue()),
             'classifiedAdCounterOfferEnabled' => fn(ParseNode $n) => $o->setClassifiedAdCounterOfferEnabled($n->getBooleanValue()),
-            'classifiedAdPaymentMethodEnabled' => fn(ParseNode $n) => $o->setClassifiedAdPaymentMethodEnabled($n->getStringValue()),
+            'classifiedAdPaymentMethodEnabled' => fn(ParseNode $n) => $o->setClassifiedAdPaymentMethodEnabled($n->getEnumValue(ClassifiedAdPaymentMethodEnabledEnum::class)),
             'classifiedAdPhoneCount' => fn(ParseNode $n) => $o->setClassifiedAdPhoneCount($n->getIntegerValue()),
             'classifiedAdShippingMethodEnabled' => fn(ParseNode $n) => $o->setClassifiedAdShippingMethodEnabled($n->getBooleanValue()),
             'classifiedAdStreetCount' => fn(ParseNode $n) => $o->setClassifiedAdStreetCount($n->getIntegerValue()),
@@ -294,18 +294,18 @@ class ClassifiedAdPolicy implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('adFormatEnabled', $this->getAdFormatEnabled());
+        $writer->writeEnumValue('adFormatEnabled', $this->getAdFormatEnabled());
         $writer->writeStringValue('categoryId', $this->getCategoryId());
         $writer->writeStringValue('categoryTreeId', $this->getCategoryTreeId());
         $writer->writeBooleanValue('classifiedAdAutoAcceptEnabled', $this->getClassifiedAdAutoAcceptEnabled());
         $writer->writeBooleanValue('classifiedAdAutoDeclineEnabled', $this->getClassifiedAdAutoDeclineEnabled());
-        $writer->writeStringValue('classifiedAdBestOfferEnabled', $this->getClassifiedAdBestOfferEnabled());
+        $writer->writeEnumValue('classifiedAdBestOfferEnabled', $this->getClassifiedAdBestOfferEnabled());
         $writer->writeBooleanValue('classifiedAdCompanyNameEnabled', $this->getClassifiedAdCompanyNameEnabled());
         $writer->writeBooleanValue('classifiedAdContactByAddressEnabled', $this->getClassifiedAdContactByAddressEnabled());
         $writer->writeBooleanValue('classifiedAdContactByEmailEnabled', $this->getClassifiedAdContactByEmailEnabled());
         $writer->writeBooleanValue('classifiedAdContactByPhoneEnabled', $this->getClassifiedAdContactByPhoneEnabled());
         $writer->writeBooleanValue('classifiedAdCounterOfferEnabled', $this->getClassifiedAdCounterOfferEnabled());
-        $writer->writeStringValue('classifiedAdPaymentMethodEnabled', $this->getClassifiedAdPaymentMethodEnabled());
+        $writer->writeEnumValue('classifiedAdPaymentMethodEnabled', $this->getClassifiedAdPaymentMethodEnabled());
         $writer->writeIntegerValue('classifiedAdPhoneCount', $this->getClassifiedAdPhoneCount());
         $writer->writeBooleanValue('classifiedAdShippingMethodEnabled', $this->getClassifiedAdShippingMethodEnabled());
         $writer->writeIntegerValue('classifiedAdStreetCount', $this->getClassifiedAdStreetCount());
@@ -322,10 +322,10 @@ class ClassifiedAdPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the adFormatEnabled property value. This enumerated value indicates the type or status of available Classified Ad formats for this category. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:AdFormatEnabledEnum'>eBay API documentation</a>
-     * @param string|null $value Value to set for the adFormatEnabled property.
+     * Sets the adFormatEnabled property value. This enumerated value indicates the type or status of available Classified Ad formats for this category.
+     * @param AdFormatEnabledEnum|null $value Value to set for the adFormatEnabled property.
     */
-    public function setAdFormatEnabled(?string $value): void {
+    public function setAdFormatEnabled(?AdFormatEnabledEnum $value): void {
         $this->adFormatEnabled = $value;
     }
 
@@ -362,10 +362,10 @@ class ClassifiedAdPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the classifiedAdBestOfferEnabled property value. This enumerated value indicates if Best Offer is enabled, disabled, or required for Classified Ad listings in this category. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:ClassifiedAdBestOfferEnabledEnum'>eBay API documentation</a>
-     * @param string|null $value Value to set for the classifiedAdBestOfferEnabled property.
+     * Sets the classifiedAdBestOfferEnabled property value. This enumerated value indicates if Best Offer is enabled, disabled, or required for Classified Ad listings in this category.
+     * @param ClassifiedAdBestOfferEnabledEnum|null $value Value to set for the classifiedAdBestOfferEnabled property.
     */
-    public function setClassifiedAdBestOfferEnabled(?string $value): void {
+    public function setClassifiedAdBestOfferEnabled(?ClassifiedAdBestOfferEnabledEnum $value): void {
         $this->classifiedAdBestOfferEnabled = $value;
     }
 
@@ -410,10 +410,10 @@ class ClassifiedAdPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the classifiedAdPaymentMethodEnabled property value. This enumerated value indicates support for the payment method being displayed to the user for the category. Even if enabled, checkout may or may not be enabled. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:ClassifiedAdPaymentMethodEnabledEnum'>eBay API documentation</a>
-     * @param string|null $value Value to set for the classifiedAdPaymentMethodEnabled property.
+     * Sets the classifiedAdPaymentMethodEnabled property value. This enumerated value indicates support for the payment method being displayed to the user for the category. Even if enabled, checkout may or may not be enabled.
+     * @param ClassifiedAdPaymentMethodEnabledEnum|null $value Value to set for the classifiedAdPaymentMethodEnabled property.
     */
-    public function setClassifiedAdPaymentMethodEnabled(?string $value): void {
+    public function setClassifiedAdPaymentMethodEnabled(?ClassifiedAdPaymentMethodEnabledEnum $value): void {
         $this->classifiedAdPaymentMethodEnabled = $value;
     }
 

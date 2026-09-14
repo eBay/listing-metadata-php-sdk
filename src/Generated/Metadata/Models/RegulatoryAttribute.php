@@ -32,14 +32,14 @@ class RegulatoryAttribute implements AdditionalDataHolder, Parsable
     private ?array $additionalData = null;
     
     /**
-     * @var string|null $name A unique value identifying a specific regulatory attribute. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:RegulatoryAttributeEnum'>eBay API documentation</a>
+     * @var RegulatoryAttributeEnum|null $name A unique value identifying a specific regulatory attribute.
     */
-    private ?string $name = null;
+    private ?RegulatoryAttributeEnum $name = null;
     
     /**
-     * @var string|null $usage The enumeration value in this field indicates whether the corresponding attribute is recommended or required for the corresponding leaf category. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:GenericUsageEnum'>eBay API documentation</a>
+     * @var GenericUsageEnum|null $usage The enumeration value in this field indicates whether the corresponding attribute is recommended or required for the corresponding leaf category.
     */
-    private ?string $usage = null;
+    private ?GenericUsageEnum $usage = null;
     
     /**
      * Instantiates a new RegulatoryAttribute and sets the default values.
@@ -72,24 +72,24 @@ class RegulatoryAttribute implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
-            'usage' => fn(ParseNode $n) => $o->setUsage($n->getStringValue()),
+            'name' => fn(ParseNode $n) => $o->setName($n->getEnumValue(RegulatoryAttributeEnum::class)),
+            'usage' => fn(ParseNode $n) => $o->setUsage($n->getEnumValue(GenericUsageEnum::class)),
         ];
     }
 
     /**
-     * Gets the name property value. A unique value identifying a specific regulatory attribute. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:RegulatoryAttributeEnum'>eBay API documentation</a>
-     * @return string|null
+     * Gets the name property value. A unique value identifying a specific regulatory attribute.
+     * @return RegulatoryAttributeEnum|null
     */
-    public function getName(): ?string {
+    public function getName(): ?RegulatoryAttributeEnum {
         return $this->name;
     }
 
     /**
-     * Gets the usage property value. The enumeration value in this field indicates whether the corresponding attribute is recommended or required for the corresponding leaf category. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:GenericUsageEnum'>eBay API documentation</a>
-     * @return string|null
+     * Gets the usage property value. The enumeration value in this field indicates whether the corresponding attribute is recommended or required for the corresponding leaf category.
+     * @return GenericUsageEnum|null
     */
-    public function getUsage(): ?string {
+    public function getUsage(): ?GenericUsageEnum {
         return $this->usage;
     }
 
@@ -98,8 +98,8 @@ class RegulatoryAttribute implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('name', $this->getName());
-        $writer->writeStringValue('usage', $this->getUsage());
+        $writer->writeEnumValue('name', $this->getName());
+        $writer->writeEnumValue('usage', $this->getUsage());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -112,18 +112,18 @@ class RegulatoryAttribute implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the name property value. A unique value identifying a specific regulatory attribute. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:RegulatoryAttributeEnum'>eBay API documentation</a>
-     * @param string|null $value Value to set for the name property.
+     * Sets the name property value. A unique value identifying a specific regulatory attribute.
+     * @param RegulatoryAttributeEnum|null $value Value to set for the name property.
     */
-    public function setName(?string $value): void {
+    public function setName(?RegulatoryAttributeEnum $value): void {
         $this->name = $value;
     }
 
     /**
-     * Sets the usage property value. The enumeration value in this field indicates whether the corresponding attribute is recommended or required for the corresponding leaf category. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:GenericUsageEnum'>eBay API documentation</a>
-     * @param string|null $value Value to set for the usage property.
+     * Sets the usage property value. The enumeration value in this field indicates whether the corresponding attribute is recommended or required for the corresponding leaf category.
+     * @param GenericUsageEnum|null $value Value to set for the usage property.
     */
-    public function setUsage(?string $value): void {
+    public function setUsage(?GenericUsageEnum $value): void {
         $this->usage = $value;
     }
 

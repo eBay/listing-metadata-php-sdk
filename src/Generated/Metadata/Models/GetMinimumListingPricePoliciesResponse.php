@@ -22,9 +22,9 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 /**
- * Container for an error parameter.
+ * This type defines the response container for the <b>getMinimumListingPricePolicies</b> method.
 */
-class ErrorParameter implements AdditionalDataHolder, Parsable 
+class GetMinimumListingPricePoliciesResponse implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var array<string, mixed>|null $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -32,17 +32,12 @@ class ErrorParameter implements AdditionalDataHolder, Parsable
     private ?array $additionalData = null;
     
     /**
-     * @var string|null $name Name of the entity that threw the error.
+     * @var array<MinimumListingPricePoliciesType>|null $minimumListingPricePolicies This array returns a list of minimum listing price policies for supported types of listings on the specific marketplace
     */
-    private ?string $name = null;
+    private ?array $minimumListingPricePolicies = null;
     
     /**
-     * @var string|null $value A description of the error.
-    */
-    private ?string $value = null;
-    
-    /**
-     * Instantiates a new ErrorParameter and sets the default values.
+     * Instantiates a new GetMinimumListingPricePoliciesResponse and sets the default values.
     */
     public function __construct() {
         $this->setAdditionalData([]);
@@ -51,10 +46,10 @@ class ErrorParameter implements AdditionalDataHolder, Parsable
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
-     * @return ErrorParameter
+     * @return GetMinimumListingPricePoliciesResponse
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): ErrorParameter {
-        return new ErrorParameter();
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): GetMinimumListingPricePoliciesResponse {
+        return new GetMinimumListingPricePoliciesResponse();
     }
 
     /**
@@ -72,25 +67,16 @@ class ErrorParameter implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
-            'value' => fn(ParseNode $n) => $o->setValue($n->getStringValue()),
+            'minimumListingPricePolicies' => fn(ParseNode $n) => $o->setMinimumListingPricePolicies($n->getCollectionOfObjectValues([MinimumListingPricePoliciesType::class, 'createFromDiscriminatorValue'])),
         ];
     }
 
     /**
-     * Gets the name property value. Name of the entity that threw the error.
-     * @return string|null
+     * Gets the minimumListingPricePolicies property value. This array returns a list of minimum listing price policies for supported types of listings on the specific marketplace
+     * @return array<MinimumListingPricePoliciesType>|null
     */
-    public function getName(): ?string {
-        return $this->name;
-    }
-
-    /**
-     * Gets the value property value. A description of the error.
-     * @return string|null
-    */
-    public function getValue(): ?string {
-        return $this->value;
+    public function getMinimumListingPricePolicies(): ?array {
+        return $this->minimumListingPricePolicies;
     }
 
     /**
@@ -98,8 +84,7 @@ class ErrorParameter implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('name', $this->getName());
-        $writer->writeStringValue('value', $this->getValue());
+        $writer->writeCollectionOfObjectValues('minimumListingPricePolicies', $this->getMinimumListingPricePolicies());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -112,19 +97,11 @@ class ErrorParameter implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the name property value. Name of the entity that threw the error.
-     * @param string|null $value Value to set for the name property.
+     * Sets the minimumListingPricePolicies property value. This array returns a list of minimum listing price policies for supported types of listings on the specific marketplace
+     * @param array<MinimumListingPricePoliciesType>|null $value Value to set for the minimumListingPricePolicies property.
     */
-    public function setName(?string $value): void {
-        $this->name = $value;
-    }
-
-    /**
-     * Sets the value property value. A description of the error.
-     * @param string|null $value Value to set for the value property.
-    */
-    public function setValue(?string $value): void {
-        $this->value = $value;
+    public function setMinimumListingPricePolicies(?array $value): void {
+        $this->minimumListingPricePolicies = $value;
     }
 
 }

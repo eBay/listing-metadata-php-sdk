@@ -23,7 +23,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
- * This type defines the request fields for the <b>getCompatibilityPropertyNames</b> method.
+ * This type defines the properties used to retrieve compatibility property names.
 */
 class PropertyNamesRequest implements AdditionalDataHolder, Parsable 
 {
@@ -33,7 +33,7 @@ class PropertyNamesRequest implements AdditionalDataHolder, Parsable
     private ?array $additionalData = null;
     
     /**
-     * @var string|null $categoryId The unique identifier of the eBay leaf category for which to retrieve compatibility property names. This category must be a valid eBay category on the specified eBay marketplace, and the category must support parts compatibility.<br><br>Use the <a href="/api-docs/sell/metadata/resources/marketplace/methods/getAutomotivePartsCompatibilityPolicies" target="_blank ">getAutomotivePartsCompatibilityPolicies</a> method to retrieve a list of categories that support parts compatibility.
+     * @var string|null $categoryId The unique identifier of the eBay leaf category for which to retrieve compatibility property names. This category must be a valid eBay category on the specified eBay marketplace, and the category must support parts compatibility.<br><br>Use the <a href="/develop/api/sell/metadata_api#sell-metadata_api-marketplace-getautomotivepartscompatibilitypolicies">getAutomotivePartsCompatibilityPolicies</a> method to retrieve a list of categories that support parts compatibility.
     */
     private ?string $categoryId = null;
     
@@ -67,7 +67,7 @@ class PropertyNamesRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the categoryId property value. The unique identifier of the eBay leaf category for which to retrieve compatibility property names. This category must be a valid eBay category on the specified eBay marketplace, and the category must support parts compatibility.<br><br>Use the <a href="/api-docs/sell/metadata/resources/marketplace/methods/getAutomotivePartsCompatibilityPolicies" target="_blank ">getAutomotivePartsCompatibilityPolicies</a> method to retrieve a list of categories that support parts compatibility.
+     * Gets the categoryId property value. The unique identifier of the eBay leaf category for which to retrieve compatibility property names. This category must be a valid eBay category on the specified eBay marketplace, and the category must support parts compatibility.<br><br>Use the <a href="/develop/api/sell/metadata_api#sell-metadata_api-marketplace-getautomotivepartscompatibilitypolicies">getAutomotivePartsCompatibilityPolicies</a> method to retrieve a list of categories that support parts compatibility.
      * @return string|null
     */
     public function getCategoryId(): ?string {
@@ -120,7 +120,7 @@ class PropertyNamesRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the categoryId property value. The unique identifier of the eBay leaf category for which to retrieve compatibility property names. This category must be a valid eBay category on the specified eBay marketplace, and the category must support parts compatibility.<br><br>Use the <a href="/api-docs/sell/metadata/resources/marketplace/methods/getAutomotivePartsCompatibilityPolicies" target="_blank ">getAutomotivePartsCompatibilityPolicies</a> method to retrieve a list of categories that support parts compatibility.
+     * Sets the categoryId property value. The unique identifier of the eBay leaf category for which to retrieve compatibility property names. This category must be a valid eBay category on the specified eBay marketplace, and the category must support parts compatibility.<br><br>Use the <a href="/develop/api/sell/metadata_api#sell-metadata_api-marketplace-getautomotivepartscompatibilitypolicies">getAutomotivePartsCompatibilityPolicies</a> method to retrieve a list of categories that support parts compatibility.
      * @param string|null $value Value to set for the categoryId property.
     */
     public function setCategoryId(?string $value): void {

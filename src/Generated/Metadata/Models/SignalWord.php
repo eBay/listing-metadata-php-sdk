@@ -32,12 +32,12 @@ class SignalWord implements AdditionalDataHolder, Parsable
     private ?array $additionalData = null;
     
     /**
-     * @var string|null $signalWordDescription The description of the signal word localized to the default language of the marketplace. For more information, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Signal'>Signal word information</a>.
+     * @var string|null $signalWordDescription The description of the signal word localized to the default language of the marketplace. For more information, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Signal' target='_blank'>Signal word information</a>.
     */
     private ?string $signalWordDescription = null;
     
     /**
-     * @var string|null $signalWordId The identifier of the signal word. For more information, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Signal'>Signal word information</a>.
+     * @var string|null $signalWordId The identifier of the signal word. For more information, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Signal' target='_blank'>Signal word information</a>.
     */
     private ?string $signalWordId = null;
     
@@ -78,7 +78,7 @@ class SignalWord implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the signalWordDescription property value. The description of the signal word localized to the default language of the marketplace. For more information, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Signal'>Signal word information</a>.
+     * Gets the signalWordDescription property value. The description of the signal word localized to the default language of the marketplace. For more information, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Signal' target='_blank'>Signal word information</a>.
      * @return string|null
     */
     public function getSignalWordDescription(): ?string {
@@ -86,7 +86,7 @@ class SignalWord implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the signalWordId property value. The identifier of the signal word. For more information, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Signal'>Signal word information</a>.
+     * Gets the signalWordId property value. The identifier of the signal word. For more information, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Signal' target='_blank'>Signal word information</a>.
      * @return string|null
     */
     public function getSignalWordId(): ?string {
@@ -112,7 +112,7 @@ class SignalWord implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the signalWordDescription property value. The description of the signal word localized to the default language of the marketplace. For more information, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Signal'>Signal word information</a>.
+     * Sets the signalWordDescription property value. The description of the signal word localized to the default language of the marketplace. For more information, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Signal' target='_blank'>Signal word information</a>.
      * @param string|null $value Value to set for the signalWordDescription property.
     */
     public function setSignalWordDescription(?string $value): void {
@@ -120,7 +120,7 @@ class SignalWord implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the signalWordId property value. The identifier of the signal word. For more information, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Signal'>Signal word information</a>.
+     * Sets the signalWordId property value. The identifier of the signal word. For more information, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Signal' target='_blank'>Signal word information</a>.
      * @param string|null $value Value to set for the signalWordId property.
     */
     public function setSignalWordId(?string $value): void {

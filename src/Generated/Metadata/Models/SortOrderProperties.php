@@ -22,7 +22,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 /**
- * This type is used to define the property to be used in sorting. 
+ * This container is used to define the property to be used in the sorting.
 */
 class SortOrderProperties implements AdditionalDataHolder, Parsable 
 {

@@ -23,7 +23,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
- * This type provides the properties and specifications to use to search for compatibilities.
+ * This type defines the properties and specifications to use to search for compatibilities.
 */
 class SpecificationRequest implements AdditionalDataHolder, Parsable 
 {
@@ -33,7 +33,7 @@ class SpecificationRequest implements AdditionalDataHolder, Parsable
     private ?array $additionalData = null;
     
     /**
-     * @var string|null $categoryId The unique identifier of the eBay leaf category for which compatibility details are being retrieved. This category must be a valid eBay category on the specified eBay marketplace, and the category must support parts compatibility for cars, trucks, or motorcycles.<br><br>Use the <a href="/api-docs/sell/metadata/resources/marketplace/methods/getAutomotivePartsCompatibilityPolicies" target="_blank ">getAutomotivePartsCompatibilityPolicies</a> method to retrieve a list of categories that support parts compatibility by specification. For the categories in the response that support compatibility by specification, you’ll see <code>SPECIFICATIONS</code> as the value for the <b>compatibilityBasedOn</b> field 
+     * @var string|null $categoryId The unique identifier of the eBay leaf category for which compatibility details are being retrieved. This category must be a valid eBay category on the specified eBay marketplace, and the category must support parts compatibility for cars, trucks, or motorcycles.<br><br>Use the <a href="/develop/api/sell/metadata_api#sell-metadata_api-marketplace-getautomotivepartscompatibilitypolicies">getAutomotivePartsCompatibilityPolicies</a> method to retrieve a list of categories that support parts compatibility by specification. For the categories in the response that support compatibility by specification, you’ll see <code>SPECIFICATIONS</code> as the value for the <b>compatibilityBasedOn</b> field 
     */
     private ?string $categoryId = null;
     
@@ -58,7 +58,7 @@ class SpecificationRequest implements AdditionalDataHolder, Parsable
     private ?bool $exactMatch = null;
     
     /**
-     * @var PaginationInput|null $paginationInput This type defines the fields used to control the pagination of the result set.
+     * @var PaginationInput|null $paginationInput <div class="msgbox_important"><p class="msgbox_importantInDiv" data-mc-autonum="&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important! &lt;/span&gt;&lt;/b&gt;"><span class="autonumber"><span><b><span style="color: #dd1e31;" class="mcFormatColor">Important!</span></b></span></span> Pagination is not yet supported by this method. If this container is included in the request, it will be ignored.</p></div>
     */
     private ?PaginationInput $paginationInput = null;
     
@@ -97,7 +97,7 @@ class SpecificationRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the categoryId property value. The unique identifier of the eBay leaf category for which compatibility details are being retrieved. This category must be a valid eBay category on the specified eBay marketplace, and the category must support parts compatibility for cars, trucks, or motorcycles.<br><br>Use the <a href="/api-docs/sell/metadata/resources/marketplace/methods/getAutomotivePartsCompatibilityPolicies" target="_blank ">getAutomotivePartsCompatibilityPolicies</a> method to retrieve a list of categories that support parts compatibility by specification. For the categories in the response that support compatibility by specification, you’ll see <code>SPECIFICATIONS</code> as the value for the <b>compatibilityBasedOn</b> field 
+     * Gets the categoryId property value. The unique identifier of the eBay leaf category for which compatibility details are being retrieved. This category must be a valid eBay category on the specified eBay marketplace, and the category must support parts compatibility for cars, trucks, or motorcycles.<br><br>Use the <a href="/develop/api/sell/metadata_api#sell-metadata_api-marketplace-getautomotivepartscompatibilitypolicies">getAutomotivePartsCompatibilityPolicies</a> method to retrieve a list of categories that support parts compatibility by specification. For the categories in the response that support compatibility by specification, you’ll see <code>SPECIFICATIONS</code> as the value for the <b>compatibilityBasedOn</b> field 
      * @return string|null
     */
     public function getCategoryId(): ?string {
@@ -162,7 +162,7 @@ class SpecificationRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the paginationInput property value. This type defines the fields used to control the pagination of the result set.
+     * Gets the paginationInput property value. <div class="msgbox_important"><p class="msgbox_importantInDiv" data-mc-autonum="&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important! &lt;/span&gt;&lt;/b&gt;"><span class="autonumber"><span><b><span style="color: #dd1e31;" class="mcFormatColor">Important!</span></b></span></span> Pagination is not yet supported by this method. If this container is included in the request, it will be ignored.</p></div>
      * @return PaginationInput|null
     */
     public function getPaginationInput(): ?PaginationInput {
@@ -210,7 +210,7 @@ class SpecificationRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the categoryId property value. The unique identifier of the eBay leaf category for which compatibility details are being retrieved. This category must be a valid eBay category on the specified eBay marketplace, and the category must support parts compatibility for cars, trucks, or motorcycles.<br><br>Use the <a href="/api-docs/sell/metadata/resources/marketplace/methods/getAutomotivePartsCompatibilityPolicies" target="_blank ">getAutomotivePartsCompatibilityPolicies</a> method to retrieve a list of categories that support parts compatibility by specification. For the categories in the response that support compatibility by specification, you’ll see <code>SPECIFICATIONS</code> as the value for the <b>compatibilityBasedOn</b> field 
+     * Sets the categoryId property value. The unique identifier of the eBay leaf category for which compatibility details are being retrieved. This category must be a valid eBay category on the specified eBay marketplace, and the category must support parts compatibility for cars, trucks, or motorcycles.<br><br>Use the <a href="/develop/api/sell/metadata_api#sell-metadata_api-marketplace-getautomotivepartscompatibilitypolicies">getAutomotivePartsCompatibilityPolicies</a> method to retrieve a list of categories that support parts compatibility by specification. For the categories in the response that support compatibility by specification, you’ll see <code>SPECIFICATIONS</code> as the value for the <b>compatibilityBasedOn</b> field 
      * @param string|null $value Value to set for the categoryId property.
     */
     public function setCategoryId(?string $value): void {
@@ -250,7 +250,7 @@ class SpecificationRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the paginationInput property value. This type defines the fields used to control the pagination of the result set.
+     * Sets the paginationInput property value. <div class="msgbox_important"><p class="msgbox_importantInDiv" data-mc-autonum="&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important! &lt;/span&gt;&lt;/b&gt;"><span class="autonumber"><span><b><span style="color: #dd1e31;" class="mcFormatColor">Important!</span></b></span></span> Pagination is not yet supported by this method. If this container is included in the request, it will be ignored.</p></div>
      * @param PaginationInput|null $value Value to set for the paginationInput property.
     */
     public function setPaginationInput(?PaginationInput $value): void {
