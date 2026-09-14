@@ -23,12 +23,12 @@ final class ListingMetadataConfiguration
     public readonly RequestOptions $defaultRequestOptions;
 
     public function __construct(
-        public readonly string  $catalogBaseUrl  = 'https://api.ebay.com/commerce/catalog/v1_beta',
-        public readonly string  $charityBaseUrl  = 'https://api.ebay.com/commerce/charity/v1',
-        public readonly string  $metadataBaseUrl = 'https://api.ebay.com/sell/metadata/v1',
-        public readonly string  $taxonomyBaseUrl = 'https://api.ebay.com/commerce/taxonomy/v1',
-        public readonly ?string $accessToken     = null,
-        public readonly bool    $diagnosticLogging = false,
+        public readonly string $catalogBaseUrl = 'https://api.ebay.com/commerce/catalog/v1_beta',
+        public readonly string $charityBaseUrl = 'https://api.ebay.com/commerce/charity/v1',
+        public readonly string $metadataBaseUrl = 'https://api.ebay.com/sell/metadata/v1',
+        public readonly string $taxonomyBaseUrl = 'https://api.ebay.com/commerce/taxonomy/v1',
+        public readonly ?string $accessToken = null,
+        public readonly bool $diagnosticLogging = false,
     ) {
         $this->defaultRequestOptions = new RequestOptions();
     }
@@ -40,7 +40,11 @@ final class ListingMetadataConfiguration
         ]);
     }
 
-    /** @return string[] Hostnames tokens may be sent to — passed to AllowedHostsValidator. */
+    /**
+     * Hostnames tokens may be sent to. Passed to AllowedHostsValidator.
+     *
+     * @return string[]
+     */
     public function getAllowedHosts(): array
     {
         return array_values(array_unique(array_filter(array_map(

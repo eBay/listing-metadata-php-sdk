@@ -32,7 +32,7 @@ class SortOrderInner implements AdditionalDataHolder, Parsable
     private ?array $additionalData = null;
     
     /**
-     * @var SortOrderProperties|null $sortOrder This type is used to define the property to be used in sorting. 
+     * @var SortOrderProperties|null $sortOrder This container is used to define the property to be used in the sorting.
     */
     private ?SortOrderProperties $sortOrder = null;
     
@@ -78,7 +78,7 @@ class SortOrderInner implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the sortOrder property value. This type is used to define the property to be used in sorting. 
+     * Gets the sortOrder property value. This container is used to define the property to be used in the sorting.
      * @return SortOrderProperties|null
     */
     public function getSortOrder(): ?SortOrderProperties {
@@ -112,7 +112,7 @@ class SortOrderInner implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the sortOrder property value. This type is used to define the property to be used in sorting. 
+     * Sets the sortOrder property value. This container is used to define the property to be used in the sorting.
      * @param SortOrderProperties|null $value Value to set for the sortOrder property.
     */
     public function setSortOrder(?SortOrderProperties $value): void {

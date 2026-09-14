@@ -32,12 +32,12 @@ class HazardStatement implements AdditionalDataHolder, Parsable
     private ?array $additionalData = null;
     
     /**
-     * @var string|null $statementDescription The description of the statement localized to the default language of the marketplace. For sample values, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Hazard'>Hazard statement sample values</a>.
+     * @var string|null $statementDescription The description of the statement localized to the default language of the marketplace. For sample values, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Hazard' target='_blank'>Hazard statement sample values</a>.
     */
     private ?string $statementDescription = null;
     
     /**
-     * @var string|null $statementId The identifier of the statement. For sample values, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Hazard'>Hazard statement sample values</a>.
+     * @var string|null $statementId The identifier of the statement. For sample values, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Hazard' target='_blank'>Hazard statement sample values</a>.
     */
     private ?string $statementId = null;
     
@@ -78,7 +78,7 @@ class HazardStatement implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the statementDescription property value. The description of the statement localized to the default language of the marketplace. For sample values, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Hazard'>Hazard statement sample values</a>.
+     * Gets the statementDescription property value. The description of the statement localized to the default language of the marketplace. For sample values, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Hazard' target='_blank'>Hazard statement sample values</a>.
      * @return string|null
     */
     public function getStatementDescription(): ?string {
@@ -86,7 +86,7 @@ class HazardStatement implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the statementId property value. The identifier of the statement. For sample values, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Hazard'>Hazard statement sample values</a>.
+     * Gets the statementId property value. The identifier of the statement. For sample values, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Hazard' target='_blank'>Hazard statement sample values</a>.
      * @return string|null
     */
     public function getStatementId(): ?string {
@@ -112,7 +112,7 @@ class HazardStatement implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the statementDescription property value. The description of the statement localized to the default language of the marketplace. For sample values, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Hazard'>Hazard statement sample values</a>.
+     * Sets the statementDescription property value. The description of the statement localized to the default language of the marketplace. For sample values, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Hazard' target='_blank'>Hazard statement sample values</a>.
      * @param string|null $value Value to set for the statementDescription property.
     */
     public function setStatementDescription(?string $value): void {
@@ -120,7 +120,7 @@ class HazardStatement implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the statementId property value. The identifier of the statement. For sample values, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Hazard'>Hazard statement sample values</a>.
+     * Sets the statementId property value. The identifier of the statement. For sample values, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Hazard' target='_blank'>Hazard statement sample values</a>.
      * @param string|null $value Value to set for the statementId property.
     */
     public function setStatementId(?string $value): void {

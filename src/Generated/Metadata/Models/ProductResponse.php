@@ -37,7 +37,7 @@ class ProductResponse implements AdditionalDataHolder, Parsable
     private ?array $compatibilityDetails = null;
     
     /**
-     * @var Pagination|null $pagination This type defines the pagination settings for a result set.
+     * @var Pagination|null $pagination This container returns the pagination settings for the result set.
     */
     private ?Pagination $pagination = null;
     
@@ -86,7 +86,7 @@ class ProductResponse implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the pagination property value. This type defines the pagination settings for a result set.
+     * Gets the pagination property value. This container returns the pagination settings for the result set.
      * @return Pagination|null
     */
     public function getPagination(): ?Pagination {
@@ -120,7 +120,7 @@ class ProductResponse implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the pagination property value. This type defines the pagination settings for a result set.
+     * Sets the pagination property value. This container returns the pagination settings for the result set.
      * @param Pagination|null $value Value to set for the pagination property.
     */
     public function setPagination(?Pagination $value): void {

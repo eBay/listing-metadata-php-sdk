@@ -37,14 +37,14 @@ class ExtendedProducerResponsibility implements AdditionalDataHolder, Parsable
     private ?bool $enabledForVariations = null;
     
     /**
-     * @var string|null $name The name of the attribute included in the policy. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:ExtendedProducerResponsibilityEnum'>eBay API documentation</a>
+     * @var ExtendedProducerResponsibilityEnum|null $name The name of the attribute included in the policy.
     */
-    private ?string $name = null;
+    private ?ExtendedProducerResponsibilityEnum $name = null;
     
     /**
-     * @var string|null $usage The usage guidelines for the attribute, in the specified marketplace. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:GenericUsageEnum'>eBay API documentation</a>
+     * @var GenericUsageEnum|null $usage The usage guidelines for the attribute, in the specified marketplace.
     */
-    private ?string $usage = null;
+    private ?GenericUsageEnum $usage = null;
     
     /**
      * Instantiates a new ExtendedProducerResponsibility and sets the default values.
@@ -86,24 +86,24 @@ class ExtendedProducerResponsibility implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             'enabledForVariations' => fn(ParseNode $n) => $o->setEnabledForVariations($n->getBooleanValue()),
-            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
-            'usage' => fn(ParseNode $n) => $o->setUsage($n->getStringValue()),
+            'name' => fn(ParseNode $n) => $o->setName($n->getEnumValue(ExtendedProducerResponsibilityEnum::class)),
+            'usage' => fn(ParseNode $n) => $o->setUsage($n->getEnumValue(GenericUsageEnum::class)),
         ];
     }
 
     /**
-     * Gets the name property value. The name of the attribute included in the policy. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:ExtendedProducerResponsibilityEnum'>eBay API documentation</a>
-     * @return string|null
+     * Gets the name property value. The name of the attribute included in the policy.
+     * @return ExtendedProducerResponsibilityEnum|null
     */
-    public function getName(): ?string {
+    public function getName(): ?ExtendedProducerResponsibilityEnum {
         return $this->name;
     }
 
     /**
-     * Gets the usage property value. The usage guidelines for the attribute, in the specified marketplace. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:GenericUsageEnum'>eBay API documentation</a>
-     * @return string|null
+     * Gets the usage property value. The usage guidelines for the attribute, in the specified marketplace.
+     * @return GenericUsageEnum|null
     */
-    public function getUsage(): ?string {
+    public function getUsage(): ?GenericUsageEnum {
         return $this->usage;
     }
 
@@ -113,8 +113,8 @@ class ExtendedProducerResponsibility implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeBooleanValue('enabledForVariations', $this->getEnabledForVariations());
-        $writer->writeStringValue('name', $this->getName());
-        $writer->writeStringValue('usage', $this->getUsage());
+        $writer->writeEnumValue('name', $this->getName());
+        $writer->writeEnumValue('usage', $this->getUsage());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -135,18 +135,18 @@ class ExtendedProducerResponsibility implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the name property value. The name of the attribute included in the policy. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:ExtendedProducerResponsibilityEnum'>eBay API documentation</a>
-     * @param string|null $value Value to set for the name property.
+     * Sets the name property value. The name of the attribute included in the policy.
+     * @param ExtendedProducerResponsibilityEnum|null $value Value to set for the name property.
     */
-    public function setName(?string $value): void {
+    public function setName(?ExtendedProducerResponsibilityEnum $value): void {
         $this->name = $value;
     }
 
     /**
-     * Sets the usage property value. The usage guidelines for the attribute, in the specified marketplace. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:GenericUsageEnum'>eBay API documentation</a>
-     * @param string|null $value Value to set for the usage property.
+     * Sets the usage property value. The usage guidelines for the attribute, in the specified marketplace.
+     * @param GenericUsageEnum|null $value Value to set for the usage property.
     */
-    public function setUsage(?string $value): void {
+    public function setUsage(?GenericUsageEnum $value): void {
         $this->usage = $value;
     }
 

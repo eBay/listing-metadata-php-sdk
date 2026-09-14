@@ -42,7 +42,7 @@ class PropertyNamesResponsePropertyNames implements AdditionalDataHolder, Parsab
     private ?string $propertyName = null;
     
     /**
-     * @var PropertyNamesResponsePropertyNameMetadata|null $propertyNameMetadata This type defines the property name metadata.
+     * @var PropertyNamesResponsePropertyNameMetadata|null $propertyNameMetadata The metadata for a property.
     */
     private ?PropertyNamesResponsePropertyNameMetadata $propertyNameMetadata = null;
     
@@ -100,7 +100,7 @@ class PropertyNamesResponsePropertyNames implements AdditionalDataHolder, Parsab
     }
 
     /**
-     * Gets the propertyNameMetadata property value. This type defines the property name metadata.
+     * Gets the propertyNameMetadata property value. The metadata for a property.
      * @return PropertyNamesResponsePropertyNameMetadata|null
     */
     public function getPropertyNameMetadata(): ?PropertyNamesResponsePropertyNameMetadata {
@@ -143,7 +143,7 @@ class PropertyNamesResponsePropertyNames implements AdditionalDataHolder, Parsab
     }
 
     /**
-     * Sets the propertyNameMetadata property value. This type defines the property name metadata.
+     * Sets the propertyNameMetadata property value. The metadata for a property.
      * @param PropertyNamesResponsePropertyNameMetadata|null $value Value to set for the propertyNameMetadata property.
     */
     public function setPropertyNameMetadata(?PropertyNamesResponsePropertyNameMetadata $value): void {

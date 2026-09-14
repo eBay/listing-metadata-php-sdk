@@ -22,7 +22,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 /**
- * The type defining valid currencies for the marketplace.
+ * This field specifies the default currency used by the marketplace.
 */
 class Currency implements AdditionalDataHolder, Parsable 
 {
@@ -32,9 +32,9 @@ class Currency implements AdditionalDataHolder, Parsable
     private ?array $additionalData = null;
     
     /**
-     * @var string|null $code The three-letter <a href="https://www.iso.org/iso-4217-currency-codes.html " target="_blank">ISO 4217</a> code returned.  <br /><br /><b>Restriction: </b> Only the currency of the marketplace is supported. Examples: on the US marketplace, the only currency supported is the United States dollar, <code>USD</code>; on the Canadian marketplace, the only currency supported is the Canadian dollar, <code>CAD</code>. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/bas:CurrencyCodeEnum'>eBay API documentation</a>
+     * @var CurrencyCodeEnum|null $code The three-letter <a href="https://www.iso.org/iso-4217-currency-codes.html " target="_blank">ISO 4217</a> code returned.  <br /><br /><b>Restriction: </b> Only the currency of the marketplace is supported. Examples: on the US marketplace, the only currency supported is the United States dollar, <code>USD</code>; on the Canadian marketplace, the only currency supported is the Canadian dollar, <code>CAD</code>.
     */
-    private ?string $code = null;
+    private ?CurrencyCodeEnum $code = null;
     
     /**
      * @var string|null $description The description of the returned three-letter code. For example, if the code is <code>USD</code>, the description returned would be <code>US Dollar</code>.
@@ -66,10 +66,10 @@ class Currency implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the code property value. The three-letter <a href="https://www.iso.org/iso-4217-currency-codes.html " target="_blank">ISO 4217</a> code returned.  <br /><br /><b>Restriction: </b> Only the currency of the marketplace is supported. Examples: on the US marketplace, the only currency supported is the United States dollar, <code>USD</code>; on the Canadian marketplace, the only currency supported is the Canadian dollar, <code>CAD</code>. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/bas:CurrencyCodeEnum'>eBay API documentation</a>
-     * @return string|null
+     * Gets the code property value. The three-letter <a href="https://www.iso.org/iso-4217-currency-codes.html " target="_blank">ISO 4217</a> code returned.  <br /><br /><b>Restriction: </b> Only the currency of the marketplace is supported. Examples: on the US marketplace, the only currency supported is the United States dollar, <code>USD</code>; on the Canadian marketplace, the only currency supported is the Canadian dollar, <code>CAD</code>.
+     * @return CurrencyCodeEnum|null
     */
-    public function getCode(): ?string {
+    public function getCode(): ?CurrencyCodeEnum {
         return $this->code;
     }
 
@@ -88,7 +88,7 @@ class Currency implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'code' => fn(ParseNode $n) => $o->setCode($n->getStringValue()),
+            'code' => fn(ParseNode $n) => $o->setCode($n->getEnumValue(CurrencyCodeEnum::class)),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
         ];
     }
@@ -98,7 +98,7 @@ class Currency implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('code', $this->getCode());
+        $writer->writeEnumValue('code', $this->getCode());
         $writer->writeStringValue('description', $this->getDescription());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -112,10 +112,10 @@ class Currency implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the code property value. The three-letter <a href="https://www.iso.org/iso-4217-currency-codes.html " target="_blank">ISO 4217</a> code returned.  <br /><br /><b>Restriction: </b> Only the currency of the marketplace is supported. Examples: on the US marketplace, the only currency supported is the United States dollar, <code>USD</code>; on the Canadian marketplace, the only currency supported is the Canadian dollar, <code>CAD</code>. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/bas:CurrencyCodeEnum'>eBay API documentation</a>
-     * @param string|null $value Value to set for the code property.
+     * Sets the code property value. The three-letter <a href="https://www.iso.org/iso-4217-currency-codes.html " target="_blank">ISO 4217</a> code returned.  <br /><br /><b>Restriction: </b> Only the currency of the marketplace is supported. Examples: on the US marketplace, the only currency supported is the United States dollar, <code>USD</code>; on the Canadian marketplace, the only currency supported is the Canadian dollar, <code>CAD</code>.
+     * @param CurrencyCodeEnum|null $value Value to set for the code property.
     */
-    public function setCode(?string $value): void {
+    public function setCode(?CurrencyCodeEnum $value): void {
         $this->code = $value;
     }
 

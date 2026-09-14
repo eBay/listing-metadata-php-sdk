@@ -21,6 +21,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * This type contains applicable return policy metadata for the leaf categories returned for the marketplace.
+*/
 class ReturnPolicy implements AdditionalDataHolder, Parsable 
 {
     /**
@@ -39,12 +42,12 @@ class ReturnPolicy implements AdditionalDataHolder, Parsable
     private ?string $categoryTreeId = null;
     
     /**
-     * @var ReturnPolicyDetails|null $domestic This container defines the category policies that relate to domestic and international return policies (the return shipping is made via a domestic or an international shipping service, respectively).
+     * @var ReturnPolicyDetails|null $domestic This complex type defines the category policies related to domestic item returns.
     */
     private ?ReturnPolicyDetails $domestic = null;
     
     /**
-     * @var ReturnPolicyDetails|null $international This container defines the category policies that relate to domestic and international return policies (the return shipping is made via a domestic or an international shipping service, respectively).
+     * @var ReturnPolicyDetails|null $international This complex type defines the category policies related to international item returns.
     */
     private ?ReturnPolicyDetails $international = null;
     
@@ -94,7 +97,7 @@ class ReturnPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the domestic property value. This container defines the category policies that relate to domestic and international return policies (the return shipping is made via a domestic or an international shipping service, respectively).
+     * Gets the domestic property value. This complex type defines the category policies related to domestic item returns.
      * @return ReturnPolicyDetails|null
     */
     public function getDomestic(): ?ReturnPolicyDetails {
@@ -117,7 +120,7 @@ class ReturnPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the international property value. This container defines the category policies that relate to domestic and international return policies (the return shipping is made via a domestic or an international shipping service, respectively).
+     * Gets the international property value. This complex type defines the category policies related to international item returns.
      * @return ReturnPolicyDetails|null
     */
     public function getInternational(): ?ReturnPolicyDetails {
@@ -170,7 +173,7 @@ class ReturnPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the domestic property value. This container defines the category policies that relate to domestic and international return policies (the return shipping is made via a domestic or an international shipping service, respectively).
+     * Sets the domestic property value. This complex type defines the category policies related to domestic item returns.
      * @param ReturnPolicyDetails|null $value Value to set for the domestic property.
     */
     public function setDomestic(?ReturnPolicyDetails $value): void {
@@ -178,7 +181,7 @@ class ReturnPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the international property value. This container defines the category policies that relate to domestic and international return policies (the return shipping is made via a domestic or an international shipping service, respectively).
+     * Sets the international property value. This complex type defines the category policies related to international item returns.
      * @param ReturnPolicyDetails|null $value Value to set for the international property.
     */
     public function setInternational(?ReturnPolicyDetails $value): void {

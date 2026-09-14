@@ -23,7 +23,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
- * This type defines the request fields for the <b>getProductCompatibilities</b> method.
+ * This type defines properties for which to find compatibilities.
 */
 class ProductRequest implements AdditionalDataHolder, Parsable 
 {
@@ -48,17 +48,17 @@ class ProductRequest implements AdditionalDataHolder, Parsable
     private ?array $datasetPropertyName = null;
     
     /**
-     * @var DisabledProductFilter|null $disabledProductFilter This type defines the booleans used to determine if a product is excluded from eBay selling and/or review.
+     * @var DisabledProductFilter|null $disabledProductFilter This container can be used to specify whether or not to filter out products which are disabled for selling on eBay and/or disabled for product review. 
     */
     private ?DisabledProductFilter $disabledProductFilter = null;
     
     /**
-     * @var PaginationInput|null $paginationInput This type defines the fields used to control the pagination of the result set.
+     * @var PaginationInput|null $paginationInput This container controls the pagination of the result set.
     */
     private ?PaginationInput $paginationInput = null;
     
     /**
-     * @var ProductIdentifier|null $productIdentifier This type defines the supported product identifiers.
+     * @var ProductIdentifier|null $productIdentifier This container is used to provide unique identifier for the product. The product identifier consists of an identifier type and value, and are unique across all sites.
     */
     private ?ProductIdentifier $productIdentifier = null;
     
@@ -116,7 +116,7 @@ class ProductRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the disabledProductFilter property value. This type defines the booleans used to determine if a product is excluded from eBay selling and/or review.
+     * Gets the disabledProductFilter property value. This container can be used to specify whether or not to filter out products which are disabled for selling on eBay and/or disabled for product review. 
      * @return DisabledProductFilter|null
     */
     public function getDisabledProductFilter(): ?DisabledProductFilter {
@@ -155,7 +155,7 @@ class ProductRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the paginationInput property value. This type defines the fields used to control the pagination of the result set.
+     * Gets the paginationInput property value. This container controls the pagination of the result set.
      * @return PaginationInput|null
     */
     public function getPaginationInput(): ?PaginationInput {
@@ -163,7 +163,7 @@ class ProductRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the productIdentifier property value. This type defines the supported product identifiers.
+     * Gets the productIdentifier property value. This container is used to provide unique identifier for the product. The product identifier consists of an identifier type and value, and are unique across all sites.
      * @return ProductIdentifier|null
     */
     public function getProductIdentifier(): ?ProductIdentifier {
@@ -226,7 +226,7 @@ class ProductRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the disabledProductFilter property value. This type defines the booleans used to determine if a product is excluded from eBay selling and/or review.
+     * Sets the disabledProductFilter property value. This container can be used to specify whether or not to filter out products which are disabled for selling on eBay and/or disabled for product review. 
      * @param DisabledProductFilter|null $value Value to set for the disabledProductFilter property.
     */
     public function setDisabledProductFilter(?DisabledProductFilter $value): void {
@@ -234,7 +234,7 @@ class ProductRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the paginationInput property value. This type defines the fields used to control the pagination of the result set.
+     * Sets the paginationInput property value. This container controls the pagination of the result set.
      * @param PaginationInput|null $value Value to set for the paginationInput property.
     */
     public function setPaginationInput(?PaginationInput $value): void {
@@ -242,7 +242,7 @@ class ProductRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the productIdentifier property value. This type defines the supported product identifiers.
+     * Sets the productIdentifier property value. This container is used to provide unique identifier for the product. The product identifier consists of an identifier type and value, and are unique across all sites.
      * @param ProductIdentifier|null $value Value to set for the productIdentifier property.
     */
     public function setProductIdentifier(?ProductIdentifier $value): void {

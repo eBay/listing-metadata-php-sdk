@@ -44,7 +44,7 @@ class Get_handling_timesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * This method retrieves a list of supported handling times for the specified marketplace. The handling time returned specifies the maximum number of business days the eBay site allows for shipping an item to domestic buyers after receiving a cleared payment. Handling times apply to both domestic and international orders. If the handling time is 1 day, the seller commits to dropping the item off for shipment one business day after payment clears. <p>Manage handing times using business policies through the <a href="/api-docs/sell/account/resources/methods#s0-1-30-4-7-5-6-2[1]-h2-fulfillment_policy"  target="_blank">fulfillment_policy</a> resource of the <b>Account v1 API</b>.</p>
+     * This method retrieves a list of supported handling times for the specified marketplace. The handling time returned specifies the maximum number of business days the eBay site allows for shipping an item to domestic buyers after receiving a cleared payment. Handling times apply to both domestic and international orders. If the handling time is 1 day, the seller commits to dropping the item off for shipment one business day after payment clears. <p>Manage handing times using business policies through the <b>fulfillment_policy</b> resource of the <b>Account v1 API</b>.</p>
      * @param Get_handling_timesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ShippingHandlingTimeResponse|null>
      * @throws Exception
@@ -55,7 +55,7 @@ class Get_handling_timesRequestBuilder extends BaseRequestBuilder
     }
 
     /**
-     * This method retrieves a list of supported handling times for the specified marketplace. The handling time returned specifies the maximum number of business days the eBay site allows for shipping an item to domestic buyers after receiving a cleared payment. Handling times apply to both domestic and international orders. If the handling time is 1 day, the seller commits to dropping the item off for shipment one business day after payment clears. <p>Manage handing times using business policies through the <a href="/api-docs/sell/account/resources/methods#s0-1-30-4-7-5-6-2[1]-h2-fulfillment_policy"  target="_blank">fulfillment_policy</a> resource of the <b>Account v1 API</b>.</p>
+     * This method retrieves a list of supported handling times for the specified marketplace. The handling time returned specifies the maximum number of business days the eBay site allows for shipping an item to domestic buyers after receiving a cleared payment. Handling times apply to both domestic and international orders. If the handling time is 1 day, the seller commits to dropping the item off for shipment one business day after payment clears. <p>Manage handing times using business policies through the <b>fulfillment_policy</b> resource of the <b>Account v1 API</b>.</p>
      * @param Get_handling_timesRequestBuilderGetRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

@@ -21,6 +21,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * This type contains applicable motors listing policy metadata for the leaf categories returned for the marketplace.
+*/
 class MotorsListingPolicy implements AdditionalDataHolder, Parsable 
 {
     /**
@@ -44,9 +47,9 @@ class MotorsListingPolicy implements AdditionalDataHolder, Parsable
     private ?bool $depositSupported = null;
     
     /**
-     * @var string|null $ebayMotorsProAdFormatEnabled Indicates whether or not eBay Motors Pro sellers can use classified ads in this category to sell their vehicles. This element is applicable for eBay Motors Pro users. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:AdFormatEnabledEnum'>eBay API documentation</a>
+     * @var AdFormatEnabledEnum|null $ebayMotorsProAdFormatEnabled Indicates whether or not eBay Motors Pro sellers can use classified ads in this category to sell their vehicles. This element is applicable for eBay Motors Pro users.
     */
-    private ?string $ebayMotorsProAdFormatEnabled = null;
+    private ?AdFormatEnabledEnum $ebayMotorsProAdFormatEnabled = null;
     
     /**
      * @var bool|null $ebayMotorsProAutoAcceptEnabled Indicates whether or not the category supports the Best Offer Auto Accept feature for eBay Motors Pro listings. This element is for eBay Motors Pro users.
@@ -59,9 +62,9 @@ class MotorsListingPolicy implements AdditionalDataHolder, Parsable
     private ?bool $ebayMotorsProAutoDeclineEnabled = null;
     
     /**
-     * @var string|null $ebayMotorsProBestOfferEnabled This enumerated value indicates whether or not Best Offer features are supported for eBay Motors Classified Ad listings in this category. This element is for eBay Motors Pro users. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:ClassifiedAdBestOfferEnabledEnum'>eBay API documentation</a>
+     * @var ClassifiedAdBestOfferEnabledEnum|null $ebayMotorsProBestOfferEnabled This enumerated value indicates whether or not Best Offer features are supported for eBay Motors Classified Ad listings in this category. This element is for eBay Motors Pro users.
     */
-    private ?string $ebayMotorsProBestOfferEnabled = null;
+    private ?ClassifiedAdBestOfferEnabledEnum $ebayMotorsProBestOfferEnabled = null;
     
     /**
      * @var bool|null $ebayMotorsProCompanyNameEnabled Indicates whether this category supports including the company name in the seller's contact information. This element is for eBay Motors Pro users.
@@ -89,9 +92,9 @@ class MotorsListingPolicy implements AdditionalDataHolder, Parsable
     private ?bool $ebayMotorsProCounterOfferEnabled = null;
     
     /**
-     * @var string|null $ebayMotorsProPaymentMethodCheckOutEnabled This enumerated value indicates whether this category supports that the payment method should be displayed to the user for this category in an eBay Motors Classified Ad listing. Even if enabled, checkout may or may not be enabled. This element is for eBay Motors Pro users. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:ClassifiedAdPaymentMethodEnabledEnum'>eBay API documentation</a>
+     * @var ClassifiedAdPaymentMethodEnabledEnum|null $ebayMotorsProPaymentMethodCheckOutEnabled This enumerated value indicates whether this category supports that the payment method should be displayed to the user for this category in an eBay Motors Classified Ad listing. Even if enabled, checkout may or may not be enabled. This element is for eBay Motors Pro users.
     */
-    private ?string $ebayMotorsProPaymentMethodCheckOutEnabled = null;
+    private ?ClassifiedAdPaymentMethodEnabledEnum $ebayMotorsProPaymentMethodCheckOutEnabled = null;
     
     /**
      * @var int|null $ebayMotorsProPhoneCount Indicates the number of phone numbers that can be included through contact information for this category. This element is for eBay Motors Pro users.
@@ -129,9 +132,9 @@ class MotorsListingPolicy implements AdditionalDataHolder, Parsable
     private ?array $localListingDistances = null;
     
     /**
-     * @var string|null $localMarketAdFormatEnabled Specifies whether this category supports Motor Local Market Classified Ad listings. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:AdFormatEnabledEnum'>eBay API documentation</a>
+     * @var AdFormatEnabledEnum|null $localMarketAdFormatEnabled Specifies whether this category supports Motor Local Market Classified Ad listings.
     */
-    private ?string $localMarketAdFormatEnabled = null;
+    private ?AdFormatEnabledEnum $localMarketAdFormatEnabled = null;
     
     /**
      * @var bool|null $localMarketAutoAcceptEnabled Specifies whether this category supports auto-accept for Best Offers for Motors Local Market Classified Ads.
@@ -144,9 +147,9 @@ class MotorsListingPolicy implements AdditionalDataHolder, Parsable
     private ?bool $localMarketAutoDeclineEnabled = null;
     
     /**
-     * @var string|null $localMarketBestOfferEnabled Indicates if Best Offer is enabled/required for Motors Local Market Classified Ad listings in this category.  For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:ClassifiedAdBestOfferEnabledEnum'>eBay API documentation</a>
+     * @var ClassifiedAdBestOfferEnabledEnum|null $localMarketBestOfferEnabled Indicates if Best Offer is enabled/required for Motors Local Market Classified Ad listings in this category. 
     */
-    private ?string $localMarketBestOfferEnabled = null;
+    private ?ClassifiedAdBestOfferEnabledEnum $localMarketBestOfferEnabled = null;
     
     /**
      * @var bool|null $localMarketCompanyNameEnabled Indicates whether the category supports the seller's company name being specified when using Motors Local Market classified ads.
@@ -179,9 +182,9 @@ class MotorsListingPolicy implements AdditionalDataHolder, Parsable
     private ?bool $localMarketNonSubscription = null;
     
     /**
-     * @var string|null $localMarketPaymentMethodCheckOutEnabled Indicates if the payment method should be displayed to the user for this category in an Motors Local Market Classified Ad listing. Even if enabled, checkout may or may not be enabled. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:ClassifiedAdPaymentMethodEnabledEnum'>eBay API documentation</a>
+     * @var ClassifiedAdPaymentMethodEnabledEnum|null $localMarketPaymentMethodCheckOutEnabled Indicates if the payment method should be displayed to the user for this category in an Motors Local Market Classified Ad listing. Even if enabled, checkout may or may not be enabled.
     */
-    private ?string $localMarketPaymentMethodCheckOutEnabled = null;
+    private ?ClassifiedAdPaymentMethodEnabledEnum $localMarketPaymentMethodCheckOutEnabled = null;
     
     /**
      * @var int|null $localMarketPhoneCount Indicates the number of phone numbers that can be included through contact information for this category.
@@ -209,7 +212,7 @@ class MotorsListingPolicy implements AdditionalDataHolder, Parsable
     private ?bool $localMarketShippingMethodEnabled = null;
     
     /**
-     * @var bool|null $localMarketSpecialitySubscription Indicates whether the category supports the Speciality level subscription to Motors Local Market listings. This feature is only available to licensed vehicle dealers.
+     * @var bool|null $localMarketSpecialitySubscription Indicates whether the category supports the Specialty level subscription to Motors Local Market listings. This feature is only available to licensed vehicle dealers.
     */
     private ?bool $localMarketSpecialitySubscription = null;
     
@@ -234,19 +237,19 @@ class MotorsListingPolicy implements AdditionalDataHolder, Parsable
     private ?int $minItemCompatibility = null;
     
     /**
-     * @var string|null $nonSubscription The value in this field indicates whether the category supports Motors Local Market listings if the seller does not have a vehicle subscription. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:GeographicExposureEnum'>eBay API documentation</a>
+     * @var GeographicExposureEnum|null $nonSubscription The value in this field indicates whether the category supports Motors Local Market listings if the seller does not have a vehicle subscription.
     */
-    private ?string $nonSubscription = null;
+    private ?GeographicExposureEnum $nonSubscription = null;
     
     /**
-     * @var string|null $premiumSubscription The value in this field indicates whether the category supports Motors Local Market listings if the seller has a Premium vehicle subscription. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:GeographicExposureEnum'>eBay API documentation</a>
+     * @var GeographicExposureEnum|null $premiumSubscription The value in this field indicates whether the category supports Motors Local Market listings if the seller has a Premium vehicle subscription.
     */
-    private ?string $premiumSubscription = null;
+    private ?GeographicExposureEnum $premiumSubscription = null;
     
     /**
-     * @var string|null $regularSubscription The value in this field indicates whether the category supports Motors Local Market listings if the seller has a Regular vehicle subscription. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:GeographicExposureEnum'>eBay API documentation</a>
+     * @var GeographicExposureEnum|null $regularSubscription The value in this field indicates whether the category supports Motors Local Market listings if the seller has a Regular vehicle subscription.
     */
-    private ?string $regularSubscription = null;
+    private ?GeographicExposureEnum $regularSubscription = null;
     
     /**
      * @var bool|null $sellerProvidedTitleSupported This field is returned as <code>true</code> if the corresponding category supports the use of a seller-provided title for a motor vehicle listing on the US or Canada Motors marketplaces. A seller-provided title is a descriptive title, given by the seller, that appears below eBay's pre-filled listing title for the motor vehicle. Visually, the seller-provided title is similar to a subtitle on other types of eBay listings (non-vehicle). A seller-provided title can assist in helping buyers discover the vehicle.
@@ -254,9 +257,9 @@ class MotorsListingPolicy implements AdditionalDataHolder, Parsable
     private ?bool $sellerProvidedTitleSupported = null;
     
     /**
-     * @var string|null $specialitySubscription The value in this field indicates whether the category supports Motors Local Market listings if the seller has a Specialty vehicle subscription. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:GeographicExposureEnum'>eBay API documentation</a>
+     * @var GeographicExposureEnum|null $specialitySubscription The value in this field indicates whether the category supports Motors Local Market listings if the seller has a Specialty vehicle subscription.
     */
-    private ?string $specialitySubscription = null;
+    private ?GeographicExposureEnum $specialitySubscription = null;
     
     /**
      * @var bool|null $vinSupported Indicates if Vehicle Identification Number is supported.
@@ -317,10 +320,10 @@ class MotorsListingPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the ebayMotorsProAdFormatEnabled property value. Indicates whether or not eBay Motors Pro sellers can use classified ads in this category to sell their vehicles. This element is applicable for eBay Motors Pro users. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:AdFormatEnabledEnum'>eBay API documentation</a>
-     * @return string|null
+     * Gets the ebayMotorsProAdFormatEnabled property value. Indicates whether or not eBay Motors Pro sellers can use classified ads in this category to sell their vehicles. This element is applicable for eBay Motors Pro users.
+     * @return AdFormatEnabledEnum|null
     */
-    public function getEbayMotorsProAdFormatEnabled(): ?string {
+    public function getEbayMotorsProAdFormatEnabled(): ?AdFormatEnabledEnum {
         return $this->ebayMotorsProAdFormatEnabled;
     }
 
@@ -341,10 +344,10 @@ class MotorsListingPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the ebayMotorsProBestOfferEnabled property value. This enumerated value indicates whether or not Best Offer features are supported for eBay Motors Classified Ad listings in this category. This element is for eBay Motors Pro users. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:ClassifiedAdBestOfferEnabledEnum'>eBay API documentation</a>
-     * @return string|null
+     * Gets the ebayMotorsProBestOfferEnabled property value. This enumerated value indicates whether or not Best Offer features are supported for eBay Motors Classified Ad listings in this category. This element is for eBay Motors Pro users.
+     * @return ClassifiedAdBestOfferEnabledEnum|null
     */
-    public function getEbayMotorsProBestOfferEnabled(): ?string {
+    public function getEbayMotorsProBestOfferEnabled(): ?ClassifiedAdBestOfferEnabledEnum {
         return $this->ebayMotorsProBestOfferEnabled;
     }
 
@@ -389,10 +392,10 @@ class MotorsListingPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the ebayMotorsProPaymentMethodCheckOutEnabled property value. This enumerated value indicates whether this category supports that the payment method should be displayed to the user for this category in an eBay Motors Classified Ad listing. Even if enabled, checkout may or may not be enabled. This element is for eBay Motors Pro users. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:ClassifiedAdPaymentMethodEnabledEnum'>eBay API documentation</a>
-     * @return string|null
+     * Gets the ebayMotorsProPaymentMethodCheckOutEnabled property value. This enumerated value indicates whether this category supports that the payment method should be displayed to the user for this category in an eBay Motors Classified Ad listing. Even if enabled, checkout may or may not be enabled. This element is for eBay Motors Pro users.
+     * @return ClassifiedAdPaymentMethodEnabledEnum|null
     */
-    public function getEbayMotorsProPaymentMethodCheckOutEnabled(): ?string {
+    public function getEbayMotorsProPaymentMethodCheckOutEnabled(): ?ClassifiedAdPaymentMethodEnabledEnum {
         return $this->ebayMotorsProPaymentMethodCheckOutEnabled;
     }
 
@@ -446,16 +449,16 @@ class MotorsListingPolicy implements AdditionalDataHolder, Parsable
             'categoryId' => fn(ParseNode $n) => $o->setCategoryId($n->getStringValue()),
             'categoryTreeId' => fn(ParseNode $n) => $o->setCategoryTreeId($n->getStringValue()),
             'depositSupported' => fn(ParseNode $n) => $o->setDepositSupported($n->getBooleanValue()),
-            'ebayMotorsProAdFormatEnabled' => fn(ParseNode $n) => $o->setEbayMotorsProAdFormatEnabled($n->getStringValue()),
+            'ebayMotorsProAdFormatEnabled' => fn(ParseNode $n) => $o->setEbayMotorsProAdFormatEnabled($n->getEnumValue(AdFormatEnabledEnum::class)),
             'ebayMotorsProAutoAcceptEnabled' => fn(ParseNode $n) => $o->setEbayMotorsProAutoAcceptEnabled($n->getBooleanValue()),
             'ebayMotorsProAutoDeclineEnabled' => fn(ParseNode $n) => $o->setEbayMotorsProAutoDeclineEnabled($n->getBooleanValue()),
-            'ebayMotorsProBestOfferEnabled' => fn(ParseNode $n) => $o->setEbayMotorsProBestOfferEnabled($n->getStringValue()),
+            'ebayMotorsProBestOfferEnabled' => fn(ParseNode $n) => $o->setEbayMotorsProBestOfferEnabled($n->getEnumValue(ClassifiedAdBestOfferEnabledEnum::class)),
             'ebayMotorsProCompanyNameEnabled' => fn(ParseNode $n) => $o->setEbayMotorsProCompanyNameEnabled($n->getBooleanValue()),
             'ebayMotorsProContactByAddressEnabled' => fn(ParseNode $n) => $o->setEbayMotorsProContactByAddressEnabled($n->getBooleanValue()),
             'ebayMotorsProContactByEmailEnabled' => fn(ParseNode $n) => $o->setEbayMotorsProContactByEmailEnabled($n->getBooleanValue()),
             'ebayMotorsProContactByPhoneEnabled' => fn(ParseNode $n) => $o->setEbayMotorsProContactByPhoneEnabled($n->getBooleanValue()),
             'ebayMotorsProCounterOfferEnabled' => fn(ParseNode $n) => $o->setEbayMotorsProCounterOfferEnabled($n->getBooleanValue()),
-            'ebayMotorsProPaymentMethodCheckOutEnabled' => fn(ParseNode $n) => $o->setEbayMotorsProPaymentMethodCheckOutEnabled($n->getStringValue()),
+            'ebayMotorsProPaymentMethodCheckOutEnabled' => fn(ParseNode $n) => $o->setEbayMotorsProPaymentMethodCheckOutEnabled($n->getEnumValue(ClassifiedAdPaymentMethodEnabledEnum::class)),
             'ebayMotorsProPhoneCount' => fn(ParseNode $n) => $o->setEbayMotorsProPhoneCount($n->getIntegerValue()),
             'ebayMotorsProSellerContactDetailsEnabled' => fn(ParseNode $n) => $o->setEbayMotorsProSellerContactDetailsEnabled($n->getBooleanValue()),
             'ebayMotorsProShippingMethodEnabled' => fn(ParseNode $n) => $o->setEbayMotorsProShippingMethodEnabled($n->getBooleanValue()),
@@ -463,17 +466,17 @@ class MotorsListingPolicy implements AdditionalDataHolder, Parsable
             'epidSupported' => fn(ParseNode $n) => $o->setEpidSupported($n->getBooleanValue()),
             'kTypeSupported' => fn(ParseNode $n) => $o->setKTypeSupported($n->getBooleanValue()),
             'localListingDistances' => fn(ParseNode $n) => $o->setLocalListingDistances($n->getCollectionOfObjectValues([LocalListingDistance::class, 'createFromDiscriminatorValue'])),
-            'localMarketAdFormatEnabled' => fn(ParseNode $n) => $o->setLocalMarketAdFormatEnabled($n->getStringValue()),
+            'localMarketAdFormatEnabled' => fn(ParseNode $n) => $o->setLocalMarketAdFormatEnabled($n->getEnumValue(AdFormatEnabledEnum::class)),
             'localMarketAutoAcceptEnabled' => fn(ParseNode $n) => $o->setLocalMarketAutoAcceptEnabled($n->getBooleanValue()),
             'localMarketAutoDeclineEnabled' => fn(ParseNode $n) => $o->setLocalMarketAutoDeclineEnabled($n->getBooleanValue()),
-            'localMarketBestOfferEnabled' => fn(ParseNode $n) => $o->setLocalMarketBestOfferEnabled($n->getStringValue()),
+            'localMarketBestOfferEnabled' => fn(ParseNode $n) => $o->setLocalMarketBestOfferEnabled($n->getEnumValue(ClassifiedAdBestOfferEnabledEnum::class)),
             'localMarketCompanyNameEnabled' => fn(ParseNode $n) => $o->setLocalMarketCompanyNameEnabled($n->getBooleanValue()),
             'localMarketContactByAddressEnabled' => fn(ParseNode $n) => $o->setLocalMarketContactByAddressEnabled($n->getBooleanValue()),
             'localMarketContactByEmailEnabled' => fn(ParseNode $n) => $o->setLocalMarketContactByEmailEnabled($n->getBooleanValue()),
             'localMarketContactByPhoneEnabled' => fn(ParseNode $n) => $o->setLocalMarketContactByPhoneEnabled($n->getBooleanValue()),
             'localMarketCounterOfferEnabled' => fn(ParseNode $n) => $o->setLocalMarketCounterOfferEnabled($n->getBooleanValue()),
             'localMarketNonSubscription' => fn(ParseNode $n) => $o->setLocalMarketNonSubscription($n->getBooleanValue()),
-            'localMarketPaymentMethodCheckOutEnabled' => fn(ParseNode $n) => $o->setLocalMarketPaymentMethodCheckOutEnabled($n->getStringValue()),
+            'localMarketPaymentMethodCheckOutEnabled' => fn(ParseNode $n) => $o->setLocalMarketPaymentMethodCheckOutEnabled($n->getEnumValue(ClassifiedAdPaymentMethodEnabledEnum::class)),
             'localMarketPhoneCount' => fn(ParseNode $n) => $o->setLocalMarketPhoneCount($n->getIntegerValue()),
             'localMarketPremiumSubscription' => fn(ParseNode $n) => $o->setLocalMarketPremiumSubscription($n->getBooleanValue()),
             'localMarketRegularSubscription' => fn(ParseNode $n) => $o->setLocalMarketRegularSubscription($n->getBooleanValue()),
@@ -484,11 +487,11 @@ class MotorsListingPolicy implements AdditionalDataHolder, Parsable
             'maxGranularFitmentCount' => fn(ParseNode $n) => $o->setMaxGranularFitmentCount($n->getIntegerValue()),
             'maxItemCompatibility' => fn(ParseNode $n) => $o->setMaxItemCompatibility($n->getIntegerValue()),
             'minItemCompatibility' => fn(ParseNode $n) => $o->setMinItemCompatibility($n->getIntegerValue()),
-            'nonSubscription' => fn(ParseNode $n) => $o->setNonSubscription($n->getStringValue()),
-            'premiumSubscription' => fn(ParseNode $n) => $o->setPremiumSubscription($n->getStringValue()),
-            'regularSubscription' => fn(ParseNode $n) => $o->setRegularSubscription($n->getStringValue()),
+            'nonSubscription' => fn(ParseNode $n) => $o->setNonSubscription($n->getEnumValue(GeographicExposureEnum::class)),
+            'premiumSubscription' => fn(ParseNode $n) => $o->setPremiumSubscription($n->getEnumValue(GeographicExposureEnum::class)),
+            'regularSubscription' => fn(ParseNode $n) => $o->setRegularSubscription($n->getEnumValue(GeographicExposureEnum::class)),
             'sellerProvidedTitleSupported' => fn(ParseNode $n) => $o->setSellerProvidedTitleSupported($n->getBooleanValue()),
-            'specialitySubscription' => fn(ParseNode $n) => $o->setSpecialitySubscription($n->getStringValue()),
+            'specialitySubscription' => fn(ParseNode $n) => $o->setSpecialitySubscription($n->getEnumValue(GeographicExposureEnum::class)),
             'vinSupported' => fn(ParseNode $n) => $o->setVinSupported($n->getBooleanValue()),
             'vrmSupported' => fn(ParseNode $n) => $o->setVrmSupported($n->getBooleanValue()),
         ];
@@ -511,10 +514,10 @@ class MotorsListingPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the localMarketAdFormatEnabled property value. Specifies whether this category supports Motor Local Market Classified Ad listings. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:AdFormatEnabledEnum'>eBay API documentation</a>
-     * @return string|null
+     * Gets the localMarketAdFormatEnabled property value. Specifies whether this category supports Motor Local Market Classified Ad listings.
+     * @return AdFormatEnabledEnum|null
     */
-    public function getLocalMarketAdFormatEnabled(): ?string {
+    public function getLocalMarketAdFormatEnabled(): ?AdFormatEnabledEnum {
         return $this->localMarketAdFormatEnabled;
     }
 
@@ -535,10 +538,10 @@ class MotorsListingPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the localMarketBestOfferEnabled property value. Indicates if Best Offer is enabled/required for Motors Local Market Classified Ad listings in this category.  For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:ClassifiedAdBestOfferEnabledEnum'>eBay API documentation</a>
-     * @return string|null
+     * Gets the localMarketBestOfferEnabled property value. Indicates if Best Offer is enabled/required for Motors Local Market Classified Ad listings in this category. 
+     * @return ClassifiedAdBestOfferEnabledEnum|null
     */
-    public function getLocalMarketBestOfferEnabled(): ?string {
+    public function getLocalMarketBestOfferEnabled(): ?ClassifiedAdBestOfferEnabledEnum {
         return $this->localMarketBestOfferEnabled;
     }
 
@@ -591,10 +594,10 @@ class MotorsListingPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the localMarketPaymentMethodCheckOutEnabled property value. Indicates if the payment method should be displayed to the user for this category in an Motors Local Market Classified Ad listing. Even if enabled, checkout may or may not be enabled. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:ClassifiedAdPaymentMethodEnabledEnum'>eBay API documentation</a>
-     * @return string|null
+     * Gets the localMarketPaymentMethodCheckOutEnabled property value. Indicates if the payment method should be displayed to the user for this category in an Motors Local Market Classified Ad listing. Even if enabled, checkout may or may not be enabled.
+     * @return ClassifiedAdPaymentMethodEnabledEnum|null
     */
-    public function getLocalMarketPaymentMethodCheckOutEnabled(): ?string {
+    public function getLocalMarketPaymentMethodCheckOutEnabled(): ?ClassifiedAdPaymentMethodEnabledEnum {
         return $this->localMarketPaymentMethodCheckOutEnabled;
     }
 
@@ -639,7 +642,7 @@ class MotorsListingPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the localMarketSpecialitySubscription property value. Indicates whether the category supports the Speciality level subscription to Motors Local Market listings. This feature is only available to licensed vehicle dealers.
+     * Gets the localMarketSpecialitySubscription property value. Indicates whether the category supports the Specialty level subscription to Motors Local Market listings. This feature is only available to licensed vehicle dealers.
      * @return bool|null
     */
     public function getLocalMarketSpecialitySubscription(): ?bool {
@@ -679,26 +682,26 @@ class MotorsListingPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the nonSubscription property value. The value in this field indicates whether the category supports Motors Local Market listings if the seller does not have a vehicle subscription. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:GeographicExposureEnum'>eBay API documentation</a>
-     * @return string|null
+     * Gets the nonSubscription property value. The value in this field indicates whether the category supports Motors Local Market listings if the seller does not have a vehicle subscription.
+     * @return GeographicExposureEnum|null
     */
-    public function getNonSubscription(): ?string {
+    public function getNonSubscription(): ?GeographicExposureEnum {
         return $this->nonSubscription;
     }
 
     /**
-     * Gets the premiumSubscription property value. The value in this field indicates whether the category supports Motors Local Market listings if the seller has a Premium vehicle subscription. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:GeographicExposureEnum'>eBay API documentation</a>
-     * @return string|null
+     * Gets the premiumSubscription property value. The value in this field indicates whether the category supports Motors Local Market listings if the seller has a Premium vehicle subscription.
+     * @return GeographicExposureEnum|null
     */
-    public function getPremiumSubscription(): ?string {
+    public function getPremiumSubscription(): ?GeographicExposureEnum {
         return $this->premiumSubscription;
     }
 
     /**
-     * Gets the regularSubscription property value. The value in this field indicates whether the category supports Motors Local Market listings if the seller has a Regular vehicle subscription. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:GeographicExposureEnum'>eBay API documentation</a>
-     * @return string|null
+     * Gets the regularSubscription property value. The value in this field indicates whether the category supports Motors Local Market listings if the seller has a Regular vehicle subscription.
+     * @return GeographicExposureEnum|null
     */
-    public function getRegularSubscription(): ?string {
+    public function getRegularSubscription(): ?GeographicExposureEnum {
         return $this->regularSubscription;
     }
 
@@ -711,10 +714,10 @@ class MotorsListingPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the specialitySubscription property value. The value in this field indicates whether the category supports Motors Local Market listings if the seller has a Specialty vehicle subscription. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:GeographicExposureEnum'>eBay API documentation</a>
-     * @return string|null
+     * Gets the specialitySubscription property value. The value in this field indicates whether the category supports Motors Local Market listings if the seller has a Specialty vehicle subscription.
+     * @return GeographicExposureEnum|null
     */
-    public function getSpecialitySubscription(): ?string {
+    public function getSpecialitySubscription(): ?GeographicExposureEnum {
         return $this->specialitySubscription;
     }
 
@@ -742,16 +745,16 @@ class MotorsListingPolicy implements AdditionalDataHolder, Parsable
         $writer->writeStringValue('categoryId', $this->getCategoryId());
         $writer->writeStringValue('categoryTreeId', $this->getCategoryTreeId());
         $writer->writeBooleanValue('depositSupported', $this->getDepositSupported());
-        $writer->writeStringValue('ebayMotorsProAdFormatEnabled', $this->getEbayMotorsProAdFormatEnabled());
+        $writer->writeEnumValue('ebayMotorsProAdFormatEnabled', $this->getEbayMotorsProAdFormatEnabled());
         $writer->writeBooleanValue('ebayMotorsProAutoAcceptEnabled', $this->getEbayMotorsProAutoAcceptEnabled());
         $writer->writeBooleanValue('ebayMotorsProAutoDeclineEnabled', $this->getEbayMotorsProAutoDeclineEnabled());
-        $writer->writeStringValue('ebayMotorsProBestOfferEnabled', $this->getEbayMotorsProBestOfferEnabled());
+        $writer->writeEnumValue('ebayMotorsProBestOfferEnabled', $this->getEbayMotorsProBestOfferEnabled());
         $writer->writeBooleanValue('ebayMotorsProCompanyNameEnabled', $this->getEbayMotorsProCompanyNameEnabled());
         $writer->writeBooleanValue('ebayMotorsProContactByAddressEnabled', $this->getEbayMotorsProContactByAddressEnabled());
         $writer->writeBooleanValue('ebayMotorsProContactByEmailEnabled', $this->getEbayMotorsProContactByEmailEnabled());
         $writer->writeBooleanValue('ebayMotorsProContactByPhoneEnabled', $this->getEbayMotorsProContactByPhoneEnabled());
         $writer->writeBooleanValue('ebayMotorsProCounterOfferEnabled', $this->getEbayMotorsProCounterOfferEnabled());
-        $writer->writeStringValue('ebayMotorsProPaymentMethodCheckOutEnabled', $this->getEbayMotorsProPaymentMethodCheckOutEnabled());
+        $writer->writeEnumValue('ebayMotorsProPaymentMethodCheckOutEnabled', $this->getEbayMotorsProPaymentMethodCheckOutEnabled());
         $writer->writeIntegerValue('ebayMotorsProPhoneCount', $this->getEbayMotorsProPhoneCount());
         $writer->writeBooleanValue('ebayMotorsProSellerContactDetailsEnabled', $this->getEbayMotorsProSellerContactDetailsEnabled());
         $writer->writeBooleanValue('ebayMotorsProShippingMethodEnabled', $this->getEbayMotorsProShippingMethodEnabled());
@@ -759,17 +762,17 @@ class MotorsListingPolicy implements AdditionalDataHolder, Parsable
         $writer->writeBooleanValue('epidSupported', $this->getEpidSupported());
         $writer->writeBooleanValue('kTypeSupported', $this->getKTypeSupported());
         $writer->writeCollectionOfObjectValues('localListingDistances', $this->getLocalListingDistances());
-        $writer->writeStringValue('localMarketAdFormatEnabled', $this->getLocalMarketAdFormatEnabled());
+        $writer->writeEnumValue('localMarketAdFormatEnabled', $this->getLocalMarketAdFormatEnabled());
         $writer->writeBooleanValue('localMarketAutoAcceptEnabled', $this->getLocalMarketAutoAcceptEnabled());
         $writer->writeBooleanValue('localMarketAutoDeclineEnabled', $this->getLocalMarketAutoDeclineEnabled());
-        $writer->writeStringValue('localMarketBestOfferEnabled', $this->getLocalMarketBestOfferEnabled());
+        $writer->writeEnumValue('localMarketBestOfferEnabled', $this->getLocalMarketBestOfferEnabled());
         $writer->writeBooleanValue('localMarketCompanyNameEnabled', $this->getLocalMarketCompanyNameEnabled());
         $writer->writeBooleanValue('localMarketContactByAddressEnabled', $this->getLocalMarketContactByAddressEnabled());
         $writer->writeBooleanValue('localMarketContactByEmailEnabled', $this->getLocalMarketContactByEmailEnabled());
         $writer->writeBooleanValue('localMarketContactByPhoneEnabled', $this->getLocalMarketContactByPhoneEnabled());
         $writer->writeBooleanValue('localMarketCounterOfferEnabled', $this->getLocalMarketCounterOfferEnabled());
         $writer->writeBooleanValue('localMarketNonSubscription', $this->getLocalMarketNonSubscription());
-        $writer->writeStringValue('localMarketPaymentMethodCheckOutEnabled', $this->getLocalMarketPaymentMethodCheckOutEnabled());
+        $writer->writeEnumValue('localMarketPaymentMethodCheckOutEnabled', $this->getLocalMarketPaymentMethodCheckOutEnabled());
         $writer->writeIntegerValue('localMarketPhoneCount', $this->getLocalMarketPhoneCount());
         $writer->writeBooleanValue('localMarketPremiumSubscription', $this->getLocalMarketPremiumSubscription());
         $writer->writeBooleanValue('localMarketRegularSubscription', $this->getLocalMarketRegularSubscription());
@@ -780,11 +783,11 @@ class MotorsListingPolicy implements AdditionalDataHolder, Parsable
         $writer->writeIntegerValue('maxGranularFitmentCount', $this->getMaxGranularFitmentCount());
         $writer->writeIntegerValue('maxItemCompatibility', $this->getMaxItemCompatibility());
         $writer->writeIntegerValue('minItemCompatibility', $this->getMinItemCompatibility());
-        $writer->writeStringValue('nonSubscription', $this->getNonSubscription());
-        $writer->writeStringValue('premiumSubscription', $this->getPremiumSubscription());
-        $writer->writeStringValue('regularSubscription', $this->getRegularSubscription());
+        $writer->writeEnumValue('nonSubscription', $this->getNonSubscription());
+        $writer->writeEnumValue('premiumSubscription', $this->getPremiumSubscription());
+        $writer->writeEnumValue('regularSubscription', $this->getRegularSubscription());
         $writer->writeBooleanValue('sellerProvidedTitleSupported', $this->getSellerProvidedTitleSupported());
-        $writer->writeStringValue('specialitySubscription', $this->getSpecialitySubscription());
+        $writer->writeEnumValue('specialitySubscription', $this->getSpecialitySubscription());
         $writer->writeBooleanValue('vinSupported', $this->getVinSupported());
         $writer->writeBooleanValue('vrmSupported', $this->getVrmSupported());
         $writer->writeAdditionalData($this->getAdditionalData());
@@ -823,10 +826,10 @@ class MotorsListingPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the ebayMotorsProAdFormatEnabled property value. Indicates whether or not eBay Motors Pro sellers can use classified ads in this category to sell their vehicles. This element is applicable for eBay Motors Pro users. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:AdFormatEnabledEnum'>eBay API documentation</a>
-     * @param string|null $value Value to set for the ebayMotorsProAdFormatEnabled property.
+     * Sets the ebayMotorsProAdFormatEnabled property value. Indicates whether or not eBay Motors Pro sellers can use classified ads in this category to sell their vehicles. This element is applicable for eBay Motors Pro users.
+     * @param AdFormatEnabledEnum|null $value Value to set for the ebayMotorsProAdFormatEnabled property.
     */
-    public function setEbayMotorsProAdFormatEnabled(?string $value): void {
+    public function setEbayMotorsProAdFormatEnabled(?AdFormatEnabledEnum $value): void {
         $this->ebayMotorsProAdFormatEnabled = $value;
     }
 
@@ -847,10 +850,10 @@ class MotorsListingPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the ebayMotorsProBestOfferEnabled property value. This enumerated value indicates whether or not Best Offer features are supported for eBay Motors Classified Ad listings in this category. This element is for eBay Motors Pro users. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:ClassifiedAdBestOfferEnabledEnum'>eBay API documentation</a>
-     * @param string|null $value Value to set for the ebayMotorsProBestOfferEnabled property.
+     * Sets the ebayMotorsProBestOfferEnabled property value. This enumerated value indicates whether or not Best Offer features are supported for eBay Motors Classified Ad listings in this category. This element is for eBay Motors Pro users.
+     * @param ClassifiedAdBestOfferEnabledEnum|null $value Value to set for the ebayMotorsProBestOfferEnabled property.
     */
-    public function setEbayMotorsProBestOfferEnabled(?string $value): void {
+    public function setEbayMotorsProBestOfferEnabled(?ClassifiedAdBestOfferEnabledEnum $value): void {
         $this->ebayMotorsProBestOfferEnabled = $value;
     }
 
@@ -895,10 +898,10 @@ class MotorsListingPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the ebayMotorsProPaymentMethodCheckOutEnabled property value. This enumerated value indicates whether this category supports that the payment method should be displayed to the user for this category in an eBay Motors Classified Ad listing. Even if enabled, checkout may or may not be enabled. This element is for eBay Motors Pro users. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:ClassifiedAdPaymentMethodEnabledEnum'>eBay API documentation</a>
-     * @param string|null $value Value to set for the ebayMotorsProPaymentMethodCheckOutEnabled property.
+     * Sets the ebayMotorsProPaymentMethodCheckOutEnabled property value. This enumerated value indicates whether this category supports that the payment method should be displayed to the user for this category in an eBay Motors Classified Ad listing. Even if enabled, checkout may or may not be enabled. This element is for eBay Motors Pro users.
+     * @param ClassifiedAdPaymentMethodEnabledEnum|null $value Value to set for the ebayMotorsProPaymentMethodCheckOutEnabled property.
     */
-    public function setEbayMotorsProPaymentMethodCheckOutEnabled(?string $value): void {
+    public function setEbayMotorsProPaymentMethodCheckOutEnabled(?ClassifiedAdPaymentMethodEnabledEnum $value): void {
         $this->ebayMotorsProPaymentMethodCheckOutEnabled = $value;
     }
 
@@ -959,10 +962,10 @@ class MotorsListingPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the localMarketAdFormatEnabled property value. Specifies whether this category supports Motor Local Market Classified Ad listings. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:AdFormatEnabledEnum'>eBay API documentation</a>
-     * @param string|null $value Value to set for the localMarketAdFormatEnabled property.
+     * Sets the localMarketAdFormatEnabled property value. Specifies whether this category supports Motor Local Market Classified Ad listings.
+     * @param AdFormatEnabledEnum|null $value Value to set for the localMarketAdFormatEnabled property.
     */
-    public function setLocalMarketAdFormatEnabled(?string $value): void {
+    public function setLocalMarketAdFormatEnabled(?AdFormatEnabledEnum $value): void {
         $this->localMarketAdFormatEnabled = $value;
     }
 
@@ -983,10 +986,10 @@ class MotorsListingPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the localMarketBestOfferEnabled property value. Indicates if Best Offer is enabled/required for Motors Local Market Classified Ad listings in this category.  For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:ClassifiedAdBestOfferEnabledEnum'>eBay API documentation</a>
-     * @param string|null $value Value to set for the localMarketBestOfferEnabled property.
+     * Sets the localMarketBestOfferEnabled property value. Indicates if Best Offer is enabled/required for Motors Local Market Classified Ad listings in this category. 
+     * @param ClassifiedAdBestOfferEnabledEnum|null $value Value to set for the localMarketBestOfferEnabled property.
     */
-    public function setLocalMarketBestOfferEnabled(?string $value): void {
+    public function setLocalMarketBestOfferEnabled(?ClassifiedAdBestOfferEnabledEnum $value): void {
         $this->localMarketBestOfferEnabled = $value;
     }
 
@@ -1039,10 +1042,10 @@ class MotorsListingPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the localMarketPaymentMethodCheckOutEnabled property value. Indicates if the payment method should be displayed to the user for this category in an Motors Local Market Classified Ad listing. Even if enabled, checkout may or may not be enabled. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:ClassifiedAdPaymentMethodEnabledEnum'>eBay API documentation</a>
-     * @param string|null $value Value to set for the localMarketPaymentMethodCheckOutEnabled property.
+     * Sets the localMarketPaymentMethodCheckOutEnabled property value. Indicates if the payment method should be displayed to the user for this category in an Motors Local Market Classified Ad listing. Even if enabled, checkout may or may not be enabled.
+     * @param ClassifiedAdPaymentMethodEnabledEnum|null $value Value to set for the localMarketPaymentMethodCheckOutEnabled property.
     */
-    public function setLocalMarketPaymentMethodCheckOutEnabled(?string $value): void {
+    public function setLocalMarketPaymentMethodCheckOutEnabled(?ClassifiedAdPaymentMethodEnabledEnum $value): void {
         $this->localMarketPaymentMethodCheckOutEnabled = $value;
     }
 
@@ -1087,7 +1090,7 @@ class MotorsListingPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the localMarketSpecialitySubscription property value. Indicates whether the category supports the Speciality level subscription to Motors Local Market listings. This feature is only available to licensed vehicle dealers.
+     * Sets the localMarketSpecialitySubscription property value. Indicates whether the category supports the Specialty level subscription to Motors Local Market listings. This feature is only available to licensed vehicle dealers.
      * @param bool|null $value Value to set for the localMarketSpecialitySubscription property.
     */
     public function setLocalMarketSpecialitySubscription(?bool $value): void {
@@ -1127,26 +1130,26 @@ class MotorsListingPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the nonSubscription property value. The value in this field indicates whether the category supports Motors Local Market listings if the seller does not have a vehicle subscription. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:GeographicExposureEnum'>eBay API documentation</a>
-     * @param string|null $value Value to set for the nonSubscription property.
+     * Sets the nonSubscription property value. The value in this field indicates whether the category supports Motors Local Market listings if the seller does not have a vehicle subscription.
+     * @param GeographicExposureEnum|null $value Value to set for the nonSubscription property.
     */
-    public function setNonSubscription(?string $value): void {
+    public function setNonSubscription(?GeographicExposureEnum $value): void {
         $this->nonSubscription = $value;
     }
 
     /**
-     * Sets the premiumSubscription property value. The value in this field indicates whether the category supports Motors Local Market listings if the seller has a Premium vehicle subscription. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:GeographicExposureEnum'>eBay API documentation</a>
-     * @param string|null $value Value to set for the premiumSubscription property.
+     * Sets the premiumSubscription property value. The value in this field indicates whether the category supports Motors Local Market listings if the seller has a Premium vehicle subscription.
+     * @param GeographicExposureEnum|null $value Value to set for the premiumSubscription property.
     */
-    public function setPremiumSubscription(?string $value): void {
+    public function setPremiumSubscription(?GeographicExposureEnum $value): void {
         $this->premiumSubscription = $value;
     }
 
     /**
-     * Sets the regularSubscription property value. The value in this field indicates whether the category supports Motors Local Market listings if the seller has a Regular vehicle subscription. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:GeographicExposureEnum'>eBay API documentation</a>
-     * @param string|null $value Value to set for the regularSubscription property.
+     * Sets the regularSubscription property value. The value in this field indicates whether the category supports Motors Local Market listings if the seller has a Regular vehicle subscription.
+     * @param GeographicExposureEnum|null $value Value to set for the regularSubscription property.
     */
-    public function setRegularSubscription(?string $value): void {
+    public function setRegularSubscription(?GeographicExposureEnum $value): void {
         $this->regularSubscription = $value;
     }
 
@@ -1159,10 +1162,10 @@ class MotorsListingPolicy implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the specialitySubscription property value. The value in this field indicates whether the category supports Motors Local Market listings if the seller has a Specialty vehicle subscription. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:GeographicExposureEnum'>eBay API documentation</a>
-     * @param string|null $value Value to set for the specialitySubscription property.
+     * Sets the specialitySubscription property value. The value in this field indicates whether the category supports Motors Local Market listings if the seller has a Specialty vehicle subscription.
+     * @param GeographicExposureEnum|null $value Value to set for the specialitySubscription property.
     */
-    public function setSpecialitySubscription(?string $value): void {
+    public function setSpecialitySubscription(?GeographicExposureEnum $value): void {
         $this->specialitySubscription = $value;
     }
 

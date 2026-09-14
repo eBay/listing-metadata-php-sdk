@@ -38,9 +38,9 @@ class LocalListingDistance implements AdditionalDataHolder, Parsable
     private ?array $distances = null;
     
     /**
-     * @var string|null $distanceType This enumerated value indicates the type of local listing distances, such as non-subscription or regular, for items listed by sellers. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:DistanceType'>eBay API documentation</a>
+     * @var DistanceType|null $distanceType This enumerated value indicates the type of local listing distances, such as non-subscription or regular, for items listed by sellers.
     */
-    private ?string $distanceType = null;
+    private ?DistanceType $distanceType = null;
     
     /**
      * Instantiates a new LocalListingDistance and sets the default values.
@@ -75,10 +75,10 @@ class LocalListingDistance implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the distanceType property value. This enumerated value indicates the type of local listing distances, such as non-subscription or regular, for items listed by sellers. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:DistanceType'>eBay API documentation</a>
-     * @return string|null
+     * Gets the distanceType property value. This enumerated value indicates the type of local listing distances, such as non-subscription or regular, for items listed by sellers.
+     * @return DistanceType|null
     */
-    public function getDistanceType(): ?string {
+    public function getDistanceType(): ?DistanceType {
         return $this->distanceType;
     }
 
@@ -97,7 +97,7 @@ class LocalListingDistance implements AdditionalDataHolder, Parsable
                 /** @var array<int>|null $val */
                 $this->setDistances($val);
             },
-            'distanceType' => fn(ParseNode $n) => $o->setDistanceType($n->getStringValue()),
+            'distanceType' => fn(ParseNode $n) => $o->setDistanceType($n->getEnumValue(DistanceType::class)),
         ];
     }
 
@@ -107,7 +107,7 @@ class LocalListingDistance implements AdditionalDataHolder, Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeCollectionOfPrimitiveValues('distances', $this->getDistances());
-        $writer->writeStringValue('distanceType', $this->getDistanceType());
+        $writer->writeEnumValue('distanceType', $this->getDistanceType());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
 
@@ -128,10 +128,10 @@ class LocalListingDistance implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the distanceType property value. This enumerated value indicates the type of local listing distances, such as non-subscription or regular, for items listed by sellers. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:DistanceType'>eBay API documentation</a>
-     * @param string|null $value Value to set for the distanceType property.
+     * Sets the distanceType property value. This enumerated value indicates the type of local listing distances, such as non-subscription or regular, for items listed by sellers.
+     * @param DistanceType|null $value Value to set for the distanceType property.
     */
-    public function setDistanceType(?string $value): void {
+    public function setDistanceType(?DistanceType $value): void {
         $this->distanceType = $value;
     }
 

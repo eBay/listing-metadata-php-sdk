@@ -53,7 +53,7 @@ class ShippingService implements AdditionalDataHolder, Parsable
     private ?int $minShippingTime = null;
     
     /**
-     * @var PackageLimits|null $packageLimits The packageLimits field is used to specify the physical constraints and measurement units of packages, ensuring compliance with various shipping requirements.
+     * @var PackageLimits|null $packageLimits This container provides name-value pairs that specify physical constraints and measurement units of packages for the <b>shippingCarrier</b> and the corresponding <b>shippingService</b>. An empty container is returned if the shipping service does not have any package limits defined.
     */
     private ?PackageLimits $packageLimits = null;
     
@@ -166,7 +166,7 @@ class ShippingService implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the packageLimits property value. The packageLimits field is used to specify the physical constraints and measurement units of packages, ensuring compliance with various shipping requirements.
+     * Gets the packageLimits property value. This container provides name-value pairs that specify physical constraints and measurement units of packages for the <b>shippingCarrier</b> and the corresponding <b>shippingService</b>. An empty container is returned if the shipping service does not have any package limits defined.
      * @return PackageLimits|null
     */
     public function getPackageLimits(): ?PackageLimits {
@@ -272,7 +272,7 @@ class ShippingService implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the packageLimits property value. The packageLimits field is used to specify the physical constraints and measurement units of packages, ensuring compliance with various shipping requirements.
+     * Sets the packageLimits property value. This container provides name-value pairs that specify physical constraints and measurement units of packages for the <b>shippingCarrier</b> and the corresponding <b>shippingService</b>. An empty container is returned if the shipping service does not have any package limits defined.
      * @param PackageLimits|null $value Value to set for the packageLimits property.
     */
     public function setPackageLimits(?PackageLimits $value): void {

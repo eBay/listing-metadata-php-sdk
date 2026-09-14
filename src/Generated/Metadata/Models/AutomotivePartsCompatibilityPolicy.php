@@ -20,8 +20,10 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
-use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
+/**
+ * This type contains applicable compatibility policy metadata for the leaf categories returned for the marketplace.
+*/
 class AutomotivePartsCompatibilityPolicy implements AdditionalDataHolder, Parsable 
 {
     /**
@@ -40,12 +42,12 @@ class AutomotivePartsCompatibilityPolicy implements AdditionalDataHolder, Parsab
     private ?string $categoryTreeId = null;
     
     /**
-     * @var string|null $compatibilityBasedOn Indicates whether the category supports parts compatibility by either <code>ASSEMBLY</code> or by <code>SPECIFICATION</code>. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:CompatibilityTypeEnum'>eBay API documentation</a>
+     * @var CompatibilityTypeEnum|null $compatibilityBasedOn Indicates whether the category supports parts compatibility by either <code>ASSEMBLY</code> or by <code>SPECIFICATION</code>.<br><br><span class="tablenote"><b>Note:</b> Only categories returning the <b>compatibilityBasedOn</b> field support compatibility. Categories where all compatibility fields are missing, or where only <b>compatibilityBasedOn</b> is missing, should be considered as not supporting compatibility.</span>
     */
-    private ?string $compatibilityBasedOn = null;
+    private ?CompatibilityTypeEnum $compatibilityBasedOn = null;
     
     /**
-     * @var array<string>|null $compatibleVehicleTypes Indicates the compatibility classification of the part based on high-level vehicle types.
+     * @var array<CompatibleVehicleTypeEnum>|null $compatibleVehicleTypes Indicates the compatibility classification of the part based on high-level vehicle types.
     */
     private ?array $compatibleVehicleTypes = null;
     
@@ -95,16 +97,16 @@ class AutomotivePartsCompatibilityPolicy implements AdditionalDataHolder, Parsab
     }
 
     /**
-     * Gets the compatibilityBasedOn property value. Indicates whether the category supports parts compatibility by either <code>ASSEMBLY</code> or by <code>SPECIFICATION</code>. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:CompatibilityTypeEnum'>eBay API documentation</a>
-     * @return string|null
+     * Gets the compatibilityBasedOn property value. Indicates whether the category supports parts compatibility by either <code>ASSEMBLY</code> or by <code>SPECIFICATION</code>.<br><br><span class="tablenote"><b>Note:</b> Only categories returning the <b>compatibilityBasedOn</b> field support compatibility. Categories where all compatibility fields are missing, or where only <b>compatibilityBasedOn</b> is missing, should be considered as not supporting compatibility.</span>
+     * @return CompatibilityTypeEnum|null
     */
-    public function getCompatibilityBasedOn(): ?string {
+    public function getCompatibilityBasedOn(): ?CompatibilityTypeEnum {
         return $this->compatibilityBasedOn;
     }
 
     /**
      * Gets the compatibleVehicleTypes property value. Indicates the compatibility classification of the part based on high-level vehicle types.
-     * @return array<string>|null
+     * @return array<CompatibleVehicleTypeEnum>|null
     */
     public function getCompatibleVehicleTypes(): ?array {
         return $this->compatibleVehicleTypes;
@@ -119,15 +121,8 @@ class AutomotivePartsCompatibilityPolicy implements AdditionalDataHolder, Parsab
         return  [
             'categoryId' => fn(ParseNode $n) => $o->setCategoryId($n->getStringValue()),
             'categoryTreeId' => fn(ParseNode $n) => $o->setCategoryTreeId($n->getStringValue()),
-            'compatibilityBasedOn' => fn(ParseNode $n) => $o->setCompatibilityBasedOn($n->getStringValue()),
-            'compatibleVehicleTypes' => function (ParseNode $n) {
-                $val = $n->getCollectionOfPrimitiveValues();
-                if (is_array($val)) {
-                    TypeUtils::validateCollectionValues($val, 'string');
-                }
-                /** @var array<string>|null $val */
-                $this->setCompatibleVehicleTypes($val);
-            },
+            'compatibilityBasedOn' => fn(ParseNode $n) => $o->setCompatibilityBasedOn($n->getEnumValue(CompatibilityTypeEnum::class)),
+            'compatibleVehicleTypes' => fn(ParseNode $n) => $o->setCompatibleVehicleTypes($n->getCollectionOfEnumValues(CompatibleVehicleTypeEnum::class)),
             'maxNumberOfCompatibleVehicles' => fn(ParseNode $n) => $o->setMaxNumberOfCompatibleVehicles($n->getIntegerValue()),
         ];
     }
@@ -147,8 +142,8 @@ class AutomotivePartsCompatibilityPolicy implements AdditionalDataHolder, Parsab
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('categoryId', $this->getCategoryId());
         $writer->writeStringValue('categoryTreeId', $this->getCategoryTreeId());
-        $writer->writeStringValue('compatibilityBasedOn', $this->getCompatibilityBasedOn());
-        $writer->writeCollectionOfPrimitiveValues('compatibleVehicleTypes', $this->getCompatibleVehicleTypes());
+        $writer->writeEnumValue('compatibilityBasedOn', $this->getCompatibilityBasedOn());
+        $writer->writeCollectionOfEnumValues('compatibleVehicleTypes', $this->getCompatibleVehicleTypes());
         $writer->writeIntegerValue('maxNumberOfCompatibleVehicles', $this->getMaxNumberOfCompatibleVehicles());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -178,16 +173,16 @@ class AutomotivePartsCompatibilityPolicy implements AdditionalDataHolder, Parsab
     }
 
     /**
-     * Sets the compatibilityBasedOn property value. Indicates whether the category supports parts compatibility by either <code>ASSEMBLY</code> or by <code>SPECIFICATION</code>. For implementation help, refer to <a href='https://developer.ebay.com/api-docs/sell/metadata/types/sel:CompatibilityTypeEnum'>eBay API documentation</a>
-     * @param string|null $value Value to set for the compatibilityBasedOn property.
+     * Sets the compatibilityBasedOn property value. Indicates whether the category supports parts compatibility by either <code>ASSEMBLY</code> or by <code>SPECIFICATION</code>.<br><br><span class="tablenote"><b>Note:</b> Only categories returning the <b>compatibilityBasedOn</b> field support compatibility. Categories where all compatibility fields are missing, or where only <b>compatibilityBasedOn</b> is missing, should be considered as not supporting compatibility.</span>
+     * @param CompatibilityTypeEnum|null $value Value to set for the compatibilityBasedOn property.
     */
-    public function setCompatibilityBasedOn(?string $value): void {
+    public function setCompatibilityBasedOn(?CompatibilityTypeEnum $value): void {
         $this->compatibilityBasedOn = $value;
     }
 
     /**
      * Sets the compatibleVehicleTypes property value. Indicates the compatibility classification of the part based on high-level vehicle types.
-     * @param array<string>|null $value Value to set for the compatibleVehicleTypes property.
+     * @param array<CompatibleVehicleTypeEnum>|null $value Value to set for the compatibleVehicleTypes property.
     */
     public function setCompatibleVehicleTypes(?array $value): void {
         $this->compatibleVehicleTypes = $value;

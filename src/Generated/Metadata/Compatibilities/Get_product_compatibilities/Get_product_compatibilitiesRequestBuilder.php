@@ -46,7 +46,7 @@ class Get_product_compatibilitiesRequestBuilder extends BaseRequestBuilder
 
     /**
      * This method is used to retrieve all available item compatibility details for the specified product.<br><br>Item compatibility details can be used to see the properties for which an item is compatible. For example, if you are searching for a part for a specific vehicle, you can use this method to see the years, engine, and/or trim for which the part is compatible. Item compatibility details are returned as name-value pairs.<br><br>The product for which to retrieve item compatibility details must be provided through the <b>productIdentifier</b> field. This value can be either an eBay specific identifier (such as an ePID) or an external identifier (such as a UPC).<br><br>By default, all available item compatibility details for the specified product are returned. You can limit the size of the result set using the <b>dataset</b> or <b>datasetPropertyName</b> fields to specify the types of properties you want returned in the response. The <b>applicationPropertyFilter</b> array can also be used so that only parts compatible with the specified name-value pairs are returned.
-     * @param ProductRequest $body This type defines the request fields for the <b>getProductCompatibilities</b> method.
+     * @param ProductRequest $body This type defines properties for which to find compatibilities.
      * @param Get_product_compatibilitiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<ProductResponse|null>
      * @throws Exception
@@ -58,7 +58,7 @@ class Get_product_compatibilitiesRequestBuilder extends BaseRequestBuilder
 
     /**
      * This method is used to retrieve all available item compatibility details for the specified product.<br><br>Item compatibility details can be used to see the properties for which an item is compatible. For example, if you are searching for a part for a specific vehicle, you can use this method to see the years, engine, and/or trim for which the part is compatible. Item compatibility details are returned as name-value pairs.<br><br>The product for which to retrieve item compatibility details must be provided through the <b>productIdentifier</b> field. This value can be either an eBay specific identifier (such as an ePID) or an external identifier (such as a UPC).<br><br>By default, all available item compatibility details for the specified product are returned. You can limit the size of the result set using the <b>dataset</b> or <b>datasetPropertyName</b> fields to specify the types of properties you want returned in the response. The <b>applicationPropertyFilter</b> array can also be used so that only parts compatible with the specified name-value pairs are returned.
-     * @param ProductRequest $body This type defines the request fields for the <b>getProductCompatibilities</b> method.
+     * @param ProductRequest $body This type defines properties for which to find compatibilities.
      * @param Get_product_compatibilitiesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */

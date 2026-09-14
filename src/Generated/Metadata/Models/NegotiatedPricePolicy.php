@@ -21,6 +21,9 @@ use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
+/**
+ * This type contains applicable negotiation price policy metadata for the leaf categories returned for the marketplace.
+*/
 class NegotiatedPricePolicy implements AdditionalDataHolder, Parsable 
 {
     /**

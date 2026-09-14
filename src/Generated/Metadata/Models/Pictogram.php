@@ -32,12 +32,12 @@ class Pictogram implements AdditionalDataHolder, Parsable
     private ?array $additionalData = null;
     
     /**
-     * @var string|null $pictogramDescription The description of the pictogram localized to the default language of the marketplace. For sample values, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Pictogra'>Pictogram sample values</a>.
+     * @var string|null $pictogramDescription The description of the pictogram localized to the default language of the marketplace. For sample values, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Pictogra' target='_blank'>Pictogram sample values</a>.
     */
     private ?string $pictogramDescription = null;
     
     /**
-     * @var string|null $pictogramId The identifier of the pictogram. For sample values, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Pictogra'>Pictogram sample values</a>.
+     * @var string|null $pictogramId The identifier of the pictogram. For sample values, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Pictogra' target='_blank'>Pictogram sample values</a>.
     */
     private ?string $pictogramId = null;
     
@@ -84,7 +84,7 @@ class Pictogram implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the pictogramDescription property value. The description of the pictogram localized to the default language of the marketplace. For sample values, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Pictogra'>Pictogram sample values</a>.
+     * Gets the pictogramDescription property value. The description of the pictogram localized to the default language of the marketplace. For sample values, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Pictogra' target='_blank'>Pictogram sample values</a>.
      * @return string|null
     */
     public function getPictogramDescription(): ?string {
@@ -92,7 +92,7 @@ class Pictogram implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the pictogramId property value. The identifier of the pictogram. For sample values, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Pictogra'>Pictogram sample values</a>.
+     * Gets the pictogramId property value. The identifier of the pictogram. For sample values, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Pictogra' target='_blank'>Pictogram sample values</a>.
      * @return string|null
     */
     public function getPictogramId(): ?string {
@@ -127,7 +127,7 @@ class Pictogram implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the pictogramDescription property value. The description of the pictogram localized to the default language of the marketplace. For sample values, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Pictogra'>Pictogram sample values</a>.
+     * Sets the pictogramDescription property value. The description of the pictogram localized to the default language of the marketplace. For sample values, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Pictogra' target='_blank'>Pictogram sample values</a>.
      * @param string|null $value Value to set for the pictogramDescription property.
     */
     public function setPictogramDescription(?string $value): void {
@@ -135,7 +135,7 @@ class Pictogram implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the pictogramId property value. The identifier of the pictogram. For sample values, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Pictogra'>Pictogram sample values</a>.
+     * Sets the pictogramId property value. The identifier of the pictogram. For sample values, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Pictogra' target='_blank'>Pictogram sample values</a>.
      * @param string|null $value Value to set for the pictogramId property.
     */
     public function setPictogramId(?string $value): void {

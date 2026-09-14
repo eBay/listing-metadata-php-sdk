@@ -23,9 +23,9 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
- * A container that defines the elements of error and warning messages.
+ * This type defines the elements of error and warning messages.
 */
-class Error implements AdditionalDataHolder, Parsable 
+class ErrorDetailV3 implements AdditionalDataHolder, Parsable 
 {
     /**
      * @var array<string, mixed>|null $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -68,7 +68,7 @@ class Error implements AdditionalDataHolder, Parsable
     private ?array $outputRefIds = null;
     
     /**
-     * @var array<ErrorParameter>|null $parameters This optional complex field type contains a list of one or more context-specific <code>ErrorParameter</code> objects, with each item in the list entry being a parameter (or input field name) that caused an error condition. Each <code>ErrorParameter</code> object consists of two fields, a <code>name</code> and a <code>value</code>.
+     * @var array<ErrorParameterV3>|null $parameters This optional complex field type contains a list of one or more context-specific <code>ErrorParameter</code> objects, with each item in the list entry being a parameter (or input field name) that caused an error condition. Each <code>ErrorParameter</code> object consists of two fields, a <code>name</code> and a <code>value</code>.
     */
     private ?array $parameters = null;
     
@@ -78,7 +78,7 @@ class Error implements AdditionalDataHolder, Parsable
     private ?string $subdomain = null;
     
     /**
-     * Instantiates a new Error and sets the default values.
+     * Instantiates a new ErrorDetailV3 and sets the default values.
     */
     public function __construct() {
         $this->setAdditionalData([]);
@@ -87,10 +87,10 @@ class Error implements AdditionalDataHolder, Parsable
     /**
      * Creates a new instance of the appropriate class based on discriminator value
      * @param ParseNode $parseNode The parse node to use to read the discriminator value and create the object
-     * @return Error
+     * @return ErrorDetailV3
     */
-    public static function createFromDiscriminatorValue(ParseNode $parseNode): Error {
-        return new Error();
+    public static function createFromDiscriminatorValue(ParseNode $parseNode): ErrorDetailV3 {
+        return new ErrorDetailV3();
     }
 
     /**
@@ -153,7 +153,7 @@ class Error implements AdditionalDataHolder, Parsable
                 /** @var array<string>|null $val */
                 $this->setOutputRefIds($val);
             },
-            'parameters' => fn(ParseNode $n) => $o->setParameters($n->getCollectionOfObjectValues([ErrorParameter::class, 'createFromDiscriminatorValue'])),
+            'parameters' => fn(ParseNode $n) => $o->setParameters($n->getCollectionOfObjectValues([ErrorParameterV3::class, 'createFromDiscriminatorValue'])),
             'subdomain' => fn(ParseNode $n) => $o->setSubdomain($n->getStringValue()),
         ];
     }
@@ -192,7 +192,7 @@ class Error implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the parameters property value. This optional complex field type contains a list of one or more context-specific <code>ErrorParameter</code> objects, with each item in the list entry being a parameter (or input field name) that caused an error condition. Each <code>ErrorParameter</code> object consists of two fields, a <code>name</code> and a <code>value</code>.
-     * @return array<ErrorParameter>|null
+     * @return array<ErrorParameterV3>|null
     */
     public function getParameters(): ?array {
         return $this->parameters;
@@ -289,7 +289,7 @@ class Error implements AdditionalDataHolder, Parsable
 
     /**
      * Sets the parameters property value. This optional complex field type contains a list of one or more context-specific <code>ErrorParameter</code> objects, with each item in the list entry being a parameter (or input field name) that caused an error condition. Each <code>ErrorParameter</code> object consists of two fields, a <code>name</code> and a <code>value</code>.
-     * @param array<ErrorParameter>|null $value Value to set for the parameters property.
+     * @param array<ErrorParameterV3>|null $value Value to set for the parameters property.
     */
     public function setParameters(?array $value): void {
         $this->parameters = $value;
