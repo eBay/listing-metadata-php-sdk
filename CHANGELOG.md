@@ -1,43 +1,64 @@
 # ChangeLog
 
-## 1.0.0 (09/14/2026)
+## 0.2.0 (09/14/2026)
 
-**Breaking changes**
-- The following operations changed signature on `CatalogClient`:
-  - `getProduct`: `(string, ?string, ?RequestOptions)` → `(string, ?string, ?string, ?RequestOptions)`
-  - `search`: `(?string, ?string, ?string, ?string, ?string, ?string, ?string, ?string, ?string, ?RequestOptions)` → `(?string, ?string, ?string, ?string, ?string, ?string, ?string, ?string, ?string, ?string, ?RequestOptions)`
-- The following operations changed signature on `CharityClient`:
-  - `getCharityOrg`: `(string, ?string, ?RequestOptions)` → `(string, ?string, ?string, ?RequestOptions)`
-  - `getCharityOrgs`: `(?string, ?string, ?string, ?string, ?string, ?RequestOptions)` → `(?string, ?string, ?string, ?string, ?string, ?string, ?RequestOptions)`
-- The following operations changed signature on `MetadataClient`:
-  - `getAutomotivePartsCompatibilityPolicies`: `(string, ?string, ?string, ?RequestOptions)` → `(string, ?string, ?string, ?string, ?RequestOptions)`
-  - `getCategoryPolicies`: `(string, ?string, ?string, ?RequestOptions)` → `(string, ?string, ?string, ?string, ?RequestOptions)`
-  - `getClassifiedAdPolicies`: `(string, ?string, ?string, ?RequestOptions)` → `(string, ?string, ?string, ?string, ?RequestOptions)`
-  - `getCompatibilitiesBySpecification`: `(SpecificationRequest, ?string, ?RequestOptions)` → `(SpecificationRequest, ?string, ?string, ?RequestOptions)`
-  - `getCompatibilityPropertyNames`: `(PropertyNamesRequest, ?string, ?RequestOptions)` → `(PropertyNamesRequest, ?string, ?string, ?RequestOptions)`
-  - `getCompatibilityPropertyValues`: `(PropertyValuesRequest, ?string, ?RequestOptions)` → `(PropertyValuesRequest, ?string, ?string, ?RequestOptions)`
-  - `getCurrencies`: `(string, ?string, ?RequestOptions)` → `(string, ?string, ?string, ?RequestOptions)`
-  - `getExcludeShippingLocations`: `(string, ?string, ?RequestOptions)` → `(string, ?string, ?string, ?RequestOptions)`
-  - `getExtendedProducerResponsibilityPolicies`: `(string, ?string, ?string, ?RequestOptions)` → `(string, ?string, ?string, ?string, ?string, ?RequestOptions)`
-  - `getHandlingTimes`: `(string, ?string, ?RequestOptions)` → `(string, ?string, ?string, ?RequestOptions)`
-  - `getHazardousMaterialsLabels`: `(string, ?string, ?RequestOptions)` → `(string, ?string, ?string, ?RequestOptions)`
-  - `getItemConditionPolicies`: `(string, ?string, ?string, ?RequestOptions)` → `(string, ?string, ?string, ?string, ?string, ?RequestOptions)`
-  - `getListingStructurePolicies`: `(string, ?string, ?string, ?RequestOptions)` → `(string, ?string, ?string, ?string, ?string, ?RequestOptions)`
-  - `getListingTypePolicies`: `(string, ?string, ?string, ?RequestOptions)` → `(string, ?string, ?string, ?string, ?RequestOptions)`
-  - `getMotorsListingPolicies`: `(string, ?string, ?string, ?RequestOptions)` → `(string, ?string, ?string, ?string, ?RequestOptions)`
-  - `getMultiCompatibilityPropertyValues`: `(MultiCompatibilityPropertyValuesRequest, ?string, ?RequestOptions)` → `(MultiCompatibilityPropertyValuesRequest, ?string, ?string, ?RequestOptions)`
-  - `getNegotiatedPricePolicies`: `(string, ?string, ?string, ?RequestOptions)` → `(string, ?string, ?string, ?string, ?string, ?RequestOptions)`
-  - `getProductCompatibilities`: `(ProductRequest, ?string, ?RequestOptions)` → `(ProductRequest, ?string, ?string, ?RequestOptions)`
-  - `getRegulatoryPolicies`: `(string, ?string, ?string, ?RequestOptions)` → `(string, ?string, ?string, ?string, ?RequestOptions)`
-  - `getReturnPolicies`: `(string, ?string, ?string, ?RequestOptions)` → `(string, ?string, ?string, ?string, ?string, ?RequestOptions)`
-  - `getShippingCarriers`: `(string, ?string, ?RequestOptions)` → `(string, ?string, ?string, ?RequestOptions)`
-  - `getShippingLocations`: `(string, ?string, ?RequestOptions)` → `(string, ?string, ?string, ?RequestOptions)`
-  - `getShippingPolicies`: `(string, ?string, ?string, ?RequestOptions)` → `(string, ?string, ?string, ?string, ?RequestOptions)`
-  - `getShippingServices`: `(string, ?string, ?RequestOptions)` → `(string, ?string, ?string, ?RequestOptions)`
-  - `getSiteVisibilityPolicies`: `(string, ?string, ?string, ?RequestOptions)` → `(string, ?string, ?string, ?string, ?RequestOptions)`
-- The following operations changed signature on `TaxonomyClient`:
-  - `getCategorySubtree`: `(string, ?string, ?string, ?RequestOptions)` → `(string, ?string, ?string, ?string, ?RequestOptions)`
-  - `getCategoryTree`: `(string, ?string, ?RequestOptions)` → `(string, ?string, ?string, ?RequestOptions)`
+### Breaking changes
 
-- The following operations were added to `MetadataClient`:
-  - `getMinimumListingPricePolicies`
+#### Changed signatures
+
+`CatalogClient`:
+
+| Operation | Previous parameters | Current parameters |
+| --- | --- | --- |
+| `getProduct` | `(string $epid, ?string $accessToken, ?RequestOptions $requestOptions)` | `(string $epid, ?string $xEBAYCMARKETPLACEID, ?string $accessToken, ?RequestOptions $requestOptions)` |
+| `search` | `(?string $aspectFilter, ?string $categoryIds, ?string $fieldgroups, ?string $gtin, ?string $limit, ?string $mpn, ?string $offset, ?string $q, ?string $accessToken, ?RequestOptions $requestOptions)` | `(?string $aspectFilter, ?string $categoryIds, ?string $fieldgroups, ?string $gtin, ?string $limit, ?string $mpn, ?string $offset, ?string $q, ?string $xEBAYCMARKETPLACEID, ?string $accessToken, ?RequestOptions $requestOptions)` |
+
+`CharityClient`:
+
+| Operation | Previous parameters | Current parameters |
+| --- | --- | --- |
+| `getCharityOrg` | `(string $charityOrgId, ?string $accessToken, ?RequestOptions $requestOptions)` | `(string $charityOrgId, ?string $xEBAYCMARKETPLACEID, ?string $accessToken, ?RequestOptions $requestOptions)` |
+| `getCharityOrgs` | `(?string $limit, ?string $offset, ?string $q, ?string $registrationIds, ?string $accessToken, ?RequestOptions $requestOptions)` | `(?string $limit, ?string $offset, ?string $q, ?string $registrationIds, ?string $xEBAYCMARKETPLACEID, ?string $accessToken, ?RequestOptions $requestOptions)` |
+
+`MetadataClient`:
+
+| Operation | Previous parameters | Current parameters |
+| --- | --- | --- |
+| `getAutomotivePartsCompatibilityPolicies` | `(string $marketplaceId, ?string $filter, ?string $accessToken, ?RequestOptions $requestOptions)` | `(string $marketplaceId, ?string $filter, ?string $acceptEncoding, ?string $accessToken, ?RequestOptions $requestOptions)` |
+| `getCategoryPolicies` | `(string $marketplaceId, ?string $filter, ?string $accessToken, ?RequestOptions $requestOptions)` | `(string $marketplaceId, ?string $filter, ?string $acceptLanguage, ?string $accessToken, ?RequestOptions $requestOptions)` |
+| `getClassifiedAdPolicies` | `(string $marketplaceId, ?string $filter, ?string $accessToken, ?RequestOptions $requestOptions)` | `(string $marketplaceId, ?string $filter, ?string $acceptLanguage, ?string $accessToken, ?RequestOptions $requestOptions)` |
+| `getCompatibilitiesBySpecification` | `(SpecificationRequest $body, ?string $accessToken, ?RequestOptions $requestOptions)` | `(SpecificationRequest $body, ?string $xEBAYCMARKETPLACEID, ?string $accessToken, ?RequestOptions $requestOptions)` |
+| `getCompatibilityPropertyNames` | `(PropertyNamesRequest $body, ?string $accessToken, ?RequestOptions $requestOptions)` | `(PropertyNamesRequest $body, ?string $xEBAYCMARKETPLACEID, ?string $accessToken, ?RequestOptions $requestOptions)` |
+| `getCompatibilityPropertyValues` | `(PropertyValuesRequest $body, ?string $accessToken, ?RequestOptions $requestOptions)` | `(PropertyValuesRequest $body, ?string $xEBAYCMARKETPLACEID, ?string $accessToken, ?RequestOptions $requestOptions)` |
+| `getCurrencies` | `(string $marketplaceId, ?string $accessToken, ?RequestOptions $requestOptions)` | `(string $marketplaceId, ?string $acceptLanguage, ?string $accessToken, ?RequestOptions $requestOptions)` |
+| `getExcludeShippingLocations` | `(string $marketplaceId, ?string $accessToken, ?RequestOptions $requestOptions)` | `(string $marketplaceId, ?string $acceptLanguage, ?string $accessToken, ?RequestOptions $requestOptions)` |
+| `getExtendedProducerResponsibilityPolicies` | `(string $marketplaceId, ?string $filter, ?string $accessToken, ?RequestOptions $requestOptions)` | `(string $marketplaceId, ?string $filter, ?string $acceptEncoding, ?string $acceptLanguage, ?string $accessToken, ?RequestOptions $requestOptions)` |
+| `getHandlingTimes` | `(string $marketplaceId, ?string $accessToken, ?RequestOptions $requestOptions)` | `(string $marketplaceId, ?string $acceptLanguage, ?string $accessToken, ?RequestOptions $requestOptions)` |
+| `getHazardousMaterialsLabels` | `(string $marketplaceId, ?string $accessToken, ?RequestOptions $requestOptions)` | `(string $marketplaceId, ?string $acceptLanguage, ?string $accessToken, ?RequestOptions $requestOptions)` |
+| `getItemConditionPolicies` | `(string $marketplaceId, ?string $filter, ?string $accessToken, ?RequestOptions $requestOptions)` | `(string $marketplaceId, ?string $filter, ?string $acceptEncoding, ?string $acceptLanguage, ?string $accessToken, ?RequestOptions $requestOptions)` |
+| `getListingStructurePolicies` | `(string $marketplaceId, ?string $filter, ?string $accessToken, ?RequestOptions $requestOptions)` | `(string $marketplaceId, ?string $filter, ?string $acceptEncoding, ?string $acceptLanguage, ?string $accessToken, ?RequestOptions $requestOptions)` |
+| `getListingTypePolicies` | `(string $marketplaceId, ?string $filter, ?string $accessToken, ?RequestOptions $requestOptions)` | `(string $marketplaceId, ?string $filter, ?string $acceptLanguage, ?string $accessToken, ?RequestOptions $requestOptions)` |
+| `getMotorsListingPolicies` | `(string $marketplaceId, ?string $filter, ?string $accessToken, ?RequestOptions $requestOptions)` | `(string $marketplaceId, ?string $filter, ?string $acceptLanguage, ?string $accessToken, ?RequestOptions $requestOptions)` |
+| `getMultiCompatibilityPropertyValues` | `(MultiCompatibilityPropertyValuesRequest $body, ?string $accessToken, ?RequestOptions $requestOptions)` | `(MultiCompatibilityPropertyValuesRequest $body, ?string $xEBAYCMARKETPLACEID, ?string $accessToken, ?RequestOptions $requestOptions)` |
+| `getNegotiatedPricePolicies` | `(string $marketplaceId, ?string $filter, ?string $accessToken, ?RequestOptions $requestOptions)` | `(string $marketplaceId, ?string $filter, ?string $acceptEncoding, ?string $acceptLanguage, ?string $accessToken, ?RequestOptions $requestOptions)` |
+| `getProductCompatibilities` | `(ProductRequest $body, ?string $accessToken, ?RequestOptions $requestOptions)` | `(ProductRequest $body, ?string $xEBAYCMARKETPLACEID, ?string $accessToken, ?RequestOptions $requestOptions)` |
+| `getRegulatoryPolicies` | `(string $marketplaceId, ?string $filter, ?string $accessToken, ?RequestOptions $requestOptions)` | `(string $marketplaceId, ?string $filter, ?string $acceptLanguage, ?string $accessToken, ?RequestOptions $requestOptions)` |
+| `getReturnPolicies` | `(string $marketplaceId, ?string $filter, ?string $accessToken, ?RequestOptions $requestOptions)` | `(string $marketplaceId, ?string $filter, ?string $acceptEncoding, ?string $acceptLanguage, ?string $accessToken, ?RequestOptions $requestOptions)` |
+| `getShippingCarriers` | `(string $marketplaceId, ?string $accessToken, ?RequestOptions $requestOptions)` | `(string $marketplaceId, ?string $acceptLanguage, ?string $accessToken, ?RequestOptions $requestOptions)` |
+| `getShippingLocations` | `(string $marketplaceId, ?string $accessToken, ?RequestOptions $requestOptions)` | `(string $marketplaceId, ?string $acceptLanguage, ?string $accessToken, ?RequestOptions $requestOptions)` |
+| `getShippingPolicies` | `(string $marketplaceId, ?string $filter, ?string $accessToken, ?RequestOptions $requestOptions)` | `(string $marketplaceId, ?string $filter, ?string $acceptLanguage, ?string $accessToken, ?RequestOptions $requestOptions)` |
+| `getShippingServices` | `(string $marketplaceId, ?string $accessToken, ?RequestOptions $requestOptions)` | `(string $marketplaceId, ?string $acceptLanguage, ?string $accessToken, ?RequestOptions $requestOptions)` |
+| `getSiteVisibilityPolicies` | `(string $marketplaceId, ?string $filter, ?string $accessToken, ?RequestOptions $requestOptions)` | `(string $marketplaceId, ?string $filter, ?string $acceptLanguage, ?string $accessToken, ?RequestOptions $requestOptions)` |
+
+`TaxonomyClient`:
+
+| Operation | Previous parameters | Current parameters |
+| --- | --- | --- |
+| `getCategorySubtree` | `(string $categoryTreeId, ?string $categoryId, ?string $accessToken, ?RequestOptions $requestOptions)` | `(string $categoryTreeId, ?string $categoryId, ?string $acceptEncoding, ?string $accessToken, ?RequestOptions $requestOptions)` |
+| `getCategoryTree` | `(string $categoryTreeId, ?string $accessToken, ?RequestOptions $requestOptions)` | `(string $categoryTreeId, ?string $acceptEncoding, ?string $accessToken, ?RequestOptions $requestOptions)` |
+
+### Added
+
+#### `MetadataClient`
+
+- `getMinimumListingPricePolicies`
