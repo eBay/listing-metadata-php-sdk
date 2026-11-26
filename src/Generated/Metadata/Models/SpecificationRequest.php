@@ -23,7 +23,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 use Microsoft\Kiota\Abstractions\Types\TypeUtils;
 
 /**
- * This type provides the properties and specifications to use to search for compatibilities.
+ * This type provides the properties and specifications to use to search for compatibilities.<br><br><b>paginationInput:</b> <div class="msgbox_important"><p class="msgbox_importantInDiv" data-mc- autonum="&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important! &lt;/span&gt;&lt;/b&gt;"><span class="autonumber"><span><b><span style="color: #dd1e31;" class="mcFormatColor">Important!</span></b></span></span> Pagination is not yet supported by this method. If this container is included in the request, it will be ignored.</p></div>
 */
 class SpecificationRequest implements AdditionalDataHolder, Parsable 
 {
@@ -43,7 +43,7 @@ class SpecificationRequest implements AdditionalDataHolder, Parsable
     private ?array $compatibilityPropertyFilters = null;
     
     /**
-     * @var string|null $dataset This field can be used to define the type of properties that will be returned in the response.<br><br> For example, if you specify <code>Searchable</code>, the compatibility details will contain properties that can be used to search for products, such as make or model.<br><br><span class="tablenote"><b>Note:</b> This field cannot be used alongside <b>dataPropertyName</b>. If both are used, an error will occur.</span><br><b>Valid values:</b><ul><li><code>DisplayableProductDetails</code>: Properties for use in a user interface to describe products.</li><li><code>DisplayableSearchResults</code>: Properties for use in results for product searches.</li><li><code>Searchable</code>: Properties for use in searches.</li><li><code>Sortable</code>: Properties that are suitable for sorting.</li></ul><b>Default value:</b> <code>DisplayableSearchResults</code>
+     * @var string|null $dataset This field can be used to define the type of properties that will be returned in the response.<br><br> For example, if you specify <code>Searchable</code>, the compatibility details will contain properties that can be used to search for products, such as make or model.<br><br><span class="tablenote"><b>Note:</b> This field cannot be used alongside <b>datasetPropertyName</b>. If both are used, an error will occur.</span><br><b>Valid values:</b><ul><li><code>DisplayableProductDetails</code>: Properties for use in a user interface to describe products.</li><li><code>DisplayableSearchResults</code>: Properties for use in results for product searches.</li><li><code>Searchable</code>: Properties for use in searches.</li><li><code>Sortable</code>: Properties that are suitable for sorting.</li></ul><b>Default value:</b> <code>DisplayableSearchResults</code>
     */
     private ?string $dataset = null;
     
@@ -58,7 +58,7 @@ class SpecificationRequest implements AdditionalDataHolder, Parsable
     private ?bool $exactMatch = null;
     
     /**
-     * @var PaginationInput|null $paginationInput <div class="msgbox_important"><p class="msgbox_importantInDiv" data-mc-autonum="&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important! &lt;/span&gt;&lt;/b&gt;"><span class="autonumber"><span><b><span style="color: #dd1e31;" class="mcFormatColor">Important!</span></b></span></span> Pagination is not yet supported by this method. If this container is included in the request, it will be ignored.</p></div>
+     * @var PaginationInput|null $paginationInput This type defines the fields used to control the pagination of the result set.
     */
     private ?PaginationInput $paginationInput = null;
     
@@ -113,7 +113,7 @@ class SpecificationRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the dataset property value. This field can be used to define the type of properties that will be returned in the response.<br><br> For example, if you specify <code>Searchable</code>, the compatibility details will contain properties that can be used to search for products, such as make or model.<br><br><span class="tablenote"><b>Note:</b> This field cannot be used alongside <b>dataPropertyName</b>. If both are used, an error will occur.</span><br><b>Valid values:</b><ul><li><code>DisplayableProductDetails</code>: Properties for use in a user interface to describe products.</li><li><code>DisplayableSearchResults</code>: Properties for use in results for product searches.</li><li><code>Searchable</code>: Properties for use in searches.</li><li><code>Sortable</code>: Properties that are suitable for sorting.</li></ul><b>Default value:</b> <code>DisplayableSearchResults</code>
+     * Gets the dataset property value. This field can be used to define the type of properties that will be returned in the response.<br><br> For example, if you specify <code>Searchable</code>, the compatibility details will contain properties that can be used to search for products, such as make or model.<br><br><span class="tablenote"><b>Note:</b> This field cannot be used alongside <b>datasetPropertyName</b>. If both are used, an error will occur.</span><br><b>Valid values:</b><ul><li><code>DisplayableProductDetails</code>: Properties for use in a user interface to describe products.</li><li><code>DisplayableSearchResults</code>: Properties for use in results for product searches.</li><li><code>Searchable</code>: Properties for use in searches.</li><li><code>Sortable</code>: Properties that are suitable for sorting.</li></ul><b>Default value:</b> <code>DisplayableSearchResults</code>
      * @return string|null
     */
     public function getDataset(): ?string {
@@ -162,7 +162,7 @@ class SpecificationRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the paginationInput property value. <div class="msgbox_important"><p class="msgbox_importantInDiv" data-mc-autonum="&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important! &lt;/span&gt;&lt;/b&gt;"><span class="autonumber"><span><b><span style="color: #dd1e31;" class="mcFormatColor">Important!</span></b></span></span> Pagination is not yet supported by this method. If this container is included in the request, it will be ignored.</p></div>
+     * Gets the paginationInput property value. This type defines the fields used to control the pagination of the result set.
      * @return PaginationInput|null
     */
     public function getPaginationInput(): ?PaginationInput {
@@ -226,7 +226,7 @@ class SpecificationRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the dataset property value. This field can be used to define the type of properties that will be returned in the response.<br><br> For example, if you specify <code>Searchable</code>, the compatibility details will contain properties that can be used to search for products, such as make or model.<br><br><span class="tablenote"><b>Note:</b> This field cannot be used alongside <b>dataPropertyName</b>. If both are used, an error will occur.</span><br><b>Valid values:</b><ul><li><code>DisplayableProductDetails</code>: Properties for use in a user interface to describe products.</li><li><code>DisplayableSearchResults</code>: Properties for use in results for product searches.</li><li><code>Searchable</code>: Properties for use in searches.</li><li><code>Sortable</code>: Properties that are suitable for sorting.</li></ul><b>Default value:</b> <code>DisplayableSearchResults</code>
+     * Sets the dataset property value. This field can be used to define the type of properties that will be returned in the response.<br><br> For example, if you specify <code>Searchable</code>, the compatibility details will contain properties that can be used to search for products, such as make or model.<br><br><span class="tablenote"><b>Note:</b> This field cannot be used alongside <b>datasetPropertyName</b>. If both are used, an error will occur.</span><br><b>Valid values:</b><ul><li><code>DisplayableProductDetails</code>: Properties for use in a user interface to describe products.</li><li><code>DisplayableSearchResults</code>: Properties for use in results for product searches.</li><li><code>Searchable</code>: Properties for use in searches.</li><li><code>Sortable</code>: Properties that are suitable for sorting.</li></ul><b>Default value:</b> <code>DisplayableSearchResults</code>
      * @param string|null $value Value to set for the dataset property.
     */
     public function setDataset(?string $value): void {
@@ -250,7 +250,7 @@ class SpecificationRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the paginationInput property value. <div class="msgbox_important"><p class="msgbox_importantInDiv" data-mc-autonum="&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important! &lt;/span&gt;&lt;/b&gt;"><span class="autonumber"><span><b><span style="color: #dd1e31;" class="mcFormatColor">Important!</span></b></span></span> Pagination is not yet supported by this method. If this container is included in the request, it will be ignored.</p></div>
+     * Sets the paginationInput property value. This type defines the fields used to control the pagination of the result set.
      * @param PaginationInput|null $value Value to set for the paginationInput property.
     */
     public function setPaginationInput(?PaginationInput $value): void {

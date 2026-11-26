@@ -16,6 +16,7 @@
 
 namespace EBay\ListingMetadata\Generated\Metadata\Compatibilities\Get_compatibilities_by_specification;
 
+use EBay\ListingMetadata\Generated\Metadata\Models\ErrorMessage;
 use EBay\ListingMetadata\Generated\Metadata\Models\SpecificationRequest;
 use EBay\ListingMetadata\Generated\Metadata\Models\SpecificationResponse;
 use Exception;
@@ -53,7 +54,11 @@ class Get_compatibilities_by_specificationRequestBuilder extends BaseRequestBuil
     */
     public function post(SpecificationRequest $body, ?Get_compatibilities_by_specificationRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
-        return $this->requestAdapter->sendAsync($requestInfo, [SpecificationResponse::class, 'createFromDiscriminatorValue'], null);
+        $errorMappings = [
+                '400' => [ErrorMessage::class, 'createFromDiscriminatorValue'],
+                '500' => [ErrorMessage::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [SpecificationResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**

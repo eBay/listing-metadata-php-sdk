@@ -38,7 +38,7 @@ class ProductRequest implements AdditionalDataHolder, Parsable
     private ?array $applicationPropertyFilters = null;
     
     /**
-     * @var array<string>|null $dataset This array defines the type of properties that are returned for the catalog-enabled category.<br><br>For example, if you specify <code>Searchable</code>, the compatibility details will contain properties that can be used to search for products, such as make or model.<br><br><span class="tablenote"><b>Note:</b> This field cannot be used alongside <b>dataPropertyName</b>. If both are used, an error will occur.</span><br><b>Valid values:</b><ul><li><code>DisplayableProductDetails</code>: Properties for use in a user interface to describe products.</li><li><code>DisplayableSearchResults</code>: Properties for use in results for product searches.</li><li><code>Searchable</code>: Properties for use in searches.</li><li><code>Sortable</code>: Properties that are suitable for sorting.</li></ul><br><b>Default:</b> <code>DisplayableSearchResults</code>
+     * @var array<string>|null $dataset This array defines the type of properties that are returned for the catalog-enabled category.<br><br>For example, if you specify <code>Searchable</code>, the compatibility details will contain properties that can be used to search for products, such as make or model.<br><br><span class="tablenote"><b>Note:</b> This field cannot be used alongside <b>datasetPropertyName</b>. If both are used, an error will occur.</span><br><b>Valid values:</b><ul><li><code>DisplayableProductDetails</code>: Properties for use in a user interface to describe products.</li><li><code>DisplayableSearchResults</code>: Properties for use in results for product searches.</li><li><code>Searchable</code>: Properties for use in searches.</li><li><code>Sortable</code>: Properties that are suitable for sorting.</li></ul><br><b>Default:</b> <code>DisplayableSearchResults</code>
     */
     private ?array $dataset = null;
     
@@ -48,17 +48,17 @@ class ProductRequest implements AdditionalDataHolder, Parsable
     private ?array $datasetPropertyName = null;
     
     /**
-     * @var DisabledProductFilter|null $disabledProductFilter This container can be used to specify whether or not to filter out products which are disabled for selling on eBay and/or disabled for product review. 
+     * @var DisabledProductFilter|null $disabledProductFilter This type defines the booleans used to determine if a product is excluded from eBay selling and/or review.
     */
     private ?DisabledProductFilter $disabledProductFilter = null;
     
     /**
-     * @var PaginationInput|null $paginationInput This container controls the pagination of the result set.
+     * @var PaginationInput|null $paginationInput This type defines the fields used to control the pagination of the result set.
     */
     private ?PaginationInput $paginationInput = null;
     
     /**
-     * @var ProductIdentifier|null $productIdentifier This container is used to provide unique identifier for the product. The product identifier consists of an identifier type and value, and are unique across all sites.
+     * @var ProductIdentifier|null $productIdentifier This type defines the supported product identifiers.
     */
     private ?ProductIdentifier $productIdentifier = null;
     
@@ -100,7 +100,7 @@ class ProductRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the dataset property value. This array defines the type of properties that are returned for the catalog-enabled category.<br><br>For example, if you specify <code>Searchable</code>, the compatibility details will contain properties that can be used to search for products, such as make or model.<br><br><span class="tablenote"><b>Note:</b> This field cannot be used alongside <b>dataPropertyName</b>. If both are used, an error will occur.</span><br><b>Valid values:</b><ul><li><code>DisplayableProductDetails</code>: Properties for use in a user interface to describe products.</li><li><code>DisplayableSearchResults</code>: Properties for use in results for product searches.</li><li><code>Searchable</code>: Properties for use in searches.</li><li><code>Sortable</code>: Properties that are suitable for sorting.</li></ul><br><b>Default:</b> <code>DisplayableSearchResults</code>
+     * Gets the dataset property value. This array defines the type of properties that are returned for the catalog-enabled category.<br><br>For example, if you specify <code>Searchable</code>, the compatibility details will contain properties that can be used to search for products, such as make or model.<br><br><span class="tablenote"><b>Note:</b> This field cannot be used alongside <b>datasetPropertyName</b>. If both are used, an error will occur.</span><br><b>Valid values:</b><ul><li><code>DisplayableProductDetails</code>: Properties for use in a user interface to describe products.</li><li><code>DisplayableSearchResults</code>: Properties for use in results for product searches.</li><li><code>Searchable</code>: Properties for use in searches.</li><li><code>Sortable</code>: Properties that are suitable for sorting.</li></ul><br><b>Default:</b> <code>DisplayableSearchResults</code>
      * @return array<string>|null
     */
     public function getDataset(): ?array {
@@ -116,7 +116,7 @@ class ProductRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the disabledProductFilter property value. This container can be used to specify whether or not to filter out products which are disabled for selling on eBay and/or disabled for product review. 
+     * Gets the disabledProductFilter property value. This type defines the booleans used to determine if a product is excluded from eBay selling and/or review.
      * @return DisabledProductFilter|null
     */
     public function getDisabledProductFilter(): ?DisabledProductFilter {
@@ -155,7 +155,7 @@ class ProductRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the paginationInput property value. This container controls the pagination of the result set.
+     * Gets the paginationInput property value. This type defines the fields used to control the pagination of the result set.
      * @return PaginationInput|null
     */
     public function getPaginationInput(): ?PaginationInput {
@@ -163,7 +163,7 @@ class ProductRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the productIdentifier property value. This container is used to provide unique identifier for the product. The product identifier consists of an identifier type and value, and are unique across all sites.
+     * Gets the productIdentifier property value. This type defines the supported product identifiers.
      * @return ProductIdentifier|null
     */
     public function getProductIdentifier(): ?ProductIdentifier {
@@ -210,7 +210,7 @@ class ProductRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the dataset property value. This array defines the type of properties that are returned for the catalog-enabled category.<br><br>For example, if you specify <code>Searchable</code>, the compatibility details will contain properties that can be used to search for products, such as make or model.<br><br><span class="tablenote"><b>Note:</b> This field cannot be used alongside <b>dataPropertyName</b>. If both are used, an error will occur.</span><br><b>Valid values:</b><ul><li><code>DisplayableProductDetails</code>: Properties for use in a user interface to describe products.</li><li><code>DisplayableSearchResults</code>: Properties for use in results for product searches.</li><li><code>Searchable</code>: Properties for use in searches.</li><li><code>Sortable</code>: Properties that are suitable for sorting.</li></ul><br><b>Default:</b> <code>DisplayableSearchResults</code>
+     * Sets the dataset property value. This array defines the type of properties that are returned for the catalog-enabled category.<br><br>For example, if you specify <code>Searchable</code>, the compatibility details will contain properties that can be used to search for products, such as make or model.<br><br><span class="tablenote"><b>Note:</b> This field cannot be used alongside <b>datasetPropertyName</b>. If both are used, an error will occur.</span><br><b>Valid values:</b><ul><li><code>DisplayableProductDetails</code>: Properties for use in a user interface to describe products.</li><li><code>DisplayableSearchResults</code>: Properties for use in results for product searches.</li><li><code>Searchable</code>: Properties for use in searches.</li><li><code>Sortable</code>: Properties that are suitable for sorting.</li></ul><br><b>Default:</b> <code>DisplayableSearchResults</code>
      * @param array<string>|null $value Value to set for the dataset property.
     */
     public function setDataset(?array $value): void {
@@ -226,7 +226,7 @@ class ProductRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the disabledProductFilter property value. This container can be used to specify whether or not to filter out products which are disabled for selling on eBay and/or disabled for product review. 
+     * Sets the disabledProductFilter property value. This type defines the booleans used to determine if a product is excluded from eBay selling and/or review.
      * @param DisabledProductFilter|null $value Value to set for the disabledProductFilter property.
     */
     public function setDisabledProductFilter(?DisabledProductFilter $value): void {
@@ -234,7 +234,7 @@ class ProductRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the paginationInput property value. This container controls the pagination of the result set.
+     * Sets the paginationInput property value. This type defines the fields used to control the pagination of the result set.
      * @param PaginationInput|null $value Value to set for the paginationInput property.
     */
     public function setPaginationInput(?PaginationInput $value): void {
@@ -242,7 +242,7 @@ class ProductRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the productIdentifier property value. This container is used to provide unique identifier for the product. The product identifier consists of an identifier type and value, and are unique across all sites.
+     * Sets the productIdentifier property value. This type defines the supported product identifiers.
      * @param ProductIdentifier|null $value Value to set for the productIdentifier property.
     */
     public function setProductIdentifier(?ProductIdentifier $value): void {
