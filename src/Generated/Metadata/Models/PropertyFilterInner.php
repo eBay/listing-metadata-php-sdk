@@ -37,7 +37,7 @@ class PropertyFilterInner implements AdditionalDataHolder, Parsable
     private ?string $propertyName = null;
     
     /**
-     * @var string|null $propertyValue The value for the property specified in the <b>properyName</b> field.<br><br>For example, if the <b>propertyName</b> is <code>Make</code>, then the <b>propertyValue</b> will be the specific make of the vehicle, such as <code>Toyota</code>. Use the <a href="/develop/api/sell/metadata_api#sell-metadata_api-compatibilities-getcompatibilitypropertyvalues">getCompatibilityPropertyValues</a> to retrieve valid property values associated with a specified property name.
+     * @var string|null $propertyValue The value for the property specified in the <b>propertyName</b> field.<br><br>For example, if the <b>propertyName</b> is <code>Make</code>, then the <b>propertyValue</b> will be the specific make of the vehicle, such as <code>Toyota</code>. Use the <a href="/develop/api/sell/metadata_api#sell-metadata_api-compatibilities-getcompatibilitypropertyvalues">getCompatibilityPropertyValues</a> to retrieve valid property values associated with a specified property name.
     */
     private ?string $propertyValue = null;
     
@@ -98,7 +98,7 @@ class PropertyFilterInner implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the propertyValue property value. The value for the property specified in the <b>properyName</b> field.<br><br>For example, if the <b>propertyName</b> is <code>Make</code>, then the <b>propertyValue</b> will be the specific make of the vehicle, such as <code>Toyota</code>. Use the <a href="/develop/api/sell/metadata_api#sell-metadata_api-compatibilities-getcompatibilitypropertyvalues">getCompatibilityPropertyValues</a> to retrieve valid property values associated with a specified property name.
+     * Gets the propertyValue property value. The value for the property specified in the <b>propertyName</b> field.<br><br>For example, if the <b>propertyName</b> is <code>Make</code>, then the <b>propertyValue</b> will be the specific make of the vehicle, such as <code>Toyota</code>. Use the <a href="/develop/api/sell/metadata_api#sell-metadata_api-compatibilities-getcompatibilitypropertyvalues">getCompatibilityPropertyValues</a> to retrieve valid property values associated with a specified property name.
      * @return string|null
     */
     public function getPropertyValue(): ?string {
@@ -150,7 +150,7 @@ class PropertyFilterInner implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the propertyValue property value. The value for the property specified in the <b>properyName</b> field.<br><br>For example, if the <b>propertyName</b> is <code>Make</code>, then the <b>propertyValue</b> will be the specific make of the vehicle, such as <code>Toyota</code>. Use the <a href="/develop/api/sell/metadata_api#sell-metadata_api-compatibilities-getcompatibilitypropertyvalues">getCompatibilityPropertyValues</a> to retrieve valid property values associated with a specified property name.
+     * Sets the propertyValue property value. The value for the property specified in the <b>propertyName</b> field.<br><br>For example, if the <b>propertyName</b> is <code>Make</code>, then the <b>propertyValue</b> will be the specific make of the vehicle, such as <code>Toyota</code>. Use the <a href="/develop/api/sell/metadata_api#sell-metadata_api-compatibilities-getcompatibilitypropertyvalues">getCompatibilityPropertyValues</a> to retrieve valid property values associated with a specified property name.
      * @param string|null $value Value to set for the propertyValue property.
     */
     public function setPropertyValue(?string $value): void {

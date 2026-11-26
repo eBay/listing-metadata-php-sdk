@@ -22,7 +22,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
 /**
- * This type defines the fields used in the <b>getCompatibilitiesBySpecification</b> response.
+ * This type defines the fields used in the <b>getCompatibilitiesBySpecification</b> response.<br><br><b>pagination:</b> <div class="msgbox_important"><p class="msgbox_importantInDiv" data-mc-autonum="&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important! &lt;/span&gt;&lt;/b&gt;"><span class="autonumber"><span><b><span style="color: #dd1e31;" class="mcFormatColor">Important!</span></b></span></span> Not currently returned. For future use. </p></div> <!-- This container returns the pagination settings for the result set.-->
 */
 class SpecificationResponse implements AdditionalDataHolder, Parsable 
 {
@@ -32,12 +32,12 @@ class SpecificationResponse implements AdditionalDataHolder, Parsable
     private ?array $additionalData = null;
     
     /**
-     * @var array<Compatibility>|null $compatibilityDetails This container returns the list of all compatible application name-value pairs for the given filter criteria.
+     * @var array<Compatibility>|null $compatibilities This container returns the list of all compatible application name-value pairs for the given filter criteria.
     */
-    private ?array $compatibilityDetails = null;
+    private ?array $compatibilities = null;
     
     /**
-     * @var Pagination|null $pagination <div class="msgbox_important"><p class="msgbox_importantInDiv" data-mc-autonum="&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important! &lt;/span&gt;&lt;/b&gt;"><span class="autonumber"><span><b><span style="color: #dd1e31;" class="mcFormatColor">Important!</span></b></span></span> Not currently returned. For future use. </p></div> <!-- This container returns the pagination settings for the result set.-->
+     * @var Pagination|null $pagination This type defines the pagination settings for a result set.
     */
     private ?Pagination $pagination = null;
     
@@ -66,11 +66,11 @@ class SpecificationResponse implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the compatibilityDetails property value. This container returns the list of all compatible application name-value pairs for the given filter criteria.
+     * Gets the compatibilities property value. This container returns the list of all compatible application name-value pairs for the given filter criteria.
      * @return array<Compatibility>|null
     */
-    public function getCompatibilityDetails(): ?array {
-        return $this->compatibilityDetails;
+    public function getCompatibilities(): ?array {
+        return $this->compatibilities;
     }
 
     /**
@@ -80,13 +80,13 @@ class SpecificationResponse implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'compatibilityDetails' => fn(ParseNode $n) => $o->setCompatibilityDetails($n->getCollectionOfObjectValues([Compatibility::class, 'createFromDiscriminatorValue'])),
+            'compatibilities' => fn(ParseNode $n) => $o->setCompatibilities($n->getCollectionOfObjectValues([Compatibility::class, 'createFromDiscriminatorValue'])),
             'pagination' => fn(ParseNode $n) => $o->setPagination($n->getObjectValue([Pagination::class, 'createFromDiscriminatorValue'])),
         ];
     }
 
     /**
-     * Gets the pagination property value. <div class="msgbox_important"><p class="msgbox_importantInDiv" data-mc-autonum="&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important! &lt;/span&gt;&lt;/b&gt;"><span class="autonumber"><span><b><span style="color: #dd1e31;" class="mcFormatColor">Important!</span></b></span></span> Not currently returned. For future use. </p></div> <!-- This container returns the pagination settings for the result set.-->
+     * Gets the pagination property value. This type defines the pagination settings for a result set.
      * @return Pagination|null
     */
     public function getPagination(): ?Pagination {
@@ -98,7 +98,7 @@ class SpecificationResponse implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfObjectValues('compatibilityDetails', $this->getCompatibilityDetails());
+        $writer->writeCollectionOfObjectValues('compatibilities', $this->getCompatibilities());
         $writer->writeObjectValue('pagination', $this->getPagination());
         $writer->writeAdditionalData($this->getAdditionalData());
     }
@@ -112,15 +112,15 @@ class SpecificationResponse implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the compatibilityDetails property value. This container returns the list of all compatible application name-value pairs for the given filter criteria.
-     * @param array<Compatibility>|null $value Value to set for the compatibilityDetails property.
+     * Sets the compatibilities property value. This container returns the list of all compatible application name-value pairs for the given filter criteria.
+     * @param array<Compatibility>|null $value Value to set for the compatibilities property.
     */
-    public function setCompatibilityDetails(?array $value): void {
-        $this->compatibilityDetails = $value;
+    public function setCompatibilities(?array $value): void {
+        $this->compatibilities = $value;
     }
 
     /**
-     * Sets the pagination property value. <div class="msgbox_important"><p class="msgbox_importantInDiv" data-mc-autonum="&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important! &lt;/span&gt;&lt;/b&gt;"><span class="autonumber"><span><b><span style="color: #dd1e31;" class="mcFormatColor">Important!</span></b></span></span> Not currently returned. For future use. </p></div> <!-- This container returns the pagination settings for the result set.-->
+     * Sets the pagination property value. This type defines the pagination settings for a result set.
      * @param Pagination|null $value Value to set for the pagination property.
     */
     public function setPagination(?Pagination $value): void {

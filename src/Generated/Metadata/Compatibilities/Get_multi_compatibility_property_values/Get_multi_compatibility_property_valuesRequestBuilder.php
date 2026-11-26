@@ -16,6 +16,7 @@
 
 namespace EBay\ListingMetadata\Generated\Metadata\Compatibilities\Get_multi_compatibility_property_values;
 
+use EBay\ListingMetadata\Generated\Metadata\Models\ErrorMessage;
 use EBay\ListingMetadata\Generated\Metadata\Models\MultiCompatibilityPropertyValuesRequest;
 use EBay\ListingMetadata\Generated\Metadata\Models\MultiCompatibilityPropertyValuesResponse;
 use Exception;
@@ -45,7 +46,7 @@ class Get_multi_compatibility_property_valuesRequestBuilder extends BaseRequestB
     }
 
     /**
-     * This method is used to retrieve product compatibility property values associated with multiple property names, in the specified category.<br><br>Compatibility property values can be used alongside the corresponding compatibility property name (retrieved using the <a href="/develop/api/sell/metadata_api#sell-metadata_api-compatibilities-getcompatibilitypropertynames" >getCompatibilityPropertyNames</a> method) to describe the assembly for which an item is compatible.<br><br>The <b>categoryId</b> of the compatibility-enabled category for which to retrieve compatibility property values is required in the request body, as well as the <b>propertyNames</b> for which you wish to retrieve associated property values. The <b>propertyFilter</b> array is also required to constrain the output. Only property values associated with the specified name-value pairs will be returned.
+     * This method is used to retrieve product compatibility property values associated with multiple property names, in the specified category.<br><br>Compatibility property values can be used alongside the corresponding compatibility property name (retrieved using the <a href="/develop/api/sell/metadata_api#sell-metadata_api-compatibilities-getcompatibilitypropertynames" >getCompatibilityPropertyNames</a> method) to describe the assembly for which an item is compatible.<br><br>The <b>categoryId</b> of the compatibility-enabled category for which to retrieve compatibility property values is required in the request body, as well as the <b>propertyNames</b> for which you wish to retrieve associated property values. The <b>propertyFilters</b> array is also required to constrain the output. Only property values associated with the specified name-value pairs will be returned.
      * @param MultiCompatibilityPropertyValuesRequest $body This type defines the category ID and property names for which to retrieve values.
      * @param Get_multi_compatibility_property_valuesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return Promise<MultiCompatibilityPropertyValuesResponse|null>
@@ -53,11 +54,15 @@ class Get_multi_compatibility_property_valuesRequestBuilder extends BaseRequestB
     */
     public function post(MultiCompatibilityPropertyValuesRequest $body, ?Get_multi_compatibility_property_valuesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
-        return $this->requestAdapter->sendAsync($requestInfo, [MultiCompatibilityPropertyValuesResponse::class, 'createFromDiscriminatorValue'], null);
+        $errorMappings = [
+                '400' => [ErrorMessage::class, 'createFromDiscriminatorValue'],
+                '500' => [ErrorMessage::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [MultiCompatibilityPropertyValuesResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
-     * This method is used to retrieve product compatibility property values associated with multiple property names, in the specified category.<br><br>Compatibility property values can be used alongside the corresponding compatibility property name (retrieved using the <a href="/develop/api/sell/metadata_api#sell-metadata_api-compatibilities-getcompatibilitypropertynames" >getCompatibilityPropertyNames</a> method) to describe the assembly for which an item is compatible.<br><br>The <b>categoryId</b> of the compatibility-enabled category for which to retrieve compatibility property values is required in the request body, as well as the <b>propertyNames</b> for which you wish to retrieve associated property values. The <b>propertyFilter</b> array is also required to constrain the output. Only property values associated with the specified name-value pairs will be returned.
+     * This method is used to retrieve product compatibility property values associated with multiple property names, in the specified category.<br><br>Compatibility property values can be used alongside the corresponding compatibility property name (retrieved using the <a href="/develop/api/sell/metadata_api#sell-metadata_api-compatibilities-getcompatibilitypropertynames" >getCompatibilityPropertyNames</a> method) to describe the assembly for which an item is compatible.<br><br>The <b>categoryId</b> of the compatibility-enabled category for which to retrieve compatibility property values is required in the request body, as well as the <b>propertyNames</b> for which you wish to retrieve associated property values. The <b>propertyFilters</b> array is also required to constrain the output. Only property values associated with the specified name-value pairs will be returned.
      * @param MultiCompatibilityPropertyValuesRequest $body This type defines the category ID and property names for which to retrieve values.
      * @param Get_multi_compatibility_property_valuesRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation

@@ -16,6 +16,7 @@
 
 namespace EBay\ListingMetadata\Generated\Metadata\Compatibilities\Get_compatibility_property_names;
 
+use EBay\ListingMetadata\Generated\Metadata\Models\ErrorMessage;
 use EBay\ListingMetadata\Generated\Metadata\Models\PropertyNamesRequest;
 use EBay\ListingMetadata\Generated\Metadata\Models\PropertyNamesResponse;
 use Exception;
@@ -53,7 +54,11 @@ class Get_compatibility_property_namesRequestBuilder extends BaseRequestBuilder
     */
     public function post(PropertyNamesRequest $body, ?Get_compatibility_property_namesRequestBuilderPostRequestConfiguration $requestConfiguration = null): Promise {
         $requestInfo = $this->toPostRequestInformation($body, $requestConfiguration);
-        return $this->requestAdapter->sendAsync($requestInfo, [PropertyNamesResponse::class, 'createFromDiscriminatorValue'], null);
+        $errorMappings = [
+                '400' => [ErrorMessage::class, 'createFromDiscriminatorValue'],
+                '500' => [ErrorMessage::class, 'createFromDiscriminatorValue'],
+        ];
+        return $this->requestAdapter->sendAsync($requestInfo, [PropertyNamesResponse::class, 'createFromDiscriminatorValue'], $errorMappings);
     }
 
     /**
